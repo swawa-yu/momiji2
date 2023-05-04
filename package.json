@@ -5,13 +5,15 @@
   "type": "module",
   "homepage": "https://swawa-yu.github.io/momiji2",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build && cp -r dist docs",
     "rebuild": "tsc && vite build && rm -R docs && cp -r dist docs",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "git": "git add . && git commit && git push origin master",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "dependencies": {
     "@types/papaparse": "^5.3.7",
