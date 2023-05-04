@@ -394,7 +394,10 @@ function App() {
     // updateTable();
     return (
         <div>
-            <h1>シラバス</h1>
+            <h1>シラバス momiji2</h1>
+            <p>開発中です。</p>
+            <p>github: swawa-yu</p>
+            <p>twitter: @swawa_yu, @archaic_hohoemi</p>
             <SyllabusTable></SyllabusTable>
         </div>
     )
