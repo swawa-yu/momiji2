@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
 import {
-    Subject,
-    initializeSubject,
+    // Subject,
+    // initializeSubject,
     subjectCodeList,
     subjectMap,
     propertyToShowList
 } from '.';
 
-import { VariableSizeGrid, GridChildComponentProps } from "react-window";
+// import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
-import styles from './SyllabusTable.module.css'
+// import styles from './SyllabusTable.module.css'
 // import './SyllabusTable.css'
 
 // import { PropsFromToggle } from "react-bootstrap/esm/DropdownToggle";
@@ -103,7 +103,7 @@ function SyllabusTable() {
                 }
             </thead>
             <tbody>
-                {subjectCodeList.map((subjectCode, index) =>
+                {subjectCodeList.map((subjectCode) =>
                     // <tr key={subjectCode}>
                     <tr>
                         {propertyToShowList.map((columnName) =>

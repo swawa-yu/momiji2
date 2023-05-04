@@ -1,6 +1,6 @@
-import { isMobile } from '../main';
-import desktopStyle from '../style/window_desktop.css';
-import mobileStyle from '../style/window_mobile.css';
+// import { isMobile } from '../main';
+// import desktopStyle from '../style/window_desktop.css';
+// import mobileStyle from '../style/window_mobile.css';
 
 const positionStorageKey = 'draggable-window-position';
 const minSize = 100;
@@ -76,16 +76,16 @@ class DraggableWindow extends HTMLElement {
       body.append(...nodes);
     });
 
-    if (isMobile()) {
-      this.connectedCallbackForMobile(shadow);
-    } else {
-      this.connectedCallbackForDesktop(shadow, win);
-    }
+    // if (isMobile()) {
+    //   this.connectedCallbackForMobile(shadow);
+    // } else {
+    //   this.connectedCallbackForDesktop(shadow, win);
+    // }
   }
 
   connectedCallbackForDesktop(shadow: ShadowRoot, win: HTMLElement) {
     const style = document.createElement('style');
-    style.innerHTML = desktopStyle;
+    // style.innerHTML = desktopStyle;
     shadow.append(style);
 
     win.draggable = true;
@@ -127,7 +127,7 @@ class DraggableWindow extends HTMLElement {
 
   connectedCallbackForMobile(shadow: ShadowRoot) {
     const style = document.createElement('style');
-    style.innerHTML = mobileStyle;
+    // style.innerHTML = mobileStyle;
     shadow.append(style);
   }
 

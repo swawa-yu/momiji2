@@ -1,5 +1,5 @@
-import React, { StrictMode } from 'react';
-import { render } from 'react-dom';
+// import React, { StrictMode } from 'react';
+// import { render } from 'react-dom';
 
 
 import './main.ts';

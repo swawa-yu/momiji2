@@ -1,35 +1,35 @@
-import { HtmlHTMLAttributes, useState } from 'react'
+// import { HtmlHTMLAttributes, useState } from 'react'
 import './App.css'
 
 import {
-    Subject,
+    // Subject,
     initializeSubject,
-    subjectCodeList,
-    subjectMap,
+    // subjectCodeList,
+    // subjectMap,
     // NormalSeasons,
     // Modules,
 } from './subject';
 // import * as timetable from './timetable';
 // import * as bookmark from './bookmark';
-import codeTypes from './code-types.json';
+// import codeTypes from './code-types.json';
 // import { matchesSearchOptions, SearchOptions } from './subject/search';
 // import { renderSubjectAsTableRow, renderSubjectForMobile } from './subject/render';
 import SyllabusTable from './subject/SyllabusTable';
-import Grid from './subject/Grid';
+// import Grid from './subject/Grid';
 
 
 // const updateTable = (options: SearchOptions, index: number, displayedIndex: number) => {
-const updateTable = () => {
-    // subjectCodeList.forEach(subjectCode => {
-    //     subjectMap[subjectCode]
-    // });
-    // const tr = renderSubjectAsTableRow(subject);
-    // dom.tbody.appendChild(tr);
+// const updateTable = () => {
+// subjectCodeList.forEach(subjectCode => {
+//     subjectMap[subjectCode]
+// });
+// const tr = renderSubjectAsTableRow(subject);
+// dom.tbody.appendChild(tr);
 
-    // Make bookmark buttons active
-    // (document.getElementById('bookmark-' + subject.code) as HTMLInputElement).checked =
-    //     bookmarks.includes(subject.code);
-};
+// Make bookmark buttons active
+// (document.getElementById('bookmark-' + subject.code) as HTMLInputElement).checked =
+//     bookmarks.includes(subject.code);
+// };
 // const search = (e: Event | null) => {
 //     if (e != null) {
 //         e.stopPropagation();

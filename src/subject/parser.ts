@@ -1,4 +1,10 @@
-import { schedule, kaisetsuki, Semester, jikiKubuns, JikiKubun, semesters } from ".";
+import {
+    schedule, kaisetsuki,
+    // Semester,
+    jikiKubuns,
+    // JikiKubun,
+    semesters
+} from ".";
 
 /**
  * 
