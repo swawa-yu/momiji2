@@ -1,0 +1,20 @@
+.grid {
+    /* border: 1px solid #000000; */
+    border: 1px solid #b0adab;
+    /* color: #514f4d; */
+    color: #b0adab;
+    overflow-y: hidden;
+}
+
+.cell {
+    border-right: 1px solid #b0adab;
+    border-bottom: 1px solid #b0adab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b0adab
+}
+
+.cell:hover {
+    background-color: #f3f2f2;
+}
