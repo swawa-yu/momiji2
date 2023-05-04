@@ -398,6 +398,7 @@ function App() {
             <p>開発中です。</p>
             <p>github: swawa-yu</p>
             <p>twitter: @swawa_yu, @archaic_hohoemi</p>
+            <p>参考：KdBっぽいなにか</p>
             <SyllabusTable></SyllabusTable>
         </div>
     )
