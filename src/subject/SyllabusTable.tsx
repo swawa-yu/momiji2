@@ -11,7 +11,7 @@ import {
 // import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
 // import styles from './SyllabusTable.module.css'
-// import './SyllabusTable.css'
+import './SyllabusTable.css'
 
 // import { PropsFromToggle } from "react-bootstrap/esm/DropdownToggle";
 // import * as timetable from './timetable';
@@ -78,6 +78,8 @@ import {
 
 // TODO (オ)　のオープン科目の扱い
 
+export let numberOfSubjectsToShow = 100
+
 function SyllabusTable() {
     // initializeSubject();
     console.log(propertyToShowList)
@@ -89,30 +91,33 @@ function SyllabusTable() {
     )
     // updateTable();
 
-
     return (
         <table>
             <thead>
                 {
                     // <tr key="table-head">
                     <tr>
-                        {propertyToShowList.map((columnName) =>
-                            <td>{columnName}</td>
-                        )}
+                        {
+                            propertyToShowList.map((columnName) =>
+                                <td>{columnName}</td>
+                            )
+                        }
                     </tr >
                 }
             </thead>
             <tbody>
-                {subjectCodeList.map((subjectCode) =>
-                    // <tr key={subjectCode}>
-                    <tr>
-                        {propertyToShowList.map((columnName) =>
-                            <td>{subjectMap[subjectCode][columnName]}</td>
-                        )}
-                    </tr >
-                )}
+                {
+                    subjectCodeList.slice(0, numberOfSubjectsToShow).map((subjectCode) =>
+                        <tr>
+                            {
+                                propertyToShowList.map((columnName) =>
+                                    <td>{subjectMap[subjectCode][columnName]}</td>
+                                )
+                            }
+                        </tr >
+                    )}
             </tbody>
-        </table>
+        </table >
     )
 
 

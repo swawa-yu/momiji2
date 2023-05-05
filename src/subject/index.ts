@@ -43,22 +43,26 @@ export const subjectProperties: string[] = []
 // TODO 講義名をマウスホバーで講義の詳細を表示
 // TODO setTimeout()ってなに
 
+// TODO async await って使ったほうがいいの？
 export const initializeSubject = () => {
   // export const initializeSubject = async () => {
-  console.log("start initializeSubject()")
-  // TODO パフォーマンスが向上するのかな？と思って、KDB式に代入をこんな風にしてるけど、これでええんか？
+
+  // 表示する授業を記憶しておく配列とかを空にする
+  Object.keys(subjectMap).forEach((key) => {
+    delete subjectMap[key]
+  })
+  subjectCodeList.length = 0
+  propertyToShowList.length = 0
+
+  // 授業データの読み込み
   const subjectMap_ = subjectData as unknown as SubjectMap;
   // const subjectMap_ = (await import('../../subjects.json')) as unknown as SubjectMap;
 
+  // 表示する授業を記憶しておく配列とかに値を設定する
   Object.entries(subjectMap_).forEach(([key, value]) => {
-    if (subjectCodeList.length < 1000) {
-
-      // console.log(key, value)
-      subjectMap[key] = value
-      subjectCodeList.push(key)
-    }
+    subjectMap[key] = value
+    subjectCodeList.push(key)
   })
-  propertyToShowList.length = 0
   Object.keys(subjectMap["10000100"]).forEach((value) => {
     // if (propertyToShowList.length < 27)
     propertyToShowList.push(value)

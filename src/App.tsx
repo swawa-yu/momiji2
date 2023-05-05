@@ -3,7 +3,7 @@ import './App.css'
 
 import {
     // Subject,
-    initializeSubject,
+    initializeSubject, subjectCodeList,
     // subjectCodeList,
     // subjectMap,
     // NormalSeasons,
@@ -15,6 +15,7 @@ import {
 // import { matchesSearchOptions, SearchOptions } from './subject/search';
 // import { renderSubjectAsTableRow, renderSubjectForMobile } from './subject/render';
 import SyllabusTable from './subject/SyllabusTable';
+import { numberOfSubjectsToShow } from './subject/SyllabusTable';
 // import Grid from './subject/Grid';
 
 
@@ -396,9 +397,21 @@ function App() {
         <div>
             <h1>シラバス momiji2</h1>
             <p>開発中です。</p>
+            <p>今後の実装予定：
+                <ul>
+                    <li>検索機能</li>
+                    <li>表をきれいに表示する</li>
+                    <li>マウスホバーで授業詳細を見ることができるようにする</li>
+                    <li>教員のresearchmapのリンク</li>
+                    <li>時間割の仮組み</li>
+                    <li></li>
+                </ul></p>
             <p>github: swawa-yu</p>
             <p>twitter: @swawa_yu, @archaic_hohoemi</p>
             <p>参考：KdBっぽいなにか</p>
+            <br></br>
+            <p>検索条件：なし</p>
+            <p>{subjectCodeList.length}個の授業がヒットしました。(うち{numberOfSubjectsToShow}件を表示しています。)</p>
             <SyllabusTable></SyllabusTable>
         </div>
     )

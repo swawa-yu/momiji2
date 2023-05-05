@@ -32,6 +32,10 @@ table td {
     /*実線 1px 黒*/
 }
 
+p {
+    text-align: left;
+}
+
 a {
     font-weight: 500;
     color: #646cff;
