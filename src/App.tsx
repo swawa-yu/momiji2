@@ -403,7 +403,8 @@ function App() {
                     <li>表をきれいに表示する</li>
                     <li>マウスホバーで授業詳細を見ることができるようにする</li>
                     <li>教員のresearchmapのリンク</li>
-                    <li>時間割の仮組み</li>
+                    <li>時間割の仮組み機能</li>
+                    <li>スマホ対応</li>
                     <li></li>
                 </ul></p>
             <p>github: swawa-yu</p>
