@@ -8,6 +8,7 @@ import SyllabusTable from './subject/SyllabusTable';
 import { numberOfSubjectsToShow } from './subject/SyllabusTable';
 
 
+// TODO 担当教員が極端に多いケースがあるので、その場合は適当な上限を作って「...」としておく
 
 function App() {
     console.log("App")
