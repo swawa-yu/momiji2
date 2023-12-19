@@ -9,6 +9,7 @@ import { numberOfSubjectsToShow } from './subject/SyllabusTable';
 
 
 // TODO 担当教員が極端に多いケースがあるので、その場合は適当な上限を作って「...」としておく
+// TODO そもそも1行で表示するのが適切でないものもある。複数行表示するようにして、ウィンドウの横幅がある程度あるときには横スクロールなしで一覧できるようにする
 
 function App() {
     console.log("App")
