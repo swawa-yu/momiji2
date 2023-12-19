@@ -35,10 +35,20 @@ function SyllabusTable() {
     });
     // updateTableWithSearchOptions();
 
+
+    // const data = React.useMemo(
+    //     () => subjectCodeList.map(subjectCode => subjectMap[subjectCode]),
+    //     [subjectCodeList, subjectMap]
+    // );
+
+
+    const maxNumberOfSubjectsToShow = 1000;
+    // 先頭の1000件だけ表示
     const data = React.useMemo(
-        () => subjectCodeList.map(subjectCode => subjectMap[subjectCode]),
+        () => subjectCodeList.slice(0, maxNumberOfSubjectsToShow).map(subjectCode => subjectMap[subjectCode]),
         [subjectCodeList, subjectMap]
     );
+
 
     const columns = React.useMemo(
         () => propertyToShowList.map(columnName => ({
@@ -60,31 +70,34 @@ function SyllabusTable() {
     });
 
     return (
-        <table {...getTableProps()} className="your-table-class">
-            <thead>
-                {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                        ))}
-                    </tr>
-                ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
-                    prepareRow(row);
-                    return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map(cell => {
-                                return (
-                                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                )
-                            })}
+        <>
+            <div>行数: {rows.length}</div> {/* 行数を表示 */}
+            <table {...getTableProps()} className="your-table-class">
+                <thead>
+                    {headerGroups.map(headerGroup => (
+                        <tr {...headerGroup.getHeaderGroupProps()}>
+                            {headerGroup.headers.map(column => (
+                                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                            ))}
                         </tr>
-                    )
-                })}
-            </tbody>
-        </table>
+                    ))}
+                </thead>
+                <tbody {...getTableBodyProps()}>
+                    {rows.map(row => {
+                        prepareRow(row);
+                        return (
+                            <tr {...row.getRowProps()}>
+                                {row.cells.map(cell => {
+                                    return (
+                                        <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                    )
+                                })}
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </>
     );
 }
 
