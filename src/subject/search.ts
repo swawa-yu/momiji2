@@ -3,28 +3,29 @@
 // import { getTermCode } from '.';
 // import { Periods } from './period';
 
-// export interface SearchOptions {
-//   keyword: string;
-//   reqA: string;
-//   reqB: string;
-//   reqC: string;
-//   online: string;
-//   year: string;
-//   season: NormalSeasons | undefined;
-//   module: Modules | undefined;
-//   periods: Periods;
-//   disablePeriods: Periods | null;
-//   containsName: boolean;
-//   containsCode: boolean;
-//   containsRoom: boolean;
-//   containsPerson: boolean;
-//   containsAbstract: boolean;
-//   containsNote: boolean;
-//   filter: 'all' | 'bookmark' | 'except-bookmark';
-//   concentration: boolean;
-//   negotiable: boolean;
-//   asneeded: boolean;
-// }
+export interface SearchOptions {
+    campus: string;
+    // keyword: string;
+    // reqA: string;
+    // reqB: string;
+    // reqC: string;
+    // online: string;
+    // year: string;
+    // season: NormalSeasons | undefined;
+    // module: Modules | undefined;
+    // periods: Periods;
+    // disablePeriods: Periods | null;
+    // containsName: boolean;
+    // containsCode: boolean;
+    // containsRoom: boolean;
+    // containsPerson: boolean;
+    // containsAbstract: boolean;
+    // containsNote: boolean;
+    // filter: 'all' | 'bookmark' | 'except-bookmark';
+    // concentration: boolean;
+    // negotiable: boolean;
+    // asneeded: boolean;
+}
 
 // export function matchesSearchOptions(subject: Subject, options: SearchOptions): boolean {
 //   // keyword

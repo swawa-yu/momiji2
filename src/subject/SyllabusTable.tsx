@@ -12,14 +12,13 @@ import { SearchOptions } from './search';
 
 // TODO 要実装
 // reactなら元データsearch option 変えるだけでできるんじゃね
-const updateTableWithSearchOptions = (
-    options: SearchOptions,
-    index: number,
-    displayedIndex: number
+// 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
+const fillteredSubjectCodeList = (
+    options: SearchOptions
 ) => {
-    subjectCodeList.forEach((subjectCode) => {
-        subjectMap[subjectCode];
-    });
+    return subjectCodeList.filter((subjectCode) =>
+        (subjectMap[subjectCode]["開講キャンパス"] === options.campus)
+    );
 };
 
 // TODO (オ) のオープン科目の扱い
@@ -27,25 +26,26 @@ export let numberOfSubjectsToShow = 100;
 
 function SyllabusTable() {
     // initializeSubject();
-    console.log(propertyToShowList);
-    subjectCodeList.forEach((subjectCode) => {
-        if (subjectCode === '10000100') {
-            console.log(subjectCode);
-        }
-    });
-    // updateTableWithSearchOptions();
 
+    // コンソール出力\
+    // console.log(propertyToShowList);
+    // subjectCodeList.forEach((subjectCode) => {
+    //     if (subjectCode === '10000100') {
+    //         console.log(subjectCode);
+    //     }
+    // });
 
-    // const data = React.useMemo(
-    //     () => subjectCodeList.map(subjectCode => subjectMap[subjectCode]),
-    //     [subjectCodeList, subjectMap]
-    // );
-
-
-    const maxNumberOfSubjectsToShow = 1000;
     // 先頭の1000件だけ表示
+    const maxNumberOfSubjectsToShow = 1000;
+
+
+    const searchOptions: SearchOptions = {
+        campus: "霞",
+    }
+
+    // 開講キャンパスは霞で絞っている
     const data = React.useMemo(
-        () => subjectCodeList.slice(0, maxNumberOfSubjectsToShow).map(subjectCode => subjectMap[subjectCode]),
+        () => fillteredSubjectCodeList(searchOptions).slice(0, maxNumberOfSubjectsToShow).map(subjectCode => subjectMap[subjectCode]),
         [subjectCodeList, subjectMap]
     );
 
@@ -72,6 +72,7 @@ function SyllabusTable() {
     return (
         <>
             <div>行数: {rows.length}</div> {/* 行数を表示 */}
+            <div>検索条件: campus={searchOptions.campus}</div> {/* 行数を表示 */}
             <table {...getTableProps()} className="your-table-class">
                 <thead>
                     {headerGroups.map(headerGroup => (
