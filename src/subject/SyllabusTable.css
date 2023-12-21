@@ -23,3 +23,30 @@ table {
     word-wrap: break-word; */
     white-space: nowrap;
 }
+
+.table-wrapper {
+    display: flex;
+}
+
+.table-class {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 9px;
+}
+
+.table-class td {
+    white-space: normal;
+    line-height: 1.2;
+    /* 改行を有効にする */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* テキストがはみ出た場合に...で省略する */
+    /* text-overflow:; */
+}
+
+/* テーブルの行の高さを設定 */
+.table-class tr {
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+}

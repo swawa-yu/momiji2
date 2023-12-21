@@ -54,6 +54,7 @@ function SyllabusTable() {
         () => propertyToShowList.map(columnName => ({
             Header: columnName,
             accessor: columnName,
+            width: 150,
         })),
         [propertyToShowList]
     );
@@ -71,9 +72,11 @@ function SyllabusTable() {
 
     return (
         <>
-            <div>行数: {rows.length}</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>行数: {rows.length}</div> {/* 行数を表示 */}
             <div>検索条件: campus={searchOptions.campus}</div> {/* 行数を表示 */}
-            <table {...getTableProps()} className="your-table-class">
+
+            <table {...getTableProps()} className="table-class">
+                {/* ヘッダー */}
                 <thead>
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
@@ -83,15 +86,21 @@ function SyllabusTable() {
                         </tr>
                     ))}
                 </thead>
+
+                {/* データ */}
                 <tbody {...getTableBodyProps()}>
                     {rows.map(row => {
                         prepareRow(row);
                         return (
-                            <tr {...row.getRowProps()}>
+                            <tr {...row.getRowProps()} className='table-row-height'>
                                 {row.cells.map(cell => {
-                                    return (
-                                        <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                    )
+                                    const cellText = cell.value;
+                                    const maxCharacters = 50; // 制限する文字数
+                                    const displayedText =
+                                        cellText.length > maxCharacters
+                                            ? cellText.substring(0, maxCharacters) + '...' // 制限を超える場合に...を追加
+                                            : cellText; // 制限以内の場合はそのまま表示
+                                    return <td {...cell.getCellProps()}>{displayedText}</td>;
                                 })}
                             </tr>
                         )
