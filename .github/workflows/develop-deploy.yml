@@ -54,4 +54,3 @@ jobs:
       run: |
        git status
        git diff --staged
-        
