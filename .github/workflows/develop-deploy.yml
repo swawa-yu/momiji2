@@ -1,4 +1,4 @@
-name: Deploy to Development Environment
+name: Deploy to GitHub Pages (develop)
 
 on:
   push:
@@ -21,9 +21,11 @@ jobs:
     - name: Build
       run: npm run build # または pnpm run build
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist # ビルドされたファイルが格納されるディレクトリ
-        publish_branch: develop-pages # デプロイするブランチ
+    - name: Deploy to /dev directory
+      run: |
+        git checkout gh-pages
+        mkdir -p dev
+        cp -r dist/* dev/
+        git add dev
+        git commit -m "Deploy develop branch to /dev directory"
+        git push origin gh-pages
