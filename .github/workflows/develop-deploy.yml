@@ -40,6 +40,10 @@ jobs:
        git status
        git diff --staged
 
+    - name: Change remote URL to include PAT
+      run: git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/swawa-yu/momiji2.git
+
+
     - name: Commit and push changes
       run: |
         mkdir -p dev
