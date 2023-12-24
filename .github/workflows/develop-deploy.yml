@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages (develop)
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # プロジェクトに合わせてNode.jsのバージョンを指定
+
+    - name: Install Dependencies
+      run: npm install # または pnpm install
+
+    - name: Build
+      run: npm run build # または pnpm run build
+
+    - name: Deploy to /dev directory
+      run: |
+        git checkout gh-pages
+        mkdir -p dev
+        cp -r dist/* dev/
+        git add dev
+        git commit -m "Deploy develop branch to /dev directory"
+        git push origin gh-pages

@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages (main)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16' # Node.jsのバージョンを16に更新
+
+    - name: Install Dependencies
+      run: npm install # 依存関係のインストール
+
+    - name: Build
+      run: npm run build # プロジェクトのビルド
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        publish_dir: ./dist # ビルドされたファイルが格納されるディレクトリ
+        keep_files: true # /dev 内のファイルを削除しない
