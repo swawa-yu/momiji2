@@ -5,15 +5,19 @@ on:
     branches:
       - develop
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14' # プロジェクトに合わせてNode.jsのバージョンを指定
+        node-version: '16' # プロジェクトに合わせてNode.jsのバージョンを指定
 
     - name: Install pnpm
       run: npm install -g pnpm
@@ -29,11 +33,27 @@ jobs:
         git fetch origin gh-pages:gh-pages
         git checkout gh-pages
 
-    - name: Deploy to /dev directory
+    - name: Configure Git
       run: |
-        git checkout gh-pages
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+    - name: (DEBUG) Show git status before changes
+      run: |
+       git status
+       git diff --staged
+
+    - name: Commit and push changes
+      run: |
         mkdir -p dev
         cp -r dist/* dev/
         git add dev
-        git commit -m "Deploy develop branch to /dev directory"
+        git diff --staged --quiet || git commit -m "Deploy develop branch to /dev directory"
         git push origin gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+    - name: (DEBUG) Show git status after changes
+      run: |
+       git status
+       git diff --staged
