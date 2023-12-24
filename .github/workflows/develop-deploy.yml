@@ -29,9 +29,13 @@ jobs:
         git fetch origin gh-pages:gh-pages
         git checkout gh-pages
 
+    - name: Configure Git
+      run: |
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
     - name: Deploy to /dev directory
       run: |
-        git checkout gh-pages
         mkdir -p dev
         cp -r dist/* dev/
         git add dev
