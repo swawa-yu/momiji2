@@ -35,7 +35,12 @@ jobs:
         git config --global user.name "${GITHUB_ACTOR}"
         git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-    - name: Deploy to /dev directory
+    - name: (DEBUG) Show git status before changes
+      run: |
+       git status
+       git diff --staged
+
+    - name: Commit and push changes
       run: |
         mkdir -p dev
         cp -r dist/* dev/
@@ -44,3 +49,9 @@ jobs:
         git push origin gh-pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: (DEBUG) Show git status after changes
+      run: |
+       git status
+       git diff --staged
+        
