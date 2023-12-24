@@ -21,16 +21,10 @@ jobs:
     - name: Build
       run: npm run build # または pnpm run build
 
-    - name: Create gh-pages branch if it doesn't exist
+    - name: Fetch and checkout gh-pages branch
       run: |
-        if ! git ls-remote --heads origin gh-pages; then
-          git checkout --orphan gh-pages
-          git reset --hard
-          git commit --allow-empty -m "Initial gh-pages commit"
-          git push origin gh-pages
-        else
-          git checkout gh-pages
-        fi
+        git fetch origin gh-pages:gh-pages
+        git checkout gh-pages
 
     - name: Deploy to /dev directory
       run: |
