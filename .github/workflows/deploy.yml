@@ -1,34 +1,39 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - main  # このワークフローはmainブランチにpushされたときに実行
+      - main
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install dependencies
+        run: |
+          cd src  # ディレクトリが src 内にある場合のみ必要
+          npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          cd src  # ディレクトリが src 内にある場合のみ必要
+          npm run build
+
+      - name: Copy build artifacts
+        run: |
+          cp -r src/dist/* src/docs/assets/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./dist  # ビルドされたコンテンツのディレクトリ
-          publish_branch: gh-pages  # デプロイ先のブランチ
-          enable_jekyll: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHubのアクセストークンを使ってデプロイ
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/docs
