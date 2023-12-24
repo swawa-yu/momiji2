@@ -41,3 +41,5 @@ jobs:
         git add dev
         git commit -m "Deploy develop branch to /dev directory"
         git push origin gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
