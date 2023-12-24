@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // import { HtmlHTMLAttributes, useState } from 'react'
 import './App.css'
 
@@ -6,6 +7,7 @@ import {
     initializeSubject,
 } from './subject';
 import SyllabusTable from './subject/SyllabusTable';
+import SyllabusTableRaw from './subject/SyllabusTableRaw';
 // import { numberOfSubjectsToShow } from './subject/SyllabusTable';
 
 
@@ -16,8 +18,11 @@ function App() {
     console.log("App")
     initializeSubject();
     // updateTable();
+
+    const [isTableRaw, setIsTableRaw] = useState(true);
+
     return (
-        <div>
+        <>
             <h1>シラバス momiji2</h1>
             <p>開発中です。</p>
             <p>github: swawa-yu</p>
@@ -25,10 +30,11 @@ function App() {
             <p>参考：KdBっぽいなにか</p>
             <br></br>
 
-            {/* 本来は下のような処理は別の部分に任せるべき */}
-            {/* <p>{subjectCodeList.length}個の授業がヒットしました。(うち{numberOfSubjectsToShow}件を表示しています。)</p> */}
-            <SyllabusTable></SyllabusTable>
-        </div>
+            <button onClick={() => setIsTableRaw(!isTableRaw)}>
+                {isTableRaw ? "見やすい表に切り替える" : "基本データ表に切り替える"}
+            </button>
+            {isTableRaw ? <SyllabusTableRaw></SyllabusTableRaw> : <SyllabusTable></SyllabusTable>}
+        </>
     )
 }
 
