@@ -13,7 +13,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14' # プロジェクトに合わせてNode.jsのバージョンを指定
+        node-version: '16' # プロジェクトに合わせてNode.jsのバージョンを指定
 
     - name: Install pnpm
       run: npm install -g pnpm
