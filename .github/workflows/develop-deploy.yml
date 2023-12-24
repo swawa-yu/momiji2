@@ -22,15 +22,15 @@ jobs:
       run: npm run build # または pnpm run build
 
     - name: Create gh-pages branch if it doesn't exist
-    run: |
-      if ! git ls-remote --heads origin gh-pages; then
-        git checkout --orphan gh-pages
-        git reset --hard
-        git commit --allow-empty -m "Initial gh-pages commit"
-        git push origin gh-pages
-      else
-        git checkout gh-pages
-      fi
+      run: |
+        if ! git ls-remote --heads origin gh-pages; then
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "Initial gh-pages commit"
+          git push origin gh-pages
+        else
+          git checkout gh-pages
+        fi
 
     - name: Deploy to /dev directory
       run: |
