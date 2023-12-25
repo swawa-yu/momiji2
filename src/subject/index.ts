@@ -21,8 +21,30 @@ export const jikiKubuns = ['１ターム', '２ターム', '３ターム', '４�
 export type Semester = typeof semesters[number];
 export type JikiKubun = typeof jikiKubuns[number];
 
+export type SubjectProperty =
+  "relative URL" |
+  "年度" |
+  "開講部局" |
+  "講義コード" |
+  "科目区分" |
+  "授業科目名" |
+  "担当教員名" |
+  "開講キャンパス" |
+  "開設期" |
+  "曜日・時限・講義室" |
+  "単位" |
+  "使用言語" |
+  "教科書・参考書等" |
+  "対象学生" |
+  "授業の目標・概要等" |
+  "予習・復習への アドバイス" |
+  "履修上の注意 受講条件等	メッセージ" |
+  "メッセージ" |
+  "その他"
+
+
 export type Subject = {
-  [subjectProperty: string]: string
+  [key in SubjectProperty]: string
 }
 
 export type SubjectMap = { [subjectCode: string]: Subject }
