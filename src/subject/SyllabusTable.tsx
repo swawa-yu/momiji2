@@ -1,5 +1,5 @@
 import React from 'react';
-import LectureUnit from './LectureUnit';
+import SubjectUnitComponent from './SubjectUnitComponent';
 import {
     subjectCodeList,
     subjectMap,
@@ -37,7 +37,7 @@ function SyllabusTable() {
             {/* LectureUnit コンポーネントを使用して授業を表示 */}
             <div className="lectures-container">
                 {data.map((subject, index) => (
-                    <LectureUnit key={index} subjectData={subject} />
+                    <SubjectUnitComponent key={index} subjectData={subject} />
                 ))}
             </div>
         </>

@@ -18,7 +18,7 @@ type LectureUnitProps = {
 
 
 
-const LectureUnit: React.FC<LectureUnitProps> = ({ subjectData }) => {
+const SubjectUnitComponent: React.FC<LectureUnitProps> = ({ subjectData }) => {
     return (
         <div className="lecture-details">
             <div className="star-button">★</div>
@@ -51,4 +51,4 @@ const LectureUnit: React.FC<LectureUnitProps> = ({ subjectData }) => {
     );
 };
 
-export default LectureUnit;
+export default SubjectUnitComponent;
