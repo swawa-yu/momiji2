@@ -5,7 +5,7 @@ import React from 'react';
 //     subjectMap,
 // } from './';
 
-import './LectureUnit.css'
+import './SubjectUnitComponent.css'
 
 
 type LectureUnitProps = {
