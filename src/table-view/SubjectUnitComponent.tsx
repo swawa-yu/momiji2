@@ -6,7 +6,7 @@ import React from 'react';
 // } from './';
 
 import './SubjectUnitComponent.css'
-import { parseKaisetsuki, parseSchedule } from '../subject/parser'
+// import { parseKaisetsuki, parseSchedule } from '../subject/parser'
 import { Subject } from '../subject';
 
 
@@ -21,8 +21,8 @@ type SubjectUnitComponentProps = {
 
 
 const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: subject }) => {
-    const schedules = parseSchedule(subject["曜日・時限・講義室"]);
-    const kaisetsuki = parseKaisetsuki(subject["開設期"]);
+    // const schedules = parseSchedule(subject["曜日・時限・講義室"]);
+    // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
 
     return (
         <div className="lecture-details">
