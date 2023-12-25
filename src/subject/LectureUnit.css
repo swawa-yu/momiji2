@@ -1,14 +1,74 @@
 /* LectureUnit.css */
-.lecture-unit {
-    /* スタイリングを追加 */
+.lecture-details {
+    display: flex;
+    /* width: 100%; */
+    width: 100%;
+    /* max-width: 1200px; */
+    min-width: 1200px;
+    margin: 0 auto;
     border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
+    /* 全体の幅を指定 */
 }
 
-.lectures-container {
-    /* 必要に応じてスタイリングを追加 */
+.star-button {
+    flex: 1;
+    border: 1px solid #ccc;
+    /* その他のスタイリング */
+}
+
+.lecture-code-name {
+    flex: 4;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.lecture-code {
+    flex: 1;
+    border: 1px solid #ccc;
+}
+
+.lecture-name {
+    flex: 3;
+    border: 1px solid #ccc;
+}
+
+.instructor {
+    flex: 3;
+    /* 4行分の高さを持つようにスタイリング */
+}
+
+.lecture-details-columns {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.lecture-details-columns>div {
+    flex: 3;
+    border: 1px solid #ccc;
+}
+
+.lecture-details-info {
+    flex: 9;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+}
+
+.lecture-details-info>div {
+    flex: 3;
+    border: 1px solid #ccc;
+}
+
+.lecture-code-box,
+.lecture-name-box,
+.instructor-box,
+.lecture-details-columns-box,
+.lecture-details-info-box {
+    border: 1px solid #ccc;
+    margin: 8px;
+    padding: 12px;
+    /* background-color: white; */
 }
