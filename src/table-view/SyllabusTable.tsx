@@ -4,10 +4,10 @@ import {
     subjectCodeList,
     subjectMap,
     // propertyToShowList,
-} from './';
+} from '../subject';
 
 import './SyllabusTable.css';
-import { SearchOptions } from './search';
+import { SearchOptions } from '../subject/search';
 
 const fillteredSubjectCodeList = (options: SearchOptions) => {
     return subjectCodeList.filter((subjectCode) =>

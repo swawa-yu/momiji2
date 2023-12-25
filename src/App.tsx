@@ -6,8 +6,8 @@ import {
     // initializeSubject, subjectCodeList,
     initializeSubject,
 } from './subject';
-import SyllabusTable from './subject/SyllabusTable';
-import SyllabusTableRaw from './subject/SyllabusTableRaw';
+import SyllabusTable from './table-view/SyllabusTable';
+import SyllabusTableRaw from './table-view/SyllabusTableRaw';
 // import { numberOfSubjectsToShow } from './subject/SyllabusTable';
 
 

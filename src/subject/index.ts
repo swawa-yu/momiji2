@@ -1,6 +1,6 @@
 // import { Periods } from './period';
 
-import subjectData from '../../subject-maininfo.json'
+import subjectData from '../../data/subject-maininfo.json'
 
 export interface kaisetsuki {
   rishuNenji: number

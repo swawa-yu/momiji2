@@ -5,10 +5,10 @@ import {
     subjectCodeList,
     subjectMap,
     propertyToShowList,
-} from '.';
+} from '../subject';
 
 import './SyllabusTable.css';
-import { SearchOptions } from './search';
+import { SearchOptions } from '../subject/search';
 
 // TODO 要実装
 // reactなら元データsearch option 変えるだけでできるんじゃね
