@@ -16,10 +16,6 @@ type SubjectUnitComponentProps = {
 };
 
 
-
-
-
-
 const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: subject }) => {
     // const schedules = parseSchedule(subject["曜日・時限・講義室"]);
     // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
@@ -50,17 +46,6 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: su
                 <div>{subject["授業の目標・概要等"]}</div>
                 <div>{subject["メッセージ"]}</div>
             </div>
-        </div>
-    );
-
-
-    return (
-        <div className="lecture-unit">
-            {/* ここに授業の情報を表示するコードを書きます */}
-            <h3>{subject["授業科目名"]}</h3>
-            <p>{subject["開講部局"]}</p>
-            <p>{subject["科目区分"]}</p>
-            {/* 他の必要な情報を追加 */}
         </div>
     );
 };
