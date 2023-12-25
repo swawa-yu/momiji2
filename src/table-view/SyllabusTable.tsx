@@ -15,14 +15,16 @@ interface SyllabusTableProps {
 
 function SyllabusTable({ searchOptions }: SyllabusTableProps) {
 
-    // 開講キャンパスは霞で絞っている
     const data = useMemo(() => {
-        return filteredSubjectCodeList(searchOptions).slice(0, maxNumberOfSubjectsToShow).map(code => subjectMap[code]);
+        return filteredSubjectCodeList(searchOptions)
+            .slice(0, maxNumberOfSubjectsToShow)
+            .map(code => subjectMap[code]);
     }, [searchOptions]);
 
     return (
         <>
-            <div className='table-wrapper'>行数: {data.length}</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>該当授業数: {filteredSubjectCodeList(searchOptions).length}</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>表示数: {data.length} /(最大表示数: {maxNumberOfSubjectsToShow})</div> {/* 行数を表示 */}
 
             {/* LectureUnit コンポーネントを使用して授業を表示 */}
             <div className="lectures-container">

@@ -3,28 +3,21 @@ import { useState } from 'react';
 import './App.css'
 
 import {
-    // initializeSubject, subjectCodeList,
     initializeSubject,
 } from './subject';
 import SyllabusTable from './table-view/SyllabusTable';
 import SyllabusTableRaw from './table-view/SyllabusTableRaw';
 import SearchComponent from './search/SearchComponent';
 import { SearchOptions } from './search';
-// import { numberOfSubjectsToShow } from './subject/SyllabusTable';
-
-
-// TODO 担当教員が極端に多いケースがあるので、その場合は適当な上限を作って「...」としておく
-// TODO そもそも1行で表示するのが適切でないものもある。複数行表示するようにして、ウィンドウの横幅がある程度あるときには横スクロールなしで一覧できるようにする
 
 function App() {
-    initializeSubject();
-    // updateTable();
-
     initializeSubject();
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         campus: '',
         bookmarkFilter: 'all',
+        teacher: '',
+        subjectName: '',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 

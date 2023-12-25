@@ -11,6 +11,8 @@ export interface SearchOptions {
     campus: string;
     // keyword: string;
     // year: string;
+    subjectName: string;
+    teacher: string;
     bookmarkFilter: 'all' | 'bookmark' | 'except-bookmark';
     // season: NormalSeasons | undefined;
     // module: Modules | undefined;
@@ -30,6 +32,7 @@ export interface SearchOptions {
 
 export function matchesSearchOptions(subject: Subject, searchOptions: SearchOptions): boolean {
     let machesCampus = searchOptions.campus === "" || subject["開講キャンパス"] === searchOptions.campus;
-
-    return machesCampus;
+    let machesSubjectName = searchOptions.subjectName === "" || subject["授業科目名"].includes(searchOptions.subjectName);
+    let machesTeacher = searchOptions.teacher === "" || subject["担当教員名"].includes(searchOptions.teacher);
+    return machesCampus && machesSubjectName && machesTeacher;
 }
