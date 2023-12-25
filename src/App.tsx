@@ -8,6 +8,8 @@ import {
 } from './subject';
 import SyllabusTable from './table-view/SyllabusTable';
 import SyllabusTableRaw from './table-view/SyllabusTableRaw';
+import SearchComponent from './search/SearchComponent';
+import { SearchOptions } from './search';
 // import { numberOfSubjectsToShow } from './subject/SyllabusTable';
 
 
@@ -15,25 +17,46 @@ import SyllabusTableRaw from './table-view/SyllabusTableRaw';
 // TODO そもそも1行で表示するのが適切でないものもある。複数行表示するようにして、ウィンドウの横幅がある程度あるときには横スクロールなしで一覧できるようにする
 
 function App() {
-    console.log("App")
     initializeSubject();
     // updateTable();
 
+    initializeSubject();
+
+    const [searchOptions, setSearchOptions] = useState<SearchOptions>({
+        campus: '',
+        bookmarkFilter: 'all',
+    });
     const [isTableRaw, setIsTableRaw] = useState(true);
+
+    const handleSearch = (newSearchOptions: SearchOptions) => {
+        setSearchOptions(newSearchOptions);
+    };
+
 
     return (
         <>
-            <h1>シラバス momiji2</h1>
-            <p>開発中です。</p>
-            <p>github: swawa-yu</p>
-            <p>twitter: @swawa_yu, @archaic_hohoemi</p>
-            <p>参考：KdBっぽいなにか</p>
+            <div>
+                <h1>シラバス momiji2</h1>
+                <p>開発中です。</p>
+                <p>github: swawa-yu</p>
+                <p>twitter: @swawa_yu, @archaic_hohoemi</p>
+                <p>参考：KdBっぽいなにか</p>
+            </div>
+
             <br></br>
 
-            <button onClick={() => setIsTableRaw(!isTableRaw)}>
-                {isTableRaw ? "見やすい表に切り替える" : "基本データ表に切り替える"}
-            </button>
-            {isTableRaw ? <SyllabusTableRaw></SyllabusTableRaw> : <SyllabusTable></SyllabusTable>}
+            <SearchComponent onSearch={handleSearch}></SearchComponent>
+
+            <br></br>
+
+            <div>
+                <button onClick={() => setIsTableRaw(!isTableRaw)}>
+                    {isTableRaw ? "見やすい表に切り替える" : "基本データ表に切り替える"}
+                </button>
+                {isTableRaw ?
+                    <SyllabusTableRaw searchOptions={searchOptions}></SyllabusTableRaw> :
+                    <SyllabusTable searchOptions={searchOptions}></SyllabusTable>}
+            </div>
         </>
     )
 }

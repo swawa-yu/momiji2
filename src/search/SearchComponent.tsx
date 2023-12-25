@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
+import { SearchOptions } from '.';
 
 type SearchComponentProps = {
-    onSearch: (term: string, checkbox: boolean) => void;
+    onSearch: (SearchOptions: SearchOptions) => void;
 };
 
-const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }) => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [checkboxValue, setCheckboxValue] = useState(false);
 
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
-    };
-
-    const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCheckboxValue(e.target.checked);
-    };
+const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
+    const [localSearchOptions, setLocalSearchOptions] = useState<SearchOptions>({
+        campus: '',
+        bookmarkFilter: 'all',
+    });
 
     const handleSearch = () => {
-        onSearch(searchTerm, checkboxValue);
+        onSearch(localSearchOptions);
     };
 
     return (
-        <div>
-            <input
-                type="text"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                placeholder="検索..."
-            />
-            <input
-                type="checkbox"
-                checked={checkboxValue}
-                onChange={handleCheckboxChange}
-            />
-            <button onClick={handleSearch}>検索</button>
-        </div>
+        <>
+            <div>
+                <input
+                    type="text"
+                    value={localSearchOptions.campus}
+                    onChange={(e) => setLocalSearchOptions({ ...localSearchOptions, campus: e.target.value })}
+                    placeholder="キャンパス"
+                />
+                <input
+                    type="checkbox"
+                    checked={localSearchOptions.bookmarkFilter === 'bookmark'}
+                    onChange={(e) => setLocalSearchOptions({ ...localSearchOptions, bookmarkFilter: e.target.checked ? 'bookmark' : 'all' })}
+                />
+                <button onClick={handleSearch}>検索</button>
+            </div>
+            <div>検索条件: campus={localSearchOptions.campus}</div>
+        </>
     );
 };
 
