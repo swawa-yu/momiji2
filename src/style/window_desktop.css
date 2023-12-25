@@ -1,7 +1,0 @@
-@import 'window.css';
-
-.window {
-  resize: both;
-  cursor: grab;
-  will-change: top, left;
-}
