@@ -29,7 +29,7 @@ function SyllabusTable({ searchOptions }: SyllabusTableProps) {
             {/* LectureUnit コンポーネントを使用して授業を表示 */}
             <div className="lectures-container">
                 {data.map((subject, index) => (
-                    <SubjectUnitComponent key={index} subjectData={subject} />
+                    <SubjectUnitComponent key={index} subject={subject} />
                 ))}
             </div>
         </>
