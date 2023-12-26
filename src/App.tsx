@@ -18,6 +18,8 @@ function App() {
         bookmarkFilter: 'all',
         teacher: '',
         subjectName: '',
+        youbi: '',
+        koma: '',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 

@@ -12,6 +12,8 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
         bookmarkFilter: 'all',
         teacher: '',
         subjectName: '',
+        youbi: '',
+        koma: '',
     });
 
     const handleSearch = () => {
@@ -38,6 +40,18 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                     value={searchOptions.teacher}
                     onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
                     placeholder="担当教員名"
+                />
+                <input
+                    type="text"
+                    value={searchOptions.youbi}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, youbi: e.target.value })}
+                    placeholder="曜日"
+                />
+                <input
+                    type="text"
+                    value={searchOptions.koma}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, koma: e.target.value })}
+                    placeholder="コマ"
                 />
                 <input
                     type="checkbox"

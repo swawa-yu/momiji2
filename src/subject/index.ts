@@ -18,7 +18,7 @@ export interface Jigen {
 
 export interface Schedule {
   jikiKubun: JikiKubun  // 1ターム、2ターム、3ターム、4ターム、セメスター（前期）、セメスター（後期）、ターム外（前期）、ターム外（後期）、年度、通年、集中
-  jigen: Jigen | undefined // 集中講義の場合はundefined
+  jigen: Jigen | undefined // TODO: 集中講義の場合はundefined でよいのか？　Jigen["youbi"]に"集中"を入れるべきか？
   room: string  // 何も書かれていない場合は空文字列
 }
 
@@ -51,9 +51,7 @@ export type SubjectProperty =
   "その他"
 
 
-export type Subject = {
-  [key in SubjectProperty]: string
-}
+export type Subject = { [key in SubjectProperty]: string }
 
 export type SubjectMap = { [subjectCode: string]: Subject }
 export const subjectMap: SubjectMap = {};
