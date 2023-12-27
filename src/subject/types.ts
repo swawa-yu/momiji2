@@ -19,11 +19,11 @@ export interface Schedule {
 }
 
 // TODO 「解析エラー」としているが、他に適切な書き方がありそう
-export const semesters = ['前期', '後期', '解析エラー'] as const;
-export const jikiKubuns = ['１ターム', '２ターム', '３ターム', '４ターム', 'セメスター（前期）', 'セメスター（後期）', 'ターム外（前期）', 'ターム外（後期）', '年度', '通年', '集中', '解析エラー'] as const
+export const semesters = ['前期', '後期'] as const;
+export const jikiKubuns = ['１ターム', '２ターム', '３ターム', '４ターム', 'セメスター（前期）', 'セメスター（後期）', 'ターム外（前期）', 'ターム外（後期）', '年度', '通年', '集中'] as const
 
-export type Semester = typeof semesters[number];
-export type JikiKubun = typeof jikiKubuns[number];
+export type Semester = typeof semesters[number] | "解析エラー";
+export type JikiKubun = typeof jikiKubuns[number] | "解析エラー";
 
 export type SubjectProperty =
     "relative URL" |
