@@ -6,7 +6,8 @@ import React from 'react';
 // } from './';
 
 import './SubjectUnitComponent.css'
-import { parseKaisetsuki, parseSchedule } from '../subject/parser'
+// import { parseKaisetsuki, parseSchedule } from '../subject/parser'
+import { parseSchedule } from '../subject/parser'
 import { Subject } from '../subject/types';
 
 
