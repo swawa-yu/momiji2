@@ -15,6 +15,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
         youbi: '',
         koma: '',
         kamokuKubun: '',
+        kaikouBukyoku: '',
     });
 
     const handleSearch = () => {
@@ -52,6 +53,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                     value={searchOptions.kamokuKubun}
                     onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
                     placeholder="科目区分"
+                />
+                <input
+                    type="text"
+                    value={searchOptions.kaikouBukyoku}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
+                    placeholder="開講部局"
                 />
                 <input
                     type="text"

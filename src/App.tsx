@@ -21,6 +21,7 @@ function App() {
         youbi: '',
         koma: '',
         kamokuKubun: '',
+        kaikouBukyoku: '',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 

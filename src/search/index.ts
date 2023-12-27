@@ -12,6 +12,7 @@ export interface SearchOptions {
     youbi: string
     koma: string
     kamokuKubun: string
+    kaikouBukyoku: string
     // season: NormalSeasons | undefined;
     // module: Modules | undefined;
     // periods: Periods;
@@ -39,19 +40,20 @@ export const filteredSubjectCodeList = (searchOptions: SearchOptions) => {
 
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
 export function matchesSearchOptions(subject: Subject, searchOptions: SearchOptions): boolean {
-    let machesCampus =
+    const machesCampus =
         searchOptions.campus === "指定なし" ||
         subject["開講キャンパス"] === searchOptions.campus ||
         searchOptions.campus === "その他" && !(campuses.includes(subject["開講キャンパス"]));
-    let machesSubjectName = searchOptions.subjectName === "" || subject["授業科目名"].includes(searchOptions.subjectName);
-    let machesTeacher = searchOptions.teacher === "" || subject["担当教員名"].includes(searchOptions.teacher);
-    let machesYoubi = searchOptions.youbi === "" || subject["曜日・時限・講義室"].includes(searchOptions.youbi);
+    const machesSubjectName = searchOptions.subjectName === "" || subject["授業科目名"].includes(searchOptions.subjectName);
+    const machesTeacher = searchOptions.teacher === "" || subject["担当教員名"].includes(searchOptions.teacher);
+    const machesYoubi = searchOptions.youbi === "" || subject["曜日・時限・講義室"].includes(searchOptions.youbi);
     const schedules = parseSchedule(subject["曜日・時限・講義室"]);
-    let machesKoma = searchOptions.koma === "" ||
+    const machesKoma = searchOptions.koma === "" ||
         schedules.some((schedule) => {
             return schedule.jigen?.komaRange[0] === "解析エラー" ? false :
                 (schedule.jigen?.komaRange[0] as number) <= parseInt(searchOptions.koma) && parseInt(searchOptions.koma) <= (schedule.jigen?.komaRange[1] as number)
         });
-    let matchesKamokuKubun = searchOptions.kamokuKubun === "" || subject["科目区分"].includes(searchOptions.kamokuKubun);
-    return machesCampus && machesSubjectName && machesTeacher && machesYoubi && machesKoma && matchesKamokuKubun;
+    const matchesKamokuKubun = searchOptions.kamokuKubun === "" || subject["科目区分"].includes(searchOptions.kamokuKubun);
+    const matchesKaikouBukyoku = searchOptions.kaikouBukyoku === "" || subject["開講部局"].includes(searchOptions.kaikouBukyoku);
+    return machesCampus && machesSubjectName && machesTeacher && machesYoubi && machesKoma && matchesKamokuKubun && matchesKaikouBukyoku;
 }
