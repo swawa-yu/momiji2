@@ -94,7 +94,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     onChange={(e) => setSearchOptions({ ...searchOptions, bookmarkFilter: e.target.value as BookmarkFilter })}
                 >
                     <option value="all">指定なし</option>
-                    <option value="bookmark">ブックマークを表示</option>
+                    <option value="bookmark">ブックマークのみを表示</option>
                     <option value="except-bookmark">ブックマークを除外</option>
                 </select>
                 <br></br>
