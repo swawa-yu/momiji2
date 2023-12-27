@@ -50,7 +50,7 @@ function SyllabusTableRaw({ searchOptions }: { searchOptions: SearchOptions }) {
     return (
         <>
             <div className='table-wrapper'>該当授業数: {filteredSubjectCodeList(searchOptions).length}</div> {/* 行数を表示 */}
-            <div className='table-wrapper'>表示数: {data.length} /(最大表示数: {maxNumberOfSubjectsToShow})</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>表示数: {data.length} (/最大表示数: {maxNumberOfSubjectsToShow})</div> {/* 行数を表示 */}
 
             <table {...getTableProps()} className="table-class">
                 {/* ヘッダー */}
