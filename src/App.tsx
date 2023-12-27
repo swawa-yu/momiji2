@@ -24,11 +24,35 @@ function App() {
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
+        bookmarkedSubjects: new Set()
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 
     const handleSearch = (newSearchOptions: SearchOptions) => {
-        setSearchOptions(newSearchOptions);
+        setSearchOptions({
+            ...newSearchOptions,
+            bookmarkedSubjects: bookmarkedSubjects // 現在のブックマーク状態を保持
+        });
+
+    };
+
+    const [bookmarkedSubjects, setBookmarkedSubjects] = useState<Set<string>>(new Set());
+
+    // ブックマークの追加・削除を行う関数
+    const handleBookmarkToggle = (lectureCode: string) => {
+        setBookmarkedSubjects(prev => {
+            const newBookmarks = new Set(prev);
+            if (newBookmarks.has(lectureCode)) {
+                newBookmarks.delete(lectureCode);
+            } else {
+                newBookmarks.add(lectureCode);
+            }
+            setSearchOptions(prevOptions => ({
+                ...prevOptions,
+                bookmarkedSubjects: newBookmarks
+            }));
+            return newBookmarks;
+        });
     };
 
 
@@ -45,7 +69,7 @@ function App() {
 
             <br></br>
 
-            <SearchComponent onSearch={handleSearch}></SearchComponent>
+            <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects}></SearchComponent>
 
             <br></br>
 
@@ -55,7 +79,7 @@ function App() {
                 </button>
                 {isTableRaw ?
                     <SyllabusTableRaw searchOptions={searchOptions}></SyllabusTableRaw> :
-                    <SyllabusTable searchOptions={searchOptions}></SyllabusTable>}
+                    <SyllabusTable searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>}
             </div>
         </>
     )

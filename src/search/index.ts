@@ -3,18 +3,21 @@ import { Subject, Campus, campuses } from "../subject/types";
 import { parseSchedule } from "../subject/parser";
 import { YoubiKomaSelected, youbis, komas } from "./KomaSelector";
 
+export type BookmarkFilter = 'all' | 'bookmark' | 'except-bookmark'
+
 export interface SearchOptions {
     campus: Campus | "その他" | "指定なし"
     // keyword: string;
     // year: string;
     subjectName: string
     teacher: string
-    bookmarkFilter: 'all' | 'bookmark' | 'except-bookmark'
+    bookmarkFilter: BookmarkFilter
     youbi: string
     koma: string
     kamokuKubun: string
     kaikouBukyoku: string
     youbiKoma: YoubiKomaSelected
+    bookmarkedSubjects: Set<string>
     // season: NormalSeasons | undefined;
     // module: Modules | undefined;
     // periods: Periods;
@@ -40,6 +43,7 @@ export interface SearchOptions {
 // TODO: コマの検索の実装が酷いので修正が必要
 export const filteredSubjectCodeList = (searchOptions: SearchOptions) => {
     console.log("start filtering");
+    console.log(searchOptions.bookmarkedSubjects);
     if (searchOptions.youbiKoma["集中"] === true) {
         console.log("集中 is checked");
     }
@@ -97,5 +101,11 @@ export function matchesSearchOptions(subject: Subject, searchOptions: SearchOpti
                     })
                 }) && schedule.jikiKubun !== "集中"
         }));
-    return machesCampus && machesSubjectName && machesTeacher && machesYoubi && machesKoma && matchesKamokuKubun && matchesKaikouBukyoku && matchesYoubiKoma;
+    const matchesBookmark =
+        searchOptions.bookmarkFilter === "all" ||
+        // searchOptions.bookmarkFilter === "bookmark" ||
+        searchOptions.bookmarkFilter === "bookmark" && searchOptions.bookmarkedSubjects.has(subject["講義コード"]) ||
+        searchOptions.bookmarkFilter === "except-bookmark" && !searchOptions.bookmarkedSubjects.has(subject["講義コード"]);
+
+    return machesCampus && machesSubjectName && machesTeacher && machesYoubi && machesKoma && matchesKamokuKubun && matchesKaikouBukyoku && matchesYoubiKoma && matchesBookmark;
 }

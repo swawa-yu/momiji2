@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { SearchOptions } from '.';
+import { SearchOptions, BookmarkFilter } from '.';
 import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
 
-type KomaSelectorProps = {
-    onSearch: (SearchOptions: SearchOptions) => void;
+type SearchComponentProps = {
+    onSearch: (newSearchOptions: SearchOptions) => void;
+    bookmarkedSubjects: Set<string>;
 };
 
 // TODO: あいまい検索に対応(generalSearch)
 // TODO: コマの指定を5x5のチェックボックス(行: 1~5コマ, 列: 月~金曜日)と、集中、その他にする。また、全てを選択／解除するボタンをつける。（デフォルトでは全選択状態）
-const SearchComponent: React.FC<KomaSelectorProps> = ({ onSearch }: KomaSelectorProps) => {
+const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         campus: "指定なし",
         bookmarkFilter: 'all',
@@ -19,6 +20,7 @@ const SearchComponent: React.FC<KomaSelectorProps> = ({ onSearch }: KomaSelector
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
+        bookmarkedSubjects: bookmarkedSubjects
     });
 
     const handleSearch = () => {
@@ -85,11 +87,16 @@ const SearchComponent: React.FC<KomaSelectorProps> = ({ onSearch }: KomaSelector
                     onChange={(e) => setSearchOptions({ ...searchOptions, koma: e.target.value })}
                     placeholder="コマ"
                 />
-                <input
-                    type="checkbox"
-                    checked={searchOptions.bookmarkFilter === 'bookmark'}
-                    onChange={(e) => setSearchOptions({ ...searchOptions, bookmarkFilter: e.target.checked ? 'bookmark' : 'all' })}
-                />
+                <label htmlFor="bookmark-filter">ブックマーク:</label>
+                <select
+                    id="bookmark-filter"
+                    value={searchOptions.bookmarkFilter}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, bookmarkFilter: e.target.value as BookmarkFilter })}
+                >
+                    <option value="all">指定なし</option>
+                    <option value="bookmark">ブックマークを表示</option>
+                    <option value="except-bookmark">ブックマークを除外</option>
+                </select>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -98,7 +105,7 @@ const SearchComponent: React.FC<KomaSelectorProps> = ({ onSearch }: KomaSelector
                 <br></br>
                 <br></br>
                 <button onClick={handleSearch}>検索</button>
-            </div>
+            </div >
         </>
     );
 };

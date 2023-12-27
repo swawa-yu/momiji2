@@ -12,18 +12,22 @@ import { Subject } from '../subject/types';
 
 
 type SubjectUnitComponentProps = {
-    // 必要なプロパティを定義
-    subject: Subject; // 適切な型に変更してください
+    subject: Subject;
+    isBookmarked: boolean;
+    onBookmarkToggle: (lectureCode: string) => void;
 };
 
 
-const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: subject }) => {
+const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject, isBookmarked, onBookmarkToggle }) => {
     const schedules = parseSchedule(subject["曜日・時限・講義室"]);
     // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
 
     return (
         <div className="lecture-details">
-            <div className="star-button">★</div>
+            {/* <div className="star-button">★</div> */}
+            <div className="star-button" onClick={() => onBookmarkToggle(subject["講義コード"])}>
+                {isBookmarked ? "★" : "☆"}
+            </div>
             <div className="lecture-code-name">
                 <div className="lecture-code">
                     <a href={'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + subject["relative URL"]} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
