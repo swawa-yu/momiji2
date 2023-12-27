@@ -1,7 +1,7 @@
 import { subjectCodeList, subjectMap } from "../subject";
 import { Subject, Campus, campuses } from "../subject/types";
 import { parseSchedule } from "../subject/parser";
-import { YoubiKomaSelected, extractYoubiAndKoma, youbis, komas, YoubiKoma, youbiKomaKeys } from "./KomaSelector";
+import { YoubiKomaSelected, youbis, komas } from "./KomaSelector";
 
 export interface SearchOptions {
     campus: Campus | "その他" | "指定なし"
