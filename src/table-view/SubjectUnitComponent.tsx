@@ -6,8 +6,8 @@ import React from 'react';
 // } from './';
 
 import './SubjectUnitComponent.css'
-// import { parseKaisetsuki, parseSchedule } from '../subject/parser'
-import { Subject } from '../subject';
+import { parseKaisetsuki, parseSchedule } from '../subject/parser'
+import { Subject } from '../subject/types';
 
 
 type SubjectUnitComponentProps = {
@@ -17,7 +17,7 @@ type SubjectUnitComponentProps = {
 
 
 const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: subject }) => {
-    // const schedules = parseSchedule(subject["曜日・時限・講義室"]);
+    const schedules = parseSchedule(subject["曜日・時限・講義室"]);
     // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
 
     return (
@@ -25,7 +25,9 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: su
             <div className="star-button">★</div>
             <div className="lecture-code-name">
                 <div className="lecture-code">
-                    <a href={'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + subject["relative URL"]}>{subject["講義コード"]}</a>
+                    <a href={'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + subject["relative URL"]} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
+                        {subject["講義コード"]}<span className="new-tab-icon">🔗</span>
+                    </a>
                 </div>
                 <div className="lecture-name">{subject["授業科目名"]}</div> </div>
             <div className="instructor">{subject["担当教員名"]}</div>
@@ -40,6 +42,11 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: su
                 <div>時限Range：{schedules[0].jigen?.jigenRange[0]}-{schedules[0].jigen?.jigenRange[1]}</div>
                 <div>コマRange：{schedules[0].jigen?.komaRange[0]}-{schedules[0].jigen?.komaRange[1]}</div> */}
                 {/* <div>講義室：{schedules[0].room}</div> */}
+                <div>
+                    {schedules[0].rooms.map((room, index) => (
+                        <div key={index}>講義室：{room}</div>
+                    ))}
+                </div>
                 <div>{subject["開講キャンパス"]}</div>
                 {/* <div>対象学生：{subject["対象学生"]}</div> */}
                 {/* <div>{subject["使用言語"]}</div> */}

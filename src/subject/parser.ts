@@ -1,8 +1,6 @@
 import {
     Schedule, Kaisetsuki,
-    // Semester,
     jikiKubuns,
-    // JikiKubun,
     semesters,
     Jigen,
     JikiKubun
@@ -63,6 +61,7 @@ export function parseSchedule(s: string) {
     // (4T) 集中：担当教員の指定による
     // (前) 木7-8：理E102
     // (前) 金7-8：北体育館,教K102      → そのままでOK
+    // (後) 集中                        (HX203900, 数学特別講義（数論力学系入門）)
     // ------------------------------------------
 
     // 検索するとき、部屋は別にそんなに重要ではない
@@ -92,17 +91,19 @@ export function parseSchedule(s: string) {
         // jigenStringの1文字目以降をsplit('-')してさらに各要素をintに変換したもの
         const jigenNums = jigenString.slice(1).split('-').map((v) => parseInt(v));
 
-        const jigen: Schedule["jigen"] = jigenString[0] === "集" ? undefined : {
-            youbi: jigenString[0] as Jigen['youbi'],
-            jigenRange: [jigenNums[0], jigenNums[jigenNums.length - 1]] as Jigen['jigenRange'],
-            komaRange: [(jigenNums[0] + 1) / 2 | 0, (jigenNums[jigenNums.length - 1] + 1) / 2 | 0] as Jigen['komaRange']
-        }
+        const jigen: Schedule["jigen"] = jigenString[0] === "集" ?
+            undefined :
+            {
+                youbi: jigenString[0] as Jigen['youbi'],
+                jigenRange: [jigenNums[0], jigenNums[jigenNums.length - 1]] as Jigen['jigenRange'],
+                komaRange: [(jigenNums[0] + 1) / 2 | 0, (jigenNums[jigenNums.length - 1] + 1) / 2 | 0] as Jigen['komaRange']
+            }
 
-        const room = splittedByColon[1];
+        const rooms = splittedByColon[1].split(',');
 
-        schedules.push({ jikiKubun: jikiKubun, jigen: jigen, room: room })
+        schedules.push({ jikiKubun: jikiKubun, jigen: jigen, rooms: rooms })
     } catch (e: unknown) {
-        schedules.push({ jikiKubun: "解析エラー", jigen: { youbi: "解析エラー", jigenRange: "解析エラー", komaRange: "解析エラー" }, room: "解析エラー" })
+        schedules.push({ jikiKubun: "解析エラー", jigen: { youbi: "解析エラー", jigenRange: "解析エラー", komaRange: "解析エラー" }, rooms: ["解析エラー"] })
         return schedules;
     }
 

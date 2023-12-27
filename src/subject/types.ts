@@ -11,10 +11,11 @@ export interface Jigen {
     komaRange: [begin: number, last: number] | "解析エラー"
 }
 
+
 export interface Schedule {
     jikiKubun: JikiKubun  // 1ターム、2ターム、3ターム、4ターム、セメスター（前期）、セメスター（後期）、ターム外（前期）、ターム外（後期）、年度、通年、集中
-    jigen: Jigen | undefined // TODO: 集中講義の場合はundefined でよいのか？　Jigen["youbi"]に"集中"を入れるべきか？
-    room: string  // 何も書かれていない場合は空文字列, // TODO 本当は[string]のほうが良さそう
+    jigen: Jigen | undefined // 集中講義の場合はundefined // TODO: でよいのか？("集中"とする方法)
+    rooms: string[]  // 何も書かれていない場合は空文字列, // TODO 本当は[string]のほうが良さそう
 }
 
 // TODO 「解析エラー」としているが、他に適切な書き方がありそう
@@ -58,8 +59,10 @@ export type Subject2 = {
     "担当教員名": [string],
     "開講キャンパス": string,
     "開設期": string,
+    "セメスター": Semester,
+    "時期区分": JikiKubun,
     "履修年次": number,
-    "授業時間": [Schedule]
+    "授業時間": [Schedule],
     "曜日・時限・講義室": string,
     "単位": string,
     "使用言語": string,
