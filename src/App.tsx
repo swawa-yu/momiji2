@@ -14,12 +14,13 @@ function App() {
     initializeSubject();
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
-        campus: '',
+        campus: '指定なし',
         bookmarkFilter: 'all',
         teacher: '',
         subjectName: '',
         youbi: '',
         koma: '',
+        kamokuKubun: '',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 

@@ -1,3 +1,6 @@
+export const campuses = ["東広島", "霞", "東千田"]
+export type Campus = typeof campuses[number]
+
 export interface Kaisetsuki {
     rishuNenji: number
     semester: Semester
@@ -57,7 +60,7 @@ export type Subject2 = {
     "科目区分": string,
     "授業科目名": string,
     "担当教員名": [string],
-    "開講キャンパス": string,
+    "開講キャンパス": Campus,
     "開設期": string,
     "セメスター": Semester,
     "時期区分": JikiKubun,

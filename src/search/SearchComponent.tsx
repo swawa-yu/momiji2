@@ -8,12 +8,13 @@ type SearchComponentProps = {
 // TODO: あいまい検索に対応(generalSearch)
 const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
-        campus: '',
+        campus: "指定なし",
         bookmarkFilter: 'all',
         teacher: '',
         subjectName: '',
         youbi: '',
         koma: '',
+        kamokuKubun: '',
     });
 
     const handleSearch = () => {
@@ -23,17 +24,34 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
     return (
         <>
             <div>
-                <input
+                <label htmlFor="campus-select">キャンパス:</label>
+                <select
+                    id="campus-select"
+                    value={searchOptions.campus}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, campus: e.target.value as SearchOptions['campus'] })}
+                >
+                    <option value="指定なし">指定なし</option>
+                    <option value="東広島">東広島</option>
+                    <option value="霞">霞</option>
+                    <option value="東千田">東千田</option>
+                    <option value="その他">その他</option>
+                </select>
+                {/* <input
                     type="text"
                     value={searchOptions.campus}
                     onChange={(e) => setSearchOptions({ ...searchOptions, campus: e.target.value })}
                     placeholder="キャンパス"
-                />
+                /> */}
                 <input
                     type="text"
                     value={searchOptions.subjectName}
                     onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })}
                     placeholder="授業科目名"
+                /><input
+                    type="text"
+                    value={searchOptions.kamokuKubun}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
+                    placeholder="科目区分"
                 />
                 <input
                     type="text"
