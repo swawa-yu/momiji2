@@ -2,58 +2,35 @@ import React from 'react';
 import { useTable } from 'react-table';
 
 import {
-    subjectCodeList,
+    Subject
+} from '../subject/types';
+
+import {
     subjectMap,
     propertyToShowList,
-} from './';
+} from '../subject';
 
 import './SyllabusTable.css';
-import { SearchOptions } from './search';
+import { SearchOptions, filteredSubjectCodeList } from '../search';
+import { maxNumberOfSubjectsToShow } from '../table-view';
 
-// TODO 要実装
-// reactなら元データsearch option 変えるだけでできるんじゃね
-// 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-const fillteredSubjectCodeList = (
-    options: SearchOptions
-) => {
-    return subjectCodeList.filter((subjectCode) =>
-        (subjectMap[subjectCode]["開講キャンパス"] === options.campus)
-    );
-};
+interface SyllabusTableRaw {
+    searchOptions: SearchOptions;
+}
 
-// TODO (オ) のオープン科目の扱い
-export let numberOfSubjectsToShow = 100;
+function SyllabusTableRaw({ searchOptions }: { searchOptions: SearchOptions }) {
 
-function SyllabusTable() {
-    // initializeSubject();
-
-    // コンソール出力\
-    // console.log(propertyToShowList);
-    // subjectCodeList.forEach((subjectCode) => {
-    //     if (subjectCode === '10000100') {
-    //         console.log(subjectCode);
-    //     }
-    // });
-
-    // 先頭の1000件だけ表示
-    const maxNumberOfSubjectsToShow = 1000;
-
-
-    const searchOptions: SearchOptions = {
-        campus: "霞",
-    }
-
-    // 開講キャンパスは霞で絞っている
-    const data = React.useMemo(
-        () => fillteredSubjectCodeList(searchOptions).slice(0, maxNumberOfSubjectsToShow).map(subjectCode => subjectMap[subjectCode]),
-        [subjectCodeList, subjectMap]
-    );
+    const data = React.useMemo(() => {
+        return filteredSubjectCodeList(searchOptions)
+            .slice(0, maxNumberOfSubjectsToShow)
+            .map(subjectCode => subjectMap[subjectCode])
+    }, [searchOptions]);
 
 
     const columns = React.useMemo(
         () => propertyToShowList.map(columnName => ({
             Header: columnName,
-            accessor: columnName,
+            accessor: columnName as keyof Subject,
             width: 150,
         })),
         [propertyToShowList]
@@ -72,8 +49,8 @@ function SyllabusTable() {
 
     return (
         <>
-            <div className='table-wrapper'>行数: {rows.length}</div> {/* 行数を表示 */}
-            <div>検索条件: campus={searchOptions.campus}</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>該当授業数: {filteredSubjectCodeList(searchOptions).length}</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>表示数: {data.length} (/最大表示数: {maxNumberOfSubjectsToShow})</div> {/* 行数を表示 */}
 
             <table {...getTableProps()} className="table-class">
                 {/* ヘッダー */}
@@ -111,4 +88,4 @@ function SyllabusTable() {
     );
 }
 
-export default SyllabusTable;
+export default SyllabusTableRaw;

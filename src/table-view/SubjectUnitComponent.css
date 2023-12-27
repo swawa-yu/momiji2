@@ -1,0 +1,119 @@
+/* 境界線は本質ではないのでいずれ消す */
+
+
+.lecture-details {
+    display: flex;
+    width: 100%;
+    min-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    /* 全体の境界線 */
+}
+
+/* 最初の行の要素にのみ上側の境界線を追加 */
+.lecture-details>div:first-child {
+    border-top: 1px solid #ccc;
+}
+
+/* 最後の行の要素にのみ下側の境界線を追加 */
+.lecture-details>div:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+/* 隣接する要素間の境界線を追加 */
+.lecture-details>div:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+
+/* 疑似要素を使った縦線のスタイルを削除 */
+/* このセクションは削除されていることを確認してください */
+
+/* 子要素の上側と下側の境界線を削除 */
+.star-button,
+.lecture-code-name,
+.lecture-code,
+.lecture-name,
+.instructor,
+.lecture-details-columns,
+.lecture-details-columns>div,
+.lecture-details-info,
+.lecture-details-info>div {
+    border-top: none;
+    /* 上側の境界線を削除 */
+    border-bottom: none;
+    /* 下側の境界線を削除 */
+}
+
+/* 子要素の左側の境界線を削除 */
+.star-button,
+.lecture-code-name,
+.lecture-code,
+.lecture-name,
+.instructor,
+.lecture-details-columns,
+.lecture-details-columns>div,
+.lecture-details-info,
+.lecture-details-info>div {
+    border: 1px solid #ccc;
+    border-left: none;
+    /* 左側の境界線を削除 */
+}
+
+/* 最初の子要素の左側の境界線を追加 */
+.lecture-details>div:first-child {
+    border-left: 1px solid #ccc;
+}
+
+/* その他のスタイリング */
+.star-button {
+    flex: 1;
+    /* その他のスタイリング */
+}
+
+.lecture-code-name {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.lecture-code {
+    flex: 1;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.lecture-name {
+    flex: 3;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.instructor {
+    flex: 3;
+    /* 4行分の高さを持つようにスタイリング */
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.lecture-details-columns {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.lecture-details-columns>div {
+    flex: 3;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.lecture-details-info {
+    flex: 9;
+    display: flex;
+    flex-direction: row;
+    font-size: 11px;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+.lecture-details-info>div {
+    flex: 3;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
