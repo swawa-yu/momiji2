@@ -2,13 +2,6 @@ import { subjectCodeList, subjectMap } from "../subject";
 import { Subject, Campus, campuses } from "../subject/types";
 import { parseSchedule } from "../subject/parser";
 
-// 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-export const filteredSubjectCodeList = (searchOptions: SearchOptions) => {
-    return subjectCodeList.filter(
-        (subjectCode: string) => matchesSearchOptions(subjectMap[subjectCode], searchOptions)
-    );
-}
-
 export interface SearchOptions {
     campus: Campus | "その他" | "指定なし"
     // keyword: string;
@@ -33,6 +26,15 @@ export interface SearchOptions {
     // concentration: boolean;
     // negotiable: boolean;
     // asneeded: boolean;
+}
+
+// TODO: すべての要素を調べるのは効率が悪いので改善したい
+// filterを繰り返したほうが速そう
+// 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
+export const filteredSubjectCodeList = (searchOptions: SearchOptions) => {
+    return subjectCodeList.filter(
+        (subjectCode: string) => matchesSearchOptions(subjectMap[subjectCode], searchOptions)
+    );
 }
 
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
