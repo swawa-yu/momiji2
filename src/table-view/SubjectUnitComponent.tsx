@@ -6,8 +6,8 @@ import React from 'react';
 // } from './';
 
 import './SubjectUnitComponent.css'
-// import { parseKaisetsuki, parseSchedule } from '../subject/parser'
-import { parseSchedule } from '../subject/parser'
+import { parseKaisetsuki, parseSchedule } from '../subject/parser'
+// import { parseSchedule } from '../subject/parser'
 import { Subject } from '../subject/types';
 
 
@@ -19,7 +19,7 @@ type SubjectUnitComponentProps = {
 
 const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: subject }) => {
     const schedules = parseSchedule(subject["曜日・時限・講義室"]);
-    // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
+    const kaisetsuki = parseKaisetsuki(subject["開設期"]);
 
     return (
         <div className="lecture-details">
@@ -36,13 +36,12 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: su
                 <div>{subject["開設期"]}</div>
                 <div>{subject["曜日・時限・講義室"]}</div>
                 {/* <div>セメスター：{kaisetsuki.semester}</div> */}
-                {/* <div>履修年次：{kaisetsuki.rishuNenji}</div>
-                <div>時期区分(開設期)：{kaisetsuki.jikiKubun}</div>
-                <div>時期区分(schedules)：{schedules[0].jikiKubun}</div> */}
-                {/* <div>曜日：{schedules[0].jigen?.youbi[0]}</div>
-                <div>時限Range：{schedules[0].jigen?.jigenRange[0]}-{schedules[0].jigen?.jigenRange[1]}</div>
-                <div>コマRange：{schedules[0].jigen?.komaRange[0]}-{schedules[0].jigen?.komaRange[1]}</div> */}
-                {/* <div>講義室：{schedules[0].room}</div> */}
+                {/* <div>履修年次：{kaisetsuki.rishuNenji}</div> */}
+                {/* <div>時期区分(開設期)：{kaisetsuki.jikiKubun}</div> */}
+                {/* <div>時期区分(schedules)：{schedules[0].jikiKubun}</div> */}
+                {/* <div>曜日：{schedules[0].jigen?.youbi[0]}</div> */}
+                {/* <div>時限Range：{schedules[0].jigen?.jigenRange[0]}-{schedules[0].jigen?.jigenRange[1]}</div> */}
+                {/* <div>コマRange：{schedules[0].jigen?.komaRange[0]}-{schedules[0].jigen?.komaRange[1]}</div> */}
                 <div>
                     {schedules[0].rooms.map((room, index) => (
                         <div key={index}>講義室：{room}</div>

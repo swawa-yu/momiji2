@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { SearchOptions } from '.';
+import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
 
-type SearchComponentProps = {
+type KomaSelectorProps = {
     onSearch: (SearchOptions: SearchOptions) => void;
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
+// TODO: コマの指定を5x5のチェックボックス(行: 1~5コマ, 列: 月~金曜日)と、集中、その他にする。また、全てを選択／解除するボタンをつける。（デフォルトでは全選択状態）
+const SearchComponent: React.FC<KomaSelectorProps> = ({ onSearch }: KomaSelectorProps) => {
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         campus: "指定なし",
         bookmarkFilter: 'all',
@@ -16,10 +18,15 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
         koma: '',
         kamokuKubun: '',
         kaikouBukyoku: '',
+        youbiKoma: initializeYoubiKoma(true),
     });
 
     const handleSearch = () => {
         onSearch(searchOptions);
+    };
+
+    const handleYoubiKomaChange = (newYoubiKoma: YoubiKomaSelected) => {
+        setSearchOptions({ ...searchOptions, youbiKoma: newYoubiKoma });
     };
 
     return (
@@ -83,9 +90,15 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                     checked={searchOptions.bookmarkFilter === 'bookmark'}
                     onChange={(e) => setSearchOptions({ ...searchOptions, bookmarkFilter: e.target.checked ? 'bookmark' : 'all' })}
                 />
+                <br></br>
+                <br></br>
+                <br></br>
+                <KomaSelector onScheduleChange={handleYoubiKomaChange} />
+                <br></br>
+                <br></br>
+                <br></br>
                 <button onClick={handleSearch}>検索</button>
             </div>
-            <div>検索条件: campus={searchOptions.campus}</div>
         </>
     );
 };
