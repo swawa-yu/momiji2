@@ -24,7 +24,9 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: su
         <div className="lecture-details">
             <div className="star-button">★</div>
             <div className="lecture-code-name">
-                <div className="lecture-code">{subject["講義コード"]}</div>
+                <div className="lecture-code">
+                    <a href={'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + subject["relative URL"]}>{subject["講義コード"]}</a>
+                </div>
                 <div className="lecture-name">{subject["授業科目名"]}</div> </div>
             <div className="instructor">{subject["担当教員名"]}</div>
             <div className="lecture-details-columns">
