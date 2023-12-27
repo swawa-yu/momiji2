@@ -2,9 +2,12 @@ import React from 'react';
 import { useTable } from 'react-table';
 
 import {
+    Subject
+} from '../subject/types';
+
+import {
     subjectMap,
     propertyToShowList,
-    Subject
 } from '../subject';
 
 import './SyllabusTable.css';

@@ -6,7 +6,7 @@ import {
     semesters,
     Jigen,
     JikiKubun
-} from ".";
+} from "./types";
 
 // TODO: semester, jikikubunはKaisetsukiとScheduleで被っている
 

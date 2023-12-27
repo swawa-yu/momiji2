@@ -1,4 +1,5 @@
-import { subjectCodeList, subjectMap, Subject } from "../subject";
+import { subjectCodeList, subjectMap } from "../subject";
+import { Subject } from "../subject/types";
 import { parseSchedule } from "../subject/parser";
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
