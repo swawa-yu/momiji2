@@ -36,14 +36,6 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject, is
                 </div>
                 <div className="lecture-name">{subject["授業科目名"]}</div>
             </div>
-            {/* <div className="instructor">{subject["担当教員名"]}</div> */}
-            {/* <div className="instructor">
-                {subject["担当教員名"].split(',').map((instructor, index, array) => (
-                    <React.Fragment key={index}>
-                        {instructor}{index < array.length - 1 && <br />}
-                    </React.Fragment>
-                ))}
-            </div> */}
             <div className="instructor">
                 <ul>
                     {subject["担当教員名"].split(',').map((instructor, index) => {
