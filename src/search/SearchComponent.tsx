@@ -22,6 +22,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
         bookmarkedSubjects: bookmarkedSubjects,
         semester: "指定なし",
         jikiKubun: "指定なし",
+        courseType: "指定なし",
     });
 
     const handleSearch = () => {
@@ -82,25 +83,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     <option value="集中">集中</option>
                     {/* <option value="解析エラー">解析エラー</option> */}
                 </select>
-                {/* <input
-                    type="text"
-                    value={searchOptions.campus}
-                    onChange={(e) => setSearchOptions({ ...searchOptions, campus: e.target.value })}
-                    placeholder="キャンパス"
-                /> */}
-
-                {/* <input
-                    type="text"
-                    value={searchOptions.kamokuKubun}
-                    onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
-                    placeholder="科目区分"
-                />
-                <input
-                    type="text"
-                    value={searchOptions.kaikouBukyoku}
-                    onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
-                    placeholder="開講部局"
-                /> */}
                 {/* 科目区分のドロップダウンメニュー */}
                 <label htmlFor="kamoku-kubun-select">科目区分:</label>
                 <select
@@ -112,6 +94,17 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     {kamokuKubuns.map((kamokuKubun, index) => (
                         <option key={index} value={kamokuKubun}>{kamokuKubun}</option>
                     ))}
+                </select>
+
+                <label htmlFor="course-type-select">学部／大学院:</label>
+                <select
+                    id="course-type-select"
+                    value={searchOptions.courseType}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, courseType: e.target.value as SearchOptions['courseType'] })}
+                >
+                    <option value="指定なし">指定なし</option>
+                    <option value="学部">学部</option>
+                    <option value="大学院">大学院</option>
                 </select>
 
                 {/* 開講部局のドロップダウンメニュー */}

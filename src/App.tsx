@@ -25,6 +25,7 @@ function App() {
         bookmarkedSubjects: new Set(),
         semester: '指定なし',
         jikiKubun: '指定なし',
+        courseType: '指定なし',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 
