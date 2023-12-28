@@ -1,16 +1,10 @@
 # momiji2
-## 参考にさせていただいたもの
-https://make-it-tsukuba.github.io/alternative-tsukuba-kdb/
-https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb
-
 ## データの取得
-https://momiji.hiroshima-u.ac.jp/syllabusHtml/ より、swawa-yuの`syllabus-csv`でcsv, jsonで保存。それを手動でこのレポジトリ内にコピーしてます。
+swawa-yuの`MomijiHarvester`で https://momiji.hiroshima-u.ac.jp/syllabusHtml/ のデータをcsv, jsonで保存したものをこのレポジトリ内にコピーしてます(手動)。
 
 ## 今後の展望
 - マウスホバーで省略部分も確認
-- 検索機能
 - ブックマークのエクスポート
-- 授業の詳細を確認するページ
 - 時間割仮組み機能
   - ブックマーク
   - 必修かどうか
@@ -19,3 +13,6 @@ https://momiji.hiroshima-u.ac.jp/syllabusHtml/ より、swawa-yuの`syllabus-csv
 - etc
 
 - css module, sassってなに？
+
+## 参考にさせていただいたもの
+[KdBっぽいなにか](https://make-it-tsukuba.github.io/alternative-tsukuba-kdb/)([リポジトリ](https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb))
