@@ -1,6 +1,6 @@
 import { subjectCodeList, subjectMap } from "../subject";
-import { Subject, Campus, campuses } from "../subject/types";
-import { parseSchedule } from "../subject/parser";
+import { Subject, Campus, campuses, Semester, JikiKubun, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins, KaikouBukyokuGakubu, KaikouBukyokuDaigakuin, } from "../subject/types";
+import { parseKaisetsuki, parseSchedule } from "../subject/parser";
 import { YoubiKomaSelected, youbis, komas } from "./KomaSelector";
 
 export type BookmarkFilter = 'all' | 'bookmark' | 'except-bookmark'
@@ -17,6 +17,9 @@ export interface SearchOptions {
     kaikouBukyoku: string
     youbiKoma: YoubiKomaSelected
     bookmarkedSubjects: Set<string>
+    semester: Semester | "指定なし"
+    jikiKubun: JikiKubun | "指定なし"
+    courseType: "学部" | "大学院" | "指定なし"
     // season: NormalSeasons | undefined;
     // module: Modules | undefined;
     // periods: Periods;
@@ -33,13 +36,7 @@ export interface SearchOptions {
     // asneeded: boolean;
 }
 
-
-
-
-// TODO: すべての要素を調べるのは効率が悪いので改善したい
-// filterを繰り返したほうが速そう
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-// TODO: コマの検索の実装が酷いので修正が必要
 export const filteredSubjectCodeList = (searchOptions: SearchOptions) => {
     // console.log("start filtering");
     // console.log(searchOptions.bookmarkedSubjects);
@@ -130,13 +127,34 @@ function matchesBookmark(subject: Subject, searchOptions: SearchOptions): boolea
         searchOptions.bookmarkFilter === "except-bookmark" && !searchOptions.bookmarkedSubjects.has(subject["講義コード"]);
 }
 
+function matchesSemester(subject: Subject, searchOptions: SearchOptions): boolean {
+    const semester = parseKaisetsuki(subject["開設期"]).semester;
+    return searchOptions.semester === "指定なし" ||
+        semester === searchOptions.semester;
+}
+
+function matchesJikiKubun(subject: Subject, searchOptions: SearchOptions): boolean {
+    const jikiKubun = parseKaisetsuki(subject["開設期"]).jikiKubun;
+    return searchOptions.jikiKubun === "指定なし" ||
+        jikiKubun === searchOptions.jikiKubun;
+}
+
+function matchesCourseType(subject: Subject, searchOptions: SearchOptions): boolean {
+    return searchOptions.courseType === "指定なし" ||
+        (searchOptions.courseType === "学部" && kaikouBukyokuGakubus.includes(subject["開講部局"] as KaikouBukyokuGakubu)) ||
+        (searchOptions.courseType === "大学院" && kaikouBukyokuDaigakuins.includes(subject["開講部局"] as KaikouBukyokuDaigakuin));
+}
+
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
 export function matchesSearchOptions(subject: Subject, searchOptions: SearchOptions): boolean {
     return matchesCampus(subject, searchOptions) &&
         matchesSubjectName(subject, searchOptions) &&
         matchesTeacher(subject, searchOptions) &&
         matchesKamokuKubun(subject, searchOptions) &&
+        matchesSemester(subject, searchOptions) &&
+        matchesJikiKubun(subject, searchOptions) &&
         matchesKaikouBukyoku(subject, searchOptions) &&
         matchesYoubiKoma(subject, searchOptions) &&
-        matchesBookmark(subject, searchOptions);
+        matchesBookmark(subject, searchOptions) &&
+        matchesCourseType(subject, searchOptions);
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './KomaSelector.css';
 
 export const youbis: Youbi[] = ["月", "火", "水", "木", "金"];
 export const komas: Koma[] = [1, 2, 3, 4, 5];
@@ -99,7 +100,9 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
     };
 
     return (
-        <>
+        <div className='koma-selector'>
+            <button onClick={() => toggleAll(true)}>全て選択</button>
+            <button onClick={() => toggleAll(false)}>全て解除</button>
             < table >
                 <thead>
                     <tr>
@@ -142,10 +145,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                     onChange={(e) => handleCheckboxChange("その他", e.target.checked)}
                 />
             </label>
-
-            <button onClick={() => toggleAll(true)}>全て選択</button>
-            <button onClick={() => toggleAll(false)}>全て解除</button>
-        </>
+        </div>
     );
 };
 
