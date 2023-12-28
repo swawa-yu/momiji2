@@ -17,7 +17,7 @@ export const propertyToShowList: string[] = []
 export const subjectProperties: string[] = []
 
 
-// TODO 教員のリサーチマップ　https://researchmap.jp/researchers?q=名字+名前
+
 // TODO お気に入り教員
 // TODO 講義名をマウスホバーで講義の詳細を表示
 // TODO setTimeout()ってなに, async await って使ったほうがいいの？

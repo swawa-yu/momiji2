@@ -33,13 +33,7 @@ export interface SearchOptions {
     // asneeded: boolean;
 }
 
-
-
-
-// TODO: すべての要素を調べるのは効率が悪いので改善したい
-// filterを繰り返したほうが速そう
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-// TODO: コマの検索の実装が酷いので修正が必要
 export const filteredSubjectCodeList = (searchOptions: SearchOptions) => {
     // console.log("start filtering");
     // console.log(searchOptions.bookmarkedSubjects);
