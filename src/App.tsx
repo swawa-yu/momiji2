@@ -65,8 +65,6 @@ function App() {
                 <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
                 <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
                 <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
-                <h2>参考</h2>
-                →<a href='https://make-it-tsukuba.github.io/alternative-tsukuba-kdb/'>KdBっぽいなにか</a> (<a href='https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb'>リポジトリ</a>)
             </div>
 
             <br></br>
