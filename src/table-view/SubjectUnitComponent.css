@@ -117,3 +117,24 @@
     flex: 3;
     /* ここで子要素の境界線が必要な場合は追加する */
 }
+
+.star-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    /* フォントサイズを調整 */
+    color: gold;
+    /* 星の色を調整 */
+}
+
+.star-button:hover {
+    color: orange;
+    /* ホバー時の色を調整 */
+}
+
+.star-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

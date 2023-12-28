@@ -10,10 +10,12 @@ import { filteredSubjectCodeList } from '../search';
 
 interface SyllabusTableProps {
     searchOptions: SearchOptions;
+    bookmarkedSubjects: Set<string>;
+    handleBookmarkToggle: (lectureCode: string) => void;
 }
 
 
-function SyllabusTable({ searchOptions }: SyllabusTableProps) {
+function SyllabusTable({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: SyllabusTableProps) {
 
     const data = useMemo(() => {
         return filteredSubjectCodeList(searchOptions)
@@ -29,7 +31,7 @@ function SyllabusTable({ searchOptions }: SyllabusTableProps) {
             {/* LectureUnit コンポーネントを使用して授業を表示 */}
             <div className="lectures-container">
                 {data.map((subject, index) => (
-                    <SubjectUnitComponent key={index} subject={subject} />
+                    <SubjectUnitComponent key={index} subject={subject} isBookmarked={bookmarkedSubjects.has(subject["講義コード"])} onBookmarkToggle={handleBookmarkToggle} />
                 ))}
             </div>
         </>

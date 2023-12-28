@@ -6,24 +6,28 @@ import React from 'react';
 // } from './';
 
 import './SubjectUnitComponent.css'
-// import { parseKaisetsuki, parseSchedule } from '../subject/parser'
-import { parseSchedule } from '../subject/parser'
+import { parseKaisetsuki, parseSchedule } from '../subject/parser'
+// import { parseSchedule } from '../subject/parser'
 import { Subject } from '../subject/types';
 
 
 type SubjectUnitComponentProps = {
-    // 必要なプロパティを定義
-    subject: Subject; // 適切な型に変更してください
+    subject: Subject;
+    isBookmarked: boolean;
+    onBookmarkToggle: (lectureCode: string) => void;
 };
 
 
-const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: subject }) => {
+const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject, isBookmarked, onBookmarkToggle }) => {
     const schedules = parseSchedule(subject["曜日・時限・講義室"]);
-    // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
+    const kaisetsuki = parseKaisetsuki(subject["開設期"]);
 
     return (
         <div className="lecture-details">
-            <div className="star-button">★</div>
+            {/* <div className="star-button">★</div> */}
+            <div className="star-button" onClick={() => onBookmarkToggle(subject["講義コード"])}>
+                {isBookmarked ? "★" : "☆"}
+            </div>
             <div className="lecture-code-name">
                 <div className="lecture-code">
                     <a href={'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + subject["relative URL"]} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
@@ -35,14 +39,13 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject: su
             <div className="lecture-details-columns">
                 <div>{subject["開設期"]}</div>
                 <div>{subject["曜日・時限・講義室"]}</div>
-                {/* <div>セメスター：{kaisetsuki.semester}</div> */}
-                {/* <div>履修年次：{kaisetsuki.rishuNenji}</div>
+                <div>セメスター：{kaisetsuki.semester}</div>
+                <div>履修年次：{kaisetsuki.rishuNenji}</div>
                 <div>時期区分(開設期)：{kaisetsuki.jikiKubun}</div>
-                <div>時期区分(schedules)：{schedules[0].jikiKubun}</div> */}
-                {/* <div>曜日：{schedules[0].jigen?.youbi[0]}</div>
+                <div>時期区分(schedules)：{schedules[0].jikiKubun}</div>
+                <div>曜日：{schedules[0].jigen?.youbi[0]}</div>
                 <div>時限Range：{schedules[0].jigen?.jigenRange[0]}-{schedules[0].jigen?.jigenRange[1]}</div>
-                <div>コマRange：{schedules[0].jigen?.komaRange[0]}-{schedules[0].jigen?.komaRange[1]}</div> */}
-                {/* <div>講義室：{schedules[0].room}</div> */}
+                <div>コマRange：{schedules[0].jigen?.komaRange[0]}-{schedules[0].jigen?.komaRange[1]}</div>
                 <div>
                     {schedules[0].rooms.map((room, index) => (
                         <div key={index}>講義室：{room}</div>

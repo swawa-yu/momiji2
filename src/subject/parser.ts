@@ -55,13 +55,17 @@ const jikiKubunMap: { [key: string]: JikiKubun } = {
  * @returns Schedule[]
  */
 export function parseSchedule(s: string) {
+    // TODO: 補足できていないパターンがあってもエラーとして扱えないかもしれない！！
+
     // 例----------------------------------------
-    // (2T) 火7-8, 金7-8：先405N        → (2T) 火7-8：先405N, (2T) 金7-8：先405N
+    // (2T) 火7-8, 金7-8：先405N
     // (1T) 木1-2：オンライン, (1T) 木3-4：霞R402講義室
     // (4T) 集中：担当教員の指定による
     // (前) 木7-8：理E102
-    // (前) 金7-8：北体育館,教K102      → そのままでOK
-    // (後) 集中                        (HX203900, 数学特別講義（数論力学系入門）)
+    // (前) 金7-8：北体育館,教K102
+    // (後) 集中                                                (HX203900, 数学特別講義（数論力学系入門）)
+    // (2T) 水5-6：理E104,理E209, (2T) 木1-2：理E209,理E210       (HA500000)
+    // (2T) 火1：保301,保302, (2T) 火2：保301                     (I3151001)
     // ------------------------------------------
 
     // 検索するとき、部屋は別にそんなに重要ではない
@@ -74,65 +78,50 @@ export function parseSchedule(s: string) {
 
     let schedules: Schedule[] = []
 
-
-
-    // シンプルなパターンの実装
     try {
-        const splittedBySpace = s.split(' ');
-        const splittedByColon = splittedBySpace[1].split('：');
+        // (2T) 水5-6：理E104,理E209, (2T) 木1-2：理E209,理E210     (HA500000) みたいなパターンを、split(", ")で処理できると信じる
+        s.split(", ").forEach((s) => {
+            // splittedBySpace = ["(前)", "木7-8：理E102"]
+            // splittedByColon = ["木7-8", "理E102"]
+            // jikiKubun = "セメスター（前期）"
+            // jigenString = "木7-8"
+            // jigenNums = [7, 8]
+            // rooms = ["理E102"]
 
-        // 辞書の中にない場合は解析エラー
-        const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]] ? jikiKubunMap[splittedBySpace[0]] : "解析エラー";
+            const splittedBySpace = s.split(' ');
+            const splittedByColon = splittedBySpace[1].split('：');
 
-        jikiKubunMap[splittedBySpace[0]];
+            // 時期区分の部分が変換用辞書の中にない場合は解析エラー // TODO: 専用のエラーを投げることができたらうれしい
+            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]] ? jikiKubunMap[splittedBySpace[0]] : "解析エラー";
 
-        const jigenString = splittedByColon[0]; // 金3-6 (難しいやつだと火7-8,金7-8もある)
-        // jigenStringの0文字目は曜日
-        // jigenStringの1文字目以降をsplit('-')してさらに各要素をintに変換したもの
-        const jigenNums = jigenString.slice(1).split('-').map((v) => parseInt(v));
+            const rooms = splittedByColon[1] ? splittedByColon[1].split(',') : [];
 
-        const jigen: Schedule["jigen"] = jigenString[0] === "集" ?
-            undefined :
-            {
-                youbi: jigenString[0] as Jigen['youbi'],
-                jigenRange: [jigenNums[0], jigenNums[jigenNums.length - 1]] as Jigen['jigenRange'],
-                komaRange: [(jigenNums[0] + 1) / 2 | 0, (jigenNums[jigenNums.length - 1] + 1) / 2 | 0] as Jigen['komaRange']
+            const jigenString = splittedByColon[0];
+            // jigenStringの0文字目は曜日
+            // jigenStringの1文字目以降をsplit('-')してさらに各要素をintに変換したもの
+            // jigenString = "集中" の場合は特別に処理(jigen: undefined とする)
+            if (jigenString === "集中") {
+                schedules.push({ jikiKubun: jikiKubun, jigen: undefined, rooms: rooms })
+            } else {
+                // jigenString = "火9-10,金1-2" みたいなパターンもここで処理できる
+                jigenString.split(',').forEach((jigenString) => {
+                    const jigenNums = jigenString.slice(1).split('-').map((v) => parseInt(v));
+
+                    const jigen: Schedule["jigen"] = {
+                        youbi: jigenString[0] as Jigen['youbi'],
+                        jigenRange: [jigenNums[0], jigenNums[jigenNums.length - 1]] as Jigen['jigenRange'],
+                        komaRange: [(jigenNums[0] + 1) / 2 | 0, (jigenNums[jigenNums.length - 1] + 1) / 2 | 0] as Jigen['komaRange']
+                    }
+
+                    schedules.push({ jikiKubun: jikiKubun, jigen: jigen, rooms: rooms })
+                })
             }
-
-        const rooms = splittedByColon[1].split(',');
-
-        schedules.push({ jikiKubun: jikiKubun, jigen: jigen, rooms: rooms })
+        })
+        return schedules;
     } catch (e: unknown) {
         schedules.push({ jikiKubun: "解析エラー", jigen: { youbi: "解析エラー", jigenRange: "解析エラー", komaRange: "解析エラー" }, rooms: ["解析エラー"] })
         return schedules;
     }
-
-
-    // 複雑なパターンの実装
-    // try {
-    //     const hiphenCount = s.split('-').length - 1;
-    //     const colonCount = s.split('：').length - 1;
-    //     const splitted = s.split(' ')
-    //     // 1スケジュール単位を2つ以上繰り返すときに","がつくので、取り除く
-    //     for (let i = 0; i < splitted.length / 2; i++) {
-    //         const jigenAndRoom = splitted[i * 2].split("：");
-
-    //         // TODO ゴリ押しすぎる
-    //         const jiki: Schedule['jikiKubun'] = jikiKubuns.some((v) => v === (splitted[i * 2])) ?
-    //             jikiKubuns.filter((v) => v === splitted[i * 2])[0] :
-    //             "解析エラー";
-    //         const jigen: Schedule["jigen"] = { youbi: "解析エラー", jigenRange: "解析エラー", komaRange: "解析エラー" }
-    //         const room: Schedule['room'] = jigenAndRoom.length == 2 ?
-    //             jigenAndRoom[1] :
-    //             ""
-    //         schedules.push({ jikiKubun: jiki, jigen: jigen, room: room })
-    //     }
-    // } catch (e: unknown) {
-    //     schedules.push({ jikiKubun: "解析エラー", jigen: { youbi: "解析エラー", jigenRange: "解析エラー", komaRange: "解析エラー" }, room: "解析エラー" })
-    //     return schedules;
-    // }
-
-    return schedules;
 }
 
 
