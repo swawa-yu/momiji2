@@ -64,14 +64,14 @@
     border-left: 1px solid #ccc;
 }
 
-/* その他のスタイリング */
+/* ----------------------------- */
 .star-button {
-    flex: 1;
-    /* その他のスタイリング */
+    flex: 0.5;
 }
 
+/* ----------------------------- */
 .lecture-code-name {
-    flex: 4;
+    flex: 3;
     display: flex;
     flex-direction: column;
     /* ここで子要素の境界線が必要な場合は追加する */
@@ -87,24 +87,43 @@
     /* ここで子要素の境界線が必要な場合は追加する */
 }
 
+/* ----------------------------- */
 .instructor {
     flex: 3;
-    /* 4行分の高さを持つようにスタイリング */
-    /* ここで子要素の境界線が必要な場合は追加する */
+    padding: 0;
+    /* 内側の余白を削除 */
+    list-style-type: none;
+    /* リストの点を削除 */
 }
 
+.instructor ul {
+    margin: 0;
+    /* 外側の余白を削除 */
+    padding: 0;
+    /* 内側の余白を削除 */
+    list-style-type: none;
+    /* リストの点を削除 */
+}
+
+.instructor ul li {
+    margin-bottom: 5px;
+    /* 各リスト項目の下の余白を設定 */
+}
+
+/* ----------------------------- */
 .lecture-details-columns {
-    flex: 3;
+    flex: 4;
     display: flex;
     flex-direction: column;
     /* ここで子要素の境界線が必要な場合は追加する */
 }
 
 .lecture-details-columns>div {
-    flex: 3;
+    flex: 1;
     /* ここで子要素の境界線が必要な場合は追加する */
 }
 
+/* ----------------------------- */
 .lecture-details-info {
     flex: 9;
     display: flex;
@@ -114,7 +133,7 @@
 }
 
 .lecture-details-info>div {
-    flex: 3;
+    flex: 1;
     /* ここで子要素の境界線が必要な場合は追加する */
 }
 
