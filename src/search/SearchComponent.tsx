@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SearchOptions, BookmarkFilter } from '.';
 import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
 import './SearchComponent.css';
+import { kamokuKubuns, kaikouBukyokus } from '../subject/types';
 
 type SearchComponentProps = {
     onSearch: (newSearchOptions: SearchOptions) => void;
@@ -9,7 +10,6 @@ type SearchComponentProps = {
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-// TODO: コマの指定を5x5のチェックボックス(行: 1~5コマ, 列: 月~金曜日)と、集中、その他にする。また、全てを選択／解除するボタンをつける。（デフォルトでは全選択状態）
 const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         campus: "指定なし",
@@ -56,7 +56,8 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     value={searchOptions.subjectName}
                     onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })}
                     placeholder="授業科目名"
-                /><input
+                />
+                {/* <input
                     type="text"
                     value={searchOptions.kamokuKubun}
                     onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
@@ -67,7 +68,32 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     value={searchOptions.kaikouBukyoku}
                     onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
                     placeholder="開講部局"
-                />
+                /> */}
+                {/* 科目区分のドロップダウンメニュー */}
+                <label htmlFor="kamoku-kubun-select">科目区分:</label>
+                <select
+                    id="kamoku-kubun-select"
+                    value={searchOptions.kamokuKubun}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
+                >
+                    <option value="">指定なし</option>
+                    {kamokuKubuns.map((kamokuKubun, index) => (
+                        <option key={index} value={kamokuKubun}>{kamokuKubun}</option>
+                    ))}
+                </select>
+
+                {/* 開講部局のドロップダウンメニュー */}
+                <label htmlFor="kaikou-bukyoku-select">開講部局:</label>
+                <select
+                    id="kaikou-bukyoku-select"
+                    value={searchOptions.kaikouBukyoku}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
+                >
+                    <option value="">指定なし</option>
+                    {kaikouBukyokus.map((kaikouBukyoku, index) => (
+                        <option key={index} value={kaikouBukyoku}>{kaikouBukyoku}</option>
+                    ))}
+                </select>
                 <input
                     type="text"
                     value={searchOptions.teacher}
