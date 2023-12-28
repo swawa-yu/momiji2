@@ -1,6 +1,6 @@
 import { subjectCodeList, subjectMap } from "../subject";
-import { Subject, Campus, campuses } from "../subject/types";
-import { parseSchedule } from "../subject/parser";
+import { Subject, Campus, campuses, Semester, JikiKubun } from "../subject/types";
+import { parseKaisetsuki, parseSchedule } from "../subject/parser";
 import { YoubiKomaSelected, youbis, komas } from "./KomaSelector";
 
 export type BookmarkFilter = 'all' | 'bookmark' | 'except-bookmark'
@@ -17,6 +17,8 @@ export interface SearchOptions {
     kaikouBukyoku: string
     youbiKoma: YoubiKomaSelected
     bookmarkedSubjects: Set<string>
+    semester: Semester | "指定なし"
+    jikiKubun: JikiKubun | "指定なし"
     // season: NormalSeasons | undefined;
     // module: Modules | undefined;
     // periods: Periods;
@@ -124,12 +126,26 @@ function matchesBookmark(subject: Subject, searchOptions: SearchOptions): boolea
         searchOptions.bookmarkFilter === "except-bookmark" && !searchOptions.bookmarkedSubjects.has(subject["講義コード"]);
 }
 
+function matchesSemester(subject: Subject, searchOptions: SearchOptions): boolean {
+    const semester = parseKaisetsuki(subject["開設期"]).semester;
+    return searchOptions.semester === "指定なし" ||
+        semester === searchOptions.semester;
+}
+
+function matchesJikiKubun(subject: Subject, searchOptions: SearchOptions): boolean {
+    const jikiKubun = parseKaisetsuki(subject["開設期"]).jikiKubun;
+    return searchOptions.jikiKubun === "指定なし" ||
+        jikiKubun === searchOptions.jikiKubun;
+}
+
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
 export function matchesSearchOptions(subject: Subject, searchOptions: SearchOptions): boolean {
     return matchesCampus(subject, searchOptions) &&
         matchesSubjectName(subject, searchOptions) &&
         matchesTeacher(subject, searchOptions) &&
         matchesKamokuKubun(subject, searchOptions) &&
+        matchesSemester(subject, searchOptions) &&
+        matchesJikiKubun(subject, searchOptions) &&
         matchesKaikouBukyoku(subject, searchOptions) &&
         matchesYoubiKoma(subject, searchOptions) &&
         matchesBookmark(subject, searchOptions);

@@ -22,7 +22,9 @@ function App() {
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
-        bookmarkedSubjects: new Set()
+        bookmarkedSubjects: new Set(),
+        semester: '指定なし',
+        jikiKubun: '指定なし',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 
