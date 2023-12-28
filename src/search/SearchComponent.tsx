@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SearchOptions, BookmarkFilter } from '.';
 import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
+import './SearchComponent.css';
 
 type SearchComponentProps = {
     onSearch: (newSearchOptions: SearchOptions) => void;
@@ -15,8 +16,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
         bookmarkFilter: 'all',
         teacher: '',
         subjectName: '',
-        youbi: '',
-        koma: '',
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
@@ -33,7 +32,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
 
     return (
         <>
-            <div>
+            <div className='search-component'>
                 <label htmlFor="campus-select">キャンパス:</label>
                 <select
                     id="campus-select"
@@ -75,7 +74,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
                     placeholder="担当教員名"
                 />
-                <input
+                {/* <input
                     type="text"
                     value={searchOptions.youbi}
                     onChange={(e) => setSearchOptions({ ...searchOptions, youbi: e.target.value })}
@@ -86,7 +85,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     value={searchOptions.koma}
                     onChange={(e) => setSearchOptions({ ...searchOptions, koma: e.target.value })}
                     placeholder="コマ"
-                />
+                /> */}
                 <label htmlFor="bookmark-filter">ブックマーク:</label>
                 <select
                     id="bookmark-filter"

@@ -19,8 +19,6 @@ function App() {
         bookmarkFilter: 'all',
         teacher: '',
         subjectName: '',
-        youbi: '',
-        koma: '',
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
@@ -60,11 +58,14 @@ function App() {
         <>
             <div>
                 <h1>シラバス momiji2</h1>
-                <p>開発中です。</p>
-                <p>コマの指定による検索は不完全で、解析エラーがある科目はうまく検索できません。</p>
-                <p>github: swawa-yu</p>
-                <p>twitter: @swawa_yu, @archaic_hohoemi</p>
-                <p>参考：KdBっぽいなにか</p>
+                <h2>注意事項</h2>
+                <li>開発中です。</li>
+                <li>コマの指定による検索は不完全で、解析エラーがある科目はうまく検索できません。</li>
+                <h2>開発者 (連絡先(バグ報告等))</h2>
+                <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
+                <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
+                <h2>参考</h2>
+                →<a href='https://make-it-tsukuba.github.io/alternative-tsukuba-kdb/'>KdBっぽいなにか</a> (<a href='https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb'>リポジトリ</a>)
             </div>
 
             <br></br>
