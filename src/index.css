@@ -5,9 +5,9 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
-    /* color: #1a1a1a;
-    background-color: #ffffff; */
+    /* テキストの色 */
+    background-color: #1c1c1c;
+    /* 背景色 */
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -18,18 +18,21 @@
 
 table {
     border-collapse: collapse;
-    background-color: #242424;
+    background-color: #2a2a2a;
+    /* テーブルの背景色 */
     color: rgba(255, 255, 255, 0.87);
+    /* テーブルのテキスト色 */
 }
 
 table thead {
-    background-color: #555;
+    background-color: #3c3c3c;
+    /* テーブルヘッダーの背景色 */
 }
 
 table th,
 table td {
-    border: solid 1px white;
-    /*実線 1px 黒*/
+    border: solid 1px #555;
+    /* テーブルセルの境界線 */
 }
 
 p {
@@ -38,18 +41,20 @@ p {
 
 a {
     font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
+    color: #4a90e2;
+    /* 明るい青色で視認性を高める */
+    text-decoration: none;
+    /* 下線を除去 */
 }
 
 a:hover {
-    color: #535bf2;
+    color: #68a0f8;
+    /* ホバー時に少し明るい青色 */
 }
 
 body {
     margin: 0;
     display: flex;
-    /* place-items: center; */
     min-width: 320px;
     min-height: 100vh;
 }
@@ -66,18 +71,27 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #333333;
+    /* ボタンの背景色 */
+    color: rgba(255, 255, 255, 0.87);
+    /* ボタンのテキスト色 */
     cursor: pointer;
     transition: border-color 0.25s;
 }
 
 button:hover {
-    border-color: #646cff;
+    background-color: #4a4a4a;
+    /* ホバー時の背景色 */
+    border-color: #4a90e2;
+    /* ホバー時の境界線色 */
 }
 
 button:focus,
 button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    outline: none;
+    /* デフォルトのアウトラインを除去 */
+    box-shadow: 0 0 0 2px #4a90e2;
+    /* 青色のシャドウでフォーカスを示す */
 }
 
 @media (prefers-color-scheme: light) {
