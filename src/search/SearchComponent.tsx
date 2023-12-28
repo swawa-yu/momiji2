@@ -11,7 +11,7 @@ type SearchComponentProps = {
 
 // TODO: あいまい検索に対応(generalSearch)
 const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
-    const [searchOptions, setSearchOptions] = useState<SearchOptions>({
+    const initialSearchOptions: SearchOptions = {
         campus: "指定なし",
         bookmarkFilter: 'all',
         teacher: '',
@@ -23,10 +23,15 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
         semester: "指定なし",
         jikiKubun: "指定なし",
         courseType: "指定なし",
-    });
+    };
+    const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
     const handleSearch = () => {
         onSearch(searchOptions);
+    };
+
+    const handleClear = () => {
+        setSearchOptions(initialSearchOptions);
     };
 
     const handleYoubiKomaChange = (newYoubiKoma: YoubiKomaSelected) => {
@@ -157,6 +162,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                 <br></br>
                 <br></br>
                 <button onClick={handleSearch}>検索</button>
+                <button onClick={handleClear}>検索条件をクリア</button>
             </div >
         </>
     );
