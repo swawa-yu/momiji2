@@ -10,7 +10,7 @@ import {
     propertyToShowList,
 } from '../subject';
 
-import './SyllabusTable.css';
+import './SyllabusTableRaw.css';
 import { SearchOptions, filteredSubjectCodeList } from '../search';
 import { maxNumberOfSubjectsToShow } from '../table-view';
 
