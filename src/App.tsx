@@ -26,6 +26,7 @@ function App() {
         semester: '指定なし',
         jikiKubun: '指定なし',
         courseType: '指定なし',
+        language: '指定なし',
     });
     const [isTableRaw, setIsTableRaw] = useState(true);
 

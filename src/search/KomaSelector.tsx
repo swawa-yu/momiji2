@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './KomaSelector.css';
 
-export const youbis: Youbi[] = ["月", "火", "水", "木", "金"];
-export const komas: Koma[] = [1, 2, 3, 4, 5];
+
+// TODO: 土、6,7コマを追加すると「その他」の出番はなくなる
+export const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
+export const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
 export const specialSchedules: SpecialSchedule[] = ["集中", "その他"];
 
-type Youbi = "月" | "火" | "水" | "木" | "金";
-type Koma = 1 | 2 | 3 | 4 | 5;
+type Youbi = "月" | "火" | "水" | "木" | "金" | "土";
+type Koma = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 type SpecialSchedule = "集中" | "その他";
 export type YoubiKoma = `${Youbi}${Koma}` | SpecialSchedule;
 export type YoubiKomaSelected = {
@@ -63,8 +65,8 @@ export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected =>
 
 const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
     // 初期状態で全ての曜日とコマをtrueに設定    // 曜日とコマの配列
-    const youbis: Youbi[] = ["月", "火", "水", "木", "金"];
-    const komas: Koma[] = [1, 2, 3, 4, 5];
+    const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
+    const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
 
     // 初期スケジュールを設定
     const initialSchedule: YoubiKomaSelected = initializeYoubiKoma(true);

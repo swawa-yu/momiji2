@@ -1,4 +1,30 @@
 .search-component {
-    /* 外枠の線を描画 */
     border: 1px solid #ccc;
+}
+
+.search-groups {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* 上揃えに変更 */
+    gap: 20px;
+}
+
+.search-group {
+    display: flex;
+    align-items: flex-start;
+    /* 上揃えに変更 */
+    margin-right: 20px;
+}
+
+.search-component label {
+    margin-right: 10px;
+}
+
+.search-component select,
+.search-component input {
+    width: auto;
+    max-width: 200px;
+    /* セレクトメニューの最大幅を設定 */
 }
