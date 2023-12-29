@@ -75,6 +75,7 @@ export type SubjectProperty =
 
 export type Subject = { [key in SubjectProperty]: string }
 
+// Subject2をはじめに作っておくことで検索時に毎回parseする必要がなくなる
 export type Subject2 = {
     "relative URL": string,
     "年度": string,
