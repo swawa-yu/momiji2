@@ -25,6 +25,8 @@ export interface SearchOptions {
     jikiKubun: JikiKubun | "指定なし"
     courseType: "学部" | "大学院" | "指定なし"
     language: Language | "指定なし"
+    rishuNenji: number | "指定なし"
+    rishuNenjiFilter: "以下" | "のみ"
 }
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
@@ -129,6 +131,12 @@ function matchesLanguage(subject: Subject2, searchOptions: SearchOptions): boole
         subject["使用言語"] as Language === searchOptions.language;
 }
 
+function matchesRishuNenji(subject: Subject2, searchOptions: SearchOptions): boolean {
+    return searchOptions.rishuNenji === "指定なし" ||
+        searchOptions.rishuNenjiFilter === "以下" && subject["履修年次"] <= searchOptions.rishuNenji ||
+        searchOptions.rishuNenjiFilter === "のみ" && subject["履修年次"] == searchOptions.rishuNenji;
+}
+
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
 export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): boolean {
     return matchesCampus(subject, searchOptions) &&
@@ -141,5 +149,6 @@ export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOpt
         matchesYoubiKoma(subject, searchOptions) &&
         matchesBookmark(subject, searchOptions) &&
         matchesCourseType(subject, searchOptions) &&
-        matchesLanguage(subject, searchOptions);
+        matchesLanguage(subject, searchOptions) &&
+        matchesRishuNenji(subject, searchOptions);
 }

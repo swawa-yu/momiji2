@@ -24,6 +24,8 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
         jikiKubun: "指定なし",
         courseType: "指定なし",
         language: "指定なし",
+        rishuNenji: "指定なし",
+        rishuNenjiFilter: "以下"
     };
     const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
@@ -171,6 +173,32 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                                 ))}
                             </select>
                         </div>
+
+                        <div className='search-group'>
+                            <label htmlFor="rishu-nenji-select">履修年次:</label>
+                            <select
+                                id="rishu-nenji-select"
+                                value={searchOptions.rishuNenji}
+                                onChange={(e) => setSearchOptions({ ...searchOptions, rishuNenji: e.target.value as SearchOptions['rishuNenji'] })}
+                            >
+                                <option value="指定なし">指定なし</option>
+                                <option value="1">1年次</option>
+                                <option value="2">2年次</option>
+                                <option value="3">3年次</option>
+                                <option value="4">4年次</option>
+                                <option value="5">5年次</option>
+                                <option value="6">6年次</option>
+                            </select>
+                            <select
+                                id="rishu-nenji-filter-select"
+                                value={searchOptions.rishuNenjiFilter}
+                                onChange={(e) => setSearchOptions({ ...searchOptions, rishuNenjiFilter: e.target.value as SearchOptions['rishuNenjiFilter'] })}
+                            >
+                                <option value="以下">以下</option>
+                                <option value="のみ">のみ</option>
+                            </select>
+                        </div>
+
 
                     </div>
                     <div>
