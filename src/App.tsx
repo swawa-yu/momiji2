@@ -25,6 +25,8 @@ function App() {
         jikiKubun: '指定なし',
         courseType: '指定なし',
         language: '指定なし',
+        rishuNenji: "指定なし",
+        rishuNenjiFilter: "以下"
     });
 
     const handleSearch = (newSearchOptions: SearchOptions) => {

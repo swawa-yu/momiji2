@@ -17,8 +17,8 @@ export interface Jigen {
 
 export interface Schedule {
     jikiKubun: JikiKubun  // 1ターム、2ターム、3ターム、4ターム、セメスター（前期）、セメスター（後期）、ターム外（前期）、ターム外（後期）、年度、通年、集中
-    jigen: Jigen | undefined // 集中講義の場合はundefined // TODO: でよいのか？("集中"とする方法)
-    rooms: string[]  // 何も書かれていない場合は空文字列, // TODO 本当は[string]のほうが良さそう
+    jigen: Jigen | undefined // 集中講義の場合はundefined
+    rooms: string[]  // 何も書かれていない場合は空文字列
 }
 
 // TODO 「解析エラー」としているが、他に適切な書き方がありそう
@@ -47,7 +47,7 @@ export type KaikouBukyokuGakubu = typeof kaikouBukyokuGakubus[number]
 export type KaikouBukyokuDaigakuin = typeof kaikouBukyokuDaigakuins[number]
 export type KaikouBukyoku = typeof kaikouBukyokus[number]
 
-// tips: コロンは"："だったり" : "だったりするが、ここでは" : "に統一する
+// tips: コロンは"："だったり" : "だったりするが、ここでは講義詳細ページで使われている" : "に統一する
 export const languages = ["J : 日本語", "E : 英語", "B : 日本語・英語", "O : その他"] as const
 export type Language = typeof languages[number] | "解析エラー"
 
@@ -75,6 +75,7 @@ export type SubjectProperty =
 
 export type Subject = { [key in SubjectProperty]: string }
 
+// Subject2をはじめに作っておくことで検索時に毎回parseする必要がなくなる
 export type Subject2 = {
     "relative URL": string,
     "年度": string,
