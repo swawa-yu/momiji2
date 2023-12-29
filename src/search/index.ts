@@ -1,5 +1,12 @@
 import { subjectCodeList, subjectMap } from "../subject";
-import { Subject, Campus, campuses, Semester, JikiKubun, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins, KaikouBukyokuGakubu, KaikouBukyokuDaigakuin, } from "../subject/types";
+import {
+    Subject,
+    Campus, campuses,
+    Semester,
+    JikiKubun,
+    kaikouBukyokuGakubus, kaikouBukyokuDaigakuins, KaikouBukyokuGakubu, KaikouBukyokuDaigakuin,
+    Language
+} from "../subject/types";
 import { parseKaisetsuki, parseSchedule } from "../subject/parser";
 import { YoubiKomaSelected, youbis, komas } from "./KomaSelector";
 
@@ -20,6 +27,7 @@ export interface SearchOptions {
     semester: Semester | "指定なし"
     jikiKubun: JikiKubun | "指定なし"
     courseType: "学部" | "大学院" | "指定なし"
+    language: Language | "指定なし"
     // season: NormalSeasons | undefined;
     // module: Modules | undefined;
     // periods: Periods;
@@ -145,6 +153,11 @@ function matchesCourseType(subject: Subject, searchOptions: SearchOptions): bool
         (searchOptions.courseType === "大学院" && kaikouBukyokuDaigakuins.includes(subject["開講部局"] as KaikouBukyokuDaigakuin));
 }
 
+function matchesLanguage(subject: Subject, searchOptions: SearchOptions): boolean {
+    return searchOptions.language === "指定なし" ||
+        subject["使用言語"] as Language === searchOptions.language;
+}
+
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
 export function matchesSearchOptions(subject: Subject, searchOptions: SearchOptions): boolean {
     return matchesCampus(subject, searchOptions) &&
@@ -156,5 +169,6 @@ export function matchesSearchOptions(subject: Subject, searchOptions: SearchOpti
         matchesKaikouBukyoku(subject, searchOptions) &&
         matchesYoubiKoma(subject, searchOptions) &&
         matchesBookmark(subject, searchOptions) &&
-        matchesCourseType(subject, searchOptions);
+        matchesCourseType(subject, searchOptions) &&
+        matchesLanguage(subject, searchOptions);
 }

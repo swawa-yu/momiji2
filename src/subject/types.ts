@@ -47,6 +47,10 @@ export type KaikouBukyokuGakubu = typeof kaikouBukyokuGakubus[number]
 export type KaikouBukyokuDaigakuin = typeof kaikouBukyokuDaigakuins[number]
 export type KaikouBukyoku = typeof kaikouBukyokus[number]
 
+// tips: コロンは"："だったり" : "だったりするが、ここでは" : "に統一する
+export const languages = ["J : 日本語", "E : 英語", "B : 日本語・英語", "O : その他"] as const
+export type Language = typeof languages[number] | "解析エラー"
+
 export type SubjectProperty =
     "relative URL" |
     "年度" |
@@ -87,7 +91,7 @@ export type Subject2 = {
     "開設期": string,
     "曜日・時限・講義室": string,
     "単位": string,
-    "使用言語": string,
+    "使用言語": Language,
     "教科書・参考書等": string,
     "対象学生": string,
     "授業の目標・概要等": string,

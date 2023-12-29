@@ -23,6 +23,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
         semester: "指定なし",
         jikiKubun: "指定なし",
         courseType: "指定なし",
+        language: "指定なし",
     };
     const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
@@ -73,7 +74,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     value={searchOptions.jikiKubun}
                     onChange={(e) => setSearchOptions({ ...searchOptions, jikiKubun: e.target.value as SearchOptions['jikiKubun'] })}
                 >
-                    {/* export const jikiKubuns = ['１ターム', '２ターム', '３ターム', '４ターム', 'セメスター（前期）', 'セメスター（後期）', 'ターム外（前期）', 'ターム外（後期）', '年度', '通年', '集中'] as const */}
                     <option value="指定なし">指定なし</option>
                     <option value="１ターム">１ターム</option>
                     <option value="２ターム">２ターム</option>
@@ -99,6 +99,19 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                     {kamokuKubuns.map((kamokuKubun, index) => (
                         <option key={index} value={kamokuKubun}>{kamokuKubun}</option>
                     ))}
+                </select>
+
+                <label htmlFor="language-select">使用言語:</label>
+                <select
+                    id="language-select"
+                    value={searchOptions.language}
+                    onChange={(e) => setSearchOptions({ ...searchOptions, language: e.target.value as SearchOptions['language'] })}
+                >
+                    <option value="指定なし">指定なし</option>
+                    <option value="J : 日本語">J : 日本語</option>
+                    <option value="E : 英語">E : 英語</option>
+                    <option value="B : 日本語・英語">B : 日本語・英語</option>
+                    <option value="O : その他">O : その他</option>
                 </select>
 
                 <label htmlFor="course-type-select">学部／大学院:</label>
