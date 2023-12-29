@@ -21,7 +21,7 @@ interface TableViewProps {
 
 function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: TableViewProps) {
 
-    const [isTableRaw, setIsTableRaw] = useState(true);
+    const [isTableRaw, setIsTableRaw] = useState(false);
 
     const defaultMaxNumberOfSubjectsToShow = 100;
     const [maxNumberOfSubjectsToShow, setMaxNumberOfSubjectsToShow] = useState(defaultMaxNumberOfSubjectsToShow);
