@@ -1,15 +1,13 @@
 import { useState } from 'react';
-// import { HtmlHTMLAttributes, useState } from 'react'
 import './App.css'
 
 import {
     initializeSubject,
 } from './subject';
-import SyllabusTable from './table-view/SyllabusTable';
-import SyllabusTableRaw from './table-view/SyllabusTableRaw';
 import SearchComponent from './search/SearchComponent';
 import { SearchOptions } from './search';
 import { initializeYoubiKoma } from './search/KomaSelector';
+import TableView from './table-view/TableView';
 
 function App() {
     initializeSubject();
@@ -28,7 +26,6 @@ function App() {
         courseType: '指定なし',
         language: '指定なし',
     });
-    const [isTableRaw, setIsTableRaw] = useState(true);
 
     const handleSearch = (newSearchOptions: SearchOptions) => {
         setSearchOptions({
@@ -63,12 +60,16 @@ function App() {
             <div>
                 <h1>広島大学シラバス momiji2(非公式)</h1>
                 <h2>注意事項</h2>
-                <li>開発中です。</li>
-                <li>検索漏れがあるかもしれません。</li>
-                <li>シラバス情報は2023年5月に取得したものです。(2023年12月29日現在)</li>
+                <ul>
+                    <li>開発中です。</li>
+                    <li>検索漏れがあるかもしれません。</li>
+                    <li>シラバス情報は2023年5月に取得したものです。(2023年12月29日現在)</li>
+                </ul>
                 <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
-                <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
-                <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
+                <ul>
+                    <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
+                    <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
+                </ul>
             </div>
 
             <br></br>
@@ -76,18 +77,9 @@ function App() {
             <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects}></SearchComponent>
 
             <br></br>
-
-            <div>
-                <button onClick={() => setIsTableRaw(!isTableRaw)}>
-                    {isTableRaw ? "見やすい表に切り替える" : "基本データ表に切り替える"}
-                </button>
-                {isTableRaw ?
-                    <SyllabusTableRaw searchOptions={searchOptions}></SyllabusTableRaw> :
-                    <SyllabusTable searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>}
-            </div>
+            <TableView searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></TableView>
         </>
     )
 }
 
 export default App
-

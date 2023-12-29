@@ -1,1 +1,0 @@
-export const maxNumberOfSubjectsToShow = 500;

@@ -6,26 +6,16 @@ import {
 } from '../subject/types';
 
 import {
-    subjectMap,
     propertyToShowList,
 } from '../subject';
 
-import './SyllabusTable.css';
-import { SearchOptions, filteredSubjectCodeList } from '../search';
-import { maxNumberOfSubjectsToShow } from '../table-view';
+import './SyllabusTableRaw.css';
 
 interface SyllabusTableRaw {
-    searchOptions: SearchOptions;
+    subjectsToShow: Subject[];
 }
 
-function SyllabusTableRaw({ searchOptions }: { searchOptions: SearchOptions }) {
-
-    const data = React.useMemo(() => {
-        return filteredSubjectCodeList(searchOptions)
-            .slice(0, maxNumberOfSubjectsToShow)
-            .map(subjectCode => subjectMap[subjectCode])
-    }, [searchOptions]);
-
+function SyllabusTableRaw({ subjectsToShow: subjectsToShow }: SyllabusTableRaw) {
 
     const columns = React.useMemo(
         () => propertyToShowList.map(columnName => ({
@@ -44,14 +34,11 @@ function SyllabusTableRaw({ searchOptions }: { searchOptions: SearchOptions }) {
         prepareRow,
     } = useTable({
         columns,
-        data,
+        data: subjectsToShow
     });
 
     return (
         <>
-            <div className='table-wrapper'>該当授業数: {filteredSubjectCodeList(searchOptions).length}</div> {/* 行数を表示 */}
-            <div className='table-wrapper'>表示数: {data.length} (/最大表示数: {maxNumberOfSubjectsToShow})</div> {/* 行数を表示 */}
-
             <table {...getTableProps()} className="table-class">
                 {/* ヘッダー */}
                 <thead>
@@ -73,11 +60,14 @@ function SyllabusTableRaw({ searchOptions }: { searchOptions: SearchOptions }) {
                                 {row.cells.map(cell => {
                                     const cellText = cell.value;
                                     const maxCharacters = 50; // 制限する文字数
-                                    const displayedText =
-                                        cellText.length > maxCharacters
-                                            ? cellText.substring(0, maxCharacters) + '...' // 制限を超える場合に...を追加
-                                            : cellText; // 制限以内の場合はそのまま表示
-                                    return <td {...cell.getCellProps()}>{displayedText}</td>;
+
+                                    return (
+                                        <td {...cell.getCellProps()} title={cell.value}>
+                                            {cellText.length > maxCharacters
+                                                ? cellText.substring(0, maxCharacters) + '...' // 制限を超える場合に...を追加
+                                                : cellText}
+                                        </td>
+                                    );
                                 })}
                             </tr>
                         )

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SearchOptions, BookmarkFilter } from '.';
 import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
 import './SearchComponent.css';
-import { kamokuKubuns, kaikouBukyokus } from '../subject/types';
+import { kaikouBukyokus } from '../subject/types';
 
 type SearchComponentProps = {
     onSearch: (newSearchOptions: SearchOptions) => void;
@@ -107,9 +107,25 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
                                 onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
                             >
                                 <option value="">指定なし</option>
-                                {kamokuKubuns.map((kamokuKubun, index) => (
-                                    <option key={index} value={kamokuKubun}>{kamokuKubun}</option>
-                                ))}
+                                {/* export const kamokuKubuns = [
+    "大学教育入門", "展開ゼミ", "平和科目", "外国語科目", "情報・データサイエンス科目", "領域科目", "基盤科目", "社会連携科目", "健康スポーツ科目", "教養教育科目（昼）", "教養教育科目（夜）", "専門教育科目", "教職専門科目", "他学部・他研究科科目", "大学院共通科目", "専門的教育科目"
+] as const */}
+                                <option value="大学教育入門">{"(教養科目)     大学教育入門"}</option>
+                                <option value="展開ゼミ">{"(教養科目)     展開ゼミ"}</option>
+                                <option value="平和科目">{"(教養科目)     平和科目"}</option>
+                                <option value="外国語科目">{"(教養科目)     外国語科目"}</option>
+                                <option value="情報・データサイエンス科目">{"(教養科目)     情報・データサイエンス科目"}</option>
+                                <option value="領域科目">{"(教養科目)     領域科目"}</option>
+                                <option value="基盤科目">{"(教養科目)     基盤科目"}</option>
+                                <option value="社会連携科目">{"(教養科目)     社会連携科目"}</option>
+                                <option value="健康スポーツ科目">{"(教養科目)     健康スポーツ科目"}</option>
+                                <option value="教養教育科目（昼）">{"(教養ゼミ)     教養教育科目（昼）"}</option>
+                                <option value="教養教育科目（夜）">{"(教養ゼミ)     教養教育科目（夜）"}</option>
+                                <option value="専門教育科目">専門教育科目</option>
+                                <option value="教職専門科目">教職専門科目</option>
+                                <option value="他学部・他研究科科目">他学部・他研究科科目</option>
+                                <option value="大学院共通科目">大学院共通科目</option>
+                                <option value="専門的教育科目">専門的教育科目</option>
                             </select>
                         </div>
 

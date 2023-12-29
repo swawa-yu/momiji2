@@ -29,7 +29,7 @@ export type Semester = typeof semesters[number] | "解析エラー";
 export type JikiKubun = typeof jikiKubuns[number] | "解析エラー";
 
 export const kamokuKubuns = [
-    "大学教育入門", "展開ゼミ", "平和科目", "外国語科目", "情報・データサイエンス科目", "領域科目", "基盤科目", "社会連携科目", "健康スポーツ科目", "専門教育科目", "教養教育科目（昼）", "", "教職専門科目", "教養教育科目（夜）", "他学部・他研究科科目", "大学院共通科目", "専門的教育科目"
+    "大学教育入門", "展開ゼミ", "平和科目", "外国語科目", "情報・データサイエンス科目", "領域科目", "基盤科目", "社会連携科目", "健康スポーツ科目", "教養教育科目（昼）", "教養教育科目（夜）", "専門教育科目", "教職専門科目", "他学部・他研究科科目", "大学院共通科目", "専門的教育科目"
 ] as const
 export type KamokuKubun = typeof kamokuKubuns[number]
 
@@ -82,12 +82,12 @@ export type Subject2 = {
     "講義コード": string,
     "科目区分": KamokuKubun,
     "授業科目名": string,
-    "担当教員名": [string],
+    "担当教員名": string[],
     "開講キャンパス": Campus,
     "セメスター": Semester,
     "時期区分": JikiKubun,
     "履修年次": number,
-    "授業時間・講義室": [Schedule],
+    "授業時間・講義室": Schedule[],
     "開設期": string,
     "曜日・時限・講義室": string,
     "単位": string,
@@ -103,3 +103,4 @@ export type Subject2 = {
 
 
 export type SubjectMap = { [subjectCode: string]: Subject }
+export type Subject2Map = { [subjectCode: string]: Subject2 }
