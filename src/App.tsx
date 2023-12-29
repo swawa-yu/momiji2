@@ -62,12 +62,16 @@ function App() {
             <div>
                 <h1>広島大学シラバス momiji2(非公式)</h1>
                 <h2>注意事項</h2>
-                <li>開発中です。</li>
-                <li>検索漏れがあるかもしれません。</li>
-                <li>シラバス情報は2023年5月に取得したものです。(2023年12月29日現在)</li>
+                <ul>
+                    <li>開発中です。</li>
+                    <li>検索漏れがあるかもしれません。</li>
+                    <li>シラバス情報は2023年5月に取得したものです。(2023年12月29日現在)</li>
+                </ul>
                 <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
-                <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
-                <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
+                <ul>
+                    <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
+                    <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
+                </ul>
             </div>
 
             <br></br>
