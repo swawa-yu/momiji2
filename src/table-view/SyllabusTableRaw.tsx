@@ -73,11 +73,14 @@ function SyllabusTableRaw({ searchOptions }: { searchOptions: SearchOptions }) {
                                 {row.cells.map(cell => {
                                     const cellText = cell.value;
                                     const maxCharacters = 50; // 制限する文字数
-                                    const displayedText =
-                                        cellText.length > maxCharacters
-                                            ? cellText.substring(0, maxCharacters) + '...' // 制限を超える場合に...を追加
-                                            : cellText; // 制限以内の場合はそのまま表示
-                                    return <td {...cell.getCellProps()}>{displayedText}</td>;
+
+                                    return (
+                                        <td {...cell.getCellProps()} title={cell.value}>
+                                            {cellText.length > maxCharacters
+                                                ? cellText.substring(0, maxCharacters) + '...' // 制限を超える場合に...を追加
+                                                : cellText}
+                                        </td>
+                                    );
                                 })}
                             </tr>
                         )
