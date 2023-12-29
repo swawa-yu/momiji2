@@ -4,11 +4,10 @@ import './App.css'
 import {
     initializeSubject,
 } from './subject';
-import SyllabusTable from './table-view/SyllabusTable';
-import SyllabusTableRaw from './table-view/SyllabusTableRaw';
 import SearchComponent from './search/SearchComponent';
 import { SearchOptions } from './search';
 import { initializeYoubiKoma } from './search/KomaSelector';
+import TableView from './table-view/TableView';
 
 function App() {
     initializeSubject();
@@ -27,7 +26,6 @@ function App() {
         courseType: '指定なし',
         language: '指定なし',
     });
-    const [isTableRaw, setIsTableRaw] = useState(true);
 
     const handleSearch = (newSearchOptions: SearchOptions) => {
         setSearchOptions({
@@ -79,15 +77,7 @@ function App() {
             <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects}></SearchComponent>
 
             <br></br>
-
-            <div>
-                <button onClick={() => setIsTableRaw(!isTableRaw)}>
-                    {isTableRaw ? "見やすい表に切り替える" : "基本データ表に切り替える"}
-                </button>
-                {isTableRaw ?
-                    <SyllabusTableRaw searchOptions={searchOptions}></SyllabusTableRaw> :
-                    <SyllabusTable searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>}
-            </div>
+            <TableView searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></TableView>
         </>
     )
 }
