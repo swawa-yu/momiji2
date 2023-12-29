@@ -41,17 +41,19 @@ function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: 
     return (
         <div>
             <div className='table-wrapper'>該当授業数: {filteredSubjects.length}</div> {/* 行数を表示 */}
-            <div className='table-wrapper'>表示数: {subjectsToShow.length} (/{<div className='table-wrapper'>
-                <label htmlFor="max-subjects">最大表示数: </label>
-                <input
-                    id="max-subjects"
-                    type="number"
-                    value={maxNumberOfSubjectsToShow}
-                    onChange={handleMaxSubjectsChange}
-                    min="1" // 最小値を設定
-                    max="10000" // 理論上の最大値を設定
-                />
-            </div>})</div> {/* 行数を表示 */}
+            <div className='table-wrapper'>表示数: {subjectsToShow.length} (/{
+                <div className='table-wrapper'>
+                    <label htmlFor="max-subjects">最大表示数: </label>
+                    <input
+                        id="max-subjects"
+                        type="number"
+                        value={maxNumberOfSubjectsToShow}
+                        onChange={handleMaxSubjectsChange}
+                        min="1" // 最小値を設定
+                        max="20000" // 理論上の最大値を設定
+                    />
+                </div>
+            }(※表示数を多くすると処理が重くなります))</div> {/* 行数を表示 */}
             <button onClick={() => setIsTableRaw(!isTableRaw)}>
                 {isTableRaw ? "見やすい表に切り替える" : "基本データ表に切り替える"}
             </button>
