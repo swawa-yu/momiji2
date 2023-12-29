@@ -1,143 +1,25 @@
-/* 境界線は本質ではないのでいずれ消す */
-
-
 .lecture-details {
     display: flex;
     width: 100%;
-    min-width: 1200px;
     margin: 0 auto;
-    border: 1px solid #ccc;
-    /* 全体の境界線 */
-}
-
-/* 最初の行の要素にのみ上側の境界線を追加 */
-.lecture-details>div:first-child {
-    border-top: 1px solid #ccc;
-}
-
-/* 最後の行の要素にのみ下側の境界線を追加 */
-.lecture-details>div:last-child {
     border-bottom: 1px solid #ccc;
 }
 
-/* 隣接する要素間の境界線を追加 */
-.lecture-details>div:not(:last-child) {
-    border-right: 1px solid #ccc;
-}
+.lecture-details>* {
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 20px;
 
-/* 疑似要素を使った縦線のスタイルを削除 */
-/* このセクションは削除されていることを確認してください */
-
-/* 子要素の上側と下側の境界線を削除 */
-.star-button,
-.lecture-code-name,
-.lecture-code,
-.lecture-name,
-.instructor,
-.lecture-details-columns,
-.lecture-details-columns>div,
-.lecture-details-info,
-.lecture-details-info>div {
-    border-top: none;
-    /* 上側の境界線を削除 */
-    border-bottom: none;
-    /* 下側の境界線を削除 */
-}
-
-/* 子要素の左側の境界線を削除 */
-.star-button,
-.lecture-code-name,
-.lecture-code,
-.lecture-name,
-.instructor,
-.lecture-details-columns,
-.lecture-details-columns>div,
-.lecture-details-info,
-.lecture-details-info>div {
-    border: 1px solid #ccc;
-    border-left: none;
-    /* 左側の境界線を削除 */
-}
-
-/* 最初の子要素の左側の境界線を追加 */
-.lecture-details>div:first-child {
-    border-left: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
 
 /* ----------------------------- */
 .star-button {
-    flex: 0.5;
-}
-
-/* ----------------------------- */
-.lecture-code-name {
-    flex: 3;
+    padding: 0px;
     display: flex;
-    flex-direction: column;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-.lecture-code {
+    justify-content: center;
+    align-items: center;
     flex: 1;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-.lecture-name {
-    flex: 3;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-/* ----------------------------- */
-.instructor {
-    flex: 3;
-    padding: 0;
-    /* 内側の余白を削除 */
-    list-style-type: none;
-    /* リストの点を削除 */
-}
-
-.instructor ul {
-    margin: 0;
-    /* 外側の余白を削除 */
-    padding: 0;
-    /* 内側の余白を削除 */
-    list-style-type: none;
-    /* リストの点を削除 */
-}
-
-.instructor ul li {
-    margin-bottom: 5px;
-    /* 各リスト項目の下の余白を設定 */
-}
-
-/* ----------------------------- */
-.lecture-details-columns {
-    flex: 4;
-    display: flex;
-    flex-direction: column;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-.lecture-details-columns>div {
-    flex: 1;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-/* ----------------------------- */
-.lecture-details-info {
-    flex: 9;
-    display: flex;
-    flex-direction: row;
-    font-size: 11px;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-.lecture-details-info>div {
-    flex: 1;
-    /* ここで子要素の境界線が必要な場合は追加する */
-}
-
-.star-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -149,11 +31,60 @@
 
 .star-button:hover {
     color: orange;
-    /* ホバー時の色を調整 */
 }
 
-.star-button {
+/* ----------------------------- */
+.lecture-code-name {
+    flex: 3;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    /* ここで子要素の境界線が必要な場合は追加する */
+}
+
+
+/* ----------------------------- */
+.teacher {
+    flex: 3;
+    list-style-type: none;
+}
+
+.teacher ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.teacher ul li {
+    margin-bottom: 5px;
+}
+
+/* ----------------------------- */
+/* .kaisetsuki-schedule {
+    flex: 4;
+} */
+
+.kaisetsuki {
+    flex: 2;
+    word-break: keep-all;
+    white-space: pre-wrap;
+    /* 改行、空白、タブを保持しつつ、必要に応じて改行 */
+}
+
+.schedule {
+    flex: 4;
+    word-break: keep-all;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    hyphens: none;
+}
+
+/* ----------------------------- */
+.campus-language {
+    flex: 2;
+}
+
+/* ----------------------------- */
+.abstract {
+    flex: 6;
+    font-size: 0.5em;
 }
