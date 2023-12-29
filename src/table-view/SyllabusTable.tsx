@@ -1,10 +1,10 @@
 import SubjectUnitComponent from './SubjectUnitComponent';
 
 import './SyllabusTable.css';
-import { Subject } from '../subject/types';
+import { Subject2 } from '../subject/types';
 
 interface SyllabusTableProps {
-    subjectsToShow: Subject[];
+    subjectsToShow: Subject2[];
     bookmarkedSubjects: Set<string>;
     handleBookmarkToggle: (lectureCode: string) => void;
 }

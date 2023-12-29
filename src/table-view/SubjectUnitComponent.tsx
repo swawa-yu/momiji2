@@ -1,30 +1,18 @@
-// LectureUnit.tsx
 import React from 'react';
-// import {
-//     subjectCodeList,
-//     subjectMap,
-// } from './';
-
 import './SubjectUnitComponent.css'
-// import { parseKaisetsuki, parseSchedule } from '../subject/parser'
-// import { parseSchedule } from '../subject/parser'
-import { Subject } from '../subject/types';
+import { Subject2 } from '../subject/types';
 
 
 type SubjectUnitComponentProps = {
-    subject: Subject;
+    subject: Subject2;
     isBookmarked: boolean;
     onBookmarkToggle: (lectureCode: string) => void;
 };
 
 
 const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject, isBookmarked, onBookmarkToggle }) => {
-    // const schedules = parseSchedule(subject["曜日・時限・講義室"]);
-    // const kaisetsuki = parseKaisetsuki(subject["開設期"]);
-
     return (
         <div className="lecture-details">
-            {/* <div className="star-button">★</div> */}
             <div className="star-button" onClick={() => onBookmarkToggle(subject["講義コード"])}>
                 {isBookmarked ? "★" : "☆"}
             </div>
@@ -39,7 +27,7 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject, is
             {/* 広島大学研究者総覧：https://seeds.office.hiroshima-u.ac.jp/search/result.html?f&p&n=名字+名前&rf&rg&as&cc&mAdvance&lang=ja */}
             <div className="teacher">
                 <ul>
-                    {subject["担当教員名"].split(',').map((teacher, index) => {
+                    {subject["担当教員名"].map((teacher, index) => {
                         const query = encodeURIComponent(teacher.split(' ').join(' '));
                         const researchMapUrl = `https://researchmap.jp/researchers?q=${query}`;
                         return (
@@ -51,12 +39,8 @@ const SubjectUnitComponent: React.FC<SubjectUnitComponentProps> = ({ subject, is
                 </ul>
             </div>
 
-
-
-            {/* <div className="kaisetsuki-schedule"> */}
             <div className='kaisetsuki'>{subject["開設期"]}</div>
             <div className='schedule'>{subject["曜日・時限・講義室"]}</div>
-            {/* </div> */}
 
             <div className='campus-language'>
                 <div className="campus">{subject["開講キャンパス"]}</div>

@@ -82,12 +82,12 @@ export type Subject2 = {
     "講義コード": string,
     "科目区分": KamokuKubun,
     "授業科目名": string,
-    "担当教員名": [string],
+    "担当教員名": string[],
     "開講キャンパス": Campus,
     "セメスター": Semester,
     "時期区分": JikiKubun,
     "履修年次": number,
-    "授業時間・講義室": [Schedule],
+    "授業時間・講義室": Schedule[],
     "開設期": string,
     "曜日・時限・講義室": string,
     "単位": string,
@@ -103,3 +103,4 @@ export type Subject2 = {
 
 
 export type SubjectMap = { [subjectCode: string]: Subject }
+export type Subject2Map = { [subjectCode: string]: Subject2 }
