@@ -10,7 +10,8 @@ type SearchComponentProps = {
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
+// const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
+const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
     const initialSearchOptions: SearchOptions = {
         campus: "指定なし",
         bookmarkFilter: 'all',
@@ -19,7 +20,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
-        bookmarkedSubjects: bookmarkedSubjects,
+        // bookmarkedSubjects: bookmarkedSubjects,
         semester: "指定なし",
         jikiKubun: "指定なし",
         courseType: "指定なし",
@@ -40,6 +41,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedS
     const handleYoubiKomaChange = (newYoubiKoma: YoubiKomaSelected) => {
         setSearchOptions({ ...searchOptions, youbiKoma: newYoubiKoma });
     };
+
 
     return (
         <>

@@ -1,3 +1,6 @@
+
+import { useContext } from 'react';
+import { BookmarkContext } from '../contexts/BookmarkContext';
 import { subjectCodeList, subject2Map } from "../subject";
 import {
     Subject2,
@@ -20,7 +23,7 @@ export interface SearchOptions {
     kamokuKubun: string
     kaikouBukyoku: string
     youbiKoma: YoubiKomaSelected
-    bookmarkedSubjects: Set<string>
+    // bookmarkedSubjects: Set<string>
     semester: Semester | "指定なし"
     jikiKubun: JikiKubun | "指定なし"
     courseType: "学部" | "大学院" | "指定なし"
@@ -30,12 +33,18 @@ export interface SearchOptions {
 }
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-export const filterSubjectCodeList = (searchOptions: SearchOptions) => {
-    const res = subjectCodeList.filter(
-        subjectCode => matchesSearchOptions(subject2Map[subjectCode], searchOptions)
-    );
-    return res
-}
+
+export const useFilterSubjectCodeList = (searchOptions: SearchOptions): string[] => {
+    const { bookmarkedSubjects } = useContext(BookmarkContext);
+
+    const filterSubjectCodeList = () => {
+        return subjectCodeList.filter(subjectCode =>
+            matchesSearchOptions(subject2Map[subjectCode], searchOptions, bookmarkedSubjects)
+        );
+    };
+
+    return filterSubjectCodeList();
+};
 
 
 function matchesCampus(subject: Subject2, searchOptions: SearchOptions): boolean {
@@ -102,10 +111,10 @@ function matchesYoubiKoma(subject: Subject2, searchOptions: SearchOptions): bool
     return matchesYoubiKoma;
 }
 
-function matchesBookmark(subject: Subject2, searchOptions: SearchOptions): boolean {
+function matchesBookmark(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
     return searchOptions.bookmarkFilter === "all" ||
-        searchOptions.bookmarkFilter === "bookmark" && searchOptions.bookmarkedSubjects.has(subject["講義コード"]) ||
-        searchOptions.bookmarkFilter === "except-bookmark" && !searchOptions.bookmarkedSubjects.has(subject["講義コード"]);
+        searchOptions.bookmarkFilter === "bookmark" && bookmarkedSubjects.has(subject["講義コード"]) ||
+        searchOptions.bookmarkFilter === "except-bookmark" && !bookmarkedSubjects.has(subject["講義コード"]);
 }
 
 function matchesSemester(subject: Subject2, searchOptions: SearchOptions): boolean {
@@ -138,7 +147,7 @@ function matchesRishuNenji(subject: Subject2, searchOptions: SearchOptions): boo
 }
 
 // TODO: すべての要素を調べるのは効率が悪いので改善したい
-export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): boolean {
+export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
     return matchesCampus(subject, searchOptions) &&
         matchesSubjectName(subject, searchOptions) &&
         matchesTeacher(subject, searchOptions) &&
@@ -147,7 +156,7 @@ export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOpt
         matchesJikiKubun(subject, searchOptions) &&
         matchesKaikouBukyoku(subject, searchOptions) &&
         matchesYoubiKoma(subject, searchOptions) &&
-        matchesBookmark(subject, searchOptions) &&
+        matchesBookmark(subject, searchOptions, bookmarkedSubjects) &&
         matchesCourseType(subject, searchOptions) &&
         matchesLanguage(subject, searchOptions) &&
         matchesRishuNenji(subject, searchOptions);
