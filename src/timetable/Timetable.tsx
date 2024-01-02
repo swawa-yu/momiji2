@@ -3,6 +3,7 @@ import { BookmarkContext, BookmarkContextType } from '../contexts/BookmarkContex
 import { youbis, komas } from '../search/KomaSelector';
 import './Timetable.css';
 import { subject2Map } from '../subject';
+import { JikiKubun } from '../subject/types';
 
 interface Position {
     top: number;
@@ -25,14 +26,13 @@ const Timetable = () => {
     useEffect(() => {
         console.log("useEffect")
         console.log(tableRef.current)
-        // setTimeout(() => {
         if (tableRef.current && timetableRef.current) {
             const containerRect = timetableRef.current.getBoundingClientRect();
             const positions: { [key: string]: Position } = {};
             const rows = tableRef.current.rows;
             youbis.forEach((youbi, i) => {
                 komas.forEach((koma, j) => {
-                    const cell = rows[j + 1].cells[i + 1];
+                    const cell = rows[j + 1].cells[i + 1];  // 1行目と1列目は見出し
                     const cellRect = cell.getBoundingClientRect();
                     positions[`${youbi}${koma}`] = {
                         top: cellRect.top - containerRect.top,
@@ -44,14 +44,14 @@ const Timetable = () => {
             });
             setCellPositions(positions);
         }
-        // }, 0)
     }, []);
 
     // タームの状態管理
-    const [term, setTerm] = useState(1);
+    // TODO: 型
+    const [term, setTerm] = useState<JikiKubun>("１ターム");
 
     // ターム切り替え関数
-    const switchTerm = (newTerm: number) => {
+    const switchTerm = (newTerm: JikiKubun) => {
         setTerm(newTerm);
     };
 
@@ -66,29 +66,10 @@ const Timetable = () => {
             {isExpanded && (
                 <div className='content'>
                     <div className="term-buttons">
-                        {[1, 2, 3, 4].map(t => (
-                            <button key={t} onClick={() => {
-                                switchTerm(t);
-                                console.log(bookmarkedSubjects);
-
-                                Array.from(bookmarkedSubjects).map(subjectCode => {
-                                    const schedules = subject2Map[subjectCode]["授業時間・講義室"];
-                                    schedules.map(schedule => {
-                                        if (schedule.jigen === undefined) return null; // 集中
-                                        if (schedule.jigen?.komaRange === "解析エラー") return null; // その他
-                                        // TODO: if(schedule.term !== term) return null;
-                                        const position = cellPositions[`${schedule.jigen?.youbi}${schedule.jigen?.komaRange[0]}`];
-                                        if (position) {
-                                            console.log(position.top),
-                                                console.log(position.left),
-                                                console.log(position.width),
-                                                console.log(position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1));
-                                            // その他のスタイリング
-                                        }
-                                    }
-                                    );
-                                });
-                            }}>{t}ターム</button>
+                        {(["１ターム", "２ターム", "３ターム", "４ターム"] as JikiKubun[]).map(t => (
+                            (term === t) ?
+                                <button key={t} onClick={() => { switchTerm(t); }} className='term-selected'>{t}</button> :
+                                <button key={t} onClick={() => { switchTerm(t); }}>{t}</button>
                         ))}
                     </div>
                     <div className="timetable" ref={timetableRef}>
@@ -115,6 +96,9 @@ const Timetable = () => {
                                 </tbody>
                             </table>
                         </div>
+
+                        {/* TODO: 表示しているタームによって、授業は描画したりしなかったりするようにしなければならない */}
+                        {/* TODO: タームにマッチするのを描画するんじゃなくて、各タームのテーブルを用意した上で表示するものを選択するべきかもしれない */}
                         <div className="class-objects">
                             {Array.from(bookmarkedSubjects).map(subjectCode => {
                                 const schedules = subject2Map[subjectCode]["授業時間・講義室"];
@@ -123,7 +107,7 @@ const Timetable = () => {
                                     if (schedule.jigen?.komaRange === "解析エラー") return null; // その他
                                     // TODO: if(schedule.term !== term) return null;
                                     const position = cellPositions[`${schedule.jigen?.youbi}${schedule.jigen?.komaRange[0]}`];
-                                    if (position) {
+                                    if (position && schedule.jikiKubun === term) {
                                         return (
                                             <div
                                                 style={{
@@ -132,8 +116,7 @@ const Timetable = () => {
                                                     left: position.left + 'px',
                                                     width: position.width + 'px',
                                                     height: position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1) + 'px',
-                                                    backgroundColor: 'green',
-                                                    // その他のスタイリング
+                                                    backgroundColor: 'green', // TODO: 適当な色の指定
                                                 }}
                                             >
                                                 {subject2Map[subjectCode]["授業科目名"]}

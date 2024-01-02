@@ -14,18 +14,21 @@
     height: 50px;
 }
 
-.term-buttons button {
-    /* ターム切り替えボタンのスタイリング */
+
+/* より具体的なセレクタを使用 */
+/* TODO: !importantの使用をやめる */
+.term-selected {
+    background-color: #4CAF50 !important;
+    color: white !important;
 }
 
 .class-objects>div {
     position: absolute;
     font-size: 0.5em;
+    border-color: #ccc;
+    border-style: solid;
 }
 
-.concentrated-classes {
-    /* 集中講義のスタイリング */
-}
 
 /* フローティングウィンドウ */
 .expanded {
@@ -53,21 +56,11 @@
     bottom: 10px;
     right: 10px;
     border: 1px solid #ccc;
-    /* background-color: rgba(50, 50, 50, 0.7); */
     opacity: 0.85;
-    /* 追加のスタイリングが必要になるかもしれません */
 }
 
 .timetable-window .toggle-button {
     display: block;
     width: 100%;
     text-align: center;
-    cursor: pointer;
-    /* background-color: #f0f0f0; */
-    border: none;
-    /* その他のスタイルをここに追加 */
 }
-
-/* .content { */
-/* コンテンツエリアのスタイル */
-/* } */
