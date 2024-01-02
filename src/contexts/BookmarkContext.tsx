@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 
 // BookmarkContext の型を定義する
-interface BookmarkContextType {
+export interface BookmarkContextType {
     bookmarkedSubjects: Set<string>;
     handleBookmarkToggle: (lectureCode: string) => void;
 }
