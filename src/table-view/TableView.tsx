@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-import './SyllabusTable.css';
 import SyllabusTableRaw from './SyllabusTableRaw';
-// import SyllabusTable from './SyllabusTable';
 import {
     subjectMap,
     subject2Map,
