@@ -10,6 +10,7 @@ import { initializeYoubiKoma } from './search/KomaSelector';
 import TableView from './table-view/TableView';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import ExportBookmarkButton from './ExportBookmarkButton';
+import Timetable from './timetable/TimeTable';
 
 function App() {
     initializeSubject();
@@ -101,6 +102,9 @@ function App() {
                 <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects}></SearchComponent>
 
                 <TableView searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></TableView>
+
+                <Timetable></Timetable>
+
             </BookmarkProvider>
         </>
     );

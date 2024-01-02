@@ -1,0 +1,73 @@
+.timetable {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* スタイリング */
+}
+
+.timetable table {
+    width: 100%;
+    height: 100%;
+}
+
+.timetable table td {
+    height: 50px;
+}
+
+.term-buttons button {
+    /* ターム切り替えボタンのスタイリング */
+}
+
+.class-objects>div {
+    position: absolute;
+    font-size: 0.5em;
+}
+
+.concentrated-classes {
+    /* 集中講義のスタイリング */
+}
+
+/* フローティングウィンドウ */
+.expanded {
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.collapsed {
+    width: 600px;
+    height: 50px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.timetable-window {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    /* background-color: rgba(50, 50, 50, 0.7); */
+    opacity: 0.85;
+    /* 追加のスタイリングが必要になるかもしれません */
+}
+
+.timetable-window .toggle-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    /* background-color: #f0f0f0; */
+    border: none;
+    /* その他のスタイルをここに追加 */
+}
+
+/* .content { */
+/* コンテンツエリアのスタイル */
+/* } */
