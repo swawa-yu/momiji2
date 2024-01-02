@@ -26,7 +26,7 @@ const ExportBookmarkButton: React.FC<{}> = () => {
 
     return (
         <div className='export-bookmark-button-container'>
-            <button onClick={handleExport}>ブックマークをエクスポート</button>;
+            <button onClick={handleExport}>ブックマークをエクスポート</button>
         </div>
     )
 };
