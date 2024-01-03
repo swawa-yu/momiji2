@@ -74,9 +74,8 @@ function App() {
 
     return (
         <>
-            <ExportBookmarkButton></ExportBookmarkButton>
-
             <BookmarkProvider>
+                <ExportBookmarkButton></ExportBookmarkButton>
                 <div className="theme-switcher">
                     <label>
                         <input type="checkbox" onChange={toggleTheme} checked={theme === 'dark'} />
