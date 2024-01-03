@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { BookmarkContext, BookmarkContextType } from './contexts/BookmarkContext';
 import './ExportBookmarkButton.css'
+import { subject2Map, subjectMap } from './subject';
+import { convertURLtoAbsolute } from './subject/utils';
 
 const downloadCSV = (csvString: string) => {
     const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
@@ -20,7 +22,8 @@ const downloadCSV = (csvString: string) => {
 const ExportBookmarkButton: React.FC<{}> = () => {
     const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
     const handleExport = () => {
-        const csvString = Array.from(bookmarkedSubjects).join('\n');
+        // const csvString = Array.from(bookmarkedSubjects).join('\n');
+        const csvString = "講義コード,授業科目名,URL\n" + Array.from(bookmarkedSubjects).map(subjectCode => `"${subject2Map[subjectCode]["講義コード"]}","${subject2Map[subjectCode]["授業科目名"]}","${convertURLtoAbsolute(subject2Map[subjectCode]["relative URL"])}"`).join('\n');
         downloadCSV(csvString);
     };
 
