@@ -3,6 +3,7 @@ import { useTable, Row, Column } from 'react-table';
 import './ReactTableComponent.css';
 import { Subject2 } from '../subject/types';
 import BookmarkButton from '../BookmarkButton';
+import { convertURLtoAbsolute } from '../subject/utils';
 
 interface ReactTableComponentProps {
     subjectsToShow: Subject2[];
@@ -22,7 +23,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                 Header: '講義コード・授業科目名',
                 Cell: ({ row }: { row: Row<Subject2> }) => (
                     <div className='lecture-code-name'>
-                        <a href={'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + row.original["relative URL"]} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
+                        <a href={convertURLtoAbsolute(row.original["relative URL"])} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
                             {row.original['講義コード']}
                         </a>
                         <br></br>

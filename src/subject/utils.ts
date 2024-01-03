@@ -133,3 +133,8 @@ export function parseSchedule(s: string) {
 // 2年次生 後期 ３ターム	(3T) 木3-4：文B253, (3T) 金5-6：文A152
 // 2年次生 後期 セメスター（後期）	(後) 火5-10,水5-10
 // 3年次生 前期 セメスター（前期）	(前) 月5-8,木5-8,金5-8：工B4-008
+
+
+export function convertURLtoAbsolute(relativeURL: string) {
+    return 'https://momiji.hiroshima-u.ac.jp/syllabusHtml/' + relativeURL
+}
