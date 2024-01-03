@@ -10,7 +10,7 @@ import { initializeYoubiKoma } from './search/KomaSelector';
 import TableView from './table-view/TableView';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import ExportBookmarkButton from './ExportBookmarkButton';
-import Timetable from './timetable/TimeTable';
+import Timetable from './timetable/Timetable';
 
 function App() {
     initializeSubject();
