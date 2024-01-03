@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BookmarkContext, BookmarkContextType } from './contexts/BookmarkContext';
 import './ExportBookmarkButton.css'
-import { subject2Map, subjectMap } from './subject';
+import { subject2Map } from './subject';
 import { convertURLtoAbsolute } from './subject/utils';
 
 const downloadCSV = (csvString: string) => {
