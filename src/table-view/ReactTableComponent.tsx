@@ -37,6 +37,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                     <div className='teacher'>
                         <ul>
                             {row.original["担当教員名"].map((teacher, index) => {
+                                if (teacher === "担当教員未定") { return (<li key={index}>{teacher}</li>) }
                                 const query = encodeURIComponent(teacher.split(' ').join(' '));
                                 const researchMapUrl = `https://researchmap.jp/researchers?q=${query}`;
                                 return (
