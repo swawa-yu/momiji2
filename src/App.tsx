@@ -91,6 +91,12 @@ function App() {
                         <li>検索漏れがあるかもしれません。</li>
                         <li>シラバス情報は2023年5月に取得したものです。(2023年12月29日現在)</li>
                     </ul>
+                    <h2>使い方について</h2>
+                    <ul>
+                        <li>「☆」はブックマークボタンで、押すと右下の時間割表に授業が追加されます。（集中は除く）</li>
+                        <li>講義コードのリンク（新しいタブで開きます）を踏むと、公式のシラバスに飛びます。</li>
+                        <li>担当教員名のリンク（新しいタブで開きます）を踏むと、research mapに飛びます。</li>
+                    </ul>
                     <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
                     <ul>
                         <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
