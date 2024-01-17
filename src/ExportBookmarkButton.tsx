@@ -5,13 +5,18 @@ import { subject2Map } from './subject';
 import { convertURLtoAbsolute } from './subject/utils';
 
 const downloadCSV = (csvString: string) => {
-    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    const BOM = "\uFEFF"; // UTF-8のBOM
+    const blob = new Blob([BOM + csvString], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
+
+    // 現在の日付をyyyy-mm-dd形式で取得
+    const date = new Date();
+    const formattedDate = date.toISOString().slice(0, 10); // ISO文字列からyyyy-mm-dd部分のみを取得
 
     // ダウンロードリンクの作成
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'bookmark.csv';
+    link.download = `hirodai-subject-bookmark-${formattedDate}.csv`; // ファイル名に日付を組み込む
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
