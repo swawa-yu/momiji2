@@ -123,6 +123,25 @@ const Timetable = () => {
                                             </div>
                                         );
                                     }
+                                    if (position && (
+                                        schedule.jikiKubun === "セメスター（前期）" && (term === "１ターム" || "２ターム") ||
+                                        schedule.jikiKubun === "セメスター（後期）" && (term === "３ターム" || "４ターム")
+                                    )) {
+                                        return (
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: position.top + 'px',
+                                                    left: position.left + 'px',
+                                                    width: position.width + 'px',
+                                                    height: position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1) + 'px',
+                                                    backgroundColor: 'rgba(20, 200, 20, 0.5)', // TODO: 適当な色の設定
+                                                }}
+                                            >
+                                                {subject2Map[subjectCode]["授業科目名"]}
+                                            </div>
+                                        );
+                                    }
                                     return null;
                                 });
                             })}
