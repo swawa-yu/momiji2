@@ -100,7 +100,10 @@ function App() {
                     </ul>
                     <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
                     <ul>
-                        <li>GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)</li>
+                        <li>
+                            GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a>
+                            (リポジトリ<i className="fab fa-github"></i>：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)
+                        </li>
                         <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li>
                     </ul>
                 </div>
