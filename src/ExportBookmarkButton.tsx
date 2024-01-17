@@ -22,7 +22,6 @@ const downloadCSV = (csvString: string) => {
 const ExportBookmarkButton: React.FC<{}> = () => {
     const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
     const handleExport = () => {
-        // const csvString = Array.from(bookmarkedSubjects).join('\n');
         const csvString = "講義コード,授業科目名,URL\n" +
             Array.from(bookmarkedSubjects).map(subjectCode =>
                 `"${subject2Map[subjectCode]["講義コード"]}","${subject2Map[subjectCode]["授業科目名"]}","${convertURLtoAbsolute(subject2Map[subjectCode]["relative URL"])}"`
