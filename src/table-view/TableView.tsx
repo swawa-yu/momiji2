@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-import './SyllabusTable.css';
 import SyllabusTableRaw from './SyllabusTableRaw';
-import SyllabusTable from './SyllabusTable';
 import {
     subjectMap,
     subject2Map,
 } from '../subject';
 
-import { SearchOptions, filterSubjectCodeList } from '../search';
+import { SearchOptions, useFilterSubjectCodeList } from '../search';
+import ReactTableComponent from './ReactTableComponent';
 
 interface TableViewProps {
     searchOptions: SearchOptions;
@@ -28,10 +27,11 @@ function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: 
         setMaxNumberOfSubjectsToShow(isNaN(value) ? 100 : value);
     };
 
-    const filteredSubjectCodeList = React.useMemo(() => filterSubjectCodeList(searchOptions), [searchOptions]);
+    // const filteredSubjectCodeList = React.useMemo(() => filterSubjectCodeList(searchOptions), [searchOptions]);
+    const filteredSubjectCodes = useFilterSubjectCodeList(searchOptions);
 
-    const filteredSubjects = React.useMemo(() => { return filteredSubjectCodeList.map(subjectCode => subjectMap[subjectCode]) }, [searchOptions]);
-    const filteredSubjects2 = React.useMemo(() => { return filteredSubjectCodeList.map(subjectCode => subject2Map[subjectCode]) }, [searchOptions]);
+    const filteredSubjects = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subjectMap[subjectCode]) }, [searchOptions]);
+    const filteredSubjects2 = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subject2Map[subjectCode]) }, [searchOptions]);
 
     const subjectsToShow = React.useMemo(() => { return filteredSubjects.slice(0, maxNumberOfSubjectsToShow); }, [filteredSubjects, maxNumberOfSubjectsToShow]);
     const subjects2ToShow = React.useMemo(() => { return filteredSubjects2.slice(0, maxNumberOfSubjectsToShow); }, [filteredSubjects2, maxNumberOfSubjectsToShow]);
@@ -57,7 +57,8 @@ function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: 
             </button>
             {isTableRaw ?
                 <SyllabusTableRaw subjectsToShow={subjectsToShow} ></SyllabusTableRaw> :
-                <SyllabusTable subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>}
+                <ReactTableComponent subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></ReactTableComponent>}
+            {/* <SyllabusTable subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>} */}
         </div>
     );
 }

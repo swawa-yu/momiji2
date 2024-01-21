@@ -43,3 +43,13 @@
 .read-the-docs {
     color: #888;
 }
+
+.theme-switcher {
+    position: absolute;
+    top: 60px;
+    /* 上端からの距離 */
+    right: 10px;
+    /* 右端からの距離 */
+    z-index: 10;
+    /* 必要に応じて調整 */
+}

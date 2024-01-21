@@ -3,7 +3,7 @@ import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } f
 
 // 全授業の主要情報の辞書
 import subjectData from '../../data/subject-maininfo.json'
-import { parseKaisetsuki, parseSchedule } from './parser';
+import { parseKaisetsuki, parseSchedule } from './utils';
 
 
 export const subjectMap: SubjectMap = {};

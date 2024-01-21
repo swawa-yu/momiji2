@@ -105,7 +105,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
         <div className='koma-selector'>
             <button onClick={() => toggleAll(true)}>全て選択</button>
             <button onClick={() => toggleAll(false)}>全て解除</button>
-            < table >
+            <table>
                 <thead>
                     <tr>
                         <th></th> {/* 左上の空白セル */}
@@ -130,7 +130,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                         </tr>
                     ))}
                 </tbody>
-            </table >
+            </table>
             <label>
                 集中
                 <input

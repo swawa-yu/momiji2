@@ -1,0 +1,66 @@
+.timetable {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* スタイリング */
+}
+
+.timetable table {
+    width: 100%;
+    height: 100%;
+}
+
+.timetable table td {
+    height: 50px;
+}
+
+
+/* より具体的なセレクタを使用 */
+/* TODO: !importantの使用をやめる */
+.term-selected {
+    background-color: #4CAF50 !important;
+    color: white !important;
+}
+
+.class-objects>div {
+    position: absolute;
+    font-size: 0.5em;
+    border-color: #ccc;
+    border-style: solid;
+}
+
+
+/* フローティングウィンドウ */
+.expanded {
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.collapsed {
+    width: 600px;
+    height: 50px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.timetable-window {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    opacity: 0.85;
+}
+
+.timetable-window .toggle-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,10 @@
+/* App.css */
+.export-bookmark-button-container {
+    position: absolute;
+    top: 10px;
+    /* 上端からの距離 */
+    right: 10px;
+    /* 右端からの距離 */
+    z-index: 10;
+    /* 必要に応じて調整 */
+}

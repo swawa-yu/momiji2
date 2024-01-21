@@ -1,17 +1,32 @@
-.lecture-details {
-    display: flex;
+/* .syllabus-table table {
+    table-layout: fixed;
     width: 100%;
-    margin: 0 auto;
-    border-bottom: 1px solid #ccc;
+} */
+
+.syllabus-table td {
+    vertical-align: top;
+    font-size: 0.8em;
+    /* padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 20px; */
 }
 
+.syllabus-table th {
+    word-break: keep-all;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+/* .lecture-details {
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+} */
+/* 
 .lecture-details>* {
     padding-bottom: 10px;
     padding-left: 5px;
     padding-right: 20px;
-
-    /* border: 1px solid #ccc; */
-}
+} */
 
 /* ----------------------------- */
 .star-button {
@@ -19,14 +34,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-size: 1.5em;
-    /* フォントサイズを調整 */
     color: gold;
-    /* 星の色を調整 */
+    caret-color: transparent;
 }
 
 .star-button:hover {
@@ -35,17 +48,16 @@
 
 /* ----------------------------- */
 .lecture-code-name {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    /* ここで子要素の境界線が必要な場合は追加する */
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 
 /* ----------------------------- */
 .teacher {
-    flex: 3;
     list-style-type: none;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .teacher ul {
@@ -59,19 +71,14 @@
 }
 
 /* ----------------------------- */
-/* .kaisetsuki-schedule {
-    flex: 4;
-} */
 
 .kaisetsuki {
-    flex: 2;
     word-break: keep-all;
     white-space: pre-wrap;
     /* 改行、空白、タブを保持しつつ、必要に応じて改行 */
 }
 
 .schedule {
-    flex: 4;
     word-break: keep-all;
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -79,12 +86,14 @@
 }
 
 /* ----------------------------- */
-.campus-language {
-    flex: 2;
-}
+/* .campus-language { */
+/* flex: 2; */
+/* } */
 
 /* ----------------------------- */
 .abstract {
-    flex: 6;
-    font-size: 0.5em;
+    /* flex: 6; */
+    font-size: 0.4em;
+    word-wrap: break-word;
+    white-space: normal;
 }
