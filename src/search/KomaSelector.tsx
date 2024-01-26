@@ -26,9 +26,6 @@ type KomaSelectorProps = {
     onScheduleChange: (schedule: YoubiKomaSelected) => void; // TODO: 命名
 };
 
-// const youbis: Youbi[] = ["月", "火", "水", "木", "金"];
-// const komas: Koma[] = [1, 2, 3, 4, 5];
-
 export const extractYoubiAndKoma = (youbiKoma: YoubiKoma) => {
     const result: { youbi: Youbi, koma: Koma }[] = [];
 
