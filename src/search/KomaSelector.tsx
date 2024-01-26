@@ -22,6 +22,16 @@ export const youbiKomaKeys: YoubiKoma[] = [
     "その他"
 ];
 
+export const komaTime: { [key in Koma]: { start: string, end: string } } = {
+    1: { start: "08:45", end: "10:15" },
+    2: { start: "10:30", end: "12:00" },
+    3: { start: "12:50", end: "14:20" },
+    4: { start: "14:35", end: "16:05" },
+    5: { start: "16:20", end: "17:50" },
+    6: { start: "18:00", end: "19:30" },
+    7: { start: "19:40", end: "21:10" },
+}
+
 // export type YoubiKoma = { [key in `${Youbi}${Koma}` | "集中" | "その他"]?: boolean };
 type KomaSelectorProps = {
     onScheduleChange: (schedule: YoubiKomaSelected) => void; // TODO: 命名
@@ -120,7 +130,14 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                     {komas.map(koma => (
                         <tr key={koma}>
                             {/* コマのラベル */}
-                            <td><button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>{koma}コマ</button></td>
+                            <td>
+                                <button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>
+                                    {koma}コマ
+                                    <br />
+                                    {komaTime[koma].start}-{komaTime[koma].end}
+                                </button>
+
+                            </td>
 
                             {/* 現在の行(コマ)における各曜日のチェックボックス */}
                             {youbis.map(youbi => (
