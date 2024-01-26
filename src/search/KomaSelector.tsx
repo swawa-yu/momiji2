@@ -61,10 +61,7 @@ export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected =>
 };
 
 const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
-    // 初期状態で全ての曜日とコマをtrueに設定    // 曜日とコマの配列
-    const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
-    const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
-
+    // 初期状態で全ての曜日とコマをtrueに設定
     const [youbiKoma, setYoubiKoma] = useState<YoubiKomaSelected>(initializeYoubiKoma(true));
 
 
