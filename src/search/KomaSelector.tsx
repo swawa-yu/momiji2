@@ -68,20 +68,10 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
     const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
     const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
 
-    // 初期スケジュールを設定
-    const initialSchedule: YoubiKomaSelected = initializeYoubiKoma(true);
-
-    const [youbiKoma, setYoubiKoma] = useState<YoubiKomaSelected>(initialSchedule);
-    youbis.forEach(youbi => {
-        komas.forEach(koma => {
-            initialSchedule[`${youbi}${koma}`] = true;
-        });
-    });
-    initialSchedule["集中"] = true;
-    initialSchedule["その他"] = true;
+    const [youbiKoma, setYoubiKoma] = useState<YoubiKomaSelected>(initializeYoubiKoma(true));
 
 
-    const handleCheckboxChange = (key: YoubiKoma, checked: boolean) => {
+    const handleYoubiKomaCheckboxChange = (key: YoubiKoma, checked: boolean) => {
         const newSchedule = { ...youbiKoma, [key]: checked };
         setYoubiKoma(newSchedule);
         onScheduleChange(newSchedule);
@@ -123,7 +113,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                                     <input
                                         type="checkbox"
                                         checked={youbiKoma[`${youbi}${koma}`] ?? true}
-                                        onChange={(e) => handleCheckboxChange(`${youbi}${koma}` as YoubiKoma, e.target.checked)}
+                                        onChange={(e) => handleYoubiKomaCheckboxChange(`${youbi}${koma}` as YoubiKoma, e.target.checked)}
                                     />
                                 </td>
                             ))}
@@ -136,7 +126,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                 <input
                     type="checkbox"
                     checked={youbiKoma["集中"] ?? true}
-                    onChange={(e) => handleCheckboxChange("集中", e.target.checked)}
+                    onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
                 />
             </label>
             <label>
@@ -144,7 +134,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                 <input
                     type="checkbox"
                     checked={youbiKoma["その他"] ?? true}
-                    onChange={(e) => handleCheckboxChange("その他", e.target.checked)}
+                    onChange={(e) => handleYoubiKomaCheckboxChange("その他", e.target.checked)}
                 />
             </label>
         </div>
