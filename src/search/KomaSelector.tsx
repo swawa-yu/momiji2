@@ -71,6 +71,14 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
         onScheduleChange(newSchedule);
     };
 
+    const toggleYoubi = (youbi: Youbi, checked: boolean) => {
+        const newSchedule = { ...youbiKoma };
+        komas.forEach(koma => {
+            newSchedule[`${youbi}${koma}`] = checked;
+        });
+        setYoubiKoma(newSchedule);
+        onScheduleChange(newSchedule);
+    }
 
     const toggleAll = (checked: boolean) => {
         const newSchedule = { ...youbiKoma };
@@ -94,7 +102,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                     <tr>
                         <th></th> {/* 左上の空白セル */}
                         {youbis.map(youbi => (
-                            <th key={youbi}>{youbi}</th>
+                            <th key={youbi}><button onClick={() => toggleYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>{youbi}</button></th>
                         ))}
                     </tr>
                 </thead>
