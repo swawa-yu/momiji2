@@ -71,54 +71,54 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
         onScheduleChange(newSchedule);
     };
 
-    const toggleYoubi = (youbi: Youbi, checked: boolean) => {
+    const setAllYoubi = (youbi: Youbi, newCheckState: boolean) => {
         const newSchedule = { ...youbiKoma };
         komas.forEach(koma => {
-            newSchedule[`${youbi}${koma}`] = checked;
+            newSchedule[`${youbi}${koma}`] = newCheckState;
         });
         setYoubiKoma(newSchedule);
         onScheduleChange(newSchedule);
     }
 
-    const toggleKoma = (koma: Koma, checked: boolean) => {
+    const setAllKoma = (koma: Koma, newCheckState: boolean) => {
         const newSchedule = { ...youbiKoma };
         youbis.forEach(youbi => {
-            newSchedule[`${youbi}${koma}`] = checked;
+            newSchedule[`${youbi}${koma}`] = newCheckState;
         });
         setYoubiKoma(newSchedule);
         onScheduleChange(newSchedule);
     }
 
-    const toggleAll = (checked: boolean) => {
+    const setAllYoubiKoma = (newCheckState: boolean) => {
         const newSchedule = { ...youbiKoma };
         youbis.forEach(youbi => {
             komas.forEach(koma => {
-                newSchedule[`${youbi}${koma}`] = checked;
+                newSchedule[`${youbi}${koma}`] = newCheckState;
             });
         });
-        newSchedule["集中"] = checked;
-        newSchedule["その他"] = checked;
+        newSchedule["集中"] = newCheckState;
+        newSchedule["その他"] = newCheckState;
         setYoubiKoma(newSchedule);
         onScheduleChange(newSchedule);
     };
 
     return (
         <div className='koma-selector'>
-            <button onClick={() => toggleAll(true)}>全て選択</button>
-            <button onClick={() => toggleAll(false)}>全て解除</button>
+            <button onClick={() => setAllYoubiKoma(true)}>全て選択</button>
+            <button onClick={() => setAllYoubiKoma(false)}>全て解除</button>
             <table>
                 <thead>
                     <tr>
                         <th></th> {/* 左上の空白セル */}
                         {youbis.map(youbi => (
-                            <th key={youbi}><button onClick={() => toggleYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>{youbi}</button></th>
+                            <th key={youbi}><button onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>{youbi}</button></th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
                     {komas.map(koma => (
                         <tr key={koma}>
-                            <td><button onClick={() => toggleKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>{koma}コマ</button></td> {/* コマのラベル */}
+                            <td><button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>{koma}コマ</button></td> {/* コマのラベル */}
                             {youbis.map(youbi => (
                                 <td key={youbi}>
                                     <input
