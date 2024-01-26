@@ -118,7 +118,10 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                 <tbody>
                     {komas.map(koma => (
                         <tr key={koma}>
-                            <td><button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>{koma}コマ</button></td> {/* コマのラベル */}
+                            {/* コマのラベル */}
+                            <td><button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>{koma}コマ</button></td>
+
+                            {/* 現在の行(コマ)における各曜日のチェックボックス */}
                             {youbis.map(youbi => (
                                 <td key={youbi}>
                                     <input
