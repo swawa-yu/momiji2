@@ -10,8 +10,74 @@
     -webkit-text-size-adjust: 100%;
 }
 
+
+/* ライトモード／ダークモード用の変数 */
+body.light {
+    --main-color: #213547;
+    --main-color-rgb: 33, 53, 71;
+    /* ライトモードのメインカラー */
+    --main-bg-color: #ffffff;
+    --link-color: #4a90e2;
+    --link-hover-color: #747bff;
+    --table-bg-color: #f9f9f9;
+    --table-head-bg-color: #e0e0e0;
+    --button-bg-color: #f9f9f9;
+    --button-hover-bg-color: #e0e0e0;
+    --button-border-color: #4a90e2;
+}
+
+body.dark {
+    --main-color: #E0E0E0;
+    --main-color-rgb:232, 232, 232;
+    /* ダークモードのメインカラー */
+    --main-bg-color: #282c34;
+    --link-color: #4a90e2;
+    --link-hover-color: #68a0f8;
+    --table-bg-color: #333846;
+    --table-head-bg-color: #4E5257;
+    --button-bg-color: #333333;
+    --button-hover-bg-color: #4a4a4a;
+    /* --button-border-color: #4a90e2; */
+}
+
+
+/* スタイル定義 */
+body {
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
+    color: var(--main-color);
+    background-color: var(--main-bg-color);
+}
+
+
+p {
+    text-align: left;
+}
+
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+
+a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+
 table {
     border-collapse: collapse;
+    background-color: var(--table-bg-color);
+    color: var(--main-color);
 }
 
 table th,
@@ -19,107 +85,34 @@ table td {
     border: solid 1px #555;
 }
 
-p {
-    text-align: left;
+table thead {
+    background-color: var(--table-head-bg-color);
 }
 
-a {
-    font-weight: 500;
-    text-decoration: none;
-}
 
 button {
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1px solid rgba(var(--main-color-rgb), 0.5);
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
     transition: border-color 0.25s;
+    background-color: var(--button-bg-color);
+    color: var(--main-color);
+    box-shadow: none;
+    /* border-color: var(--button-border-color); */
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+    /* border-color: var(--button-border-color); */
 }
 
 button:focus,
 button:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px #4a90e2;
-}
-
-body {
-    margin: 0;
-    display: flex;
-    min-width: 320px;
-    min-height: 100vh;
-}
-
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-}
-
-/* ライトモードスタイル */
-.light {
-    color: #213547;
-    background-color: #ffffff;
-
-    a {
-        color: #4a90e2;
-    }
-
-    a:hover {
-        color: #747bff;
-    }
-
-    table {
-        background-color: #f9f9f9;
-        color: #213547;
-    }
-
-    table thead {
-        background-color: #e0e0e0;
-    }
-
-    button {
-        background-color: #f9f9f9;
-        color: #213547;
-    }
-
-    button:hover {
-        background-color: #e0e0e0;
-        border-color: #4a90e2;
-    }
-}
-
-/* ダークモードスタイル */
-.dark {
-    color: #E0E0E0;
-    background-color: #282c34;
-
-    a {
-        color: #4a90e2;
-    }
-
-    a:hover {
-        color: #68a0f8;
-    }
-
-    table {
-        background-color: #333846;
-        color: #E0E0E0;
-    }
-
-    table thead {
-        background-color: #4E5257;
-    }
-
-    button {
-        background-color: #333333;
-        color: #E0E0E0;
-        border-color: #E0E0E0;
-    }
-
-    button:hover {
-        background-color: #4a4a4a;
-        border-color: #4a90e2;
-    }
+    box-shadow: none;
+    /* box-shadow: 0 0 0 2px #4a90e2; */
 }
