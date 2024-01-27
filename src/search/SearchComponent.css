@@ -28,3 +28,15 @@
     max-width: 200px;
     /* セレクトメニューの最大幅を設定 */
 }
+
+.search-component button {
+    padding: 4px;
+    margin: 2px;
+}
+
+.komatime {
+    font-size:x-small;
+    color: rgba(var(--main-color-rgb), 0.5);
+    /* color: rgba(var(--main-bg-color), 0.1) */
+    /* color:aqua */
+}

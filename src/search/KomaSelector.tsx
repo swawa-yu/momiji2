@@ -134,7 +134,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                                 <button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>
                                     {koma}コマ
                                     <br />
-                                    {komaTime[koma].start}-{komaTime[koma].end}
+                                    <div className="komatime">{komaTime[koma].start}-{komaTime[koma].end}</div>
                                 </button>
 
                             </td>
