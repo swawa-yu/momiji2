@@ -1,4 +1,4 @@
 .koma-selector {
     /* 外枠の線を描画 */
-    border: 1px solid #ccc;
+    border: 1px solid var(--main-color);
 }
