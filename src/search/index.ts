@@ -58,7 +58,7 @@ function matchesSubjectName(subject: Subject2, searchOptions: SearchOptions): bo
 }
 
 function matchesTeacher(subject: Subject2, searchOptions: SearchOptions): boolean {
-    return searchOptions.teacher === "" || subject["担当教員名"].includes(searchOptions.teacher);
+    return searchOptions.teacher === "" || subject["担当教員名"].some(teacher => teacher.includes(searchOptions.teacher));
 }
 
 function matchesKamokuKubun(subject: Subject2, searchOptions: SearchOptions): boolean {
