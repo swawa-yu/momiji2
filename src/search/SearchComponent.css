@@ -40,3 +40,8 @@
     /* color: rgba(var(--main-bg-color), 0.1) */
     /* color:aqua */
 }
+
+.do-search button{
+    background-color: var(--momiji-color);
+    color: #ffffff
+}

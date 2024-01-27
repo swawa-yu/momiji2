@@ -24,6 +24,8 @@ body.light {
     --button-bg-color: #f9f9f9;
     --button-hover-bg-color: #e0e0e0;
     --button-border-color: #4a90e2;
+
+    --momiji-color: rgb(250, 87, 46);
 }
 
 body.dark {
@@ -38,6 +40,8 @@ body.dark {
     --button-bg-color: #333333;
     --button-hover-bg-color: #4a4a4a;
     /* --button-border-color: #4a90e2; */
+
+    --momiji-color: rgb(200, 84, 55);
 }
 
 
