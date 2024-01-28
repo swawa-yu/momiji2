@@ -253,7 +253,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                             </select>
                         </div>
                     </div>
-                    <KomaSelector onScheduleChange={handleYoubiKomaChange} />
+                    <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                 </div>
                 <div className='do-search'>
                     <button onClick={handleSearch}>検索</button>

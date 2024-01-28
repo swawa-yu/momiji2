@@ -29,7 +29,7 @@ export const komaTime: { [key in Koma]: { start: string, end: string } } = {
 
 
 type KomaSelectorProps = {
-    onScheduleChange: (schedule: YoubiKomaSelected) => void; // TODO: 命名
+    onSelectionChange: (youbiKomaSelected: YoubiKomaSelected) => void; // TODO: 命名　scheduleというのは他の使い方もしているので紛らわしい
 };
 
 
@@ -49,7 +49,7 @@ export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected =>
     return youbiKoma;
 };
 
-const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
+const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onScheduleChange }) => {
     // 初期状態で全ての曜日とコマをtrueに設定
     const [youbiKoma, setYoubiKoma] = useState<YoubiKomaSelected>(initializeYoubiKoma(true));
 
