@@ -161,14 +161,17 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                     onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
                 />
             </label>
-            <label>
+            {/* TODO: その他」に該当する授業は2023年4月のデータでは存在しないので、消すことにする。
+            が、「その他」が存在しないことを保証しなければならない。
+             */}
+            {/* <label>
                 その他
                 <input
                     type="checkbox"
                     checked={youbiKoma["その他"] ?? true}
                     onChange={(e) => handleYoubiKomaCheckboxChange("その他", e.target.checked)}
                 />
-            </label>
+            </label> */}
         </div>
     );
 };
