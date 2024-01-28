@@ -20,7 +20,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
         kamokuKubun: '',
         kaikouBukyoku: '',
         youbiKoma: initializeYoubiKoma(true),
-        // bookmarkedSubjects: bookmarkedSubjects,
         semester: "指定なし",
         jikiKubun: "指定なし",
         courseType: "学部",
