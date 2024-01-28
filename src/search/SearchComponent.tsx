@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SearchOptions, BookmarkFilter } from '.';
 import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
 import './SearchComponent.css';
-import { kaikouBukyokus } from '../subject/types';
+import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../subject/types';
 
 type SearchComponentProps = {
     onSearch: (newSearchOptions: SearchOptions) => void;
@@ -170,9 +170,23 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                                 onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
                             >
                                 <option value="">指定なし</option>
-                                {kaikouBukyokus.map((kaikouBukyoku, index) => (
-                                    <option key={index} value={kaikouBukyoku}>{kaikouBukyoku}</option>
-                                ))}
+                                {/* 表示するメニューをsearchOptions.courseTypeによってメニューに合わせる */}
+                                {(() => {
+                                    const KaikouBukyokusToDisplay = (() => {
+                                        switch (searchOptions.courseType) {
+                                            case "学部":
+                                                return kaikouBukyokuGakubus;
+                                            case "大学院":
+                                                return kaikouBukyokuDaigakuins;
+                                            default:
+                                                return kaikouBukyokus;
+                                        }
+                                    })()
+
+                                    return KaikouBukyokusToDisplay.map((kaikouBukyoku) => (
+                                        <option key={kaikouBukyoku} value={kaikouBukyoku}>{kaikouBukyoku}</option>
+                                    ));
+                                })()}
                             </select>
                         </div>
 
