@@ -29,8 +29,8 @@ export function parseKaisetsuki(s: string): Kaisetsuki {
 
     return {
         rishuNenji: parseInt(splitted[0][0]),
-        semester: semesters.some((v) => v === (splitted[1])) ? splitted[1] as Kaisetsuki['semester'] : "解析エラー",
-        jikiKubun: jikiKubuns.some((v) => v === (splitted[2])) ? splitted[2] as Kaisetsuki['jikiKubun'] : "解析エラー"
+        semester: semesters.some((v) => v === (splitted[1])) ? splitted[1] as Kaisetsuki['semester'] : undefined,
+        jikiKubun: jikiKubuns.some((v) => v === (splitted[2])) ? splitted[2] as Kaisetsuki['jikiKubun'] : undefined
     };
 
 }
@@ -92,7 +92,7 @@ export function parseSchedule(s: string) {
             const splittedByColon = splittedBySpace[1].split('：');
 
             // 時期区分の部分が変換用辞書の中にない場合は解析エラー // TODO: 専用のエラーを投げることができたらうれしい
-            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]] ? jikiKubunMap[splittedBySpace[0]] : "解析エラー";
+            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]] ? jikiKubunMap[splittedBySpace[0]] : undefined;
 
             const rooms = splittedByColon[1] ? splittedByColon[1].split(',') : [];
 
@@ -109,8 +109,14 @@ export function parseSchedule(s: string) {
 
                     const jigen: Schedule["jigen"] = {
                         youbi: jigenString[0] as Jigen['youbi'],
-                        jigenRange: [jigenNums[0], jigenNums[jigenNums.length - 1]] as Jigen['jigenRange'],
-                        komaRange: [(jigenNums[0] + 1) / 2 | 0, (jigenNums[jigenNums.length - 1] + 1) / 2 | 0] as Jigen['komaRange']
+                        jigenRange: {
+                            begin: jigenNums[0],
+                            last: jigenNums[jigenNums.length - 1]
+                        },
+                        komaRange: {
+                            begin: (jigenNums[0] + 1) / 2 | 0,
+                            last: (jigenNums[jigenNums.length - 1] + 1) / 2 | 0
+                        }
                     }
 
                     schedules.push({ jikiKubun: jikiKubun, jigen: jigen, rooms: rooms })
@@ -119,7 +125,7 @@ export function parseSchedule(s: string) {
         })
         return schedules;
     } catch (e: unknown) {
-        schedules.push({ jikiKubun: "解析エラー", jigen: { youbi: "解析エラー", jigenRange: "解析エラー", komaRange: "解析エラー" }, rooms: ["解析エラー"] })
+        schedules.push({ jikiKubun: undefined, jigen: { youbi: undefined, jigenRange: undefined, komaRange: undefined }, rooms: ["解析エラー"] }) // TODO: roomsの扱い
         return schedules;
     }
 }

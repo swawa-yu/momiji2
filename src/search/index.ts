@@ -85,40 +85,36 @@ function matchesKaikouBukyoku(subject: Subject2, searchOptions: SearchOptions): 
 }
 
 // searchOptions.youbiKomaのすべての要素について、チェックが入っている場合、次の判定をする
-// 曜日が一致しかつコマが範囲内にあるかどうかを調べ、あればtrueを返す
-// 集中の場合は集中であればtrueを返す
-// その他の場合は、解析エラーか、月〜金の1~5コマでなくかつ集中でなければtrueを返す
+// 曜日が一致し、かつコマが範囲内にあるかどうかを調べ、あればtrueを返す
+// 集中にチェックがある場合は集中であればtrueを返す
+// その他にチェックがある場合は、「解析エラー or 月〜土の1~7コマでなくかつ集中でない」であればtrueを返す(そんな科目があるのかは不明だが、表示されない科目があると困るので)
+//   (2024-01-28: その他に該当する科目は現在ないので、この部分のロジックは意味ないです。)
 // 集中講義かどうかの判定は？(時期区分が集中でなくとも、schedule.jigenがundefinedのことがある。...「(3T) 集中：担当教員の指定による」みたいなパターン)
+//   時期区分だけでなく、曜日の集中も集中講義判定とする
 function matchesYoubiKoma(subject: Subject2, searchOptions: SearchOptions): boolean {
     const schedules = subject["授業時間・講義室"];
 
-    // searchOptions.youbiKomaのすべての要素について、チェックが入っている場合、次の判定をする
-    // 曜日が一致しかつコマが範囲内にあるかどうかを調べ、あればtrueを返す
-    // 集中の場合は集中であればtrueを返す
-    // その他の場合は、解析エラーか、月〜金の1~5コマでなくかつ集中でなければtrueを返す
-    // 集中講義かどうかの判定は？(時期区分が集中でなくとも、schedule.jigenがundefinedのことがある。...「(3T) 集中：担当教員の指定による」みたいなパターン)
-    //   時期区分だけでなく、曜日の集中も集中講義判定とする
     const matchesYoubiKoma =
         youbis.some(youbi => {
             return komas.some(koma => {
                 return searchOptions.youbiKoma[`${youbi}${koma}`] === true &&
                     schedules.some((schedule) => {
                         return (schedule.jigen?.youbi as string) === (youbi as string) &&
-                            (schedule.jigen?.komaRange[0] as number) <= koma && koma <= (schedule.jigen?.komaRange[1] as number)
+                            (schedule.jigen?.komaRange?.begin as number) <= koma && koma <= (schedule.jigen?.komaRange?.last as number)
                     })
             })
         }) ||
         (searchOptions.youbiKoma["集中"] === true && schedules.some((schedule) => {
             return schedule.jikiKubun === "集中" ||
-                schedule.jigen === undefined
+                schedule.jigen === undefined    // 「時期区分だけでなく、曜日の集中も集中講義判定とする」の部分
         })) ||
         (searchOptions.youbiKoma["その他"] === true && schedules.some((schedule) => {
-            return schedule.jikiKubun === "解析エラー" ||
+            return schedule.jikiKubun === undefined ||
                 !youbis.some(youbi => {
                     return komas.some(koma => {
                         return schedules.some((schedule) => {
                             return (schedule.jigen?.youbi as string) === (youbi as string) &&
-                                (schedule.jigen?.komaRange[0] as number) <= koma && koma <= (schedule.jigen?.komaRange[1] as number)
+                                (schedule.jigen?.komaRange?.begin as number) <= koma && koma <= (schedule.jigen?.komaRange?.last as number)
                         })
                     })
                 }) && !(schedule.jikiKubun === "集中" || schedule.jigen === undefined)

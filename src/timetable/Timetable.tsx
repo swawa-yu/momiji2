@@ -104,9 +104,9 @@ const Timetable = () => {
                                 const schedules = subject2Map[subjectCode]["授業時間・講義室"];
                                 return schedules.map(schedule => {
                                     if (schedule.jigen === undefined) return null; // 集中
-                                    if (schedule.jigen?.komaRange === "解析エラー") return null; // その他
+                                    if (schedule.jigen.komaRange === undefined) return null; // 解析エラーやコマが指定されていない可能性を考慮
                                     // TODO: if(schedule.term !== term) return null;
-                                    const position = cellPositions[`${schedule.jigen?.youbi}${schedule.jigen?.komaRange[0]}`];
+                                    const position = cellPositions[`${schedule.jigen.youbi}${schedule.jigen.komaRange.begin}`];
                                     if (position && schedule.jikiKubun === term) {
                                         return (
                                             <div
@@ -115,7 +115,7 @@ const Timetable = () => {
                                                     top: position.top + 'px',
                                                     left: position.left + 'px',
                                                     width: position.width + 'px',
-                                                    height: position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1) + 'px',
+                                                    height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) + 'px',
                                                     backgroundColor: 'rgba(20, 200, 20, 0.5)', // TODO: 適当な色の設定
                                                 }}
                                             >
@@ -134,7 +134,7 @@ const Timetable = () => {
                                                     top: position.top + 'px',
                                                     left: position.left + 'px',
                                                     width: position.width + 'px',
-                                                    height: position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1) + 'px',
+                                                    height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) + 'px',
                                                     backgroundColor: 'rgba(20, 200, 20, 0.5)', // TODO: 適当な色の設定
                                                 }}
                                             >
