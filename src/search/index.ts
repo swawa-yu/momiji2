@@ -94,21 +94,14 @@ export const komaTime: { [key in Koma]: { start: string, end: string } } = {
 }
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-export const useFilterSubjectCodeList = (searchOptions: SearchOptions): string[] => {
-    const { bookmarkedSubjects } = useContext(BookmarkContext);
-
-    // なぜか関数を噛ましている...useContextしていなかったときの名残？
-    const filterSubjectCodeList = () => {
-        return subjectCodeList.filter(subjectCode =>
-            matchesSearchOptions(subject2Map[subjectCode], searchOptions, bookmarkedSubjects)
-        );
-    };
-
-    return filterSubjectCodeList();
+export const filterSubjectCodeList = (searchOptions: SearchOptions) => {
+    return subjectCodeList.filter(subjectCode =>
+        matchesSearchOptions(subject2Map[subjectCode], searchOptions)
+    );
 };
 
 
-export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
+export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): boolean {
     return matchesCampus(subject, searchOptions) &&
         matchesSubjectName(subject, searchOptions) &&
         matchesTeacher(subject, searchOptions) &&
@@ -117,7 +110,7 @@ export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOpt
         matchesJikiKubun(subject, searchOptions) &&
         matchesKaikouBukyoku(subject, searchOptions) &&
         matchesYoubiKoma(subject, searchOptions) &&
-        matchesBookmark(subject, searchOptions, bookmarkedSubjects) &&
+        matchesBookmark(subject, searchOptions) &&
         matchesCourseType(subject, searchOptions) &&
         matchesLanguage(subject, searchOptions) &&
         matchesRishuNenji(subject, searchOptions);
@@ -184,7 +177,8 @@ function matchesYoubiKoma(subject: Subject2, searchOptions: SearchOptions): bool
     return matchesYoubiKoma;
 }
 
-function matchesBookmark(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
+function matchesBookmark(subject: Subject2, searchOptions: SearchOptions): boolean {
+    const bookmarkedSubjects = useContext(BookmarkContext).bookmarkedSubjects;
     return searchOptions.bookmarkFilter === "all" ||
         searchOptions.bookmarkFilter === "bookmark" && bookmarkedSubjects.has(subject["講義コード"]) ||
         searchOptions.bookmarkFilter === "except-bookmark" && !bookmarkedSubjects.has(subject["講義コード"]);

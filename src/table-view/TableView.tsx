@@ -6,7 +6,7 @@ import {
     subject2Map,
 } from '../subject';
 
-import { SearchOptions, useFilterSubjectCodeList } from '../search';
+import { SearchOptions, filterSubjectCodeList } from '../search';
 import ReactTableComponent from './ReactTableComponent';
 
 interface TableViewProps {
@@ -26,7 +26,7 @@ function TableView({ searchOptions }: TableViewProps) {
     };
 
     // const filteredSubjectCodeList = React.useMemo(() => filterSubjectCodeList(searchOptions), [searchOptions]);
-    const filteredSubjectCodes = useFilterSubjectCodeList(searchOptions);
+    const filteredSubjectCodes = filterSubjectCodeList(searchOptions);
 
     const filteredSubjects = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subjectMap[subjectCode]) }, [searchOptions]);
     const filteredSubjects2 = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subject2Map[subjectCode]) }, [searchOptions]);
