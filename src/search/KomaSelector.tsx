@@ -139,7 +139,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onScheduleChange }) => {
                     onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
                 />
             </label>
-            {/* TODO: その他」に該当する授業は2023年4月のデータでは存在しないので、消すことにする。
+            {/* TODO: その他」に該当する授業は2023年4月のデータでは存在しないので、表示しないことにする。
             が、「その他」が存在しないことを保証しなければならない。
              */}
             {/* <label>
