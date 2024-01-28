@@ -6,30 +6,16 @@ import {
 } from './subject';
 import SearchComponent from './search/SearchComponent';
 import { SearchOptions } from './search';
-import { initializeYoubiKoma } from './search/KomaSelector';
 import TableView from './table-view/TableView';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import ExportBookmarkButton from './ExportBookmarkButton';
 import Timetable from './timetable/Timetable';
+import { initialSearchOptions } from './search/';
 
 function App() {
     initializeSubject();
 
-    const [searchOptions, setSearchOptions] = useState<SearchOptions>({
-        campus: '指定なし',
-        bookmarkFilter: 'all',
-        teacher: '',
-        subjectName: '',
-        kamokuKubun: '',
-        kaikouBukyoku: '',
-        youbiKoma: initializeYoubiKoma(true),
-        semester: '指定なし',
-        jikiKubun: '指定なし',
-        courseType: '指定なし',
-        language: '指定なし',
-        rishuNenji: "指定なし",
-        rishuNenjiFilter: "以下"
-    });
+    const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
     const handleSearch = (newSearchOptions: SearchOptions) => {
         setSearchOptions({
@@ -109,7 +95,7 @@ function App() {
                     </ul>
                 </div>
 
-                <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects}></SearchComponent>
+                <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects} searchOptions={searchOptions} setSearchOptions={setSearchOptions}></SearchComponent>
 
                 <TableView searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></TableView>
 

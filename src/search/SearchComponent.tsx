@@ -1,33 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SearchOptions, BookmarkFilter } from '.';
-import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
+import KomaSelector from './KomaSelector';
+import { YoubiKomaSelected, initialSearchOptions } from '.';
 import './SearchComponent.css';
 import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../subject/types';
 
 type SearchComponentProps = {
+    setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>; // ここに追加
+    searchOptions: SearchOptions;
     onSearch: (newSearchOptions: SearchOptions) => void;
     bookmarkedSubjects: Set<string>;
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
-    const initialSearchOptions: SearchOptions = {
-        campus: "指定なし",
-        bookmarkFilter: 'all',
-        teacher: '',
-        subjectName: '',
-        kamokuKubun: '',
-        kaikouBukyoku: '',
-        youbiKoma: initializeYoubiKoma(true),
-        semester: "指定なし",
-        jikiKubun: "指定なし",
-        courseType: "学部",
-        language: "指定なし",
-        rishuNenji: "指定なし",
-        rishuNenjiFilter: "以下"
-    };
-    const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
-
+const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSearch, setSearchOptions }: SearchComponentProps) => {
     const handleSearch = () => {
         onSearch(searchOptions);
     };

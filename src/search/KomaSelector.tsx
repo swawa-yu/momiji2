@@ -1,52 +1,10 @@
 import React, { useState } from 'react';
 import './KomaSelector.css';
-
-
-// TODO: 土、6,7コマを追加したことで「その他」の出番はなくなった
-// TODO: subject/types.tsにもyoubiの定義がある！
-export const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
-export const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
-export const specialSchedules: SpecialSchedule[] = ["集中", "その他"];
-
-type Youbi = "月" | "火" | "水" | "木" | "金" | "土";
-type Koma = 1 | 2 | 3 | 4 | 5 | 6 | 7;
-type SpecialSchedule = "集中" | "その他";
-export type YoubiKoma = `${Youbi}${Koma}` | SpecialSchedule;
-export type YoubiKomaSelected = {
-    [key in YoubiKoma]: boolean;
-};
-
-
-export const komaTime: { [key in Koma]: { start: string, end: string } } = {
-    1: { start: "08:45", end: "10:15" },
-    2: { start: "10:30", end: "12:00" },
-    3: { start: "12:50", end: "14:20" },
-    4: { start: "14:35", end: "16:05" },
-    5: { start: "16:20", end: "17:50" },
-    6: { start: "18:00", end: "19:30" },
-    7: { start: "19:40", end: "21:10" },
-}
+import { Youbi, Koma, YoubiKoma, YoubiKomaSelected, initializeYoubiKoma, youbis, komas, komaTime } from '.';
 
 
 type KomaSelectorProps = {
     onSelectionChange: (youbiKomaSelected: YoubiKomaSelected) => void; // TODO: 命名　scheduleというのは他の使い方もしているので紛らわしい
-};
-
-
-export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected => {
-    const youbiKoma = {} as YoubiKomaSelected;
-
-    youbis.forEach(youbi => {
-        komas.forEach(koma => {
-            youbiKoma[`${youbi}${koma}` as YoubiKoma] = initialValue;
-        });
-    });
-
-    specialSchedules.forEach(special => {
-        youbiKoma[special] = initialValue;
-    });
-
-    return youbiKoma;
 };
 
 const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onScheduleChange }) => {

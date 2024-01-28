@@ -1,6 +1,6 @@
 import { useState, useContext, useRef, useEffect } from 'react';
 import { BookmarkContext, BookmarkContextType } from '../contexts/BookmarkContext';
-import { youbis, komas } from '../search/KomaSelector';
+import { youbis, komas } from '../search';
 import './Timetable.css';
 import { subject2Map } from '../subject';
 import { JikiKubun } from '../subject/types';
