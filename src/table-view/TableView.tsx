@@ -11,12 +11,10 @@ import ReactTableComponent from './ReactTableComponent';
 
 interface TableViewProps {
     searchOptions: SearchOptions;
-    bookmarkedSubjects: Set<string>;
-    handleBookmarkToggle: (lectureCode: string) => void;
 }
 
 
-function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: TableViewProps) {
+function TableView({ searchOptions }: TableViewProps) {
 
     const [isTableRaw, setIsTableRaw] = useState(false);
 
@@ -57,8 +55,7 @@ function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: 
             </button>
             {isTableRaw ?
                 <SyllabusTableRaw subjectsToShow={subjectsToShow} ></SyllabusTableRaw> :
-                <ReactTableComponent subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></ReactTableComponent>}
-            {/* <SyllabusTable subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>} */}
+                <ReactTableComponent subjectsToShow={subjects2ToShow}></ReactTableComponent>}
         </div>
     );
 }

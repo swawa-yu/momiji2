@@ -6,10 +6,9 @@ import './SearchComponent.css';
 import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../subject/types';
 
 type SearchComponentProps = {
-    setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>; // ここに追加
+    setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
     searchOptions: SearchOptions;
     onSearch: (newSearchOptions: SearchOptions) => void;
-    bookmarkedSubjects: Set<string>;
 };
 
 // TODO: あいまい検索に対応(generalSearch)

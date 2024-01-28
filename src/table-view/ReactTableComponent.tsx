@@ -2,13 +2,11 @@ import React from 'react';
 import { useTable, Row, Column } from 'react-table';
 import './ReactTableComponent.css';
 import { Subject2 } from '../subject/types';
-import BookmarkButton from '../BookmarkButton';
+import BookmarkButton from './BookmarkButton';
 import { convertURLtoAbsolute } from '../subject/utils';
 
 interface ReactTableComponentProps {
     subjectsToShow: Subject2[];
-    bookmarkedSubjects: Set<string>;
-    handleBookmarkToggle: (lectureCode: string) => void;
 }
 const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ subjectsToShow }) => {
     const columns = React.useMemo(

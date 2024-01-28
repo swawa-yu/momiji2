@@ -23,27 +23,6 @@ function App() {
         });
     };
 
-    const [bookmarkedSubjects, setBookmarkedSubjects] = useState<Set<string>>(new Set());
-
-    // ブックマークの追加・削除を行う関数
-    const handleBookmarkToggle = (lectureCode: string) => {
-        console.log("handleBookmarkToggle")
-        setBookmarkedSubjects(prev => {
-            const newBookmarks = new Set(prev);
-            if (newBookmarks.has(lectureCode)) {
-                newBookmarks.delete(lectureCode);
-            } else {
-                newBookmarks.add(lectureCode);
-            }
-            setSearchOptions(prevOptions => ({
-                ...prevOptions,
-                bookmarkedSubjects: newBookmarks
-            }));
-            return newBookmarks;
-        });
-        console.log(bookmarkedSubjects)
-    };
-
     // テーマのステートを追加 (デフォルトはシステムの設定に依存)
     const [theme, setTheme] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
@@ -95,9 +74,9 @@ function App() {
                     </ul>
                 </div>
 
-                <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects} searchOptions={searchOptions} setSearchOptions={setSearchOptions}></SearchComponent>
+                <SearchComponent onSearch={handleSearch} searchOptions={searchOptions} setSearchOptions={setSearchOptions}></SearchComponent>
 
-                <TableView searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></TableView>
+                <TableView searchOptions={searchOptions}></TableView>
 
                 <Timetable></Timetable>
 
