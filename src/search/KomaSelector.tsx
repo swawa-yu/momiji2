@@ -27,28 +27,11 @@ export const komaTime: { [key in Koma]: { start: string, end: string } } = {
     7: { start: "19:40", end: "21:10" },
 }
 
-// export type YoubiKoma = { [key in `${Youbi}${Koma}` | "集中" | "その他"]?: boolean };
+
 type KomaSelectorProps = {
     onScheduleChange: (schedule: YoubiKomaSelected) => void; // TODO: 命名
 };
 
-export const extractYoubiAndKoma = (youbiKoma: YoubiKoma) => {
-    const result: { youbi: Youbi, koma: Koma }[] = [];
-
-    Object.keys(youbiKoma).forEach(key => {
-        if (key === "集中" || key === "その他") {
-            // 特別なケースの処理
-            console.log(`特別なスケジュール: ${key}`);
-        } else {
-            // 曜日とコマを分割
-            const youbi = key.slice(0, -1) as Youbi;
-            const koma = parseInt(key.slice(-1)) as Koma;
-            result.push({ youbi: youbi, koma: koma });
-        }
-    });
-
-    return result;
-};
 
 export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected => {
     const youbiKoma = {} as YoubiKomaSelected;
