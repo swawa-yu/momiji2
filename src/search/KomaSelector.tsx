@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './KomaSelector.css';
 
 
-// TODO: 土、6,7コマを追加すると「その他」の出番はなくなる
+// TODO: 土、6,7コマを追加したことで「その他」の出番はなくなった
 // TODO: subject/types.tsにもyoubiの定義がある！
 export const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
 export const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
@@ -16,11 +16,6 @@ export type YoubiKomaSelected = {
     [key in YoubiKoma]: boolean;
 };
 
-export const youbiKomaKeys: YoubiKoma[] = [
-    ...youbis.flatMap(youbi => komas.map(koma => `${youbi}${koma}` as YoubiKoma)),
-    "集中",
-    "その他"
-];
 
 export const komaTime: { [key in Koma]: { start: string, end: string } } = {
     1: { start: "08:45", end: "10:15" },
