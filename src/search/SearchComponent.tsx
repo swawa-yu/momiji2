@@ -10,7 +10,6 @@ type SearchComponentProps = {
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-// const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
 const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
     const initialSearchOptions: SearchOptions = {
         campus: "指定なし",
@@ -73,7 +72,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                                 <option value="指定なし">指定なし</option>
                                 <option value="前期">前期</option>
                                 <option value="後期">後期</option>
-                                {/* <option value="解析エラー">解析エラー</option> */}
                             </select>
                         </div>
 
@@ -97,7 +95,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                                 <option value="年度">年度</option>
                                 <option value="通年">通年</option>
                                 <option value="集中">集中</option>
-                                {/* <option value="解析エラー">解析エラー</option> */}
                             </select>
                         </div>
 
