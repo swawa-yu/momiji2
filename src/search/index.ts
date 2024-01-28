@@ -14,7 +14,7 @@ import { YoubiKomaSelected, youbis, komas } from "./KomaSelector";
 
 export type BookmarkFilter = 'all' | 'bookmark' | 'except-bookmark'
 
-// TODO: bookmarkedSubjectsはここにあるべきか？
+
 export interface SearchOptions {
     campus: Campus | "その他" | "指定なし"
     subjectName: string
@@ -23,7 +23,6 @@ export interface SearchOptions {
     kamokuKubun: string
     kaikouBukyoku: string
     youbiKoma: YoubiKomaSelected
-    // bookmarkedSubjects: Set<string>
     semester: Semester | "指定なし"
     jikiKubun: JikiKubun | "指定なし"
     courseType: "学部" | "大学院" | "指定なし"
@@ -33,7 +32,6 @@ export interface SearchOptions {
 }
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-
 export const useFilterSubjectCodeList = (searchOptions: SearchOptions): string[] => {
     const { bookmarkedSubjects } = useContext(BookmarkContext);
 
@@ -45,6 +43,22 @@ export const useFilterSubjectCodeList = (searchOptions: SearchOptions): string[]
 
     return filterSubjectCodeList();
 };
+
+
+export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
+    return matchesCampus(subject, searchOptions) &&
+        matchesSubjectName(subject, searchOptions) &&
+        matchesTeacher(subject, searchOptions) &&
+        matchesKamokuKubun(subject, searchOptions) &&
+        matchesSemester(subject, searchOptions) &&
+        matchesJikiKubun(subject, searchOptions) &&
+        matchesKaikouBukyoku(subject, searchOptions) &&
+        matchesYoubiKoma(subject, searchOptions) &&
+        matchesBookmark(subject, searchOptions, bookmarkedSubjects) &&
+        matchesCourseType(subject, searchOptions) &&
+        matchesLanguage(subject, searchOptions) &&
+        matchesRishuNenji(subject, searchOptions);
+}
 
 
 function matchesCampus(subject: Subject2, searchOptions: SearchOptions): boolean {
@@ -144,20 +158,4 @@ function matchesRishuNenji(subject: Subject2, searchOptions: SearchOptions): boo
     return searchOptions.rishuNenji === "指定なし" ||
         searchOptions.rishuNenjiFilter === "以下" && subject["履修年次"] <= searchOptions.rishuNenji ||
         searchOptions.rishuNenjiFilter === "のみ" && subject["履修年次"] == searchOptions.rishuNenji;
-}
-
-// TODO: すべての要素を調べるのは効率が悪いので改善したい
-export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
-    return matchesCampus(subject, searchOptions) &&
-        matchesSubjectName(subject, searchOptions) &&
-        matchesTeacher(subject, searchOptions) &&
-        matchesKamokuKubun(subject, searchOptions) &&
-        matchesSemester(subject, searchOptions) &&
-        matchesJikiKubun(subject, searchOptions) &&
-        matchesKaikouBukyoku(subject, searchOptions) &&
-        matchesYoubiKoma(subject, searchOptions) &&
-        matchesBookmark(subject, searchOptions, bookmarkedSubjects) &&
-        matchesCourseType(subject, searchOptions) &&
-        matchesLanguage(subject, searchOptions) &&
-        matchesRishuNenji(subject, searchOptions);
 }
