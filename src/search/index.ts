@@ -35,6 +35,7 @@ export interface SearchOptions {
 export const useFilterSubjectCodeList = (searchOptions: SearchOptions): string[] => {
     const { bookmarkedSubjects } = useContext(BookmarkContext);
 
+    // なぜか関数を噛ましている...useContextしていなかったときの名残？
     const filterSubjectCodeList = () => {
         return subjectCodeList.filter(subjectCode =>
             matchesSearchOptions(subject2Map[subjectCode], searchOptions, bookmarkedSubjects)
