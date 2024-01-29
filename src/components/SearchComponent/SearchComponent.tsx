@@ -1,7 +1,7 @@
 import React from 'react';
-import { SearchOptions, BookmarkFilter } from '../../search';
+import { SearchOptions, BookmarkFilter, YoubiKomaSelected } from '../../types/search';
 import KomaSelector from './KomaSelector';
-import { YoubiKomaSelected, initialSearchOptions } from '../../search';
+import { initialSearchOptions } from '../../search';
 import './SearchComponent.css';
 import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../types/subject';
 
