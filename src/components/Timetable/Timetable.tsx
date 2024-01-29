@@ -23,8 +23,6 @@ const Timetable = () => {
 
     // テーブルのセルの座標を計算(相対座標)......失敗
     useEffect(() => {
-        console.log("useEffect")
-        console.log(tableRef.current)
         if (tableRef.current && timetableRef.current) {
             const containerRect = timetableRef.current.getBoundingClientRect();
             const positions: { [key: string]: Position } = {};
