@@ -3,7 +3,7 @@ import { SearchOptions, BookmarkFilter } from '../../search';
 import KomaSelector from './KomaSelector';
 import { YoubiKomaSelected, initialSearchOptions } from '../../search';
 import './SearchComponent.css';
-import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../subject/types';
+import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../types/subject';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;

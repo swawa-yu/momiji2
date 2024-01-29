@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTable, Row, Column } from 'react-table';
 import './ReactTableComponent.css';
-import { Subject2 } from '../../subject/types';
+import { Subject2 } from '../../types/subject';
 import BookmarkButton from './BookmarkButton';
 import { convertURLtoAbsolute } from '../../subject/utils';
 

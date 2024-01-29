@@ -9,7 +9,7 @@ import {
     JikiKubun,
     kaikouBukyokuGakubus, kaikouBukyokuDaigakuins, KaikouBukyokuGakubu, KaikouBukyokuDaigakuin,
     Language
-} from "../subject/types";
+} from "../types/subject";
 
 // TODO: 土、6,7コマを追加したことで「その他」の出番はなくなった
 // TODO: subject/types.tsにもyoubiの定義がある！

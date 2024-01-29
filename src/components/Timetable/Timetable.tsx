@@ -3,7 +3,7 @@ import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkCon
 import { youbis, komas } from '../../search';
 import './Timetable.css';
 import { subject2Map } from '../../subject';
-import { JikiKubun } from '../../subject/types';
+import { JikiKubun } from '../../types/subject';
 
 interface Position {
     top: number;

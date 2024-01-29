@@ -1,5 +1,5 @@
 // import { Periods } from './period';
-import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } from './types';
+import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } from '../types/subject';
 
 // 全授業の主要情報の辞書
 // import subjectData from '../../data/subject_details_main.json'

@@ -3,7 +3,7 @@ import { useTable } from 'react-table';
 
 import {
     Subject
-} from '../../subject/types';
+} from '../../types/subject';
 
 import {
     propertyToShowList,
