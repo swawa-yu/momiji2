@@ -58,9 +58,12 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
             <table>
                 <thead>
                     <tr>
-                        <th></th> {/* 左上の空白セル */}
+                        {/* 左上の空白セル */}
+                        <th></th>
                         {youbis.map(youbi => (
-                            <th key={youbi}><button onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>{youbi}</button></th>
+                            <th key={youbi}>
+                                <button onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>{youbi}</button>
+                            </th>
                         ))}
                     </tr>
                 </thead>
@@ -74,7 +77,6 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                                     <br />
                                     <div className="komatime">{komaTime[koma].start}-{komaTime[koma].end}</div>
                                 </button>
-
                             </td>
 
                             {/* 現在の行(コマ)における各曜日のチェックボックス */}
@@ -91,6 +93,7 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                     ))}
                 </tbody>
             </table>
+
             <label>
                 集中
                 <input

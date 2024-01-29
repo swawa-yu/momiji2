@@ -76,7 +76,8 @@ const Timetable = () => {
                             <table ref={tableRef}>
                                 <thead>
                                     <tr>
-                                        <th></th> {/* 左上の空白セル */}
+                                        {/* 左上の空白セル */}
+                                        <th></th>
                                         {youbis.map(youbi => (
                                             <th key={youbi}>{youbi}</th>
                                         ))}
@@ -85,10 +86,12 @@ const Timetable = () => {
                                 <tbody>
                                     {komas.map(koma => (
                                         <tr key={koma}>
-                                            <td>{koma}</td> {/* コマのラベル */}
+                                            {/* コマのラベル */}
+                                            <td>{koma}</td>
+
+                                            {/* コマのセル(空) */}
                                             {youbis.map(youbi => (
-                                                <td key={youbi}>
-                                                </td>
+                                                <td key={youbi}></td>
                                             ))}
                                         </tr>
                                     ))}
