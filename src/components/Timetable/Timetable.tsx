@@ -108,6 +108,8 @@ const Timetable = () => {
                                     if (schedule.jigen.komaRange === undefined) return null; // 解析エラーやコマが指定されていない可能性を考慮
                                     // TODO: if(schedule.term !== term) return null;
                                     const position = cellPositions[`${schedule.jigen.youbi}${schedule.jigen.komaRange.begin}`];
+
+                                    // 1~4タームの場合
                                     if (position && schedule.jikiKubun === term) {
                                         return (
                                             <div
@@ -124,6 +126,8 @@ const Timetable = () => {
                                             </div>
                                         );
                                     }
+
+                                    // セメスター科目の場合
                                     if (position && (
                                         schedule.jikiKubun === "セメスター（前期）" && (term === "１ターム" || "２ターム") ||
                                         schedule.jikiKubun === "セメスター（後期）" && (term === "３ターム" || "４ターム")
@@ -143,6 +147,8 @@ const Timetable = () => {
                                             </div>
                                         );
                                     }
+
+                                    // その他の場合
                                     return null;
                                 });
                             })}
