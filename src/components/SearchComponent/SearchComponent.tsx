@@ -1,9 +1,9 @@
 import React from 'react';
-import { SearchOptions, BookmarkFilter } from '.';
+import { SearchOptions, BookmarkFilter } from '../../search';
 import KomaSelector from './KomaSelector';
-import { YoubiKomaSelected, initialSearchOptions } from '.';
+import { YoubiKomaSelected, initialSearchOptions } from '../../search';
 import './SearchComponent.css';
-import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../subject/types';
+import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../subject/types';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;

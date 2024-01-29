@@ -3,11 +3,11 @@ import { useTable } from 'react-table';
 
 import {
     Subject
-} from '../subject/types';
+} from '../../subject/types';
 
 import {
     propertyToShowList,
-} from '../subject';
+} from '../../subject';
 
 import './SyllabusTableRaw.css';
 

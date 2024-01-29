@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTable, Row, Column } from 'react-table';
 import './ReactTableComponent.css';
-import { Subject2 } from '../subject/types';
+import { Subject2 } from '../../subject/types';
 import BookmarkButton from './BookmarkButton';
-import { convertURLtoAbsolute } from '../subject/utils';
+import { convertURLtoAbsolute } from '../../subject/utils';
 
 interface ReactTableComponentProps {
     subjectsToShow: Subject2[];

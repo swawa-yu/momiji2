@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './KomaSelector.css';
-import { Youbi, Koma, YoubiKoma, YoubiKomaSelected, initializeYoubiKoma, youbis, komas, komaTime } from '.';
+import { Youbi, Koma, YoubiKoma, YoubiKomaSelected, initializeYoubiKoma, youbis, komas, komaTime } from '../../search';
 
 
 type KomaSelectorProps = {

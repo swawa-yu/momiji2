@@ -4,9 +4,9 @@ import SyllabusTableRaw from './SyllabusTableRaw';
 import {
     subjectMap,
     subject2Map,
-} from '../subject';
+} from '../../subject';
 
-import { SearchOptions, filterSubjectCodeList } from '../search';
+import { SearchOptions, filterSubjectCodeList } from '../../search';
 import ReactTableComponent from './ReactTableComponent';
 
 interface TableViewProps {

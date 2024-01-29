@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BookmarkContext, BookmarkContextType } from '../contexts/BookmarkContext.tsx';
+import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext.tsx';
 
 
 const BookmarkButton = ({ lectureCode }: { lectureCode: string }) => {
