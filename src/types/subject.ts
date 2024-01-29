@@ -1,4 +1,4 @@
-import { Koma } from "./search"
+import { Koma, Youbi } from "./search"
 
 export const campuses = ["東広島", "霞", "東千田"]
 export type Campus = typeof campuses[number]
@@ -12,7 +12,7 @@ export interface Kaisetsuki {
 // TODO 命名が最悪すぎる　「jigen」ってなんだ
 // TODO: search/KomaSelector.tsxにもyoubiの定義がある！
 export interface Jigen {
-    youbi?: "月" | "火" | "水" | "木" | "金" | "土";
+    youbi?: Youbi;
     jigenRange?: { begin: number, last: number };
     komaRange?: { begin: number, last: number };
 }
