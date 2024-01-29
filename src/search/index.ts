@@ -4,46 +4,18 @@ import { BookmarkContext } from '../contexts/BookmarkContext';
 import { subjectCodeList, subject2Map } from "../subject";
 import {
     Subject2,
-    Campus, campuses,
-    Semester,
-    JikiKubun,
+    campuses,
     kaikouBukyokuGakubus, kaikouBukyokuDaigakuins, KaikouBukyokuGakubu, KaikouBukyokuDaigakuin,
     Language
 } from "../types/subject";
-
-// TODO: 土、6,7コマを追加したことで「その他」の出番はなくなった
-// TODO: subject/types.tsにもyoubiの定義がある！
-export const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
-export const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
-export const specialSchedules: SpecialSchedule[] = ["集中", "その他"];
-
-export type Youbi = "月" | "火" | "水" | "木" | "金" | "土";
-export type Koma = 1 | 2 | 3 | 4 | 5 | 6 | 7;
-export type SpecialSchedule = "集中" | "その他";
-export type YoubiKoma = `${Youbi}${Koma}` | SpecialSchedule;
-export type YoubiKomaSelected = {
-    [key in YoubiKoma]: boolean;
-};
-
-export type BookmarkFilter = 'all' | 'bookmark' | 'except-bookmark'
-
-
-
-export interface SearchOptions {
-    campus: Campus | "その他" | "指定なし"
-    subjectName: string
-    teacher: string
-    bookmarkFilter: BookmarkFilter
-    kamokuKubun: string
-    kaikouBukyoku: string
-    youbiKoma: YoubiKomaSelected
-    semester: Semester | "指定なし"
-    jikiKubun: JikiKubun | "指定なし"
-    courseType: "学部" | "大学院" | "指定なし"
-    language: Language | "指定なし"
-    rishuNenji: number | "指定なし"
-    rishuNenjiFilter: "以下" | "のみ"
-}
+import {
+    YoubiKomaSelected,
+    YoubiKoma,
+    youbis,
+    komas,
+    specialSchedules,
+    SearchOptions
+} from "../types/search";
 
 
 export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected => {
@@ -79,19 +51,6 @@ export const initialSearchOptions: SearchOptions = {
     rishuNenji: "指定なし",
     rishuNenjiFilter: "以下"
 };
-
-
-
-
-export const komaTime: { [key in Koma]: { start: string, end: string } } = {
-    1: { start: "08:45", end: "10:15" },
-    2: { start: "10:30", end: "12:00" },
-    3: { start: "12:50", end: "14:20" },
-    4: { start: "14:35", end: "16:05" },
-    5: { start: "16:20", end: "17:50" },
-    6: { start: "18:00", end: "19:30" },
-    7: { start: "19:40", end: "21:10" },
-}
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
 export const filterSubjectCodeList = (searchOptions: SearchOptions) => {

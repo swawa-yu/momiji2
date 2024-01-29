@@ -1,3 +1,5 @@
+import { Koma } from "./search"
+
 export const campuses = ["東広島", "霞", "東千田"]
 export type Campus = typeof campuses[number]
 
@@ -120,4 +122,14 @@ export const jikiKubunMap: { [key: string]: JikiKubun } = {
     "(集)": "集中",
     "(年)": "年度",
     "(通)": "通年",
+}
+
+export const komaTime: { [key in Koma]: { start: string, end: string } } = {
+    1: { start: "08:45", end: "10:15" },
+    2: { start: "10:30", end: "12:00" },
+    3: { start: "12:50", end: "14:20" },
+    4: { start: "14:35", end: "16:05" },
+    5: { start: "16:20", end: "17:50" },
+    6: { start: "18:00", end: "19:30" },
+    7: { start: "19:40", end: "21:10" },
 }
