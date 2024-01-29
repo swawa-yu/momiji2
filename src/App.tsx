@@ -6,7 +6,7 @@ import {
 } from './subject';
 import SearchComponent from './search/SearchComponent';
 import { SearchOptions } from './search';
-import TableView from './table-view/TableView';
+import TableView from './tableView/TableView';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import ExportBookmarkButton from './ExportBookmarkButton';
 import Timetable from './timetable/Timetable';
