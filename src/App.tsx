@@ -4,13 +4,13 @@ import './App.css';
 import {
     initializeSubject,
 } from './subject';
-import SearchComponent from './components/SearchComponent/SearchComponent';
+import SearchComponent from './components/SearchComponent';
+import ExportBookmarkButton from './components/ExportBookmarkButton';
+import TableView from './components/TableView';
+import Timetable from './components/Timetable';
 import { SearchOptions } from './search';
-import TableView from './components/TableView/TableView';
-import { BookmarkProvider } from './contexts/BookmarkContext';
-import ExportBookmarkButton from './components/ExportBookmarkButton/ExportBookmarkButton';
-import Timetable from './components/Timetable/Timetable';
 import { initialSearchOptions } from './search/';
+import { BookmarkProvider } from './contexts/BookmarkContext';
 
 function App() {
     initializeSubject();
