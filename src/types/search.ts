@@ -8,14 +8,18 @@ import {
 
 // TODO: 土、6,7コマを追加したことで「その他」の出番はなくなった
 // TODO: subject/types.tsにもyoubiの定義がある！
-export const youbis: Youbi[] = ["月", "火", "水", "木", "金", "土"];
-export const komas: Koma[] = [1, 2, 3, 4, 5, 6, 7];
-export const specialSchedules: SpecialSchedule[] = ["集中", "その他"];
 
-export type Youbi = "月" | "火" | "水" | "木" | "金" | "土";
-export type Koma = 1 | 2 | 3 | 4 | 5 | 6 | 7;
-export type SpecialSchedule = "集中" | "その他";
+export const youbis = ["月", "火", "水", "木", "金", "土"] as const;
+export type Youbi = typeof youbis[number];
+
+export const komas = [1, 2, 3, 4, 5, 6, 7] as const;
+export type Koma = typeof komas[number];
+
 export type YoubiKoma = `${Youbi}${Koma}` | SpecialSchedule;
+
+export const specialSchedules = ["集中", "その他"] as const;
+export type SpecialSchedule = typeof specialSchedules[number];
+
 export type YoubiKomaSelected = {
     [key in YoubiKoma]: boolean;
 };
