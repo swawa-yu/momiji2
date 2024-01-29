@@ -8,7 +8,7 @@ import SearchComponent from './components/SearchComponent';
 import ExportBookmarkButton from './components/ExportBookmarkButton';
 import TableView from './components/TableView';
 import Timetable from './components/Timetable';
-import { SearchOptions } from './search';
+import { SearchOptions } from './types/search';
 import { initialSearchOptions } from './search/';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 
