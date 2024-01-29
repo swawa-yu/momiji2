@@ -29,6 +29,7 @@ export const jikiKubuns = ['１ターム', '２ターム', '３ターム', '４�
 export type Semester = typeof semesters[number] | undefined;
 export type JikiKubun = typeof jikiKubuns[number] | undefined;
 
+// TODO: 動的に取得するなり、変更に対応できるようにしたい
 export const kamokuKubuns = [
     "大学教育入門", "展開ゼミ", "平和科目", "外国語科目", "情報・データサイエンス科目", "領域科目", "基盤科目", "社会連携科目", "健康スポーツ科目", "教養教育科目（昼）", "教養教育科目（夜）", "専門教育科目", "教職専門科目", "他学部・他研究科科目", "大学院共通科目", "専門的教育科目"
 ] as const
@@ -48,7 +49,7 @@ export type KaikouBukyokuGakubu = typeof kaikouBukyokuGakubus[number]
 export type KaikouBukyokuDaigakuin = typeof kaikouBukyokuDaigakuins[number]
 export type KaikouBukyoku = typeof kaikouBukyokus[number]
 
-// tips: コロンは"："だったり" : "だったりするが、ここでは講義詳細ページで使われている" : "に統一する
+// IMPORTANT: コロンは"："だったり" : "だったりするが、ここでは講義詳細ページで使われている" : "に統一する
 export const languages = ["J : 日本語", "E : 英語", "B : 日本語・英語", "O : その他"] as const
 export type Language = typeof languages[number] | undefined
 
