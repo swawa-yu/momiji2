@@ -6,14 +6,14 @@ import {
     Subject2,
     campuses,
     kaikouBukyokuGakubus, kaikouBukyokuDaigakuins, KaikouBukyokuGakubu, KaikouBukyokuDaigakuin,
-    Language
-} from "../types/subject";
-import {
-    YoubiKomaSelected,
+    Language,
     YoubiKoma,
     youbis,
     komas,
     specialSchedules,
+} from "../types/subject";
+import {
+    YoubiKomaSelected,
     SearchOptions
 } from "../types/search";
 
