@@ -60,7 +60,7 @@ export const filterSubjectCodeList = (searchOptions: SearchOptions) => {
 };
 
 
-export function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): boolean {
+function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): boolean {
     return matchesCampus(subject, searchOptions) &&
         matchesSubjectName(subject, searchOptions) &&
         matchesTeacher(subject, searchOptions) &&
