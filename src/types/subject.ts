@@ -107,3 +107,17 @@ export type Subject2 = {
 
 export type SubjectMap = { [subjectCode: string]: Subject }
 export type Subject2Map = { [subjectCode: string]: Subject2 }
+
+export const jikiKubunMap: { [key: string]: JikiKubun } = {
+    "(1T)": "１ターム",
+    "(2T)": "２ターム",
+    "(3T)": "３ターム",
+    "(4T)": "４ターム",
+    "(前)": "セメスター（前期）",
+    "(後)": "セメスター（後期）",
+    "(外前)": "ターム外（前期）",
+    "(外後)": "ターム外（後期）",
+    "(集)": "集中",
+    "(年)": "年度",
+    "(通)": "通年",
+}

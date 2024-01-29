@@ -3,7 +3,7 @@ import {
     jikiKubuns,
     semesters,
     Jigen,
-    JikiKubun
+    jikiKubunMap
 } from "../types/subject";
 
 // TODO: semester, jikikubunはKaisetsukiとScheduleで被っている
@@ -32,21 +32,6 @@ export function parseKaisetsuki(s: string): Kaisetsuki {
         semester: semesters.some((v) => v === (splitted[1])) ? splitted[1] as Kaisetsuki['semester'] : undefined,
         jikiKubun: jikiKubuns.some((v) => v === (splitted[2])) ? splitted[2] as Kaisetsuki['jikiKubun'] : undefined
     };
-
-}
-
-const jikiKubunMap: { [key: string]: JikiKubun } = {
-    "(1T)": "１ターム",
-    "(2T)": "２ターム",
-    "(3T)": "３ターム",
-    "(4T)": "４ターム",
-    "(前)": "セメスター（前期）",
-    "(後)": "セメスター（後期）",
-    "(外前)": "ターム外（前期）",
-    "(外後)": "ターム外（後期）",
-    "(集)": "集中",
-    "(年)": "年度",
-    "(通)": "通年",
 }
 
 /**
