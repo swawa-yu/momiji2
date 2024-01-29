@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { BookmarkContext } from '../../contexts/BookmarkContext';
 
 import SyllabusTableRaw from './SyllabusTableRaw';
 import {
@@ -27,7 +28,10 @@ function TableView({ searchOptions }: TableViewProps) {
     };
 
     // const filteredSubjectCodeList = React.useMemo(() => filterSubjectCodeList(searchOptions), [searchOptions]);
-    const filteredSubjectCodes = filterSubjectCodeList(searchOptions);
+    // const filteredSubjectCodes = filterSubjectCodeList(searchOptions);
+    const bookmarkedSubjects = useContext(BookmarkContext).bookmarkedSubjects;
+    const filteredSubjectCodes = React.useMemo(() => filterSubjectCodeList(searchOptions, bookmarkedSubjects), [searchOptions]);
+
 
     const filteredSubjects = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subjectMap[subjectCode]) }, [searchOptions]);
     const filteredSubjects2 = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subject2Map[subjectCode]) }, [searchOptions]);

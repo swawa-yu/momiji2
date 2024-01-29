@@ -1,6 +1,3 @@
-
-import { useContext } from 'react';
-import { BookmarkContext } from '../contexts/BookmarkContext';
 import { subjectCodeList, subject2Map } from "../subject";
 import {
     Subject2,
@@ -53,14 +50,14 @@ export const initialSearchOptions: SearchOptions = {
 };
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
-export const filterSubjectCodeList = (searchOptions: SearchOptions) => {
+export const filterSubjectCodeList = (searchOptions: SearchOptions, bookmarkedSubjects: Set<string>) => {
     return subjectCodeList.filter(subjectCode =>
-        matchesSearchOptions(subject2Map[subjectCode], searchOptions)
+        matchesSearchOptions(subject2Map[subjectCode], searchOptions, bookmarkedSubjects)
     );
 };
 
 
-function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): boolean {
+function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
     return matchesCampus(subject, searchOptions) &&
         matchesSubjectName(subject, searchOptions) &&
         matchesTeacher(subject, searchOptions) &&
@@ -69,7 +66,7 @@ function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions): 
         matchesJikiKubun(subject, searchOptions) &&
         matchesKaikouBukyoku(subject, searchOptions) &&
         matchesYoubiKoma(subject, searchOptions) &&
-        matchesBookmark(subject, searchOptions) &&
+        matchesBookmark(subject, searchOptions, bookmarkedSubjects) &&
         matchesCourseType(subject, searchOptions) &&
         matchesLanguage(subject, searchOptions) &&
         matchesRishuNenji(subject, searchOptions);
@@ -137,8 +134,7 @@ function matchesYoubiKoma(subject: Subject2, searchOptions: SearchOptions): bool
     return matchesYoubiKoma;
 }
 
-function matchesBookmark(subject: Subject2, searchOptions: SearchOptions): boolean {
-    const bookmarkedSubjects = useContext(BookmarkContext).bookmarkedSubjects;
+function matchesBookmark(subject: Subject2, searchOptions: SearchOptions, bookmarkedSubjects: Set<string>): boolean {
     return searchOptions.bookmarkFilter === "all" ||
         searchOptions.bookmarkFilter === "bookmark" && bookmarkedSubjects.has(subject["講義コード"]) ||
         searchOptions.bookmarkFilter === "except-bookmark" && !bookmarkedSubjects.has(subject["講義コード"]);
