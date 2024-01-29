@@ -6,7 +6,8 @@ import {
     subject2Map,
 } from '../../subject';
 
-import { SearchOptions, filterSubjectCodeList } from '../../search';
+import { SearchOptions } from '../../types/search';
+import { filterSubjectCodeList } from '../../search';
 import ReactTableComponent from './ReactTableComponent';
 
 interface TableViewProps {
