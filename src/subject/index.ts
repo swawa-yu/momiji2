@@ -42,7 +42,7 @@ export const initializeSubject = () => {
   })
 
   Object.entries(subjectMap).forEach(([subjectCode, subject]) => {
-    const { rishuNenji, semester, jikiKubun } = parseKaisetsuki(subject["開設期"]);
+    const kaisetsuki = parseKaisetsuki(subject["開設期"]);
     const schedules = parseSchedule(subject["曜日・時限・講義室"]);
     subject2Map[subjectCode] = {
       "relative URL": subject["relative URL"],
@@ -53,9 +53,9 @@ export const initializeSubject = () => {
       "授業科目名": subject["授業科目名"],
       "担当教員名": subject["担当教員名"].split(",").filter((s) => s !== "null"),
       "開講キャンパス": subject["開講キャンパス"],
-      "セメスター": semester,
-      "時期区分": jikiKubun,
-      "履修年次": rishuNenji,
+      "セメスター": kaisetsuki ? kaisetsuki.semester : undefined,
+      "時期区分": kaisetsuki ? kaisetsuki.jikiKubun : undefined,
+      "履修年次": kaisetsuki ? kaisetsuki.rishuNenji : undefined,
       "授業時間・講義室": schedules,
       "開設期": subject["開設期"],
       "曜日・時限・講義室": subject["曜日・時限・講義室"],

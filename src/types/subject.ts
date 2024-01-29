@@ -23,9 +23,9 @@ export interface Kaisetsuki {
 
 // TODO 命名が最悪すぎる　「jigen」ってなんだ
 export interface Jigen {
-    youbi?: Youbi;
-    jigenRange?: { begin: number, last: number };
-    komaRange?: { begin: number, last: number };
+    youbi: Youbi;
+    jigenRange: { begin: number, last: number };
+    komaRange: { begin: number, last: number };
 }
 
 export interface Schedule {
@@ -41,11 +41,11 @@ export type Campus = typeof campuses[number]
 
 // セメスタ ー----------------------------------------------------------------------------------------------------
 export const semesters = ['前期', '後期'] as const;
-export type Semester = typeof semesters[number] | undefined;
+export type Semester = typeof semesters[number];
 
 // 時期区分 ----------------------------------------------------------------------------------------------------
 export const jikiKubuns = ['１ターム', '２ターム', '３ターム', '４ターム', 'セメスター（前期）', 'セメスター（後期）', 'ターム外（前期）', 'ターム外（後期）', '年度', '通年', '集中'] as const
-export type JikiKubun = typeof jikiKubuns[number] | undefined;
+export type JikiKubun = typeof jikiKubuns[number];
 
 export const jikiKubunMap: { [key: string]: JikiKubun } = {
     "(1T)": "１ターム",
@@ -85,7 +85,7 @@ export type KaikouBukyoku = typeof kaikouBukyokus[number]
 // 言語 ----------------------------------------------------------------------------------------------------
 // IMPORTANT: コロンは"："だったり" : "だったりするが、ここでは講義詳細ページで使われている" : "に統一する
 export const languages = ["J : 日本語", "E : 英語", "B : 日本語・英語", "O : その他"] as const
-export type Language = typeof languages[number] | undefined
+export type Language = typeof languages[number]
 
 export type SubjectProperty =
     "relative URL" |
@@ -112,6 +112,7 @@ export type SubjectProperty =
 export type Subject = { [key in SubjectProperty]: string }
 
 // Subject2をはじめに作っておくことで検索時に毎回parseする必要がなくなる
+// TODO: 例外処理 "解析エラー"と書いているの部分をもっと良くする方法
 export type Subject2 = {
     "relative URL": string,
     "年度": string,
@@ -121,10 +122,10 @@ export type Subject2 = {
     "授業科目名": string,
     "担当教員名": string[],
     "開講キャンパス": Campus,
-    "セメスター": Semester,
-    "時期区分": JikiKubun,
-    "履修年次": number,
-    "授業時間・講義室": Schedule[],
+    "セメスター": Semester | undefined,
+    "時期区分": JikiKubun | undefined,
+    "履修年次": number | undefined,
+    "授業時間・講義室": Schedule[] | undefined,
     "開設期": string,
     "曜日・時限・講義室": string,
     "単位": string,

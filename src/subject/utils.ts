@@ -8,12 +8,13 @@ import {
 
 // TODO: semester, jikikubunはKaisetsukiとScheduleで被っている
 
+// TODO: パースが確実にできることを保証できない
 /**
  * 
  * @param s: string
  * @returns Kaisetsuki
  */
-export function parseKaisetsuki(s: string): Kaisetsuki {
+export function parseKaisetsuki(s: string): Kaisetsuki | undefined {
     // TODO 開口部局が大学院かどうかが履修年次に影響する
     // 1年次生 前期 ２ターム
     // 1年次生 前期 集中
@@ -27,11 +28,22 @@ export function parseKaisetsuki(s: string): Kaisetsuki {
 
     const splitted = s.split(' ');
 
-    return {
-        rishuNenji: parseInt(splitted[0][0]),
-        semester: semesters.some((v) => v === (splitted[1])) ? splitted[1] as Kaisetsuki['semester'] : undefined,
-        jikiKubun: jikiKubuns.some((v) => v === (splitted[2])) ? splitted[2] as Kaisetsuki['jikiKubun'] : undefined
-    };
+    // return {
+    //     rishuNenji: parseInt(splitted[0][0]),
+    //     semester: semesters.some((v) => v === (splitted[1])) ? splitted[1] as Kaisetsuki['semester'] : undefined,
+    //     jikiKubun: jikiKubuns.some((v) => v === (splitted[2])) ? splitted[2] as Kaisetsuki['jikiKubun'] : undefined
+    // };
+    try {
+        if (!semesters.some((v) => v === (splitted[1]))) throw new Error("解析エラー")
+        if (!jikiKubuns.some((v) => v === (splitted[2]))) throw new Error("解析エラー")
+        return {
+            rishuNenji: parseInt(splitted[0][0]),
+            semester: splitted[1] as Kaisetsuki['semester'],
+            jikiKubun: splitted[2] as Kaisetsuki['jikiKubun']
+        };
+    } catch (e: unknown) {
+        return undefined;
+    }
 }
 
 /**
@@ -39,7 +51,7 @@ export function parseKaisetsuki(s: string): Kaisetsuki {
  * @param s: string
  * @returns Schedule[]
  */
-export function parseSchedule(s: string) {
+export function parseSchedule(s: string): Schedule[] | undefined {
     // TODO: 補足できていないパターンがあってもエラーとして扱えないかもしれない！！
 
     // 例----------------------------------------
@@ -76,8 +88,9 @@ export function parseSchedule(s: string) {
             const splittedBySpace = s.split(' ');
             const splittedByColon = splittedBySpace[1].split('：');
 
-            // 時期区分の部分が変換用辞書の中にない場合は解析エラー // TODO: 専用のエラーを投げることができたらうれしい
-            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]] ? jikiKubunMap[splittedBySpace[0]] : undefined;
+            // 時期区分の部分が変換用辞書の中にない場合は解析エラー 
+            if (!jikiKubunMap[splittedBySpace[0]]) throw new Error("解析エラー") // TODO: 専用のエラーを投げることができたらうれしい
+            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]];
 
             const rooms = splittedByColon[1] ? splittedByColon[1].split(',') : [];
 
@@ -110,8 +123,9 @@ export function parseSchedule(s: string) {
         })
         return schedules;
     } catch (e: unknown) {
-        schedules.push({ jikiKubun: undefined, jigen: { youbi: undefined, jigenRange: undefined, komaRange: undefined }, rooms: ["解析エラー"] }) // TODO: roomsの扱い
-        return schedules;
+        // schedules.push({ jikiKubun: undefined, jigen: { youbi: undefined, jigenRange: undefined, komaRange: undefined }, rooms: ["解析エラー"] }) // TODO: roomsの扱い
+        // return schedules;
+        return undefined;
     }
 }
 

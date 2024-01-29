@@ -1,9 +1,8 @@
 import { useState, useContext, useRef, useEffect } from 'react';
 import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext';
-import { youbis, komas } from '../../types/search';
 import './Timetable.css';
 import { subject2Map } from '../../subject';
-import { JikiKubun } from '../../types/subject';
+import { youbis, komas, JikiKubun } from '../../types/subject';
 
 interface Position {
     top: number;
@@ -102,6 +101,7 @@ const Timetable = () => {
                         <div className="class-objects">
                             {Array.from(bookmarkedSubjects).map(subjectCode => {
                                 const schedules = subject2Map[subjectCode]["授業時間・講義室"];
+                                if (schedules === undefined) return null; // 授業時間・講義室が解析エラーの場合はnullを返す
                                 return schedules.map(schedule => {
                                     if (schedule.jigen === undefined) return null; // 集中
                                     if (schedule.jigen.komaRange === undefined) return null; // 解析エラーやコマが指定されていない可能性を考慮

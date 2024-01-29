@@ -107,6 +107,7 @@ function matchesKaikouBukyoku(subject: Subject2, searchOptions: SearchOptions): 
 //   時期区分だけでなく、曜日の集中も集中講義判定とする
 function matchesYoubiKoma(subject: Subject2, searchOptions: SearchOptions): boolean {
     const schedules = subject["授業時間・講義室"];
+    if (schedules === undefined) return false;
 
     const matchesYoubiKoma =
         youbis.some(youbi => {
@@ -167,6 +168,7 @@ function matchesLanguage(subject: Subject2, searchOptions: SearchOptions): boole
 }
 
 function matchesRishuNenji(subject: Subject2, searchOptions: SearchOptions): boolean {
+    if (subject["履修年次"] === undefined) return false;
     return searchOptions.rishuNenji === "指定なし" ||
         searchOptions.rishuNenjiFilter === "以下" && subject["履修年次"] <= searchOptions.rishuNenji ||
         searchOptions.rishuNenjiFilter === "のみ" && subject["履修年次"] == searchOptions.rishuNenji;
