@@ -11,10 +11,10 @@ import {
 // TODO: パースが確実にできることを保証できない
 /**
  * 
- * @param s: string
+ * @param shouldBeKaisetsuki: string
  * @returns Kaisetsuki
  */
-export function parseKaisetsuki(s: string): Kaisetsuki | undefined {
+export function parseKaisetsuki(shouldBeKaisetsuki: string): Kaisetsuki | undefined {
     // TODO 開口部局が大学院かどうかが履修年次に影響する
     // 1年次生 前期 ２ターム
     // 1年次生 前期 集中
@@ -26,7 +26,7 @@ export function parseKaisetsuki(s: string): Kaisetsuki | undefined {
     // 前期 | 後期
     // １ターム | ２ターム | ３ターム | ４ターム | セメスター（前期） | セメスター（後期） | 集中 | 年度 | 通年
 
-    const splitted = s.split(' ');
+    const splitted = shouldBeKaisetsuki.split(' ');
 
     // return {
     //     rishuNenji: parseInt(splitted[0][0]),
@@ -48,13 +48,13 @@ export function parseKaisetsuki(s: string): Kaisetsuki | undefined {
 
 /**
  * 
- * @param s: string
- * @returns Schedule[]
+ * @param shouldBeSchedules: string
+ * @returns Schedule[] | undefined
  */
-export function parseSchedule(s: string): Schedule[] | undefined {
+export function parseSchedule(shouldBeSchedules: string): Schedule[] | undefined {
     // TODO: 補足できていないパターンがあってもエラーとして扱えないかもしれない！！
 
-    // 例----------------------------------------
+    // shouldBeSchedulesの例----------------------------------------
     // (2T) 火7-8, 金7-8：先405N
     // (1T) 木1-2：オンライン, (1T) 木3-4：霞R402講義室
     // (4T) 集中：担当教員の指定による
@@ -63,6 +63,7 @@ export function parseSchedule(s: string): Schedule[] | undefined {
     // (後) 集中                                                (HX203900, 数学特別講義（数論力学系入門）)
     // (2T) 水5-6：理E104,理E209, (2T) 木1-2：理E209,理E210       (HA500000)
     // (2T) 火1：保301,保302, (2T) 火2：保301                     (I3151001)
+    // (通) 木1-2,集中                                          (G6253101)　←まじでなに？
     // ------------------------------------------
 
     // 検索するとき、部屋は別にそんなに重要ではない
@@ -71,38 +72,30 @@ export function parseSchedule(s: string): Schedule[] | undefined {
     // 空白で区切ったときの長さが2の時は、その後"："でsplitすれば曜日時限と教室に分かれる
 
     // 時間だけで部屋が書かれていないことがある
-    // 時間がなく部屋だけ書かれているなど、その他のパターンはある？ →　ない(検証済み)
+    // TODO: 時間がなく部屋だけ書かれているなど、その他のパターンはある？ →　ない(検証済み)
 
     let schedules: Schedule[] = []
 
     try {
-        // (2T) 水5-6：理E104,理E209, (2T) 木1-2：理E209,理E210     (HA500000) みたいなパターンを、split(", ")で処理できると信じる
-        s.split(", ").forEach((s) => {
-            // splittedBySpace = ["(前)", "木7-8：理E102"]
-            // splittedByColon = ["木7-8", "理E102"]
-            // jikiKubun = "セメスター（前期）"
-            // jigenString = "木7-8"
-            // jigenNums = [7, 8]
-            // rooms = ["理E102"]
+        // IMPORTANT: 複数のscheduleがあるものは" ,"で区切られているとし、split(", ")で処理できると信じる(例↓)
+        //   (2T) 水5-6：理E104,理E209, (2T) 木1-2：理E209,理E210     (HA500000)
 
-            const splittedBySpace = s.split(' ');
-            const splittedByColon = splittedBySpace[1].split('：');
+        shouldBeSchedules.split(", ").forEach((shouldBeSchedule) => {
+            const splittedBySpace = shouldBeSchedule.split(' ');                        // ["(前)", "木7-8：理E102"]
+            const splittedByColon = splittedBySpace[1].split('：');                     // ["木7-8", "理E102"]
 
-            // 時期区分の部分が変換用辞書の中にない場合は解析エラー 
-            if (!jikiKubunMap[splittedBySpace[0]]) throw new Error("解析エラー") // TODO: 専用のエラーを投げることができたらうれしい
-            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]];
+            // 時期区分の部分が変換用辞書の中にない場合は解析エラー
+            // TODO: jikiKubunは「開設期」のものと一致しない
+            if (!jikiKubunMap[splittedBySpace[0]]) throw new Error("解析エラー") // TODO: 専用のエラーを投げることができたらうれしい\
+            const jikiKubun: Schedule['jikiKubun'] = jikiKubunMap[splittedBySpace[0]];  // "セメスター（前期）"
+            const jigenStrings = splittedByColon[0];                                    // "木7-8"
+            const rooms = splittedByColon[1] ? splittedByColon[1].split(',') : [];      // ["理E102"]
 
-            const rooms = splittedByColon[1] ? splittedByColon[1].split(',') : [];
-
-            const jigenString = splittedByColon[0];
-            // jigenStringの0文字目は曜日
-            // jigenStringの1文字目以降をsplit('-')してさらに各要素をintに変換したもの
-            // jigenString = "集中" の場合は特別に処理(jigen: undefined とする)
-            if (jigenString === "集中") {
+            if (jigenStrings === "集中") {
                 schedules.push({ jikiKubun: jikiKubun, jigen: undefined, rooms: rooms })
             } else {
-                // jigenString = "火9-10,金1-2" みたいなパターンもここで処理できる
-                jigenString.split(',').forEach((jigenString) => {
+                // jigenStrings = "火9-10,金1-2" みたいなパターンもここで処理できる
+                jigenStrings.split(',').forEach((jigenString) => {
                     const jigenNums = jigenString.slice(1).split('-').map((v) => parseInt(v));
 
                     const jigen: Schedule["jigen"] = {
