@@ -16,11 +16,10 @@ function App() {
     initializeSubject();
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
+    const [actualSearchOptions, setActualSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
     const handleSearch = (newSearchOptions: SearchOptions) => {
-        setSearchOptions({
-            ...newSearchOptions,
-        });
+        setActualSearchOptions(newSearchOptions);
     };
 
     // テーマのステートを追加 (デフォルトはシステムの設定に依存)
@@ -69,7 +68,7 @@ function App() {
 
                 <SearchComponent onSearch={handleSearch} searchOptions={searchOptions} setSearchOptions={setSearchOptions}></SearchComponent>
 
-                <TableView searchOptions={searchOptions}></TableView>
+                <TableView searchOptions={actualSearchOptions}></TableView>
 
                 <Timetable></Timetable>
 
