@@ -4,58 +4,22 @@ import './App.css';
 import {
     initializeSubject,
 } from './subject';
-import SearchComponent from './search/SearchComponent';
-import { SearchOptions } from './search';
-import { initializeYoubiKoma } from './search/KomaSelector';
-import TableView from './table-view/TableView';
+import SearchComponent from './components/SearchComponent';
+import ExportBookmarkButton from './components/ExportBookmarkButton';
+import TableView from './components/TableView';
+import Timetable from './components/Timetable';
+import { SearchOptions } from './types/search';
+import { initialSearchOptions } from './search/';
 import { BookmarkProvider } from './contexts/BookmarkContext';
-import ExportBookmarkButton from './ExportBookmarkButton';
-import Timetable from './timetable/Timetable';
 
 function App() {
     initializeSubject();
 
-    const [searchOptions, setSearchOptions] = useState<SearchOptions>({
-        campus: '指定なし',
-        bookmarkFilter: 'all',
-        teacher: '',
-        subjectName: '',
-        kamokuKubun: '',
-        kaikouBukyoku: '',
-        youbiKoma: initializeYoubiKoma(true),
-        semester: '指定なし',
-        jikiKubun: '指定なし',
-        courseType: '指定なし',
-        language: '指定なし',
-        rishuNenji: "指定なし",
-        rishuNenjiFilter: "以下"
-    });
+    const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
+    const [actualSearchOptions, setActualSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
     const handleSearch = (newSearchOptions: SearchOptions) => {
-        setSearchOptions({
-            ...newSearchOptions,
-        });
-    };
-
-    const [bookmarkedSubjects, setBookmarkedSubjects] = useState<Set<string>>(new Set());
-
-    // ブックマークの追加・削除を行う関数
-    const handleBookmarkToggle = (lectureCode: string) => {
-        console.log("handleBookmarkToggle")
-        setBookmarkedSubjects(prev => {
-            const newBookmarks = new Set(prev);
-            if (newBookmarks.has(lectureCode)) {
-                newBookmarks.delete(lectureCode);
-            } else {
-                newBookmarks.add(lectureCode);
-            }
-            setSearchOptions(prevOptions => ({
-                ...prevOptions,
-                bookmarkedSubjects: newBookmarks
-            }));
-            return newBookmarks;
-        });
-        console.log(bookmarkedSubjects)
+        setActualSearchOptions(newSearchOptions);
     };
 
     // テーマのステートを追加 (デフォルトはシステムの設定に依存)
@@ -87,17 +51,11 @@ function App() {
                     <h1>広島大学シラバス momiji2(非公式)</h1>
                     <h2>注意事項</h2>
                     <ul>
-                        <li>開発中です。</li>
-                        <li>PC推奨です。</li>
-                        <li>検索漏れがあるかもしれません。</li>
-                        <li>シラバス情報は2023年4月に取得したものです。(2024年1月21日現在)</li>
-                    </ul>
-                    <h2>使い方について</h2>
-                    <ul>
-                        <li>「☆」はブックマークボタンで、押すと右下の時間割表に授業が追加されます。（集中は除く）</li>
-                        <li>講義コードのリンク（新しいタブで開きます）を踏むと、公式のシラバスに飛びます。</li>
-                        <li>担当教員名のリンク（新しいタブで開きます）を踏むと、research mapに飛びます。</li>
-                        <li>基本データ表の文章にカーソルを合わせると、省略されている部分も見ることができます</li>
+                        <li><b><u>2024年度のシラバスは2024年4月1日に公開されるそうです。</u></b></li>
+                        <li><b><u>最新のシラバス情報はMyもみじから確認してください！！</u></b></li>
+                        <li>PC推奨です。(スマホ対応はそのうちやる予定です。)</li>
+                        <li>検索漏れ等あるかもしれませんが、責任は負いません...!</li>
+                        <li>シラバス情報は2023年4月に取得したものです。(2024年3月28日現在)</li>
                     </ul>
                     <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
                     <ul>
@@ -109,9 +67,9 @@ function App() {
                     </ul>
                 </div>
 
-                <SearchComponent onSearch={handleSearch} bookmarkedSubjects={bookmarkedSubjects}></SearchComponent>
+                <SearchComponent onSearch={handleSearch} searchOptions={searchOptions} setSearchOptions={setSearchOptions}></SearchComponent>
 
-                <TableView searchOptions={searchOptions} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></TableView>
+                <TableView searchOptions={actualSearchOptions}></TableView>
 
                 <Timetable></Timetable>
 

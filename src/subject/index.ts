@@ -1,5 +1,5 @@
 // import { Periods } from './period';
-import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } from './types';
+import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } from '../types/subject';
 
 // 全授業の主要情報の辞書
 // import subjectData from '../../data/subject_details_main.json'
@@ -20,9 +20,6 @@ export const propertyToShowList: string[] = []
 export const subjectProperties: string[] = []
 
 
-
-// TODO お気に入り教員
-// TODO 講義名をマウスホバーで講義の詳細を表示
 // TODO setTimeout()ってなに, async await って使ったほうがいいの？
 
 export const initializeSubject = () => {
@@ -45,7 +42,7 @@ export const initializeSubject = () => {
   })
 
   Object.entries(subjectMap).forEach(([subjectCode, subject]) => {
-    const { rishuNenji, semester, jikiKubun } = parseKaisetsuki(subject["開設期"]);
+    const kaisetsuki = parseKaisetsuki(subject["開設期"]);
     const schedules = parseSchedule(subject["曜日・時限・講義室"]);
     subject2Map[subjectCode] = {
       "relative URL": subject["relative URL"],
@@ -56,9 +53,9 @@ export const initializeSubject = () => {
       "授業科目名": subject["授業科目名"],
       "担当教員名": subject["担当教員名"].split(",").filter((s) => s !== "null"),
       "開講キャンパス": subject["開講キャンパス"],
-      "セメスター": semester,
-      "時期区分": jikiKubun,
-      "履修年次": rishuNenji,
+      "セメスター": kaisetsuki ? kaisetsuki.semester : undefined,
+      "時期区分": kaisetsuki ? kaisetsuki.jikiKubun : undefined,
+      "履修年次": kaisetsuki ? kaisetsuki.rishuNenji : undefined,
       "授業時間・講義室": schedules,
       "開設期": subject["開設期"],
       "曜日・時限・講義室": subject["曜日・時限・講義室"],

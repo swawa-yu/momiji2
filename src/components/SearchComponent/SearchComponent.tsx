@@ -1,35 +1,18 @@
-import React, { useState } from 'react';
-import { SearchOptions, BookmarkFilter } from '.';
-import KomaSelector, { initializeYoubiKoma, YoubiKomaSelected } from './KomaSelector';
+import React from 'react';
+import { SearchOptions, BookmarkFilter, YoubiKomaSelected } from '../../types/search';
+import KomaSelector from './KomaSelector';
+import { initialSearchOptions } from '../../search';
 import './SearchComponent.css';
-import { kaikouBukyokus } from '../subject/types';
+import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../types/subject';
 
 type SearchComponentProps = {
+    setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
+    searchOptions: SearchOptions;
     onSearch: (newSearchOptions: SearchOptions) => void;
-    bookmarkedSubjects: Set<string>;
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-// const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch, bookmarkedSubjects }: SearchComponentProps) => {
-const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchComponentProps) => {
-    const initialSearchOptions: SearchOptions = {
-        campus: "指定なし",
-        bookmarkFilter: 'all',
-        teacher: '',
-        subjectName: '',
-        kamokuKubun: '',
-        kaikouBukyoku: '',
-        youbiKoma: initializeYoubiKoma(true),
-        // bookmarkedSubjects: bookmarkedSubjects,
-        semester: "指定なし",
-        jikiKubun: "指定なし",
-        courseType: "指定なし",
-        language: "指定なし",
-        rishuNenji: "指定なし",
-        rishuNenjiFilter: "以下"
-    };
-    const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
-
+const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSearch, setSearchOptions }: SearchComponentProps) => {
     const handleSearch = () => {
         onSearch(searchOptions);
     };
@@ -74,7 +57,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                                 <option value="指定なし">指定なし</option>
                                 <option value="前期">前期</option>
                                 <option value="後期">後期</option>
-                                {/* <option value="解析エラー">解析エラー</option> */}
                             </select>
                         </div>
 
@@ -98,7 +80,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                                 <option value="年度">年度</option>
                                 <option value="通年">通年</option>
                                 <option value="集中">集中</option>
-                                {/* <option value="解析エラー">解析エラー</option> */}
                             </select>
                         </div>
 
@@ -170,9 +151,23 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                                 onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
                             >
                                 <option value="">指定なし</option>
-                                {kaikouBukyokus.map((kaikouBukyoku, index) => (
-                                    <option key={index} value={kaikouBukyoku}>{kaikouBukyoku}</option>
-                                ))}
+                                {/* 表示するメニューをsearchOptions.courseTypeによってメニューに合わせる */}
+                                {(() => {
+                                    const KaikouBukyokusToDisplay = (() => {
+                                        switch (searchOptions.courseType) {
+                                            case "学部":
+                                                return kaikouBukyokuGakubus;
+                                            case "大学院":
+                                                return kaikouBukyokuDaigakuins;
+                                            default:
+                                                return kaikouBukyokus;
+                                        }
+                                    })()
+
+                                    return KaikouBukyokusToDisplay.map((kaikouBukyoku) => (
+                                        <option key={kaikouBukyoku} value={kaikouBukyoku}>{kaikouBukyoku}</option>
+                                    ));
+                                })()}
                             </select>
                         </div>
 
@@ -240,7 +235,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }: SearchCom
                             </select>
                         </div>
                     </div>
-                    <KomaSelector onScheduleChange={handleYoubiKomaChange} />
+                    <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                 </div>
                 <div className='do-search'>
                     <button onClick={handleSearch}>検索</button>

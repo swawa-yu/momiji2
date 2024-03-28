@@ -1,9 +1,8 @@
 import { useState, useContext, useRef, useEffect } from 'react';
-import { BookmarkContext, BookmarkContextType } from '../contexts/BookmarkContext';
-import { youbis, komas } from '../search/KomaSelector';
+import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext';
 import './Timetable.css';
-import { subject2Map } from '../subject';
-import { JikiKubun } from '../subject/types';
+import { subject2Map } from '../../subject';
+import { youbis, komas, JikiKubun } from '../../types/subject';
 
 interface Position {
     top: number;
@@ -24,8 +23,6 @@ const Timetable = () => {
 
     // テーブルのセルの座標を計算(相対座標)......失敗
     useEffect(() => {
-        console.log("useEffect")
-        console.log(tableRef.current)
         if (tableRef.current && timetableRef.current) {
             const containerRect = timetableRef.current.getBoundingClientRect();
             const positions: { [key: string]: Position } = {};
@@ -77,7 +74,8 @@ const Timetable = () => {
                             <table ref={tableRef}>
                                 <thead>
                                     <tr>
-                                        <th></th> {/* 左上の空白セル */}
+                                        {/* 左上の空白セル */}
+                                        <th></th>
                                         {youbis.map(youbi => (
                                             <th key={youbi}>{youbi}</th>
                                         ))}
@@ -86,10 +84,12 @@ const Timetable = () => {
                                 <tbody>
                                     {komas.map(koma => (
                                         <tr key={koma}>
-                                            <td>{koma}</td> {/* コマのラベル */}
+                                            {/* コマのラベル */}
+                                            <td>{koma}</td>
+
+                                            {/* コマのセル(空) */}
                                             {youbis.map(youbi => (
-                                                <td key={youbi}>
-                                                </td>
+                                                <td key={youbi}></td>
                                             ))}
                                         </tr>
                                     ))}
@@ -102,11 +102,14 @@ const Timetable = () => {
                         <div className="class-objects">
                             {Array.from(bookmarkedSubjects).map(subjectCode => {
                                 const schedules = subject2Map[subjectCode]["授業時間・講義室"];
+                                if (schedules === undefined) return null; // 授業時間・講義室が解析エラーの場合はnullを返す
                                 return schedules.map(schedule => {
                                     if (schedule.jigen === undefined) return null; // 集中
-                                    if (schedule.jigen?.komaRange === "解析エラー") return null; // その他
+                                    if (schedule.jigen.komaRange === undefined) return null; // 解析エラーやコマが指定されていない可能性を考慮
                                     // TODO: if(schedule.term !== term) return null;
-                                    const position = cellPositions[`${schedule.jigen?.youbi}${schedule.jigen?.komaRange[0]}`];
+                                    const position = cellPositions[`${schedule.jigen.youbi}${schedule.jigen.komaRange.begin}`];
+
+                                    // 1~4タームの場合
                                     if (position && schedule.jikiKubun === term) {
                                         return (
                                             <div
@@ -115,7 +118,7 @@ const Timetable = () => {
                                                     top: position.top + 'px',
                                                     left: position.left + 'px',
                                                     width: position.width + 'px',
-                                                    height: position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1) + 'px',
+                                                    height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) + 'px',
                                                     backgroundColor: 'rgba(20, 200, 20, 0.5)', // TODO: 適当な色の設定
                                                 }}
                                             >
@@ -123,6 +126,8 @@ const Timetable = () => {
                                             </div>
                                         );
                                     }
+
+                                    // セメスター科目の場合
                                     if (position && (
                                         schedule.jikiKubun === "セメスター（前期）" && (term === "１ターム" || "２ターム") ||
                                         schedule.jikiKubun === "セメスター（後期）" && (term === "３ターム" || "４ターム")
@@ -134,7 +139,7 @@ const Timetable = () => {
                                                     top: position.top + 'px',
                                                     left: position.left + 'px',
                                                     width: position.width + 'px',
-                                                    height: position.height * (schedule.jigen?.komaRange[1] - schedule.jigen?.komaRange[0] + 1) + 'px',
+                                                    height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) + 'px',
                                                     backgroundColor: 'rgba(20, 200, 20, 0.5)', // TODO: 適当な色の設定
                                                 }}
                                             >
@@ -142,6 +147,8 @@ const Timetable = () => {
                                             </div>
                                         );
                                     }
+
+                                    // その他の場合
                                     return null;
                                 });
                             })}

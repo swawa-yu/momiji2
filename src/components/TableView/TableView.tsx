@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { BookmarkContext } from '../../contexts/BookmarkContext';
 
 import SyllabusTableRaw from './SyllabusTableRaw';
 import {
     subjectMap,
     subject2Map,
-} from '../subject';
+} from '../../subject';
 
-import { SearchOptions, useFilterSubjectCodeList } from '../search';
+import { SearchOptions } from '../../types/search';
+import { filterSubjectCodeList } from '../../search';
 import ReactTableComponent from './ReactTableComponent';
 
 interface TableViewProps {
     searchOptions: SearchOptions;
-    bookmarkedSubjects: Set<string>;
-    handleBookmarkToggle: (lectureCode: string) => void;
 }
 
 
-function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: TableViewProps) {
+function TableView({ searchOptions }: TableViewProps) {
 
     const [isTableRaw, setIsTableRaw] = useState(false);
 
@@ -28,7 +28,10 @@ function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: 
     };
 
     // const filteredSubjectCodeList = React.useMemo(() => filterSubjectCodeList(searchOptions), [searchOptions]);
-    const filteredSubjectCodes = useFilterSubjectCodeList(searchOptions);
+    // const filteredSubjectCodes = filterSubjectCodeList(searchOptions);
+    const bookmarkedSubjects = useContext(BookmarkContext).bookmarkedSubjects;
+    const filteredSubjectCodes = React.useMemo(() => filterSubjectCodeList(searchOptions, bookmarkedSubjects), [searchOptions]);
+
 
     const filteredSubjects = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subjectMap[subjectCode]) }, [searchOptions]);
     const filteredSubjects2 = React.useMemo(() => { return filteredSubjectCodes.map(subjectCode => subject2Map[subjectCode]) }, [searchOptions]);
@@ -57,8 +60,7 @@ function TableView({ searchOptions, bookmarkedSubjects, handleBookmarkToggle }: 
             </button>
             {isTableRaw ?
                 <SyllabusTableRaw subjectsToShow={subjectsToShow} ></SyllabusTableRaw> :
-                <ReactTableComponent subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></ReactTableComponent>}
-            {/* <SyllabusTable subjectsToShow={subjects2ToShow} bookmarkedSubjects={bookmarkedSubjects} handleBookmarkToggle={handleBookmarkToggle}></SyllabusTable>} */}
+                <ReactTableComponent subjectsToShow={subjects2ToShow}></ReactTableComponent>}
         </div>
     );
 }
