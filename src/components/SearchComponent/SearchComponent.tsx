@@ -238,7 +238,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSear
                     <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                 </div>
                 <div className='do-search'>
-                    <button onClick={handleSearch}>検索</button>
                     <button onClick={handleClear}>検索条件をクリア</button>
                 </div>
             </div >
