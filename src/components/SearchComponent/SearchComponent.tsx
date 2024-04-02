@@ -13,10 +13,6 @@ type SearchComponentProps = {
 
 // TODO: あいまい検索に対応(generalSearch)
 const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSearch, setSearchOptions }: SearchComponentProps) => {
-    const handleSearch = () => {
-        onSearch(searchOptions);
-    };
-
     const handleClear = () => {
         setSearchOptions(initialSearchOptions);
     };
