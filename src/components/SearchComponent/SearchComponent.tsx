@@ -8,15 +8,10 @@ import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '.
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
     searchOptions: SearchOptions;
-    onSearch: (newSearchOptions: SearchOptions) => void;
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSearch, setSearchOptions }: SearchComponentProps) => {
-    const handleSearch = () => {
-        onSearch(searchOptions);
-    };
-
+const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSearchOptions }: SearchComponentProps) => {
     const handleClear = () => {
         setSearchOptions(initialSearchOptions);
     };
@@ -238,7 +233,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSear
                     <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                 </div>
                 <div className='do-search'>
-                    <button onClick={handleSearch}>検索</button>
                     <button onClick={handleClear}>検索条件をクリア</button>
                 </div>
             </div >
