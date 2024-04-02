@@ -8,11 +8,10 @@ import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '.
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
     searchOptions: SearchOptions;
-    onSearch: (newSearchOptions: SearchOptions) => void;
 };
 
 // TODO: あいまい検索に対応(generalSearch)
-const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, onSearch, setSearchOptions }: SearchComponentProps) => {
+const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSearchOptions }: SearchComponentProps) => {
     const handleClear = () => {
         setSearchOptions(initialSearchOptions);
     };
