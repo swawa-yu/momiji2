@@ -30,4 +30,5 @@ export interface SearchOptions {
     language: Language | "指定なし"
     rishuNenji: number | "指定なし"
     rishuNenjiFilter: "以下" | "のみ"
+    subjectCode: string
 }

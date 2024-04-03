@@ -216,6 +216,17 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 placeholder="担当教員名"
                             />
                         </div>
+                        <div className='search-group'>
+                            <br></br>
+                            <label htmlFor="subject-code">講義コード(前方一致): </label>
+                            <input
+                                id='subject-code'
+                                type="text"
+                                value={searchOptions.subjectCode}
+                                onChange={(e) => setSearchOptions({ ...searchOptions, subjectCode: e.target.value })}
+                                placeholder="例: CC2(教育学部第二類)"
+                            />
+                        </div>
 
                         <div className='search-group'>
                             <label htmlFor="bookmark-filter">ブックマーク:</label>
