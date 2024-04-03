@@ -46,7 +46,8 @@ export const initialSearchOptions: SearchOptions = {
     courseType: "学部",
     language: "指定なし",
     rishuNenji: "指定なし",
-    rishuNenjiFilter: "以下"
+    rishuNenjiFilter: "以下",
+    subjectCode: "",
 };
 
 // 検索条件で絞り込んだ科目のリスト(講義コードのリスト)を返す
@@ -69,7 +70,8 @@ function matchesSearchOptions(subject: Subject2, searchOptions: SearchOptions, b
         matchesBookmark(subject, searchOptions, bookmarkedSubjects) &&
         matchesCourseType(subject, searchOptions) &&
         matchesLanguage(subject, searchOptions) &&
-        matchesRishuNenji(subject, searchOptions);
+        matchesRishuNenji(subject, searchOptions) &&
+        matchesSubjectCode(subject, searchOptions);
 }
 
 
@@ -168,4 +170,8 @@ function matchesRishuNenji(subject: Subject2, searchOptions: SearchOptions): boo
     return searchOptions.rishuNenji === "指定なし" ||
         searchOptions.rishuNenjiFilter === "以下" && subject["履修年次"] <= searchOptions.rishuNenji ||
         searchOptions.rishuNenjiFilter === "のみ" && subject["履修年次"] == searchOptions.rishuNenji;
+}
+
+function matchesSubjectCode(subject: Subject2, searchOptions: SearchOptions): boolean {
+    return subject["講義コード"].startsWith(searchOptions.subjectCode);
 }

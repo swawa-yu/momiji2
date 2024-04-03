@@ -17,15 +17,17 @@
 /* より具体的なセレクタを使用 */
 /* TODO: !importantの使用をやめる */
 .term-selected {
-    background-color: #4CAF50 !important;
+    /* background-color: #4CAF50 !important; */
+    background-color: var(--momiji-color) !important;
     color: white !important;
 }
 
 .class-objects>div {
     position: absolute;
     font-size: 0.5em;
-    border-color: #ccc;
-    border-style: solid;
+    border-radius: 5px;
+    border: 1px solid rgba(220, 220, 220, 0.4);
+    box-sizing: border-box;
 }
 
 
@@ -55,7 +57,8 @@
     bottom: 10px;
     right: 10px;
     border: 1px solid #ccc;
-    opacity: 0.85;
+    opacity: 0.95;
+    background-color: #ccc;
 }
 
 .timetable-window .toggle-button {
