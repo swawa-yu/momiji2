@@ -20,7 +20,7 @@ function TableView({ searchOptions }: TableViewProps) {
 
     const [isTableRaw, setIsTableRaw] = useState(false);
 
-    const defaultMaxNumberOfSubjectsToShow = 1000;
+    const defaultMaxNumberOfSubjectsToShow = 200;
     const [maxNumberOfSubjectsToShow, setMaxNumberOfSubjectsToShow] = useState(defaultMaxNumberOfSubjectsToShow);
     const handleMaxSubjectsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(event.target.value, 10);
