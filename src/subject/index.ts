@@ -4,7 +4,7 @@ import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } f
 // 全授業の主要情報の辞書
 // import subjectData from '../../data/subject_details_main.json'
 // import subjectData from '../../data/subject-maininfo.json'
-import subjectData from '../../data/subject_data_main_2024-04-03.json'
+import subjectData from '../../data/subject_data_main_2024-04-05.json'
 import { parseKaisetsuki, parseSchedule } from './utils';
 
 
