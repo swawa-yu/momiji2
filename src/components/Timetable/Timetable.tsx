@@ -119,7 +119,8 @@ const Timetable = () => {
                                                     left: position.left + 2 + 'px',
                                                     width: position.width - 4 + 'px',
                                                     height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) - 4 + 'px',
-                                                    backgroundColor: 'rgba(20, 200, 20, 0.5)', // TODO: 適当な色の設定
+                                                    backgroundColor: 'rgba(60, 160, 20, 0.5)', // TODO: 適当な色の設定
+                                                    color: '#f9f9f9',
                                                 }}
                                             >
                                                 {subject2Map[subjectCode]["授業科目名"]}
