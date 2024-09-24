@@ -21,6 +21,7 @@
     "@types/react-window": "^1.8.8",
     "axios": "^1.6.3",
     "csv-react-table": "^2.0.7",
+    "lucide-react": "^0.445.0",
     "material-table": "^2.0.5",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
