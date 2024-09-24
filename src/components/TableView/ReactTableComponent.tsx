@@ -4,6 +4,7 @@ import './ReactTableComponent.css';
 import { Subject2 } from '../../types/subject';
 import BookmarkButton from './BookmarkButton';
 import { convertURLtoAbsolute } from '../../subject/utils';
+import CopyToClipboard from '../CopyToClipboard';
 
 interface ReactTableComponentProps {
     subjectsToShow: Subject2[];
@@ -24,6 +25,8 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                         <a href={convertURLtoAbsolute(row.original["relative URL"])} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
                             {row.original['講義コード']}
                         </a>
+                        {/*copy button*/}
+                        <CopyToClipboard text={row.original['講義コード']} />
                         <br></br>
                         {row.original['授業科目名']}
                     </div>
