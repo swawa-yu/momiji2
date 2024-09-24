@@ -25,7 +25,6 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                         <a href={convertURLtoAbsolute(row.original["relative URL"])} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く">
                             {row.original['講義コード']}
                         </a>
-                        {/*copy button*/}
                         <CopyToClipboard text={row.original['講義コード']} />
                         <br></br>
                         {row.original['授業科目名']}
