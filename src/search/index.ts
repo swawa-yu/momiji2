@@ -82,11 +82,11 @@ function matchesCampus(subject: Subject2, searchOptions: SearchOptions): boolean
 }
 
 function matchesSubjectName(subject: Subject2, searchOptions: SearchOptions): boolean {
-    return searchOptions.subjectName === "" || subject["授業科目名"].includes(searchOptions.subjectName);
+    return searchOptions.subjectName === "" || subject["授業科目名"].toLowerCase().includes(searchOptions.subjectName.toLowerCase());
 }
 
 function matchesTeacher(subject: Subject2, searchOptions: SearchOptions): boolean {
-    return searchOptions.teacher === "" || subject["担当教員名"].some(teacher => teacher.includes(searchOptions.teacher));
+    return searchOptions.teacher === "" || subject["担当教員名"].some(teacher => teacher.toLowerCase().includes(searchOptions.teacher.toLowerCase()));
 }
 
 function matchesKamokuKubun(subject: Subject2, searchOptions: SearchOptions): boolean {
