@@ -5,26 +5,33 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '16' # Node.jsのバージョンを16に更新
+        node-version: '22'
 
-    - name: Install Dependencies
-      run: npm install # 依存関係のインストール
+    - name: Install pnpm
+      run: npm install -g pnpm
+
+    - name: Install dependencies
+      run: pnpm install
 
     - name: Build
-      run: npm run build # プロジェクトのビルド
+      run: pnpm run build
 
-    - name: Deploy
+    - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        publish_dir: ./dist # ビルドされたファイルが格納されるディレクトリ
-        keep_files: true # /dev 内のファイルを削除しない
+        personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        publish_dir: ./dist
+        keep_files: true

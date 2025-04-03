@@ -12,25 +12,26 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '16' # プロジェクトに合わせてNode.jsのバージョンを指定
+        node-version: '22'
 
     - name: Install pnpm
       run: npm install -g pnpm
-      
+
     - name: Install Dependencies
-      run: pnpm install # または npm install
+      run: pnpm install
 
     - name: Build
-      run: npm run build # または pnpm run build
+      run: pnpm run build
 
     - name: Fetch and checkout gh-pages branch
       run: |
         git fetch origin gh-pages:gh-pages
+        git reset --hard HEAD
         git checkout gh-pages
 
     - name: Configure Git
@@ -38,22 +39,10 @@ jobs:
         git config --global user.name "${GITHUB_ACTOR}"
         git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-    - name: (DEBUG) Show git status before changes
-      run: |
-       git status
-       git diff --staged
-
     - name: Commit and push changes
       run: |
         mkdir -p dev
         cp -r dist/* dev/
         git add dev
         git diff --staged --quiet || git commit -m "Deploy develop branch to /dev directory"
-        git push origin gh-pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-    - name: (DEBUG) Show git status after changes
-      run: |
-       git status
-       git diff --staged
+        git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} gh-pages
