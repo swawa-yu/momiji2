@@ -29,6 +29,9 @@ jobs:
     - name: Build
       run: pnpm run build
 
+    - name: "DEBUG: show build output"
+      run: ls -R ./dist || echo "dist not found!"
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
