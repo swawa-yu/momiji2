@@ -5,7 +5,7 @@
 - 時間割の仮組みもできます。
 - URL: https://swawa-yu.github.io/momiji2/
 
-## データの取得
+## シラバスデータのソース
 - https://momiji.hiroshima-u.ac.jp/syllabusHtml/ からデータを取得しています。
 
 ## 参考にさせていただいたもの
