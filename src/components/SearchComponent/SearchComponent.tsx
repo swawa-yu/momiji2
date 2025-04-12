@@ -4,6 +4,8 @@ import KomaSelector from './KomaSelector';
 import { initialSearchOptions } from '../../search';
 import './SearchComponent.css';
 import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../types/subject';
+import Button from '@mui/material/Button';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -244,7 +246,13 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                     <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                 </div>
                 <div className='do-search'>
-                    <button onClick={handleClear}>検索条件をクリア</button>
+                    <Button
+                        variant="outlined"
+                        startIcon={<RestartAltIcon />}
+                        onClick={handleClear}
+                    >
+                        検索条件をクリア
+                    </Button>
                 </div>
             </div >
         </>
