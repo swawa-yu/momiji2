@@ -16,6 +16,10 @@
     "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
     "@types/papaparse": "^5.3.14",
     "@types/react-table": "^7.7.18",
     "@types/react-window": "^1.8.8",
