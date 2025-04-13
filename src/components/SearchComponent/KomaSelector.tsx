@@ -118,12 +118,20 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
 
                             {/* 現在の行(コマ)における各曜日のチェックボックス */}
                             {youbis.map(youbi => (
-                                <td key={youbi}>
+                                // td 自体に onClick を追加し、Checkbox自体のクリックは無効化
+                                <td
+                                    key={youbi}
+                                    onClick={() => handleYoubiKomaCheckboxChange(`${youbi}${koma}` as YoubiKoma, !youbiKoma[`${youbi}${koma}`])}
+                                    style={{
+                                        cursor: 'pointer',
+                                        textAlign: 'center',
+                                        verticalAlign: 'middle'
+                                    }}
+                                >
                                     <Checkbox
                                         size="small"
                                         checked={youbiKoma[`${youbi}${koma}`] ?? true}
-                                        onChange={(e) => handleYoubiKomaCheckboxChange(`${youbi}${koma}` as YoubiKoma, e.target.checked)}
-                                    // sx={{ padding: 0 }}
+                                        sx={{ pointerEvents: 'none' }}
                                     />
                                 </td>
                             ))}
