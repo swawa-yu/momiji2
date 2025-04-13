@@ -6,6 +6,11 @@ import './SearchComponent.css';
 import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../types/subject';
 import Button from '@mui/material/Button';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -22,6 +27,18 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
         setSearchOptions({ ...searchOptions, youbiKoma: newYoubiKoma });
     };
 
+    const handleCampusChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, campus: event.target.value as SearchOptions['campus'] }); };
+    const handleSemesterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, semester: event.target.value as SearchOptions['semester'] }); };
+    const handleJikiKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }); };
+    const handleKamokuKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] | "指定なし" }); }; // TODO: 型を作成する
+    const handleLanguageChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, language: event.target.value as SearchOptions['language'] }); };
+    const handleCourseTypeChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, courseType: event.target.value as SearchOptions['courseType'] }); };
+    const handleKaikouBukyokuChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kaikouBukyoku: event.target.value as SearchOptions['kaikouBukyoku'] | "指定なし" }); };
+    const handleRishuNenjiChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }); };
+    const handleRishuNenjiFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenjiFilter: event.target.value as SearchOptions['rishuNenjiFilter'] }); };
+    const handleBookmarkFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, bookmarkFilter: event.target.value as BookmarkFilter }); };
+
+
 
     return (
         <>
@@ -30,218 +47,254 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                 <div className='search-groups'>
                     <div>
                         <div className='search-group'>
-                            <label htmlFor="campus-select">キャンパス:</label>
-                            <select
-                                id="campus-select"
-                                value={searchOptions.campus}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, campus: e.target.value as SearchOptions['campus'] })}
-                            >
-                                <option value="指定なし">指定なし</option>
-                                <option value="東広島">東広島</option>
-                                <option value="霞">霞</option>
-                                <option value="東千田">東千田</option>
-                                <option value="その他">その他</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="campus-select-label">キャンパス</InputLabel>
+                                <Select
+                                    labelId="campus-select-label"
+                                    id="campus-select"
+                                    value={searchOptions.campus}
+                                    label="キャンパス"
+                                    onChange={handleCampusChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="東広島">東広島</MenuItem>
+                                    <MenuItem value="霞">霞</MenuItem>
+                                    <MenuItem value="東千田">東千田</MenuItem>
+                                    <MenuItem value="その他">その他</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
-                            <label htmlFor="semester-select">セメスター:</label>
-                            <select
-                                id="semester-select"
-                                value={searchOptions.semester}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, semester: e.target.value as SearchOptions['semester'] })}
-                            >
-                                <option value="指定なし">指定なし</option>
-                                <option value="前期">前期</option>
-                                <option value="後期">後期</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="semester-select-label">セメスター</InputLabel>
+                                <Select
+                                    labelId="semester-select-label"
+                                    id="semester-select"
+                                    value={searchOptions.semester}
+                                    label="セメスター"
+                                    onChange={handleSemesterChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="前期">前期</MenuItem>
+                                    <MenuItem value="後期">後期</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
                             {/* TODO: 時期区分はチェックボックスにしたい */}
-                            <label htmlFor="jiki-kubun-select">時期区分:</label>
-                            <select
-                                id="jiki-kubun-select"
-                                value={searchOptions.jikiKubun}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, jikiKubun: e.target.value as SearchOptions['jikiKubun'] })}
-                            >
-                                <option value="指定なし">指定なし</option>
-                                <option value="１ターム">１ターム</option>
-                                <option value="２ターム">２ターム</option>
-                                <option value="３ターム">３ターム</option>
-                                <option value="４ターム">４ターム</option>
-                                <option value="セメスター（前期）">セメスター（前期）</option>
-                                <option value="セメスター（後期）">セメスター（後期）</option>
-                                <option value="ターム外（前期）">ターム外（前期）</option>
-                                <option value="ターム外（後期）">ターム外（後期）</option>
-                                <option value="年度">年度</option>
-                                <option value="通年">通年</option>
-                                <option value="集中">集中</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
+                                <Select
+                                    labelId="jiki-kubun-select-label"
+                                    id="jiki-kubun-select"
+                                    value={searchOptions.jikiKubun}
+                                    label="時期区分"
+                                    onChange={handleJikiKubunChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="１ターム">１ターム</MenuItem>
+                                    <MenuItem value="２ターム">２ターム</MenuItem>
+                                    <MenuItem value="３ターム">３ターム</MenuItem>
+                                    <MenuItem value="４ターム">４ターム</MenuItem>
+                                    <MenuItem value="セメスター（前期）">セメスター（前期）</MenuItem>
+                                    <MenuItem value="セメスター（後期）">セメスター（後期）</MenuItem>
+                                    <MenuItem value="ターム外（前期）">ターム外（前期）</MenuItem>
+                                    <MenuItem value="ターム外（後期）">ターム外（後期）</MenuItem>
+                                    <MenuItem value="年度">年度</MenuItem>
+                                    <MenuItem value="通年">通年</MenuItem>
+                                    <MenuItem value="集中">集中</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
-                            {/* 科目区分のドロップダウンメニュー */}
-                            <label htmlFor="kamoku-kubun-select">科目区分:</label>
-                            <select
-                                id="kamoku-kubun-select"
-                                value={searchOptions.kamokuKubun}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, kamokuKubun: e.target.value })}
-                            >
-                                <option value="">指定なし</option>
-                                {/* export const kamokuKubuns = [
-    "大学教育入門", "展開ゼミ", "平和科目", "外国語科目", "情報・データサイエンス科目", "領域科目", "基盤科目", "社会連携科目", "健康スポーツ科目", "教養教育科目（昼）", "教養教育科目（夜）", "専門教育科目", "教職専門科目", "他学部・他研究科科目", "大学院共通科目", "専門的教育科目"
-] as const */}
-                                <option value="大学教育入門">{"(教養科目)     大学教育入門"}</option>
-                                <option value="展開ゼミ">{"(教養科目)     展開ゼミ"}</option>
-                                <option value="平和科目">{"(教養科目)     平和科目"}</option>
-                                <option value="外国語科目">{"(教養科目)     外国語科目"}</option>
-                                <option value="情報・データサイエンス科目">{"(教養科目)     情報・データサイエンス科目"}</option>
-                                <option value="領域科目">{"(教養科目)     領域科目"}</option>
-                                <option value="基盤科目">{"(教養科目)     基盤科目"}</option>
-                                <option value="社会連携科目">{"(教養科目)     社会連携科目"}</option>
-                                <option value="健康スポーツ科目">{"(教養科目)     健康スポーツ科目"}</option>
-                                <option value="教養教育科目（昼）">{"(教養ゼミ)     教養教育科目（昼）"}</option>
-                                <option value="教養教育科目（夜）">{"(教養ゼミ)     教養教育科目（夜）"}</option>
-                                <option value="専門教育科目">専門教育科目</option>
-                                <option value="教職専門科目">教職専門科目</option>
-                                <option value="他学部・他研究科科目">他学部・他研究科科目</option>
-                                <option value="大学院共通科目">大学院共通科目</option>
-                                <option value="専門的教育科目">専門的教育科目</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
+                                <Select
+                                    labelId="kamoku-kubun-select-label"
+                                    id="kamoku-kubun-select"
+                                    value={searchOptions.kamokuKubun}
+                                    label="科目区分"
+                                    onChange={handleKamokuKubunChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="大学教育入門">{"(教養科目)     大学教育入門"}</MenuItem>
+                                    <MenuItem value="展開ゼミ">{"(教養科目)     展開ゼミ"}</MenuItem>
+                                    <MenuItem value="平和科目">{"(教養科目)     平和科目"}</MenuItem>
+                                    <MenuItem value="外国語科目">{"(教養科目)     外国語科目"}</MenuItem>
+                                    <MenuItem value="情報・データサイエンス科目">{"(教養科目)     情報・データサイエンス科目"}</MenuItem>
+                                    <MenuItem value="領域科目">{"(教養科目)     領域科目"}</MenuItem>
+                                    <MenuItem value="基盤科目">{"(教養科目)     基盤科目"}</MenuItem>
+                                    <MenuItem value="社会連携科目">{"(教養科目)     社会連携科目"}</MenuItem>
+                                    <MenuItem value="健康スポーツ科目">{"(教養科目)     健康スポーツ科目"}</MenuItem>
+                                    <MenuItem value="教養教育科目（昼）">{"(教養ゼミ)     教養教育科目（昼）"}</MenuItem>
+                                    <MenuItem value="教養教育科目（夜）">{"(教養ゼミ)     教養教育科目（夜）"}</MenuItem>
+                                    <MenuItem value="専門教育科目">専門教育科目</MenuItem>
+                                    <MenuItem value="教職専門科目">教職専門科目</MenuItem>
+                                    <MenuItem value="他学部・他研究科科目">他学部・他研究科科目</MenuItem>
+                                    <MenuItem value="大学院共通科目">大学院共通科目</MenuItem>
+                                    <MenuItem value="専門的教育科目">専門的教育科目</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
-                            <label htmlFor="language-select">使用言語:</label>
-                            <select
-                                id="language-select"
-                                value={searchOptions.language}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, language: e.target.value as SearchOptions['language'] })}
-                            >
-                                <option value="指定なし">指定なし</option>
-                                <option value="J : 日本語">J : 日本語</option>
-                                <option value="E : 英語">E : 英語</option>
-                                <option value="B : 日本語・英語">B : 日本語・英語</option>
-                                <option value="O : その他">O : その他</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="language-select-label">使用言語</InputLabel>
+                                <Select
+                                    labelId="language-select-label"
+                                    id="language-select"
+                                    value={searchOptions.language}
+                                    label="使用言語"
+                                    onChange={handleLanguageChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="J : 日本語">J : 日本語</MenuItem>
+                                    <MenuItem value="E : 英語">E : 英語</MenuItem>
+                                    <MenuItem value="B : 日本語・英語">B : 日本語・英語</MenuItem>
+                                    <MenuItem value="O : その他">O : その他</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
-                            <label htmlFor="course-type-select">学部／大学院:</label>
-                            <select
-                                id="course-type-select"
-                                value={searchOptions.courseType}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, courseType: e.target.value as SearchOptions['courseType'] })}
-                            >
-                                <option value="指定なし">指定なし</option>
-                                <option value="学部">学部</option>
-                                <option value="大学院">大学院</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
+                                <Select
+                                    labelId="course-type-select-label"
+                                    id="course-type-select"
+                                    value={searchOptions.courseType}
+                                    label="学部／大学院"
+                                    onChange={handleCourseTypeChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="学部">学部</MenuItem>
+                                    <MenuItem value="大学院">大学院</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
-                            {/* 開講部局のドロップダウンメニュー */}
-                            <label htmlFor="kaikou-bukyoku-select">開講部局:</label>
-                            <select
-                                id="kaikou-bukyoku-select"
-                                value={searchOptions.kaikouBukyoku}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, kaikouBukyoku: e.target.value })}
-                            >
-                                <option value="">指定なし</option>
-                                {/* 表示するメニューをsearchOptions.courseTypeによってメニューに合わせる */}
-                                {(() => {
-                                    const KaikouBukyokusToDisplay = (() => {
-                                        switch (searchOptions.courseType) {
-                                            case "学部":
-                                                return kaikouBukyokuGakubus;
-                                            case "大学院":
-                                                return kaikouBukyokuDaigakuins;
-                                            default:
-                                                return kaikouBukyokus;
-                                        }
-                                    })()
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="kaikou-bukyoku-select-label">開講部局</InputLabel>
+                                <Select
+                                    labelId="kaikou-bukyoku-select-label"
+                                    id="kaikou-bukyoku-select"
+                                    value={searchOptions.kaikouBukyoku}
+                                    label="開講部局"
+                                    onChange={handleKaikouBukyokuChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    {(() => {
+                                        const KaikouBukyokusToDisplay = (() => {
+                                            switch (searchOptions.courseType) {
+                                                case "学部":
+                                                    return kaikouBukyokuGakubus;
+                                                case "大学院":
+                                                    return kaikouBukyokuDaigakuins;
+                                                default:
+                                                    return kaikouBukyokus;
+                                            }
+                                        })()
 
-                                    return KaikouBukyokusToDisplay.map((kaikouBukyoku) => (
-                                        <option key={kaikouBukyoku} value={kaikouBukyoku}>{kaikouBukyoku}</option>
-                                    ));
-                                })()}
-                            </select>
+                                        return KaikouBukyokusToDisplay.map((kaikouBukyoku) => (
+                                            <MenuItem key={kaikouBukyoku} value={kaikouBukyoku}>{kaikouBukyoku}</MenuItem>
+                                        ));
+                                    })()}
+                                </Select>
+                            </FormControl>
                         </div>
 
                         <div className='search-group'>
-                            <label htmlFor="rishu-nenji-select">履修年次:</label>
-                            <select
-                                id="rishu-nenji-select"
-                                value={searchOptions.rishuNenji}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, rishuNenji: e.target.value as SearchOptions['rishuNenji'] })}
-                            >
-                                <option value="指定なし">指定なし</option>
-                                <option value="1">1年次</option>
-                                <option value="2">2年次</option>
-                                <option value="3">3年次</option>
-                                <option value="4">4年次</option>
-                                <option value="5">5年次</option>
-                                <option value="6">6年次</option>
-                            </select>
-                            <select
-                                id="rishu-nenji-filter-select"
-                                value={searchOptions.rishuNenjiFilter}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, rishuNenjiFilter: e.target.value as SearchOptions['rishuNenjiFilter'] })}
-                            >
-                                <option value="以下">以下</option>
-                                <option value="のみ">のみ</option>
-                            </select>
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="rishu-nenji-select-label">履修年次</InputLabel>
+                                <Select
+                                    labelId="rishu-nenji-select-label"
+                                    id="rishu-nenji-select"
+                                    value={searchOptions.rishuNenji as string} // TODO: 型の確認
+                                    label="履修年次"
+                                    onChange={handleRishuNenjiChange}
+                                >
+                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value="1">1年次</MenuItem>
+                                    <MenuItem value="2">2年次</MenuItem>
+                                    <MenuItem value="3">3年次</MenuItem>
+                                    <MenuItem value="4">4年次</MenuItem>
+                                    <MenuItem value="5">5年次</MenuItem>
+                                    <MenuItem value="6">6年次</MenuItem>
+                                </Select>
+                            </FormControl>
+                            {/* TODO: 「指定なし」のときに「以下/のみ」を表示するかどうか考える */}
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="rishu-nenji-filter-select-label">以下/のみ</InputLabel>
+                                <Select
+                                    labelId="rishu-nenji-filter-select-label"
+                                    id="rishu-nenji-filter-select"
+                                    value={searchOptions.rishuNenjiFilter}
+                                    label="履修年次フィルター"
+                                    onChange={handleRishuNenjiFilterChange}
+                                >
+                                    <MenuItem value="以下">以下</MenuItem>
+                                    <MenuItem value="のみ">のみ</MenuItem>
+                                </Select>
+                            </FormControl>
                         </div>
-
-
                     </div>
                     <div>
                         <div className='search-group'>
-                            <label htmlFor="subject-name">授業科目名(部分一致): </label>
-                            <input
+                            <TextField
                                 id="subject-name"
-                                type="text"
+                                label="授業科目名(部分一致)"
+                                variant="outlined"
+                                size="small"
                                 value={searchOptions.subjectName}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })}
-                                placeholder="授業科目名"
-                            /></div>
-
+                                // placeholder="例: 力学"
+                                sx={{ m: 1, width: '25ch' }}
+                            />
+                        </div>
                         <div className='search-group'>
-                            <br></br>
-
-                            <label htmlFor="teacher-name">担当教員名(部分一致): </label>
-                            <input
-                                id='teacher-name'
-                                type="text"
+                            <TextField
+                                id="teacher-name"
+                                label="担当教員名(部分一致)"
+                                variant="outlined"
+                                size="small"
                                 value={searchOptions.teacher}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
-                                placeholder="担当教員名"
+                                // placeholder="例: 田中太郎"
+                                sx={{ m: 1, width: '25ch' }}
                             />
                         </div>
                         <div className='search-group'>
-                            <br></br>
-                            <label htmlFor="subject-code">講義コード(前方一致): </label>
-                            <input
-                                id='subject-code'
-                                type="text"
+                            <TextField
+                                id="subject-code"
+                                label="講義コード(部分一致)" // TODO: 前方一致にする
+                                variant="outlined"
+                                size="small"
                                 value={searchOptions.subjectCode}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, subjectCode: e.target.value })}
-                                placeholder="例: CC2(教育学部第二類)"
+                                // placeholder="例: CC2(教育学部第二類)"
+                                sx={{ m: 1, width: '25ch' }}
                             />
                         </div>
 
-                        <div className='search-group'>
-                            <label htmlFor="bookmark-filter">ブックマーク:</label>
-                            <select
-                                id="bookmark-filter"
+
+                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                            <InputLabel id="bookmark-filter-select-label">ブックマーク</InputLabel>
+                            <Select
+                                labelId="bookmark-filter-select-label"
+                                id="bookmark-filter-select"
                                 value={searchOptions.bookmarkFilter}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, bookmarkFilter: e.target.value as BookmarkFilter })}
+                                label="ブックマーク"
+                                onChange={handleBookmarkFilterChange}
                             >
-                                <option value="all">指定なし</option>
-                                <option value="bookmark">ブックマークのみを表示</option>
-                                <option value="except-bookmark">ブックマークを除外</option>
-                            </select>
-                        </div>
+                                <MenuItem value="all">指定なし</MenuItem>
+                                <MenuItem value="bookmark">ブックマークのみを表示</MenuItem>
+                                <MenuItem value="except-bookmark">ブックマークを除外</MenuItem>
+                            </Select>
+                        </FormControl>
                     </div>
                     <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                 </div>
