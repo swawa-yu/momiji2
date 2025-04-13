@@ -38,8 +38,8 @@ export const initialSearchOptions: SearchOptions = {
     bookmarkFilter: 'all',
     teacher: '',
     subjectName: '',
-    kamokuKubun: '',
-    kaikouBukyoku: '',
+    kamokuKubun: "指定なし",
+    kaikouBukyoku: "指定なし",
     youbiKoma: initializeYoubiKoma(true),
     semester: "指定なし",
     jikiKubun: "指定なし",
@@ -90,11 +90,11 @@ function matchesTeacher(subject: Subject2, searchOptions: SearchOptions): boolea
 }
 
 function matchesKamokuKubun(subject: Subject2, searchOptions: SearchOptions): boolean {
-    return searchOptions.kamokuKubun === "" || subject["科目区分"].includes(searchOptions.kamokuKubun);
+    return searchOptions.kamokuKubun === "指定なし" || subject["科目区分"].includes(searchOptions.kamokuKubun);
 }
 
 function matchesKaikouBukyoku(subject: Subject2, searchOptions: SearchOptions): boolean {
-    return searchOptions.kaikouBukyoku === "" || subject["開講部局"].includes(searchOptions.kaikouBukyoku);
+    return searchOptions.kaikouBukyoku === "指定なし" || subject["開講部局"].includes(searchOptions.kaikouBukyoku);
 }
 
 // searchOptions.youbiKomaのすべての要素について、チェックが入っている場合、次の判定をする
