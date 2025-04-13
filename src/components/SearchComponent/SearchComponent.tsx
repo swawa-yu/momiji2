@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack'; // 必要に応じて
+import Stack from '@mui/material/Stack';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -186,38 +186,48 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })()}
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                                <InputLabel id="rishu-nenji-select-label">履修年次</InputLabel>
-                                <Select
-                                    labelId="rishu-nenji-select-label"
-                                    id="rishu-nenji-select"
-                                    value={searchOptions.rishuNenji as string} // TODO: 型の確認
-                                    label="履修年次"
-                                    onChange={handleRishuNenjiChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    <MenuItem value="1">1年次</MenuItem>
-                                    <MenuItem value="2">2年次</MenuItem>
-                                    <MenuItem value="3">3年次</MenuItem>
-                                    <MenuItem value="4">4年次</MenuItem>
-                                    <MenuItem value="5">5年次</MenuItem>
-                                    <MenuItem value="6">6年次</MenuItem>
-                                </Select>
-                            </FormControl>
-                            {/* TODO: 「指定なし」のときに「以下/のみ」を表示するかどうか考える */}
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                                <InputLabel id="rishu-nenji-filter-select-label">以下/のみ</InputLabel>
-                                <Select
-                                    labelId="rishu-nenji-filter-select-label"
-                                    id="rishu-nenji-filter-select"
-                                    value={searchOptions.rishuNenjiFilter}
-                                    label="履修年次フィルター"
-                                    onChange={handleRishuNenjiFilterChange}
-                                >
-                                    <MenuItem value="以下">以下</MenuItem>
-                                    <MenuItem value="のみ">のみ</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <Box sx={{ m: 1 }}>
+                                <Grid container spacing={1} alignItems="center">
+                                    <Grid item xs={7}>
+                                        <FormControl fullWidth size="small" variant="outlined">
+                                            <InputLabel id="rishu-nenji-select-label">年次</InputLabel>
+                                            <Select
+                                                labelId="rishu-nenji-select-label"
+                                                id="rishu-nenji-select"
+                                                value={searchOptions.rishuNenji as string}
+                                                label="年次"
+                                                onChange={handleRishuNenjiChange}
+                                            >
+                                                <MenuItem value="指定なし">指定なし</MenuItem>
+                                                <MenuItem value="1">1</MenuItem>
+                                                <MenuItem value="2">2</MenuItem>
+                                                <MenuItem value="3">3</MenuItem>
+                                                <MenuItem value="4">4</MenuItem>
+                                                <MenuItem value="5">5</MenuItem>
+                                                <MenuItem value="6">6</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                    <Grid item xs={5}>
+                                        {/* TODO: 「指定なし」のときに非表示/非活性にする */}
+                                        <FormControl fullWidth size="small" variant="outlined">
+                                            <InputLabel id="rishu-nenji-filter-select-label">条件</InputLabel>
+                                            <Select
+                                                labelId="rishu-nenji-filter-select-label"
+                                                id="rishu-nenji-filter-select"
+                                                value={searchOptions.rishuNenjiFilter}
+                                                label="条件"
+                                                onChange={handleRishuNenjiFilterChange}
+                                            >
+                                                <MenuItem value="以下">以下</MenuItem>
+                                                <MenuItem value="のみ">のみ</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+
+
                         </Stack>
                     </Grid>
 
