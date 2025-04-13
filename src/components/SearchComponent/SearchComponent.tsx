@@ -11,6 +11,9 @@ import InputLabel from '@mui/material/InputLabel';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack'; // 必要に応じて
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -43,10 +46,10 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
     return (
         <>
             <h2>検索条件</h2>
-            <div className='search-component'>
-                <div className='search-groups'>
-                    <div>
-                        <div className='search-group'>
+            <Box sx={{ border: '1px solid #ccc', p: 3 }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Stack spacing={2}>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
                                 <Select
@@ -62,11 +65,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="東千田">東千田</MenuItem>
                                     <MenuItem value="その他">その他</MenuItem>
                                 </Select>
-                            </FormControl>
-                        </div>
-
-                        <div className='search-group'>
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                            </FormControl>                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="semester-select-label">セメスター</InputLabel>
                                 <Select
                                     labelId="semester-select-label"
@@ -79,12 +78,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="前期">前期</MenuItem>
                                     <MenuItem value="後期">後期</MenuItem>
                                 </Select>
-                            </FormControl>
-                        </div>
-
-                        <div className='search-group'>
-                            {/* TODO: 時期区分はチェックボックスにしたい */}
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                            </FormControl>                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
                                 <Select
                                     labelId="jiki-kubun-select-label"
@@ -107,9 +101,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="集中">集中</MenuItem>
                                 </Select>
                             </FormControl>
-                        </div>
-
-                        <div className='search-group'>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
                                 <Select
@@ -138,9 +129,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="専門的教育科目">専門的教育科目</MenuItem>
                                 </Select>
                             </FormControl>
-                        </div>
-
-                        <div className='search-group'>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="language-select-label">使用言語</InputLabel>
                                 <Select
@@ -156,11 +144,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="B : 日本語・英語">B : 日本語・英語</MenuItem>
                                     <MenuItem value="O : その他">O : その他</MenuItem>
                                 </Select>
-                            </FormControl>
-                        </div>
-
-                        <div className='search-group'>
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                            </FormControl>                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
                                 <Select
                                     labelId="course-type-select-label"
@@ -174,9 +158,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="大学院">大学院</MenuItem>
                                 </Select>
                             </FormControl>
-                        </div>
-
-                        <div className='search-group'>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="kaikou-bukyoku-select-label">開講部局</InputLabel>
                                 <Select
@@ -205,9 +186,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })()}
                                 </Select>
                             </FormControl>
-                        </div>
-
-                        <div className='search-group'>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                                 <InputLabel id="rishu-nenji-select-label">履修年次</InputLabel>
                                 <Select
@@ -240,10 +218,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="のみ">のみ</MenuItem>
                                 </Select>
                             </FormControl>
-                        </div>
-                    </div>
-                    <div>
-                        <div className='search-group'>
+                        </Stack>
+                    </Grid>
+
+                    {/* 3. Grid item で列を定義 (例: 2列目 - TextField 群 + Bookmark) */}
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Stack spacing={2}>
                             <TextField
                                 id="subject-name"
                                 label="授業科目名(部分一致)"
@@ -254,8 +234,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 // placeholder="例: 力学"
                                 sx={{ m: 1, width: '25ch' }}
                             />
-                        </div>
-                        <div className='search-group'>
                             <TextField
                                 id="teacher-name"
                                 label="担当教員名(部分一致)"
@@ -266,8 +244,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 // placeholder="例: 田中太郎"
                                 sx={{ m: 1, width: '25ch' }}
                             />
-                        </div>
-                        <div className='search-group'>
                             <TextField
                                 id="subject-code"
                                 label="講義コード(部分一致)" // TODO: 前方一致にする
@@ -278,36 +254,38 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 // placeholder="例: CC2(教育学部第二類)"
                                 sx={{ m: 1, width: '25ch' }}
                             />
-                        </div>
 
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="bookmark-filter-select-label">ブックマーク</InputLabel>
+                                <Select
+                                    labelId="bookmark-filter-select-label"
+                                    id="bookmark-filter-select"
+                                    value={searchOptions.bookmarkFilter}
+                                    label="ブックマーク"
+                                    onChange={handleBookmarkFilterChange}
+                                >
+                                    <MenuItem value="all">指定なし</MenuItem>
+                                    <MenuItem value="bookmark">ブックマークのみを表示</MenuItem>
+                                    <MenuItem value="except-bookmark">ブックマークを除外</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Stack>
+                    </Grid >
 
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="bookmark-filter-select-label">ブックマーク</InputLabel>
-                            <Select
-                                labelId="bookmark-filter-select-label"
-                                id="bookmark-filter-select"
-                                value={searchOptions.bookmarkFilter}
-                                label="ブックマーク"
-                                onChange={handleBookmarkFilterChange}
-                            >
-                                <MenuItem value="all">指定なし</MenuItem>
-                                <MenuItem value="bookmark">ブックマークのみを表示</MenuItem>
-                                <MenuItem value="except-bookmark">ブックマークを除外</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </div>
-                    <KomaSelector onSelectionChange={handleYoubiKomaChange} />
-                </div>
-                <div className='do-search'>
-                    <Button
-                        variant="outlined"
-                        startIcon={<RestartAltIcon />}
-                        onClick={handleClear}
-                    >
+                    {/* 3. Grid item で列を定義 (例: 3列目 - KomaSelector) */}
+                    <Grid item xs={12} md={4} >
+                        <KomaSelector onSelectionChange={handleYoubiKomaChange} />
+                    </Grid >
+
+                </Grid >
+
+                {/* クリアボタン (Grid の外に配置) */}
+                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button variant="outlined" startIcon={<RestartAltIcon />} onClick={handleClear}>
                         検索条件をクリア
                     </Button>
-                </div>
-            </div >
+                </Box>
+            </Box >
         </>
     );
 };
