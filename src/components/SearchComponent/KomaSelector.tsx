@@ -6,6 +6,8 @@ import { initializeYoubiKoma } from '../../search';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 type KomaSelectorProps = {
     onSelectionChange: (youbiKomaSelected: YoubiKomaSelected) => void; // TODO: 命名　scheduleというのは他の使い方もしているので紛らわしい
@@ -117,10 +119,11 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                             {/* 現在の行(コマ)における各曜日のチェックボックス */}
                             {youbis.map(youbi => (
                                 <td key={youbi}>
-                                    <input
-                                        type="checkbox"
+                                    <Checkbox
+                                        size="small"
                                         checked={youbiKoma[`${youbi}${koma}`] ?? true}
                                         onChange={(e) => handleYoubiKomaCheckboxChange(`${youbi}${koma}` as YoubiKoma, e.target.checked)}
+                                    // sx={{ padding: 0 }}
                                     />
                                 </td>
                             ))}
@@ -129,14 +132,16 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                 </tbody>
             </table>
 
-            <label>
-                集中
-                <input
-                    type="checkbox"
-                    checked={youbiKoma["集中"] ?? true}
-                    onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
-                />
-            </label>
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        size="small"
+                        checked={youbiKoma["集中"] ?? true}
+                        onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
+                    />
+                }
+                label="集中"
+            />
             {/* TODO: その他」に該当する授業は2023年4月のデータでは存在しないので、表示しないことにする。
             が、「その他」が存在しないことを保証しなければならない。
              */}
