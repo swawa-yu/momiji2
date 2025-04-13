@@ -231,7 +231,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                         </Stack>
                     </Grid>
 
-                    {/* 3. Grid item で列を定義 (例: 2列目 - TextField 群 + Bookmark) */}
                     <Grid item xs={12} sm={6} md={4}>
                         <Stack spacing={2}>
                             <TextField
@@ -282,14 +281,11 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                         </Stack>
                     </Grid >
 
-                    {/* 3. Grid item で列を定義 (例: 3列目 - KomaSelector) */}
                     <Grid item xs={12} md={4} >
                         <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                     </Grid >
-
                 </Grid >
 
-                {/* クリアボタン (Grid の外に配置) */}
                 <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
                     <Button variant="outlined" startIcon={<RestartAltIcon />} onClick={handleClear}>
                         検索条件をクリア
