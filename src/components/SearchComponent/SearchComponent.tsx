@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -243,36 +244,39 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                     </div>
                     <div>
                         <div className='search-group'>
-                            <label htmlFor="subject-name">授業科目名(部分一致): </label>
-                            <input
+                            <TextField
                                 id="subject-name"
-                                type="text"
+                                label="授業科目名(部分一致)"
+                                variant="outlined"
+                                size="small"
                                 value={searchOptions.subjectName}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })}
-                                placeholder="授業科目名"
-                            /></div>
-
-                        <div className='search-group'>
-                            <br></br>
-
-                            <label htmlFor="teacher-name">担当教員名(部分一致): </label>
-                            <input
-                                id='teacher-name'
-                                type="text"
-                                value={searchOptions.teacher}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
-                                placeholder="担当教員名"
+                                // placeholder="例: 力学"
+                                sx={{ m: 1, width: '25ch' }}
                             />
                         </div>
                         <div className='search-group'>
-                            <br></br>
-                            <label htmlFor="subject-code">講義コード(前方一致): </label>
-                            <input
-                                id='subject-code'
-                                type="text"
+                            <TextField
+                                id="teacher-name"
+                                label="担当教員名(部分一致)"
+                                variant="outlined"
+                                size="small"
+                                value={searchOptions.teacher}
+                                onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
+                                // placeholder="例: 田中太郎"
+                                sx={{ m: 1, width: '25ch' }}
+                            />
+                        </div>
+                        <div className='search-group'>
+                            <TextField
+                                id="subject-code"
+                                label="講義コード(部分一致)" // TODO: 前方一致にする
+                                variant="outlined"
+                                size="small"
                                 value={searchOptions.subjectCode}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, subjectCode: e.target.value })}
-                                placeholder="例: CC2(教育学部第二類)"
+                                // placeholder="例: CC2(教育学部第二類)"
+                                sx={{ m: 1, width: '25ch' }}
                             />
                         </div>
 
