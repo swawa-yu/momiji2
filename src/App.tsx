@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { initializeSubject } from './subject';
 import SearchComponent from './components/SearchComponent';
 import ExportBookmarkButton from './components/ExportBookmarkButton';
@@ -15,8 +15,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import InfoIcon from '@mui/icons-material/Info';
@@ -35,13 +33,6 @@ function App() {
     initializeSubject();
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
-    const [theme, setTheme] = useState<'light' | 'dark'>(
-        window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    );
-
-    const toggleTheme = () => {
-        setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-    };
 
     const [infoDialogOpen, setInfoDialogOpen] = useState(false);
     const handleInfoDialogOpen = () => {
@@ -56,10 +47,7 @@ function App() {
         setIsTimetableVisible(prev => !prev);
     };
 
-    useEffect(() => {
-        document.body.classList.remove('light', 'dark');
-        document.body.classList.add(theme);
-    }, [theme]);
+
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -74,12 +62,6 @@ function App() {
                         <Box sx={{ flexGrow: 1 }} />
 
                         <ExportBookmarkButton />
-
-                        <Tooltip title="ライト/ダークモード切替">
-                            <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
-                                {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-                            </IconButton>
-                        </Tooltip>
 
                         <Tooltip title="このアプリについて">
                             <IconButton sx={{ ml: 1 }} color="inherit" onClick={handleInfoDialogOpen}>

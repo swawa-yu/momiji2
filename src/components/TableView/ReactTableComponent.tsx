@@ -190,9 +190,11 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                 return (
                     <Box sx={{ maxHeight: '60px', overflowY: 'auto', width: '100%' }}>
                         {schedules.map((schedule, index) => (
-                            <Typography key={index} component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.8em' }}>
-                                {schedule}
-                            </Typography>
+                            <Tooltip key={index} title={schedule} arrow>
+                                <Typography component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.8em' }}>
+                                    {schedule}
+                                </Typography>
+                            </Tooltip>
                         ))}
                     </Box>
                 );
@@ -234,7 +236,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
         {
             field: '授業の目標・概要等',
             headerName: '概要',
-            width: 350,
+            flex: 1,
             minWidth: 350,
             sortable: false,
             renderCell: (params: GridRenderCellParams<Subject2>) => (
