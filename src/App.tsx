@@ -126,7 +126,7 @@ function App() {
 
                     <TableView searchOptions={searchOptions} />
                 </Container>
-                <Timetable />
+                {isTimetableVisible && <Timetable />}
                 <Fab
                     color="primary"
                     aria-label="時間割 表示/非表示"
