@@ -95,7 +95,7 @@ const Timetable = () => {
             className="timetable"
             sx={{
                 position: 'fixed',
-                bottom: { xs: 70, sm: 90 },
+                bottom: 100,
                 right: { xs: 16, sm: 32 },
                 width: '400px',
                 height: { xs: '50vh', sm: '440px' },
