@@ -47,7 +47,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
         <>
             <Box sx={{ border: '1px solid #ccc', p: 3 }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
@@ -231,7 +231,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                         </Stack>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
                             <TextField
                                 id="subject-name"
@@ -281,7 +281,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                         </Stack>
                     </Grid >
 
-                    <Grid item xs={12} md={4} >
+                    <Grid item xs={12} sm={12} lg={4}>
                         <KomaSelector onSelectionChange={handleYoubiKomaChange} />
                     </Grid >
                 </Grid >
