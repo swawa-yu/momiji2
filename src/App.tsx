@@ -19,6 +19,15 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
+import InfoIcon from '@mui/icons-material/Info';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContentText from '@mui/material/DialogContentText';
+import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+
 
 function App() {
     initializeSubject();
@@ -30,6 +39,14 @@ function App() {
 
     const toggleTheme = () => {
         setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    };
+
+    const [infoDialogOpen, setInfoDialogOpen] = useState(false);
+    const handleInfoDialogOpen = () => {
+        setInfoDialogOpen(true);
+    };
+    const handleInfoDialogClose = () => {
+        setInfoDialogOpen(false);
     };
 
     useEffect(() => {
@@ -56,8 +73,37 @@ function App() {
                                 {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                             </IconButton>
                         </Tooltip>
+
+                        <Tooltip title="このアプリについて">
+                            <IconButton sx={{ ml: 1 }} color="inherit" onClick={handleInfoDialogOpen}>
+                                <InfoIcon />
+                            </IconButton>
+                        </Tooltip>
                     </Toolbar>
                 </AppBar>
+
+                <Dialog
+                    open={infoDialogOpen}
+                    onClose={handleInfoDialogClose}
+                    aria-labelledby="info-dialog-title"
+                >
+                    <DialogTitle id="info-dialog-title">
+                        このアプリについて
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText component="div" sx={{ '& ul': { pl: 2, mt: 0.5 }, '& li': { mb: 0.5 } }}>
+                            <Typography variant="h6" component="h3" gutterBottom>開発者</Typography>
+                            <Typography component="span">
+                                GitHub: <Link href='https://github.com/swawa-yu' target="_blank" rel="noopener noreferrer">swawa-yu</Link> (リポジトリ：<Link href='https://github.com/swawa-yu/momiji2' target="_blank" rel="noopener noreferrer">swawa-yu/momiji2</Link>)
+                            </Typography>
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleInfoDialogClose} autoFocus> {/* autoFocus で Enter でも閉じれる */}
+                            閉じる
+                        </Button>
+                    </DialogActions>
+                </Dialog>
 
                 <Container maxWidth="xl" sx={{ mt: 2, mb: 2, flexGrow: 1 }}>
                     <Box sx={{ mb: 3 }}>
@@ -67,14 +113,6 @@ function App() {
                         <Alert severity="info" sx={{ mb: 1 }}>
                             2025年4月3日時点での<a href='https://momiji.hiroshima-u.ac.jp/syllabusHtml/'>広島大学シラバス</a>のデータに基づきます。
                         </Alert>
-                        {/* 開発者情報はフッターや別ページが良いかもしれないが、一旦ここに残す */}
-                        <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
-                        <ul>
-                            <li>
-                                <i className="fab fa-github"></i> GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a> (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)
-                            </li>
-                            {/* <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li> */}
-                        </ul>
                     </Box>
 
                     <SearchComponent searchOptions={searchOptions} setSearchOptions={setSearchOptions} />
