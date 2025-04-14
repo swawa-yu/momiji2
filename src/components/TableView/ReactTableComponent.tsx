@@ -190,9 +190,11 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                 return (
                     <Box sx={{ maxHeight: '60px', overflowY: 'auto', width: '100%' }}>
                         {schedules.map((schedule, index) => (
-                            <Typography key={index} component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.8em' }}>
-                                {schedule}
-                            </Typography>
+                            <Tooltip key={index} title={schedule} arrow>
+                                <Typography component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.8em' }}>
+                                    {schedule}
+                                </Typography>
+                            </Tooltip>
                         ))}
                     </Box>
                 );
