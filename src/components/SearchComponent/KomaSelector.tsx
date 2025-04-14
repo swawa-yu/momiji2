@@ -65,9 +65,17 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                         <th></th> {/* 左上の空白セル */}
                         {youbis.map(youbi => (
                             <th key={youbi}>
-                                <Button variant="text" onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>
-                                    {youbi}
-                                </Button>
+                                <Button
+                                    variant="text"
+                                    onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}
+                                    sx={{
+                                        padding: '4px 8px',
+                                        minWidth: 'auto',
+                                        lineHeight: 1.2,
+                                        textTransform: 'none',
+                                        height: '100%'
+                                    }}
+                                >{youbi}</Button>
                             </th>
                         ))}
                     </tr>
