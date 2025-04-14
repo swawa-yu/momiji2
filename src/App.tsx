@@ -140,6 +140,26 @@ function App() {
                     <CalendarMonthIcon />
                 </Fab>
             </BookmarkProvider>
+
+            <Box
+                component="footer"
+                sx={{
+                    mt: 'auto',
+                    p: 2,
+                    backgroundColor: (theme) =>
+                        theme.palette.mode === 'light'
+                            ? theme.palette.grey[200]
+                            : theme.palette.grey[800],
+                    textAlign: 'center',
+                    borderTop: '1px solid',
+                    borderColor: 'divider',
+                    height: '60px',
+                }}
+            >
+                <Typography variant="body2" color="text.secondary" align="center">
+                    © 2025 swawa_yu - momiji2
+                </Typography>
+            </Box>
         </Box>
     );
 }
