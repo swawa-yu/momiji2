@@ -1,11 +1,14 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { Subject2 } from '../../types/subject';
 import BookmarkButton from './BookmarkButton';
 import { convertURLtoAbsolute } from '../../subject/utils';
 import Typography from '@mui/material/Typography';
+import Snackbar from '@mui/material/Snackbar';
 
 interface ReactTableComponentProps {
     subjectsToShow: Subject2[];
@@ -19,11 +22,32 @@ const addIdToRows = (rows: Subject2[]) => {
 };
 
 const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ subjectsToShow }) => {
+    const [snackbarOpen, setSnackbarOpen] = React.useState(false);
+    const [snackbarMessage, setSnackbarMessage] = React.useState('');
+
+    const handleCopyToClipboard = async (text: string, event: React.MouseEvent) => {
+        event.stopPropagation(); // DataGridの行クリックイベントなどを抑制
+        try {
+            await navigator.clipboard.writeText(text);
+            setSnackbarMessage(`「${text}」をコピーしました`);
+            setSnackbarOpen(true);
+            console.log('Copied to clipboard:', text);
+        } catch (err) {
+            setSnackbarMessage(`コピーに失敗しました`);
+            setSnackbarOpen(true);
+            console.error('Failed to copy text: ', err);
+        }
+    };
+
+    const handleSnackbarClose = () => { // フィードバック用
+        setSnackbarOpen(false);
+    };
+
 
     const columns: GridColDef[] = [
         {
             // ブックマークボタン用の列
-            field: 'actions', // データにない操作用の列なので、適当な field 名を付ける
+            field: 'actions',
             headerName: '☆',
             width: 50,
             sortable: false,
@@ -44,33 +68,69 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                 const code = params.row.講義コード;
                 const name = params.row.授業科目名;
                 const url = convertURLtoAbsolute(params.row["relative URL"]);
-                const fullText = `${code} ${name}`;
 
                 return (
-                    <Tooltip title={fullText} arrow>
-                        <Box sx={{
-                            width: '100%',
-                            whiteSpace: 'normal',
-                            overflow: 'hidden',
-                            WebkitBoxOrient: 'vertical',
-                        }}>
-                            {/* 1行目: 講義コード */}
-                            <Typography component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                <a href={url} target="_blank" rel="noopener noreferrer" title="新しいタブでシラバスを開く"
-                                    style={{ color: 'inherit', textDecoration: 'underline', fontSize: '0.8em' }} // スタイル調整
+                    <Box sx={{
+                        // width: '100%',
+                        // height: '100%',
+                        // display: 'flex',
+                        // flexDirection: 'column',
+                        // justifyContent: 'center',
+                        overflow: 'hidden',
+                    }}>
+                        {/* 1行目: 講義コード + コピーボタン */}
+                        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                            {/* 講義コード (リンク) */}
+                            <Tooltip title="新しいタブでシラバスを開く" arrow>
+                                <Typography
+                                    component="a" // aタグとしてレンダリング
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    sx={{
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap',
+                                        fontSize: '1em',
+                                        color: 'inherit',
+                                        textDecoration: 'underline',
+                                        minWidth: 0, // これがないと縮小時にellipsisが効かないことがある
+                                    }}
                                 >
                                     {code}
-                                </a>
-                            </Typography>
+                                </Typography>
+                            </Tooltip>
 
-                            {/* 2行目: 授業科目名 */}
-                            <Typography component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '1em' }}>
+                            {/* コピーボタン */}
+                            <Tooltip title="講義コードをコピー" arrow>
+                                <IconButton
+                                    aria-label="講義コードをコピー"
+                                    onClick={(e) => handleCopyToClipboard(code, e)}
+                                    size="small"
+                                    sx={{ p: '2px', ml: 0.5 }}
+                                >
+                                    <ContentCopyIcon fontSize="inherit" />
+                                </IconButton>
+                            </Tooltip>
+                        </Box>
+
+                        {/* 2行目: 授業科目名 */}
+                        <Tooltip title={name} arrow>
+                            <Typography
+                                component="div"
+                                sx={{
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    fontSize: '1em',
+                                    width: '100%',
+                                    mt: 0.
+                                }}
+                            >
                                 {name}
                             </Typography>
-
-                            {/* <br /> は削除 */}
-                        </Box>
-                    </Tooltip>
+                        </Tooltip>
+                    </Box>
                 );
             },
         },
@@ -183,7 +243,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                         width: '100%',
                         height: '100%',
                         whiteSpace: 'normal',
-                        overflow: 'scroll',
+                        overflowY: 'auto',
                         fontSize: '0.8em',
                         lineHeight: 1.3
                     }}>
@@ -198,7 +258,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
     const rowsWithId = React.useMemo(() => addIdToRows(subjectsToShow), [subjectsToShow]);
 
     return (
-        <Box>
+        <Box sx={{ width: '100%' }}>
             <DataGrid
                 rows={rowsWithId}
                 columns={columns}
@@ -216,7 +276,21 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
                     '& .MuiDataGrid-columnHeader': {
                         padding: '0 8px',
                     },
+                    border: 1,
+                    borderColor: 'divider'
                 }}
+                initialState={{
+                    pagination: {
+                        paginationModel: { pageSize: 100 },
+                    },
+                }}
+            />
+            {/* フィードバック用 Snackbar */}
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={2000} // 2秒で消える
+                onClose={handleSnackbarClose}
+                message={snackbarMessage}
             />
         </Box>
     );
