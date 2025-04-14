@@ -234,7 +234,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(({ su
         {
             field: '授業の目標・概要等',
             headerName: '概要',
-            width: 350,
+            flex: 1,
             minWidth: 350,
             sortable: false,
             renderCell: (params: GridRenderCellParams<Subject2>) => (
