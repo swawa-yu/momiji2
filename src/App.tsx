@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
-
-import {
-    initializeSubject,
-} from './subject';
+import { initializeSubject } from './subject';
 import SearchComponent from './components/SearchComponent';
 import ExportBookmarkButton from './components/ExportBookmarkButton';
 import TableView from './components/TableView';
@@ -12,62 +8,139 @@ import { SearchOptions } from './types/search';
 import { initialSearchOptions } from './search/';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 
+// --- MUI Imports ---
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
+import InfoIcon from '@mui/icons-material/Info';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContentText from '@mui/material/DialogContentText';
+import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+
+
 function App() {
     initializeSubject();
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
+    const [theme, setTheme] = useState<'light' | 'dark'>(
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    );
 
-    // テーマのステートを追加 (デフォルトはシステムの設定に依存)
-    const [theme, setTheme] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-    // テーマ切り替え用の関数
     const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
+        setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
     };
 
-    // テーマが変更されたら、body要素に適切なクラスを動的に割り当てる
+    const [infoDialogOpen, setInfoDialogOpen] = useState(false);
+    const handleInfoDialogOpen = () => {
+        setInfoDialogOpen(true);
+    };
+    const handleInfoDialogClose = () => {
+        setInfoDialogOpen(false);
+    };
+
+    const [isTimetableVisible, setIsTimetableVisible] = useState(false);
+    const toggleTimetable = () => {
+        setIsTimetableVisible(prev => !prev);
+    };
+
     useEffect(() => {
         document.body.classList.remove('light', 'dark');
         document.body.classList.add(theme);
     }, [theme]);
 
     return (
-        <>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <BookmarkProvider>
-                <ExportBookmarkButton></ExportBookmarkButton>
-                <div className="theme-switcher">
-                    <label>
-                        <input type="checkbox" onChange={toggleTheme} checked={theme === 'dark'} />
-                        ダークモード
-                    </label>
-                </div>
+                <AppBar position="sticky">
+                    <Toolbar>
+                        <Typography variant="h6" component="div" sx={{ letterSpacing: -0.5 }}>
+                            広島大学シラバス momiji2
+                        </Typography>
 
-                <div>
-                    <h1>広島大学シラバス momiji2(仮) (非公式)</h1>
-                    <h2>注意事項</h2>
-                    <ul>
-                        <li><b><u>【重要】最新のシラバス情報はMyもみじから確認してください！！</u></b></li>
-                        <li>PC推奨です。(スマホ対応はそのうちやる予定です。)</li>
-                        <li>シラバス情報は2025年4月3日に取得したものです。(2025年4月3日現在)</li>
-                    </ul>
-                    <h2>開発者 (連絡先...バグ報告等はこちらまで)</h2>
-                    <ul>
-                        <li>
-                            <i className="fab fa-github"></i> GitHub: <a href='https://github.com/swawa-yu'>swawa-yu</a>
-                            (リポジトリ：<a href='https://github.com/swawa-yu/momiji2'>swawa-yu/momiji2</a>)
-                        </li>
-                        {/* <li>Twitter: <a href='https://twitter.com/swawa_yu'>@swawa_yu</a>, <a href='https://twitter.com/archaic_hohoemi'>@archaic_hohoemi</a></li> */}
-                    </ul>
-                </div>
+                        {/* ↓ 右寄せ用のスペーサー */}
+                        <Box sx={{ flexGrow: 1 }} />
 
-                <SearchComponent searchOptions={searchOptions} setSearchOptions={setSearchOptions}></SearchComponent>
+                        <ExportBookmarkButton />
 
-                <TableView searchOptions={searchOptions}></TableView>
+                        <Tooltip title="ライト/ダークモード切替">
+                            <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
+                                {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                            </IconButton>
+                        </Tooltip>
 
-                <Timetable></Timetable>
+                        <Tooltip title="このアプリについて">
+                            <IconButton sx={{ ml: 1 }} color="inherit" onClick={handleInfoDialogOpen}>
+                                <InfoIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </Toolbar>
+                </AppBar>
 
+                <Dialog
+                    open={infoDialogOpen}
+                    onClose={handleInfoDialogClose}
+                    aria-labelledby="info-dialog-title"
+                >
+                    <DialogTitle id="info-dialog-title">
+                        このアプリについて
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText component="div" sx={{ '& ul': { pl: 2, mt: 0.5 }, '& li': { mb: 0.5 } }}>
+                            <Typography variant="h6" component="h3" gutterBottom>開発者</Typography>
+                            <Typography component="span">
+                                GitHub: <Link href='https://github.com/swawa-yu' target="_blank" rel="noopener noreferrer">swawa-yu</Link> (リポジトリ：<Link href='https://github.com/swawa-yu/momiji2' target="_blank" rel="noopener noreferrer">swawa-yu/momiji2</Link>)
+                            </Typography>
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleInfoDialogClose} autoFocus> {/* autoFocus で Enter でも閉じれる */}
+                            閉じる
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+
+                <Container maxWidth="xl" sx={{ mt: 2, mb: 2, flexGrow: 1 }}>
+                    <Box sx={{ mb: 3 }}>
+                        <Alert severity="warning" sx={{ mb: 1 }}>
+                            <strong>【重要】</strong>最新のシラバス情報はMyもみじから確認してください！！
+                        </Alert>
+                        <Alert severity="info" sx={{ mb: 1 }}>
+                            2025年4月3日時点での<a href='https://momiji.hiroshima-u.ac.jp/syllabusHtml/'>広島大学シラバス</a>のデータに基づきます。
+                        </Alert>
+                    </Box>
+
+                    <SearchComponent searchOptions={searchOptions} setSearchOptions={setSearchOptions} />
+
+                    <TableView searchOptions={searchOptions} />
+                </Container>
+                <Timetable />
+                <Fab
+                    color="primary"
+                    aria-label="時間割 表示/非表示"
+                    onClick={toggleTimetable}
+                    sx={{
+                        position: 'fixed',
+                        bottom: 32,
+                        right: 32,
+                    }}
+                >
+                    <CalendarMonthIcon />
+                </Fab>
             </BookmarkProvider>
-        </>
+        </Box>
     );
 }
 
