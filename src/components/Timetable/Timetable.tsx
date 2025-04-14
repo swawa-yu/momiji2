@@ -3,6 +3,7 @@ import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkCon
 import './Timetable.css';
 import { subject2Map } from '../../subject';
 import { youbis, komas, JikiKubun } from '../../types/subject';
+import Box from '@mui/material/Box';
 
 interface Position {
     top: number;
@@ -54,113 +55,124 @@ const Timetable = () => {
 
     const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
 
-    // 表のレンダリング
+
     return (
-        <div className={`timetable-window ${isExpanded ? 'expanded' : 'collapsed'}`}>
-            <button className="toggle-button" onClick={toggleExpansion}>
-                {isExpanded ? '▼' : '▲'}
-            </button>
-            {isExpanded && (
-                <div className='content'>
-                    <div className="term-buttons">
-                        {(["１ターム", "２ターム", "３ターム", "４ターム"] as JikiKubun[]).map(t => (
-                            (term === t) ?
-                                <button key={t} onClick={() => { switchTerm(t); }} className='term-selected'>{t}</button> :
-                                <button key={t} onClick={() => { switchTerm(t); }}>{t}</button>
-                        ))}
-                    </div>
-                    <div className="timetable" ref={timetableRef}>
-                        <div className='table-body'>
-                            <table ref={tableRef}>
-                                <thead>
-                                    <tr>
-                                        {/* 左上の空白セル */}
-                                        <th></th>
+        <Box
+            className="timetable"
+            sx={{
+                position: 'fixed',
+                bottom: { xs: 100, sm: 100 },
+                right: { xs: 16, sm: 32 },
+                width: { xs: 'calc(100% - 32px)', sm: '500px', md: '600px' },
+                height: { xs: '50vh', sm: '500px' },
+                zIndex: (theme) => theme.zIndex.drawer - 1, // TODO: よくわかってない
+                border: '1px solid',
+                borderColor: 'divider',
+                backgroundColor: 'background.paper',
+                boxShadow: 4,
+                overflow: 'auto',
+            }}
+        >
+            <div className='content'>
+                <div className="term-buttons">
+                    {(["１ターム", "２ターム", "３ターム", "４ターム"] as JikiKubun[]).map(t => (
+                        (term === t) ?
+                            <button key={t} onClick={() => { switchTerm(t); }} className='term-selected'>{t}</button> :
+                            <button key={t} onClick={() => { switchTerm(t); }}>{t}</button>
+                    ))}
+                </div>
+                <div className="timetable" ref={timetableRef}>
+                    <div className='table-body'>
+                        <table ref={tableRef}>
+                            <thead>
+                                <tr>
+                                    {/* 左上の空白セル */}
+                                    <th></th>
+                                    {youbis.map(youbi => (
+                                        <th key={youbi}>{youbi}</th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {komas.map(koma => (
+                                    <tr key={koma}>
+                                        {/* コマのラベル */}
+                                        <td>{koma}</td>
+
+                                        {/* コマのセル(空) */}
                                         {youbis.map(youbi => (
-                                            <th key={youbi}>{youbi}</th>
+                                            <td key={youbi}></td>
                                         ))}
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {komas.map(koma => (
-                                        <tr key={koma}>
-                                            {/* コマのラベル */}
-                                            <td>{koma}</td>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
 
-                                            {/* コマのセル(空) */}
-                                            {youbis.map(youbi => (
-                                                <td key={youbi}></td>
-                                            ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                    {/* TODO: 表示しているタームによって、授業は描画したりしなかったりするようにしなければならない */}
+                    {/* TODO: タームにマッチするのを描画するんじゃなくて、各タームのテーブルを用意した上で表示するものを選択するべきかもしれない */}
+                    <div className="class-objects">
+                        {Array.from(bookmarkedSubjects).map(subjectCode => {
+                            const schedules = subject2Map[subjectCode]["授業時間・講義室"];
+                            if (schedules === undefined) return null; // 授業時間・講義室が解析エラーの場合はnullを返す
+                            return schedules.map(schedule => {
+                                if (schedule.jigen === undefined) return null; // 集中
+                                if (schedule.jigen.komaRange === undefined) return null; // 解析エラーやコマが指定されていない可能性を考慮
+                                // TODO: if(schedule.term !== term) return null;
+                                const position = cellPositions[`${schedule.jigen.youbi}${schedule.jigen.komaRange.begin}`];
 
-                        {/* TODO: 表示しているタームによって、授業は描画したりしなかったりするようにしなければならない */}
-                        {/* TODO: タームにマッチするのを描画するんじゃなくて、各タームのテーブルを用意した上で表示するものを選択するべきかもしれない */}
-                        <div className="class-objects">
-                            {Array.from(bookmarkedSubjects).map(subjectCode => {
-                                const schedules = subject2Map[subjectCode]["授業時間・講義室"];
-                                if (schedules === undefined) return null; // 授業時間・講義室が解析エラーの場合はnullを返す
-                                return schedules.map(schedule => {
-                                    if (schedule.jigen === undefined) return null; // 集中
-                                    if (schedule.jigen.komaRange === undefined) return null; // 解析エラーやコマが指定されていない可能性を考慮
-                                    // TODO: if(schedule.term !== term) return null;
-                                    const position = cellPositions[`${schedule.jigen.youbi}${schedule.jigen.komaRange.begin}`];
+                                // 1~4タームの場合
+                                if (position && schedule.jikiKubun === term) {
+                                    return (
+                                        <div
+                                            style={{
+                                                position: 'absolute',
+                                                top: position.top + 2 + 'px',
+                                                left: position.left + 2 + 'px',
+                                                width: position.width - 4 + 'px',
+                                                height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) - 4 + 'px',
+                                                backgroundColor: 'rgba(60, 160, 20, 0.5)', // TODO: 適当な色の設定
+                                                color: '#f9f9f9',
+                                            }}
+                                        >
+                                            {subject2Map[subjectCode]["授業科目名"]}
+                                        </div>
+                                    );
+                                }
 
-                                    // 1~4タームの場合
-                                    if (position && schedule.jikiKubun === term) {
-                                        return (
-                                            <div
-                                                style={{
-                                                    position: 'absolute',
-                                                    top: position.top + 2 + 'px',
-                                                    left: position.left + 2 + 'px',
-                                                    width: position.width - 4 + 'px',
-                                                    height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) - 4 + 'px',
-                                                    backgroundColor: 'rgba(60, 160, 20, 0.5)', // TODO: 適当な色の設定
-                                                    color: '#f9f9f9',
-                                                }}
-                                            >
-                                                {subject2Map[subjectCode]["授業科目名"]}
-                                            </div>
-                                        );
-                                    }
+                                // セメスター科目の場合
+                                if (position && (
+                                    schedule.jikiKubun === "セメスター（前期）" && (term === "１ターム" || "２ターム") ||
+                                    schedule.jikiKubun === "セメスター（後期）" && (term === "３ターム" || "４ターム")
+                                )) {
+                                    return (
+                                        <div
+                                            style={{
+                                                position: 'absolute',
+                                                top: position.top + 2 + 'px',
+                                                left: position.left + 2 + 'px',
+                                                width: position.width - 4 + 'px',
+                                                height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) - 4 + 'px',
+                                                backgroundColor: 'rgba(40, 60, 200, 0.5)' // TODO: 適当な色の設定
+                                            }}
+                                        >
+                                            {subject2Map[subjectCode]["授業科目名"]}
+                                        </div>
+                                    );
+                                }
 
-                                    // セメスター科目の場合
-                                    if (position && (
-                                        schedule.jikiKubun === "セメスター（前期）" && (term === "１ターム" || "２ターム") ||
-                                        schedule.jikiKubun === "セメスター（後期）" && (term === "３ターム" || "４ターム")
-                                    )) {
-                                        return (
-                                            <div
-                                                style={{
-                                                    position: 'absolute',
-                                                    top: position.top + 2 + 'px',
-                                                    left: position.left + 2 + 'px',
-                                                    width: position.width - 4 + 'px',
-                                                    height: position.height * (schedule.jigen.komaRange.last - schedule.jigen.komaRange.begin + 1) - 4 + 'px',
-                                                    backgroundColor: 'rgba(40, 60, 200, 0.5)' // TODO: 適当な色の設定
-                                                }}
-                                            >
-                                                {subject2Map[subjectCode]["授業科目名"]}
-                                            </div>
-                                        );
-                                    }
-
-                                    // その他の場合
-                                    return null;
-                                });
-                            })}
-                        </div>
-                        <div className="concentrated-classes">
-                            {/* 集中講義の描画 */}
-                        </div>
-                    </div >
-                </div>
-            )}
-        </div>)
+                                // その他の場合
+                                return null;
+                            });
+                        })}
+                    </div>
+                    <div className="concentrated-classes">
+                        {/* TODO: 集中講義の描画 */}
+                    </div>
+                </div >
+            </div>
+        </Box>
+    );
 }
 
 export default Timetable;
