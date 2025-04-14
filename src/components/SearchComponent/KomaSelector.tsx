@@ -3,10 +3,14 @@ import './KomaSelector.css';
 import { Youbi, Koma, YoubiKoma, youbis, komas, komaTime } from '../../types/subject';
 import { YoubiKomaSelected, } from '../../types/search';
 import { initializeYoubiKoma } from '../../search';
-
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 type KomaSelectorProps = {
-    onSelectionChange: (youbiKomaSelected: YoubiKomaSelected) => void; // TODO: 命名　scheduleというのは他の使い方もしているので紛らわしい
+    onSelectionChange: (youbiKomaSelected: YoubiKomaSelected) => void;
 };
 
 const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onScheduleChange }) => {
@@ -53,16 +57,25 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
 
     return (
         <div className='koma-selector'>
-            <button onClick={() => setAllYoubiKoma(true)}>全て選択</button>
-            <button onClick={() => setAllYoubiKoma(false)}>全て解除</button>
+            <Button size="small" variant="text" onClick={() => setAllYoubiKoma(true)}>全て選択</Button>
+            <Button size="small" variant="text" onClick={() => setAllYoubiKoma(false)}>全て解除</Button>
             <table>
                 <thead>
                     <tr>
-                        {/* 左上の空白セル */}
-                        <th></th>
+                        <th></th> {/* 左上の空白セル */}
                         {youbis.map(youbi => (
                             <th key={youbi}>
-                                <button onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}>{youbi}</button>
+                                <Button
+                                    variant="text"
+                                    onClick={() => setAllYoubi(youbi, !komas.every(koma => youbiKoma[`${youbi}${koma}`]))}
+                                    sx={{
+                                        padding: '4px 8px',
+                                        minWidth: 'auto',
+                                        lineHeight: 1.2,
+                                        textTransform: 'none',
+                                        height: '100%'
+                                    }}
+                                >{youbi}</Button>
                             </th>
                         ))}
                     </tr>
@@ -72,20 +85,55 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                         <tr key={koma}>
                             {/* コマのラベル */}
                             <td>
-                                <button onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}>
-                                    {koma}コマ
-                                    <br />
-                                    <div className="komatime">{komaTime[koma].start}-{komaTime[koma].end}</div>
-                                </button>
+                                <Button
+                                    variant="text"
+                                    onClick={() => setAllKoma(koma, !youbis.every(youbi => youbiKoma[`${youbi}${koma}`]))}
+                                    sx={{
+                                        padding: '4px 8px',
+                                        minWidth: 'auto',
+                                        lineHeight: 1.2,
+                                        textTransform: 'none',
+                                        height: '100%'
+                                    }}
+                                >
+                                    {/* Box で縦方向のフレックスコンテナを作成 */}
+                                    <Box sx={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center'
+                                    }}>
+                                        {/* 1行目: ◯コマ */}
+                                        <Typography component="span" sx={{ fontSize: '0.8rem' }}>
+                                            {koma}コマ
+                                        </Typography>
+                                        {/* 2行目: 時間表示 */}
+                                        <Typography component="span" variant="caption" sx={{
+                                            fontSize: 'x-small',
+                                            color: 'rgba(var(--main-color-rgb), 0.5)',
+                                            lineHeight: 1
+                                        }}>
+                                            {komaTime[koma].start}-{komaTime[koma].end}
+                                        </Typography>
+                                    </Box>
+                                </Button>
                             </td>
 
                             {/* 現在の行(コマ)における各曜日のチェックボックス */}
                             {youbis.map(youbi => (
-                                <td key={youbi}>
-                                    <input
-                                        type="checkbox"
+                                // td 自体に onClick を追加し、Checkbox自体のクリックは無効化
+                                <td
+                                    key={youbi}
+                                    onClick={() => handleYoubiKomaCheckboxChange(`${youbi}${koma}` as YoubiKoma, !youbiKoma[`${youbi}${koma}`])}
+                                    style={{
+                                        cursor: 'pointer',
+                                        textAlign: 'center',
+                                        verticalAlign: 'middle'
+                                    }}
+                                >
+                                    <Checkbox
+                                        size="small"
                                         checked={youbiKoma[`${youbi}${koma}`] ?? true}
-                                        onChange={(e) => handleYoubiKomaCheckboxChange(`${youbi}${koma}` as YoubiKoma, e.target.checked)}
+                                        sx={{ pointerEvents: 'none' }}
                                     />
                                 </td>
                             ))}
@@ -94,14 +142,16 @@ const KomaSelector: React.FC<KomaSelectorProps> = ({ onSelectionChange: onSchedu
                 </tbody>
             </table>
 
-            <label>
-                集中
-                <input
-                    type="checkbox"
-                    checked={youbiKoma["集中"] ?? true}
-                    onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
-                />
-            </label>
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        size="small"
+                        checked={youbiKoma["集中"] ?? true}
+                        onChange={(e) => handleYoubiKomaCheckboxChange("集中", e.target.checked)}
+                    />
+                }
+                label="集中"
+            />
             {/* TODO: その他」に該当する授業は2023年4月のデータでは存在しないので、表示しないことにする。
             が、「その他」が存在しないことを保証しなければならない。
              */}
