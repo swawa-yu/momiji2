@@ -1,47 +1,4 @@
-.search-component {
-    border: 1px solid #ccc;
-}
-
-.search-groups {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    /* 上揃えに変更 */
-    gap: 20px;
-}
-
-.search-group {
-    display: flex;
-    align-items: flex-start;
-    /* 上揃えに変更 */
-    margin-right: 20px;
-}
-
-.search-component label {
-    margin-right: 10px;
-}
-
-.search-component select,
-.search-component input {
-    width: auto;
-    max-width: 200px;
-    /* セレクトメニューの最大幅を設定 */
-}
-
-.search-component button {
-    padding: 4px;
-    margin: 2px;
-}
-
 .komatime {
-    font-size:x-small;
+    font-size: x-small;
     color: rgba(var(--main-color-rgb), 0.5);
-    /* color: rgba(var(--main-bg-color), 0.1) */
-    /* color:aqua */
-}
-
-.do-search button{
-    background-color: var(--momiji-color);
-    color: #ffffff
 }

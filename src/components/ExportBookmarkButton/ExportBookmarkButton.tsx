@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext';
-import './ExportBookmarkButton.css'
 import { subject2Map } from '../../subject';
 import { convertURLtoAbsolute } from '../../subject/utils';
+import Button from '@mui/material/Button';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const downloadCSV = (csvString: string) => {
     const BOM = "\uFEFF"; // UTF-8のBOM
@@ -22,7 +23,6 @@ const downloadCSV = (csvString: string) => {
     document.body.removeChild(link);
 }
 
-
 // TODO: bookmarkedSubjectsを引数に取るべきか
 const ExportBookmarkButton: React.FC<{}> = () => {
     const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
@@ -35,9 +35,13 @@ const ExportBookmarkButton: React.FC<{}> = () => {
     };
 
     return (
-        <div className='export-bookmark-button-container'>
-            <button onClick={handleExport}>ブックマークをエクスポート</button>
-        </div>
+        <Button
+            variant="contained"
+            startIcon={<FileDownloadIcon />}
+            onClick={handleExport}
+        >
+            ブックマークをエクスポート
+        </Button>
     )
 };
 
