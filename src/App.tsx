@@ -27,6 +27,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContentText from '@mui/material/DialogContentText';
 import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
 function App() {
@@ -47,6 +49,11 @@ function App() {
     };
     const handleInfoDialogClose = () => {
         setInfoDialogOpen(false);
+    };
+
+    const [isTimetableVisible, setIsTimetableVisible] = useState(false);
+    const toggleTimetable = () => {
+        setIsTimetableVisible(prev => !prev);
     };
 
     useEffect(() => {
@@ -120,6 +127,18 @@ function App() {
                     <TableView searchOptions={searchOptions} />
                 </Container>
                 <Timetable />
+                <Fab
+                    color="primary"
+                    aria-label="時間割 表示/非表示"
+                    onClick={toggleTimetable}
+                    sx={{
+                        position: 'fixed',
+                        bottom: 32,
+                        right: 32,
+                    }}
+                >
+                    <CalendarMonthIcon />
+                </Fab>
             </BookmarkProvider>
         </Box>
     );
