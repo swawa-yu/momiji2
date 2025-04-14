@@ -45,12 +45,11 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
 
     return (
         <>
-            <h2>検索条件</h2>
             <Box sx={{ border: '1px solid #ccc', p: 3 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6} md={4}>
                         <Stack spacing={2}>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
                                 <Select
                                     labelId="campus-select-label"
@@ -66,7 +65,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="その他">その他</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="semester-select-label">セメスター</InputLabel>
                                 <Select
                                     labelId="semester-select-label"
@@ -80,7 +79,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="後期">後期</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
                                 <Select
                                     labelId="jiki-kubun-select-label"
@@ -103,7 +102,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="集中">集中</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
                                 <Select
                                     labelId="kamoku-kubun-select-label"
@@ -131,7 +130,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="専門的教育科目">専門的教育科目</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="language-select-label">使用言語</InputLabel>
                                 <Select
                                     labelId="language-select-label"
@@ -147,7 +146,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="O : その他">O : その他</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
                                 <Select
                                     labelId="course-type-select-label"
@@ -161,7 +160,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <MenuItem value="大学院">大学院</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="kaikou-bukyoku-select-label">開講部局</InputLabel>
                                 <Select
                                     labelId="kaikou-bukyoku-select-label"
@@ -189,7 +188,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })()}
                                 </Select>
                             </FormControl>
-                            <Box sx={{}}>
+                            <Box sx={{ minWidth: 80 }}>
                                 <Grid container spacing={1} alignItems="center">
                                     <Grid item xs={7}>
                                         <FormControl fullWidth size="small" variant="outlined">
@@ -242,7 +241,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 value={searchOptions.subjectName}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })}
                                 // placeholder="例: 力学"
-                                sx={{ width: '25ch' }}
+                                sx={{ minWidth: 80 }}
                             />
                             <TextField
                                 id="teacher-name"
@@ -252,7 +251,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 value={searchOptions.teacher}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
                                 // placeholder="例: 田中太郎"
-                                sx={{ width: '25ch' }}
+                                sx={{ minWidth: 80 }}
                             />
                             <TextField
                                 id="subject-code"
@@ -262,10 +261,10 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 value={searchOptions.subjectCode}
                                 onChange={(e) => setSearchOptions({ ...searchOptions, subjectCode: e.target.value })}
                                 // placeholder="例: CC2(教育学部第二類)"
-                                sx={{ width: '25ch' }}
+                                sx={{ minWidth: 80 }}
                             />
 
-                            <FormControl sx={{ minWidth: 120 }} size="small">
+                            <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="bookmark-filter-select-label">ブックマーク</InputLabel>
                                 <Select
                                     labelId="bookmark-filter-select-label"
