@@ -261,7 +261,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                             />
                             <TextField
                                 id="subject-code"
-                                label="講義コード(部分一致)" // TODO: 前方一致にする
+                                label="講義コード(前方一致)"
                                 variant="outlined"
                                 size="small"
                                 value={searchOptions.subjectCode}
