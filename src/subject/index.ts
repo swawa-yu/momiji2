@@ -1,5 +1,8 @@
 // import { Periods } from './period';
-import { SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language } from '../types/subject';
+import {
+  SubjectMap, Subject, Subject2, KaikouBukyoku, KamokuKubun, Language,
+  campuses, semesters, jikiKubuns, languages, kamokuKubuns, kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins
+} from '../types/subject';
 
 // 全授業の主要情報の辞書
 // import subjectData from '../../data/subject_details_main.json'
@@ -23,8 +26,11 @@ export const subjectProperties: string[] = []
 
 // TODO setTimeout()ってなに, async await って使ったほうがいいの？
 
-export const initializeSubject = () => {
 
+type OptionCounts = { [key: string]: { [option: string | number]: number } };
+export let totalOptionCounts: OptionCounts = {};
+
+export const initializeSubject = () => {
   // subjectMap, subjectCodeList, propertyToShowListの初期化
   Object.keys(subjectMap).forEach((key) => {
     delete subjectMap[key]
@@ -71,6 +77,82 @@ export const initializeSubject = () => {
       "その他": subject["その他"]
     }
   })
+
+
+  // --- ▼▼▼ ここからヒット数計算ロジックを追加 ▼▼▼ ---
+  const calculatedCounts: OptionCounts = {};
+  const allSubjects = Object.values(subject2Map); // subject2Map の全授業データを取得
+  const totalSubjects = allSubjects.length;
+
+  // 項目ごとにカウントを初期化するヘルパー
+  const initField = (field: keyof OptionCounts) => {
+    if (!calculatedCounts[field]) calculatedCounts[field] = {};
+  };
+
+  // --- 各フィルター項目ごとにカウント ---
+
+  initField('campus');
+  calculatedCounts.campus['指定なし'] = totalSubjects;
+  [...campuses, "その他"].forEach(option => {
+    calculatedCounts.campus[option] = allSubjects.filter(s => {
+      const subjectCampus = s.開講キャンパス as typeof campuses[number] | undefined; // 型付け
+      if (option === "その他") {
+        // campuses 配列に含まれないものを「その他」とする
+        return subjectCampus !== undefined && !campuses.includes(subjectCampus);
+      }
+      return subjectCampus === option;
+    }).length;
+  });
+
+  initField('semester');
+  calculatedCounts.semester['指定なし'] = totalSubjects;
+  semesters.forEach(option => {
+    calculatedCounts.semester[option] = allSubjects.filter(s => s.セメスター === option).length;
+  });
+
+  initField('jikiKubun');
+  calculatedCounts.jikiKubun['指定なし'] = totalSubjects;
+  jikiKubuns.forEach(option => {
+    calculatedCounts.jikiKubun[option] = allSubjects.filter(s => s.時期区分 === option).length;
+  });
+
+  // 科目区分 (kamokuKubun) - UIでは "" が "指定なし"
+  initField('kamokuKubun');
+  calculatedCounts.kamokuKubun['指定なし'] = totalSubjects; // UIの value に合わせる
+  kamokuKubuns.forEach(option => {
+    calculatedCounts.kamokuKubun[option] = allSubjects.filter(s => s.科目区分 === option).length;
+  });
+
+  initField('language');
+  calculatedCounts.language['指定なし'] = totalSubjects;
+  languages.forEach(option => {
+    calculatedCounts.language[option] = allSubjects.filter(s => s.使用言語 === option).length;
+  });
+
+  // 学部／大学院 (courseType) - 派生データ
+  initField('courseType');
+  calculatedCounts.courseType['指定なし'] = totalSubjects;
+  calculatedCounts.courseType['学部'] = allSubjects.filter(s => kaikouBukyokuGakubus.includes(s.開講部局 as any)).length;
+  calculatedCounts.courseType['大学院'] = allSubjects.filter(s => kaikouBukyokuDaigakuins.includes(s.開講部局 as any)).length;
+
+  // 開講部局 (kaikouBukyoku) - UIでは "" が "指定なし"
+  initField('kaikouBukyoku');
+  calculatedCounts.kaikouBukyoku['指定なし'] = totalSubjects; // UIの value に合わせる
+  kaikouBukyokus.forEach(option => {
+    calculatedCounts.kaikouBukyoku[option] = allSubjects.filter(s => s.開講部局 === option).length;
+  });
+
+  // 履修年次 (rishuNenji) - 値は number だが key は string
+  initField('rishuNenji');
+  calculatedCounts.rishuNenji['指定なし'] = totalSubjects;
+  [1, 2, 3, 4, 5, 6].forEach(option => {
+    calculatedCounts.rishuNenji[option] = allSubjects.filter(s => s.履修年次 === option).length;
+  });
+
+  // --- 計算終わり ---
+
+  totalOptionCounts = calculatedCounts;
+  console.log("Total option counts calculated:", totalOptionCounts);
 
   // propertyToShowListの初期化
   // 便宜的に、すべてのプロパティを表示することにしている。そのためのループ。本来は変数定義時に決定する。
