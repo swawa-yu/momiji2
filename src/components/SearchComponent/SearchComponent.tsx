@@ -28,6 +28,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import Typography from '@mui/material/Typography';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -70,6 +71,26 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                 return kaikouBukyokuSelectOptions;
         }
     }, [searchOptions.courseType]);
+
+    const renderKaikouBukyokuOption = (
+        props: React.HTMLAttributes<HTMLLIElement>,
+        option: string
+    ) => {
+        const count = totalOptionCounts?.kaikouBukyoku?.[option] || 0;
+        const label = option;
+        return (
+            <li {...props}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <Typography variant="body2" component="span" sx={{ flexGrow: 1, mr: 1, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {label}
+                    </Typography>
+                    <Typography variant="body2" component="span" sx={{ color: 'text.secondary', fontSize: '0.8em', flexShrink: 0 }}>
+                        (/ {count})
+                    </Typography>
+                </Box>
+            </li>
+        );
+    };
 
     const CountDisplay = ({ count }: { count: number | undefined }) => (
         <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
@@ -161,6 +182,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 renderInput={(params) => (
                                     <TextField {...params} label="開講部局" size="small" />
                                 )}
+                                renderOption={renderKaikouBukyokuOption}
                                 sx={{ minWidth: 80 }}
                             />
                             <Box sx={{ minWidth: 80 }}>
