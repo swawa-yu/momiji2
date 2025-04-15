@@ -34,12 +34,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
     const handleCampusChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, campus: event.target.value as SearchOptions['campus'] }); };
     const handleSemesterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, semester: event.target.value as SearchOptions['semester'] }); };
     const handleJikiKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }); };
-    const handleKamokuKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] | "指定なし" }); }; // TODO: 型を作成する
+    const handleKamokuKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] }); };
     const handleLanguageChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, language: event.target.value as SearchOptions['language'] }); };
     const handleCourseTypeChange = (event: SelectChangeEvent) => {
         const newCourseType = event.target.value as SearchOptions['courseType'];
         setSearchOptions({ ...searchOptions, courseType: newCourseType, kaikouBukyoku: "指定なし" });
-    }; const handleKaikouBukyokuChange = (_event: React.SyntheticEvent, newValue: string | null) => {
+    }; const handleKaikouBukyokuChange = (_event: React.SyntheticEvent, newValue: SearchOptions['kaikouBukyoku'] | null) => {
         setSearchOptions({ ...searchOptions, kaikouBukyoku: newValue ?? "指定なし" });
     };
     const handleRishuNenjiChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }); };
@@ -59,7 +59,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                 baseOptions = kaikouBukyokus;
         }
         // 先頭に "指定なし" を追加
-        return ["指定なし", ...baseOptions];
+        return ["指定なし", ...baseOptions] as SearchOptions['kaikouBukyoku'][];
     }, [searchOptions.courseType]);
 
     return (

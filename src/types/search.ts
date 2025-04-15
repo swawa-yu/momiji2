@@ -5,6 +5,8 @@ import {
     JikiKubun,
     Language,
     YoubiKoma,
+    KamokuKubun,
+    KaikouBukyoku,
 } from "../types/subject";
 
 
@@ -21,8 +23,8 @@ export interface SearchOptions {
     subjectName: string
     teacher: string
     bookmarkFilter: BookmarkFilter
-    kamokuKubun: string
-    kaikouBukyoku: string
+    kamokuKubun: KamokuKubun | "指定なし"
+    kaikouBukyoku: KaikouBukyoku | "指定なし"
     youbiKoma: YoubiKomaSelected
     semester: Semester | "指定なし"
     jikiKubun: JikiKubun | "指定なし"
