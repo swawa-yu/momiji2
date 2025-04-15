@@ -14,6 +14,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import Autocomplete from '@mui/material/Autocomplete';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -35,13 +36,31 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
     const handleJikiKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }); };
     const handleKamokuKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] | "指定なし" }); }; // TODO: 型を作成する
     const handleLanguageChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, language: event.target.value as SearchOptions['language'] }); };
-    const handleCourseTypeChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, courseType: event.target.value as SearchOptions['courseType'] }); };
-    const handleKaikouBukyokuChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kaikouBukyoku: event.target.value as SearchOptions['kaikouBukyoku'] | "指定なし" }); };
+    const handleCourseTypeChange = (event: SelectChangeEvent) => {
+        const newCourseType = event.target.value as SearchOptions['courseType'];
+        setSearchOptions({ ...searchOptions, courseType: newCourseType, kaikouBukyoku: "指定なし" });
+    }; const handleKaikouBukyokuChange = (_event: React.SyntheticEvent, newValue: string | null) => {
+        setSearchOptions({ ...searchOptions, kaikouBukyoku: newValue ?? "指定なし" });
+    };
     const handleRishuNenjiChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }); };
     const handleRishuNenjiFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenjiFilter: event.target.value as SearchOptions['rishuNenjiFilter'] }); };
     const handleBookmarkFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, bookmarkFilter: event.target.value as BookmarkFilter }); };
 
-
+    const kaikouBukyokuOptions = React.useMemo(() => {
+        let baseOptions: readonly string[];
+        switch (searchOptions.courseType) {
+            case "学部":
+                baseOptions = kaikouBukyokuGakubus;
+                break;
+            case "大学院":
+                baseOptions = kaikouBukyokuDaigakuins;
+                break;
+            default:
+                baseOptions = kaikouBukyokus;
+        }
+        // 先頭に "指定なし" を追加
+        return ["指定なし", ...baseOptions];
+    }, [searchOptions.courseType]);
 
     return (
         <>
@@ -155,39 +174,27 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     label="学部／大学院"
                                     onChange={handleCourseTypeChange}
                                 >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
+                                    <MenuItem value={"指定なし"}>{"指定なし"}</MenuItem>
                                     <MenuItem value="学部">学部</MenuItem>
                                     <MenuItem value="大学院">大学院</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ minWidth: 80 }} size="small">
-                                <InputLabel id="kaikou-bukyoku-select-label">開講部局</InputLabel>
-                                <Select
-                                    labelId="kaikou-bukyoku-select-label"
-                                    id="kaikou-bukyoku-select"
-                                    value={searchOptions.kaikouBukyoku}
-                                    label="開講部局"
-                                    onChange={handleKaikouBukyokuChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    {(() => {
-                                        const KaikouBukyokusToDisplay = (() => {
-                                            switch (searchOptions.courseType) {
-                                                case "学部":
-                                                    return kaikouBukyokuGakubus;
-                                                case "大学院":
-                                                    return kaikouBukyokuDaigakuins;
-                                                default:
-                                                    return kaikouBukyokus;
-                                            }
-                                        })()
-
-                                        return KaikouBukyokusToDisplay.map((kaikouBukyoku) => (
-                                            <MenuItem key={kaikouBukyoku} value={kaikouBukyoku}>{kaikouBukyoku}</MenuItem>
-                                        ));
-                                    })()}
-                                </Select>
-                            </FormControl>
+                            <Autocomplete
+                                id="kaikou-bukyoku-autocomplete"
+                                options={kaikouBukyokuOptions}
+                                value={searchOptions.kaikouBukyoku}
+                                onChange={handleKaikouBukyokuChange}
+                                getOptionLabel={(option) => option}
+                                isOptionEqualToValue={(option, value) => option === value}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        label="開講部局"
+                                        size="small"
+                                    />
+                                )}
+                                sx={{ minWidth: 80 }}
+                            />
                             <Box sx={{ minWidth: 80 }}>
                                 <Grid container spacing={1} alignItems="center">
                                     <Grid item xs={7}>
@@ -200,7 +207,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                                 label="年次"
                                                 onChange={handleRishuNenjiChange}
                                             >
-                                                <MenuItem value="指定なし">指定なし</MenuItem>
+                                                <MenuItem value={"指定なし"}>{"指定なし"}</MenuItem>
                                                 <MenuItem value="1">1</MenuItem>
                                                 <MenuItem value="2">2</MenuItem>
                                                 <MenuItem value="3">3</MenuItem>
