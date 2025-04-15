@@ -104,10 +104,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
-                            {/* Campus */}
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
-                                <Select value={searchOptions.campus} onChange={handleCampusChange} label="キャンパス">
+                                <Select value={searchOptions.campus} onChange={handleCampusChange} label="キャンパス" renderValue={(value) => value}>
                                     {campusSelectOptions.map((option) => (
                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                             <span>{option}</span>
@@ -119,7 +118,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
 
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="semester-select-label">セメスター</InputLabel>
-                                <Select value={searchOptions.semester} onChange={handleSemesterChange} label="セメスター">
+                                <Select value={searchOptions.semester} onChange={handleSemesterChange} label="セメスター" renderValue={(value) => value}>
                                     {semesterSelectOptions.map((option) => (
                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                             <span>{option}</span>
@@ -130,7 +129,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
-                                <Select value={searchOptions.jikiKubun} onChange={handleJikiKubunChange} label="時期区分">
+                                <Select value={searchOptions.jikiKubun} onChange={handleJikiKubunChange} label="時期区分" renderValue={(value) => value}>
                                     {jikiKubunSelectOptions.map((option) => (
                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                             <span>{option}</span>
@@ -141,7 +140,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
-                                <Select value={searchOptions.kamokuKubun} onChange={handleKamokuKubunChange} label="科目区分">
+                                <Select value={searchOptions.kamokuKubun} onChange={handleKamokuKubunChange} label="科目区分" renderValue={(value) => value}>
                                     {kamokuKubunSelectOptions.map((option) => (
                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                             <span>{option}</span>
@@ -152,7 +151,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="language-select-label">使用言語</InputLabel>
-                                <Select value={searchOptions.language} onChange={handleLanguageChange} label="使用言語">
+                                <Select value={searchOptions.language} onChange={handleLanguageChange} label="使用言語" renderValue={(value) => value}>
                                     {languageSelectOptions.map((option) => (
                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                             <span>{option}</span>
@@ -163,7 +162,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
-                                <Select value={searchOptions.courseType} onChange={handleCourseTypeChange} label="学部／大学院">
+                                <Select value={searchOptions.courseType} onChange={handleCourseTypeChange} label="学部／大学院" renderValue={(value) => value}>
                                     {courseTypeSelectOptions.map((option) => (
                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                             <span>{option}</span>
@@ -190,7 +189,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <Grid item xs={7}>
                                         <FormControl fullWidth size="small" variant="outlined">
                                             <InputLabel id="rishu-nenji-select-label">年次</InputLabel>
-                                            <Select value={searchOptions.rishuNenji as string} onChange={handleRishuNenjiChange} label="年次">
+                                            <Select value={searchOptions.rishuNenji as string} onChange={handleRishuNenjiChange} label="年次" renderValue={(value) => value === "指定なし" ? "指定なし" : `${value}年次`}>
                                                 {rishuNenjiSelectOptions.map((option) => (
                                                     <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
                                                         <span>{option === "指定なし" ? "指定なし" : `${option}年次`}</span>
