@@ -218,8 +218,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                         </FormControl>
                                     </Grid>
                                     <Grid item xs={5}>
-                                        {/* TODO: 「指定なし」のときに非表示/非活性にする */}
-                                        <FormControl fullWidth size="small" variant="outlined">
+                                        <FormControl fullWidth size="small" variant="outlined" disabled={searchOptions.rishuNenji === "指定なし"}>
                                             <InputLabel id="rishu-nenji-filter-select-label">条件</InputLabel>
                                             <Select
                                                 labelId="rishu-nenji-filter-select-label"
