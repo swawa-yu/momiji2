@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useMemo, startTransition, useContext } from 'react';
 import { SearchOptions, YoubiKomaSelected } from '../../types/search';
 import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext';
 import {
@@ -17,7 +17,7 @@ import {
 } from '../../types/subject';
 import { totalOptionCounts } from '../../subject';
 import KomaSelector from './KomaSelector';
-import { initialSearchOptions, getFilteredCountForOption } from '../../search';
+import { initialSearchOptions, calculateAllOptionCounts, FilterCounts } from '../../search';
 import Button from '@mui/material/Button';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import FormControl from '@mui/material/FormControl';
@@ -30,6 +30,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -38,38 +39,76 @@ type SearchComponentProps = {
 
 // TODO: あいまい検索に対応(generalSearch)
 const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSearchOptions }: SearchComponentProps) => {
+    const [filterCounts, setFilterCounts] = useState<FilterCounts | null>(null);
+    const [isCalculating, setIsCalculating] = useState(false);
+    const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
+
+    useEffect(() => {
+        setIsCalculating(true);
+        startTransition(() => {
+            const newCounts = calculateAllOptionCounts(searchOptions, bookmarkedSubjects);
+            setFilterCounts(newCounts);
+            setIsCalculating(false);
+        });
+    }, [searchOptions, bookmarkedSubjects]);
+
     const handleClear = () => {
         setSearchOptions(initialSearchOptions);
     };
 
     const handleYoubiKomaChange = (newYoubiKoma: YoubiKomaSelected) => {
-        setSearchOptions({ ...searchOptions, youbiKoma: newYoubiKoma });
+        setSearchOptions(prevOptions => ({ ...prevOptions, youbiKoma: newYoubiKoma }));
     };
-
-    const handleCampusChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, campus: event.target.value as SearchOptions['campus'] }); };
-    const handleSemesterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, semester: event.target.value as SearchOptions['semester'] }); };
-    const handleJikiKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }); };
-    const handleKamokuKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] }); };
-    const handleLanguageChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, language: event.target.value as SearchOptions['language'] }); };
+    const handleCampusChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, campus: event.target.value as SearchOptions['campus'] }));
+    };
+    const handleSemesterChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, semester: event.target.value as SearchOptions['semester'] }));
+    };
+    const handleJikiKubunChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }));
+    };
+    const handleKamokuKubunChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] }));
+    };
+    const handleLanguageChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, language: event.target.value as SearchOptions['language'] }));
+    };
     const handleCourseTypeChange = (event: SelectChangeEvent) => {
         const newCourseType = event.target.value as SearchOptions['courseType'];
-        setSearchOptions({ ...searchOptions, courseType: newCourseType, kaikouBukyoku: "指定なし" });
+        setSearchOptions(prevOptions => ({
+            ...prevOptions,
+            courseType: newCourseType,
+            kaikouBukyoku: "指定なし"
+        }));
     };
     const handleKaikouBukyokuChange = (_event: React.SyntheticEvent, newValue: SearchOptions['kaikouBukyoku'] | null) => {
-        setSearchOptions({ ...searchOptions, kaikouBukyoku: newValue ?? "指定なし" });
+        setSearchOptions(prevOptions => ({ ...prevOptions, kaikouBukyoku: newValue ?? "指定なし" }));
     };
-    const handleRishuNenjiChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }); };
-    const handleRishuNenjiFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenjiFilter: event.target.value as SearchOptions['rishuNenjiFilter'] }); };
-    const handleBookmarkFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, bookmarkFilter: event.target.value as SearchOptions['bookmarkFilter'] }); };
+    const handleRishuNenjiChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }));
+    };
+    const handleRishuNenjiFilterChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, rishuNenjiFilter: event.target.value as SearchOptions['rishuNenjiFilter'] }));
+    };
+    const handleBookmarkFilterChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, bookmarkFilter: event.target.value as SearchOptions['bookmarkFilter'] }));
+    };
+    const handleSubjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchOptions(prev => ({ ...prev, subjectName: event.target.value }));
+    };
+    const handleTeacherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchOptions(prev => ({ ...prev, teacher: event.target.value }));
+    };
+    const handleSubjectCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchOptions(prev => ({ ...prev, subjectCode: event.target.value }));
+    };
 
-    const kaikouBukyokuFilteredOptions = React.useMemo(() => {
+    const kaikouBukyokuFilteredOptions = useMemo(() => {
         switch (searchOptions.courseType) {
-            case "学部":
-                return kaikouBukyokuGakubuSelectOptions;
-            case "大学院":
-                return kaikouBukyokuDaigakuinSelectOptions;
-            default:
-                return kaikouBukyokuSelectOptions;
+            case "学部": return kaikouBukyokuGakubuSelectOptions;
+            case "大学院": return kaikouBukyokuDaigakuinSelectOptions;
+            default: return kaikouBukyokuSelectOptions;
         }
     }, [searchOptions.courseType]);
 
@@ -77,7 +116,8 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
         props: React.HTMLAttributes<HTMLLIElement>,
         option: string
     ) => {
-        const count = totalOptionCounts?.kaikouBukyoku?.[option] || 0;
+        const numerator = filterCounts?.kaikouBukyoku?.[option] ?? (isCalculating ? '...' : 0);
+        const denominator = totalOptionCounts?.kaikouBukyoku?.[option] || 0;
         const label = option;
         return (
             <li {...props}>
@@ -86,18 +126,28 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                         {label}
                     </Typography>
                     <Typography variant="body2" component="span" sx={{ color: 'text.secondary', fontSize: '0.8em', flexShrink: 0 }}>
-                        (/ {count})
+                        ({numerator} / {denominator})
                     </Typography>
                 </Box>
             </li>
         );
     };
 
-    const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
 
     return (
         <>
-            <Box sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1, p: 3 }}>
+            <Box sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1, p: 3, position: 'relative' }}>
+                {isCalculating && (
+                    <Box sx={{
+                        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                        display: 'flex', justifyContent: 'center', alignItems: 'center',
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                        zIndex: 10,
+                    }}>
+                        <CircularProgress size={24} />
+                        <Typography variant="caption" sx={{ ml: 1 }}>件数計算中...</Typography>
+                    </Box>
+                )}
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
@@ -105,7 +155,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
                                 <Select value={searchOptions.campus} onChange={handleCampusChange} label="キャンパス" renderValue={(value) => value}>
                                     {campusSelectOptions.map((option) => {
-                                        const numerator = getFilteredCountForOption('campus', option, searchOptions, bookmarkedSubjects);
+                                        const numerator = filterCounts?.campus?.[option] ?? (isCalculating ? '...' : 0);
                                         const denominator = totalOptionCounts?.campus?.[option] || 0;
                                         return (
                                             <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -123,7 +173,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                 <InputLabel id="semester-select-label">セメスター</InputLabel>
                                 <Select value={searchOptions.semester} onChange={handleSemesterChange} label="セメスター" renderValue={(value) => value}>
                                     {semesterSelectOptions.map((option) => {
-                                        const numerator = getFilteredCountForOption('semester', option, searchOptions, bookmarkedSubjects);
+                                        const numerator = filterCounts?.semester?.[option] ?? (isCalculating ? '...' : 0);
                                         const denominator = totalOptionCounts?.semester?.[option] || 0;
                                         return (
                                             <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -136,11 +186,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
                                 <Select value={searchOptions.jikiKubun} onChange={handleJikiKubunChange} label="時期区分" renderValue={(value) => value}>
                                     {jikiKubunSelectOptions.map((option) => {
-                                        const numerator = getFilteredCountForOption('jikiKubun', option, searchOptions, bookmarkedSubjects);
+                                        const numerator = filterCounts?.jikiKubun?.[option] ?? (isCalculating ? '...' : 0);
                                         const denominator = totalOptionCounts?.jikiKubun?.[option] || 0;
                                         return (
                                             <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -153,11 +204,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
                                 <Select value={searchOptions.kamokuKubun} onChange={handleKamokuKubunChange} label="科目区分" renderValue={(value) => value}>
                                     {kamokuKubunSelectOptions.map((option) => {
-                                        const numerator = getFilteredCountForOption('kamokuKubun', option, searchOptions, bookmarkedSubjects);
+                                        const numerator = filterCounts?.kamokuKubun?.[option] ?? (isCalculating ? '...' : 0);
                                         const denominator = totalOptionCounts?.kamokuKubun?.[option] || 0;
                                         return (
                                             <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -170,11 +222,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="language-select-label">使用言語</InputLabel>
                                 <Select value={searchOptions.language} onChange={handleLanguageChange} label="使用言語" renderValue={(value) => value}>
                                     {languageSelectOptions.map((option) => {
-                                        const numerator = getFilteredCountForOption('language', option, searchOptions, bookmarkedSubjects);
+                                        const numerator = filterCounts?.language?.[option] ?? (isCalculating ? '...' : 0);
                                         const denominator = totalOptionCounts?.language?.[option] || 0;
                                         return (
                                             <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -187,11 +240,12 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
                                 <Select value={searchOptions.courseType} onChange={handleCourseTypeChange} label="学部／大学院" renderValue={(value) => value}>
                                     {courseTypeSelectOptions.map((option) => {
-                                        const numerator = getFilteredCountForOption('courseType', option, searchOptions, bookmarkedSubjects);
+                                        const numerator = filterCounts?.courseType?.[option] ?? (isCalculating ? '...' : 0);
                                         const denominator = totalOptionCounts?.courseType?.[option] || 0;
                                         return (
                                             <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -204,6 +258,8 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     })}
                                 </Select>
                             </FormControl>
+
+
                             <Autocomplete
                                 id="kaikou-bukyoku-autocomplete"
                                 options={kaikouBukyokuFilteredOptions}
@@ -224,7 +280,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                             <InputLabel id="rishu-nenji-select-label">年次</InputLabel>
                                             <Select value={searchOptions.rishuNenji as string} onChange={handleRishuNenjiChange} label="年次" renderValue={(value) => value === "指定なし" ? "指定なし" : `${value}年次`}>
                                                 {rishuNenjiSelectOptions.map((option) => {
-                                                    const numerator = getFilteredCountForOption('rishuNenji', option, searchOptions, bookmarkedSubjects);
+                                                    const numerator = filterCounts?.rishuNenji?.[String(option)] ?? (isCalculating ? '...' : 0);
                                                     const denominator = totalOptionCounts?.rishuNenji?.[String(option)] || 0;
                                                     return (
                                                         <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
@@ -238,6 +294,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                             </Select>
                                         </FormControl>
                                     </Grid>
+
                                     <Grid item xs={5}>
                                         <FormControl fullWidth size="small" variant="outlined" disabled={searchOptions.rishuNenji === "指定なし"}>
                                             <InputLabel id="rishu-nenji-filter-select-label">条件</InputLabel>
@@ -255,9 +312,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
 
                     <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
-                            <TextField id="subject-name" label="授業科目名(部分一致)" variant="outlined" size="small" value={searchOptions.subjectName} onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })} sx={{ minWidth: 80 }} />
-                            <TextField id="teacher-name" label="担当教員名(部分一致)" variant="outlined" size="small" value={searchOptions.teacher} onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })} sx={{ minWidth: 80 }} />
-                            <TextField id="subject-code" label="講義コード(前方一致)" variant="outlined" size="small" value={searchOptions.subjectCode} onChange={(e) => setSearchOptions({ ...searchOptions, subjectCode: e.target.value })} sx={{ minWidth: 80 }} />
+                            <TextField id="subject-name" label="授業科目名(部分一致)" variant="outlined" size="small" value={searchOptions.subjectName} onChange={handleSubjectNameChange} sx={{ minWidth: 80 }} />
+                            <TextField id="teacher-name" label="担当教員名(部分一致)" variant="outlined" size="small" value={searchOptions.teacher} onChange={handleTeacherChange} sx={{ minWidth: 80 }} />
+                            <TextField id="subject-code" label="講義コード(前方一致)" variant="outlined" size="small" value={searchOptions.subjectCode} onChange={handleSubjectCodeChange} sx={{ minWidth: 80 }} />
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="bookmark-filter-select-label">ブックマーク</InputLabel>
                                 <Select value={searchOptions.bookmarkFilter} onChange={handleBookmarkFilterChange} label="ブックマーク">
