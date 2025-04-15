@@ -109,6 +109,8 @@ function App() {
                     <TableView searchOptions={searchOptions} />
                 </Container>
                 {isTimetableVisible && <Timetable />}
+
+                {/* TODO: 非表示状態の時、ブックマーク追加時に目を引くようにする */}
                 <Fab
                     color="primary"
                     aria-label="時間割 表示/非表示"
