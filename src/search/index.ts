@@ -14,6 +14,21 @@ import {
     SearchOptions
 } from "../types/search";
 
+export function getFilteredCountForOption(
+    fieldToSet: keyof SearchOptions, // 'campus', 'semester' など
+    optionValue: any,               // '東広島', '前期' など
+    currentOptions: SearchOptions, // 現在のフィルター状態
+    bookmarkedSubjects: Set<string> // ブックマーク情報
+): number {
+    // 現在のオプションをコピーし、指定された項目だけを上書き
+    const tempOptions: SearchOptions = {
+        ...currentOptions,
+        [fieldToSet]: optionValue,
+    };
+    // フィルターを実行し、結果の件数 (length) を返す
+    const result = filterSubjectCodeList(tempOptions, bookmarkedSubjects);
+    return result.length;
+}
 
 export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected => {
     const youbiKoma = {} as YoubiKomaSelected;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { SearchOptions, YoubiKomaSelected } from '../../types/search';
+import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext';
 import {
     campusSelectOptions,
     semesterSelectOptions,
@@ -16,7 +17,7 @@ import {
 } from '../../types/subject';
 import { totalOptionCounts } from '../../subject';
 import KomaSelector from './KomaSelector';
-import { initialSearchOptions } from '../../search';
+import { initialSearchOptions, getFilteredCountForOption } from '../../search';
 import Button from '@mui/material/Button';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import FormControl from '@mui/material/FormControl';
@@ -92,11 +93,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
         );
     };
 
-    const CountDisplay = ({ count }: { count: number | undefined }) => (
-        <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
-            (/ {count || 0})
-        </Box>
-    );
+    const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
 
     return (
         <>
@@ -107,68 +104,104 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
                                 <Select value={searchOptions.campus} onChange={handleCampusChange} label="キャンパス" renderValue={(value) => value}>
-                                    {campusSelectOptions.map((option) => (
-                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                            <span>{option}</span>
-                                            <CountDisplay count={totalOptionCounts?.campus?.[option]} />
-                                        </MenuItem>
-                                    ))}
+                                    {campusSelectOptions.map((option) => {
+                                        const numerator = getFilteredCountForOption('campus', option, searchOptions, bookmarkedSubjects);
+                                        const denominator = totalOptionCounts?.campus?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
 
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="semester-select-label">セメスター</InputLabel>
                                 <Select value={searchOptions.semester} onChange={handleSemesterChange} label="セメスター" renderValue={(value) => value}>
-                                    {semesterSelectOptions.map((option) => (
-                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                            <span>{option}</span>
-                                            <CountDisplay count={totalOptionCounts?.semester?.[option]} />
-                                        </MenuItem>
-                                    ))}
+                                    {semesterSelectOptions.map((option) => {
+                                        const numerator = getFilteredCountForOption('semester', option, searchOptions, bookmarkedSubjects);
+                                        const denominator = totalOptionCounts?.semester?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
                                 <Select value={searchOptions.jikiKubun} onChange={handleJikiKubunChange} label="時期区分" renderValue={(value) => value}>
-                                    {jikiKubunSelectOptions.map((option) => (
-                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                            <span>{option}</span>
-                                            <CountDisplay count={totalOptionCounts?.jikiKubun?.[option]} />
-                                        </MenuItem>
-                                    ))}
+                                    {jikiKubunSelectOptions.map((option) => {
+                                        const numerator = getFilteredCountForOption('jikiKubun', option, searchOptions, bookmarkedSubjects);
+                                        const denominator = totalOptionCounts?.jikiKubun?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
                                 <Select value={searchOptions.kamokuKubun} onChange={handleKamokuKubunChange} label="科目区分" renderValue={(value) => value}>
-                                    {kamokuKubunSelectOptions.map((option) => (
-                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                            <span>{option}</span>
-                                            <CountDisplay count={totalOptionCounts?.kamokuKubun?.[option]} />
-                                        </MenuItem>
-                                    ))}
+                                    {kamokuKubunSelectOptions.map((option) => {
+                                        const numerator = getFilteredCountForOption('kamokuKubun', option, searchOptions, bookmarkedSubjects);
+                                        const denominator = totalOptionCounts?.kamokuKubun?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="language-select-label">使用言語</InputLabel>
                                 <Select value={searchOptions.language} onChange={handleLanguageChange} label="使用言語" renderValue={(value) => value}>
-                                    {languageSelectOptions.map((option) => (
-                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                            <span>{option}</span>
-                                            <CountDisplay count={totalOptionCounts?.language?.[option]} />
-                                        </MenuItem>
-                                    ))}
+                                    {languageSelectOptions.map((option) => {
+                                        const numerator = getFilteredCountForOption('language', option, searchOptions, bookmarkedSubjects);
+                                        const denominator = totalOptionCounts?.language?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
                                 <Select value={searchOptions.courseType} onChange={handleCourseTypeChange} label="学部／大学院" renderValue={(value) => value}>
-                                    {courseTypeSelectOptions.map((option) => (
-                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                            <span>{option}</span>
-                                            <CountDisplay count={totalOptionCounts?.courseType?.[option]} />
-                                        </MenuItem>
-                                    ))}
+                                    {courseTypeSelectOptions.map((option) => {
+                                        const numerator = getFilteredCountForOption('courseType', option, searchOptions, bookmarkedSubjects);
+                                        const denominator = totalOptionCounts?.courseType?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
                             <Autocomplete
@@ -190,12 +223,18 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                         <FormControl fullWidth size="small" variant="outlined">
                                             <InputLabel id="rishu-nenji-select-label">年次</InputLabel>
                                             <Select value={searchOptions.rishuNenji as string} onChange={handleRishuNenjiChange} label="年次" renderValue={(value) => value === "指定なし" ? "指定なし" : `${value}年次`}>
-                                                {rishuNenjiSelectOptions.map((option) => (
-                                                    <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
-                                                        <span>{option === "指定なし" ? "指定なし" : `${option}年次`}</span>
-                                                        <CountDisplay count={totalOptionCounts?.rishuNenji?.[String(option)]} />
-                                                    </MenuItem>
-                                                ))}
+                                                {rishuNenjiSelectOptions.map((option) => {
+                                                    const numerator = getFilteredCountForOption('rishuNenji', option, searchOptions, bookmarkedSubjects);
+                                                    const denominator = totalOptionCounts?.rishuNenji?.[String(option)] || 0;
+                                                    return (
+                                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                            <span>{option === "指定なし" ? "指定なし" : `${option}年次`}</span>
+                                                            <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                                ({numerator} / {denominator})
+                                                            </Box>
+                                                        </MenuItem>
+                                                    );
+                                                })}
                                             </Select>
                                         </FormControl>
                                     </Grid>
