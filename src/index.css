@@ -1,91 +1,85 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
-
 
 /* ライトモード／ダークモード用の変数 */
 body.light {
-    --main-color: #213547;
-    --main-color-rgb: 33, 53, 71;
-    /* ライトモードのメインカラー */
-    --main-bg-color: #ffffff;
-    --link-color: #4a90e2;
-    --link-hover-color: #747bff;
-    --table-bg-color: #f9f9f9;
-    --table-head-bg-color: #e0e0e0;
-    --button-bg-color: #f9f9f9;
-    --button-hover-bg-color: #e0e0e0;
-    --button-border-color: #4a90e2;
+  --main-color: #213547;
+  --main-color-rgb: 33, 53, 71;
+  /* ライトモードのメインカラー */
+  --main-bg-color: #ffffff;
+  --link-color: #4a90e2;
+  --link-hover-color: #747bff;
+  --table-bg-color: #f9f9f9;
+  --table-head-bg-color: #e0e0e0;
+  --button-bg-color: #f9f9f9;
+  --button-hover-bg-color: #e0e0e0;
+  --button-border-color: #4a90e2;
 
-    --momiji-color: rgb(250, 87, 46);
+  --momiji-color: rgb(250, 87, 46);
 }
 
 body.dark {
-    --main-color: #E0E0E0;
-    --main-color-rgb: 232, 232, 232;
-    /* ダークモードのメインカラー */
-    --main-bg-color: #282c34;
-    --link-color: #4a90e2;
-    --link-hover-color: #68a0f8;
-    --table-bg-color: #333846;
-    --table-head-bg-color: #4E5257;
-    --button-bg-color: #333333;
-    --button-hover-bg-color: #4a4a4a;
-    /* --button-border-color: #4a90e2; */
+  --main-color: #e0e0e0;
+  --main-color-rgb: 232, 232, 232;
+  /* ダークモードのメインカラー */
+  --main-bg-color: #282c34;
+  --link-color: #4a90e2;
+  --link-hover-color: #68a0f8;
+  --table-bg-color: #333846;
+  --table-head-bg-color: #4e5257;
+  --button-bg-color: #333333;
+  --button-hover-bg-color: #4a4a4a;
+  /* --button-border-color: #4a90e2; */
 
-    --momiji-color: rgb(200, 84, 55);
+  --momiji-color: rgb(200, 84, 55);
 }
-
 
 /* スタイル定義 */
 body {
-    margin: 0;
-    color: var(--main-color);
-    background-color: var(--main-bg-color);
-    overscroll-behavior: none;
+  margin: 0;
+  color: var(--main-color);
+  background-color: var(--main-bg-color);
+  overscroll-behavior: none;
 }
-
 
 p {
-    text-align: left;
+  text-align: left;
 }
-
 
 h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-
 a {
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--link-color);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--link-color);
 }
 
 a:hover {
-    color: var(--link-hover-color);
+  color: var(--link-hover-color);
 }
 
-
 table {
-    border-collapse: collapse;
-    background-color: var(--table-bg-color);
-    color: var(--main-color);
+  border-collapse: collapse;
+  background-color: var(--table-bg-color);
+  color: var(--main-color);
 }
 
 table th,
 table td {
-    border: solid 1px #555;
+  border: solid 1px #555;
 }
 
 table thead {
-    background-color: var(--table-head-bg-color);
+  background-color: var(--table-head-bg-color);
 }

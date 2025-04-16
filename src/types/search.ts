@@ -1,34 +1,34 @@
 import {
-    CampusSelectOption,
-    SemesterSelectOption,
-    JikiKubunSelectOption,
-    LanguageSelectOption,
-    KamokuKubunSelectOption,
-    KaikouBukyokuSelectOption,
-    CourseTypeSelectOption,
-    RishuNenjiSelectOption,
-    RishuNenjiFilterOption,
-    BookmarkFilterValue,
-    YoubiKoma,
-} from "../types/subject";
+  BookmarkFilterValue,
+  CampusSelectOption,
+  CourseTypeSelectOption,
+  JikiKubunSelectOption,
+  KaikouBukyokuSelectOption,
+  KamokuKubunSelectOption,
+  LanguageSelectOption,
+  RishuNenjiFilterOption,
+  RishuNenjiSelectOption,
+  SemesterSelectOption,
+  YoubiKoma,
+} from '../types/subject';
 
 export type YoubiKomaSelected = {
-    [key in YoubiKoma]: boolean;
+  [key in YoubiKoma]: boolean;
 };
 
 export interface SearchOptions {
-    campus: CampusSelectOption;
-    subjectName: string;
-    teacher: string;
-    bookmarkFilter: BookmarkFilterValue;
-    kamokuKubun: KamokuKubunSelectOption;
-    kaikouBukyoku: KaikouBukyokuSelectOption;
-    youbiKoma: YoubiKomaSelected;
-    semester: SemesterSelectOption;
-    jikiKubun: JikiKubunSelectOption;
-    courseType: CourseTypeSelectOption;
-    language: LanguageSelectOption;
-    rishuNenji: RishuNenjiSelectOption;
-    rishuNenjiFilter: RishuNenjiFilterOption;
-    subjectCode: string;
+  campus: CampusSelectOption;
+  subjectName: string;
+  teacher: string;
+  bookmarkFilter: BookmarkFilterValue;
+  kamokuKubun: KamokuKubunSelectOption;
+  kaikouBukyoku: KaikouBukyokuSelectOption;
+  youbiKoma: YoubiKomaSelected;
+  semester: SemesterSelectOption;
+  jikiKubun: JikiKubunSelectOption;
+  courseType: CourseTypeSelectOption;
+  language: LanguageSelectOption;
+  rishuNenji: RishuNenjiSelectOption;
+  rishuNenjiFilter: RishuNenjiFilterOption;
+  subjectCode: string;
 }
