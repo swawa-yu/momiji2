@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './KomaSelector.css';
 import { Youbi, Koma, YoubiKoma, youbis, komas, komaTime } from '../../types/subject';
 import { YoubiKomaSelected, } from '../../types/search';
 import { initializeYoubiKoma } from '../../search';
