@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useDeferredValue } from 'react';
 import { initializeSubject } from './subject';
 import SearchComponent from './components/SearchComponent';
 import ExportBookmarkButton from './components/ExportBookmarkButton';
@@ -8,7 +8,7 @@ import { SearchOptions } from './types/search';
 import { initialSearchOptions } from './search/';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 
-// --- MUI Imports ---
+// --- MUI Imports (変更なし) ---
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -28,25 +28,17 @@ import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
-
 function App() {
     initializeSubject();
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>(initialSearchOptions);
 
+    const deferredSearchOptions = useDeferredValue(searchOptions);
     const [infoDialogOpen, setInfoDialogOpen] = useState(false);
-    const handleInfoDialogOpen = () => {
-        setInfoDialogOpen(true);
-    };
-    const handleInfoDialogClose = () => {
-        setInfoDialogOpen(false);
-    };
-
+    const handleInfoDialogOpen = () => setInfoDialogOpen(true);
+    const handleInfoDialogClose = () => setInfoDialogOpen(false);
     const [isTimetableVisible, setIsTimetableVisible] = useState(false);
-    const toggleTimetable = () => {
-        setIsTimetableVisible(prev => !prev);
-    };
-
+    const toggleTimetable = () => setIsTimetableVisible(prev => !prev);
 
 
     return (
@@ -106,9 +98,11 @@ function App() {
 
                     <SearchComponent searchOptions={searchOptions} setSearchOptions={setSearchOptions} />
 
-                    <TableView searchOptions={searchOptions} />
+                    <TableView searchOptions={deferredSearchOptions} />
                 </Container>
                 {isTimetableVisible && <Timetable />}
+
+                {/* TODO: 非表示状態の時、ブックマーク追加時に目を引くようにする */}
                 <Fab
                     color="primary"
                     aria-label="時間割 表示/非表示"

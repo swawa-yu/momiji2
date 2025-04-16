@@ -291,3 +291,46 @@ export const komaTime: { [key in Koma]: { start: string, end: string } } = {
     6: { start: "18:00", end: "19:30" },
     7: { start: "19:40", end: "21:10" },
 }
+
+// ========================================================
+// ★ UI の Select コンポーネントで使用する選択肢リスト ★
+// ========================================================
+
+export const campusSelectOptions = ["指定なし", ...campuses, "その他"] as const;
+export type CampusSelectOption = typeof campusSelectOptions[number];
+
+export const semesterSelectOptions = ["指定なし", ...semesters] as const;
+export type SemesterSelectOption = typeof semesterSelectOptions[number];
+
+export const jikiKubunSelectOptions = ["指定なし", ...jikiKubuns] as const;
+export type JikiKubunSelectOption = typeof jikiKubunSelectOptions[number];
+
+export const kamokuKubunSelectOptions = ["指定なし", ...kamokuKubuns] as const;
+export type KamokuKubunSelectOption = typeof kamokuKubunSelectOptions[number];
+
+export const languageSelectOptions = ["指定なし", ...languages] as const;
+export type LanguageSelectOption = typeof languageSelectOptions[number];
+
+export const courseTypeSelectOptions = ["指定なし", "学部", "大学院"] as const;
+export type CourseTypeSelectOption = typeof courseTypeSelectOptions[number];
+
+export const kaikouBukyokuGakubuSelectOptions = ["指定なし", ...kaikouBukyokuGakubus] as const;
+export type KaikouBukyokuGakubuSelectOption = typeof kaikouBukyokuGakubuSelectOptions[number];
+export const kaikouBukyokuDaigakuinSelectOptions = ["指定なし", ...kaikouBukyokuDaigakuins] as const;
+export type KaikouBukyokuDaigakuinSelectOption = typeof kaikouBukyokuDaigakuinSelectOptions[number];
+export const kaikouBukyokuSelectOptions = ["指定なし", ...kaikouBukyokus] as const;
+export type KaikouBukyokuSelectOption = typeof kaikouBukyokuSelectOptions[number];
+
+const rishuNenjiNumbers = [1, 2, 3, 4, 5, 6] as const;
+export const rishuNenjiSelectOptions = ["指定なし", ...rishuNenjiNumbers] as const;
+export type RishuNenjiSelectOption = typeof rishuNenjiSelectOptions[number];
+
+export const rishuNenjiFilterOptions = ["以下", "のみ"] as const;
+export type RishuNenjiFilterOption = typeof rishuNenjiFilterOptions[number];
+
+export const bookmarkFilterOptions = [
+    { value: 'all', label: '指定なし' },
+    { value: 'bookmark', label: 'ブックマークのみを表示' },
+    { value: 'except-bookmark', label: 'ブックマークを除外' },
+] as const;
+export type BookmarkFilterValue = typeof bookmarkFilterOptions[number]['value'];

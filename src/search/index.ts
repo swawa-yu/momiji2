@@ -14,6 +14,122 @@ import {
     SearchOptions
 } from "../types/search";
 
+import {
+    campusSelectOptions,
+    semesterSelectOptions,
+    jikiKubunSelectOptions,
+    kamokuKubunSelectOptions,
+    languageSelectOptions,
+    courseTypeSelectOptions,
+    kaikouBukyokuSelectOptions,
+    kaikouBukyokuGakubuSelectOptions,
+    kaikouBukyokuDaigakuinSelectOptions,
+    rishuNenjiSelectOptions
+} from '../types/subject';
+
+// 計算結果を格納する型 (再掲)
+export type FilterCounts = {
+    campus: Record<string, number>;
+    semester: Record<string, number>;
+    jikiKubun: Record<string, number>;
+    kamokuKubun: Record<string, number>;
+    language: Record<string, number>;
+    courseType: Record<string, number>;
+    kaikouBukyoku: Record<string, number>;
+    rishuNenji: Record<string, number>;
+};
+
+export function calculateAllOptionCounts(
+    currentOptions: SearchOptions,
+    bookmarkedSubjects: Set<string>
+): FilterCounts {
+    // // 結果を格納するオブジェクトを初期化
+    const results: FilterCounts = {
+        campus: {}, semester: {}, jikiKubun: {}, kamokuKubun: {},
+        language: {}, courseType: {}, kaikouBukyoku: {}, rishuNenji: {},
+    };
+
+    // 指定されたフィルター項目(field)の各選択肢(options)について件数を計算し、resultsに格納する内部関数
+    const calculateForField = (
+        field: keyof SearchOptions, // 'campus', 'semester', など
+        options: ReadonlyArray<string | number> // ['衣笠', 'BKC', ...] など
+    ) => {
+        options.forEach(option => {
+            // '指定なし' オプション自体の件数を計算するかどうかは仕様による
+            // 例: if (option === "指定なし") return; // 計算しない場合
+
+            // 元の getFilteredCountForOption と同じロジック:
+            // 現在のオプションをコピーし、指定された項目だけを上書き
+            const tempOptions = { ...currentOptions, [field]: option };
+            // その一時的なオプションでフィルタリングを実行し、件数を取得
+            const count = filterSubjectCodeList(tempOptions, bookmarkedSubjects).length; // ここが重い処理
+
+            // 結果オブジェクトに格納 (キーは文字列に統一)
+            results[field as keyof FilterCounts][String(option)] = count;
+        });
+    };
+
+    // 各フィルター項目に対して calculateForField を呼び出す
+    calculateForField('campus', campusSelectOptions);
+    calculateForField('semester', semesterSelectOptions);
+    calculateForField('jikiKubun', jikiKubunSelectOptions);
+    calculateForField('kamokuKubun', kamokuKubunSelectOptions);
+    calculateForField('language', languageSelectOptions);
+    calculateForField('courseType', courseTypeSelectOptions);
+
+    // 開講部局: courseType によってオプションリストが変わる点に注意
+    // ここでは一旦、現在の courseType に基づいてリストを選択する例
+    let kaikouBukyokuOptionsToCalc: ReadonlyArray<string>;
+    switch (currentOptions.courseType) {
+        case "学部":
+            kaikouBukyokuOptionsToCalc = kaikouBukyokuGakubuSelectOptions;
+            break;
+        case "大学院":
+            kaikouBukyokuOptionsToCalc = kaikouBukyokuDaigakuinSelectOptions;
+            break;
+        default:
+            kaikouBukyokuOptionsToCalc = kaikouBukyokuSelectOptions; // "指定なし" の場合など
+    }
+    calculateForField('kaikouBukyoku', kaikouBukyokuOptionsToCalc);
+
+    calculateForField('rishuNenji', rishuNenjiSelectOptions);
+
+    // 必要であれば、'指定なし' オプションの件数を別途計算して格納
+    // (現在のフィルター条件での総ヒット数と同じになるはず)
+    // const totalCount = filterSubjectCodeList(currentOptions, bookmarkedSubjects).length;
+    // results.campus["指定なし"] = totalCount; // 例
+
+    console.log("Calculated all option counts:", results); // デバッグ用
+    return results;
+
+    // パフォーマンスの確認のために、検索せずにreturnする
+    // return {
+    //     campus: {},
+    //     semester: {},
+    //     jikiKubun: {},
+    //     kamokuKubun: {},
+    //     language: {},
+    //     courseType: {},
+    //     kaikouBukyoku: {},
+    //     rishuNenji: {},
+    // };
+}
+
+export function getFilteredCountForOption(
+    fieldToSet: keyof SearchOptions, // 'campus', 'semester' など
+    optionValue: any,               // '東広島', '前期' など
+    currentOptions: SearchOptions, // 現在のフィルター状態
+    bookmarkedSubjects: Set<string> // ブックマーク情報
+): number {
+    // 現在のオプションをコピーし、指定された項目だけを上書き
+    const tempOptions: SearchOptions = {
+        ...currentOptions,
+        [fieldToSet]: optionValue,
+    };
+    // フィルターを実行し、結果の件数 (length) を返す
+    const result = filterSubjectCodeList(tempOptions, bookmarkedSubjects);
+    return result.length;
+}
 
 export const initializeYoubiKoma = (initialValue: boolean): YoubiKomaSelected => {
     const youbiKoma = {} as YoubiKomaSelected;

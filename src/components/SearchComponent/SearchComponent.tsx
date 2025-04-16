@@ -1,9 +1,23 @@
-import React from 'react';
-import { SearchOptions, BookmarkFilter, YoubiKomaSelected } from '../../types/search';
+import React, { useState, useEffect, useMemo, startTransition, useContext } from 'react';
+import { SearchOptions, YoubiKomaSelected } from '../../types/search';
+import { BookmarkContext, BookmarkContextType } from '../../contexts/BookmarkContext';
+import {
+    campusSelectOptions,
+    semesterSelectOptions,
+    jikiKubunSelectOptions,
+    kamokuKubunSelectOptions,
+    languageSelectOptions,
+    courseTypeSelectOptions,
+    kaikouBukyokuSelectOptions,
+    kaikouBukyokuGakubuSelectOptions,
+    kaikouBukyokuDaigakuinSelectOptions,
+    rishuNenjiSelectOptions,
+    rishuNenjiFilterOptions,
+    bookmarkFilterOptions,
+} from '../../types/subject';
+import { totalOptionCounts } from '../../subject';
 import KomaSelector from './KomaSelector';
-import { initialSearchOptions } from '../../search';
-import './SearchComponent.css';
-import { kaikouBukyokus, kaikouBukyokuGakubus, kaikouBukyokuDaigakuins } from '../../types/subject';
+import { initialSearchOptions, calculateAllOptionCounts, FilterCounts } from '../../search';
 import Button from '@mui/material/Button';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import FormControl from '@mui/material/FormControl';
@@ -15,6 +29,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 
 type SearchComponentProps = {
     setSearchOptions: React.Dispatch<React.SetStateAction<SearchOptions>>;
@@ -23,176 +39,238 @@ type SearchComponentProps = {
 
 // TODO: あいまい検索に対応(generalSearch)
 const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSearchOptions }: SearchComponentProps) => {
+    const [filterCounts, setFilterCounts] = useState<FilterCounts | null>(null);
+    const [isCalculating, setIsCalculating] = useState(false);
+    const { bookmarkedSubjects } = useContext<BookmarkContextType>(BookmarkContext);
+
+    useEffect(() => {
+        setIsCalculating(true);
+        startTransition(() => {
+            const newCounts = calculateAllOptionCounts(searchOptions, bookmarkedSubjects);
+            setFilterCounts(newCounts);
+            setIsCalculating(false);
+        });
+    }, [searchOptions, bookmarkedSubjects]);
+
     const handleClear = () => {
         setSearchOptions(initialSearchOptions);
     };
 
     const handleYoubiKomaChange = (newYoubiKoma: YoubiKomaSelected) => {
-        setSearchOptions({ ...searchOptions, youbiKoma: newYoubiKoma });
+        setSearchOptions(prevOptions => ({ ...prevOptions, youbiKoma: newYoubiKoma }));
     };
-
-    const handleCampusChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, campus: event.target.value as SearchOptions['campus'] }); };
-    const handleSemesterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, semester: event.target.value as SearchOptions['semester'] }); };
-    const handleJikiKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }); };
-    const handleKamokuKubunChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] }); };
-    const handleLanguageChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, language: event.target.value as SearchOptions['language'] }); };
+    const handleCampusChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, campus: event.target.value as SearchOptions['campus'] }));
+    };
+    const handleSemesterChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, semester: event.target.value as SearchOptions['semester'] }));
+    };
+    const handleJikiKubunChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, jikiKubun: event.target.value as SearchOptions['jikiKubun'] }));
+    };
+    const handleKamokuKubunChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, kamokuKubun: event.target.value as SearchOptions['kamokuKubun'] }));
+    };
+    const handleLanguageChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, language: event.target.value as SearchOptions['language'] }));
+    };
     const handleCourseTypeChange = (event: SelectChangeEvent) => {
         const newCourseType = event.target.value as SearchOptions['courseType'];
-        setSearchOptions({ ...searchOptions, courseType: newCourseType, kaikouBukyoku: "指定なし" });
-    }; const handleKaikouBukyokuChange = (_event: React.SyntheticEvent, newValue: SearchOptions['kaikouBukyoku'] | null) => {
-        setSearchOptions({ ...searchOptions, kaikouBukyoku: newValue ?? "指定なし" });
+        setSearchOptions(prevOptions => ({
+            ...prevOptions,
+            courseType: newCourseType,
+            kaikouBukyoku: "指定なし"
+        }));
     };
-    const handleRishuNenjiChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }); };
-    const handleRishuNenjiFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, rishuNenjiFilter: event.target.value as SearchOptions['rishuNenjiFilter'] }); };
-    const handleBookmarkFilterChange = (event: SelectChangeEvent) => { setSearchOptions({ ...searchOptions, bookmarkFilter: event.target.value as BookmarkFilter }); };
+    const handleKaikouBukyokuChange = (_event: React.SyntheticEvent, newValue: SearchOptions['kaikouBukyoku'] | null) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, kaikouBukyoku: newValue ?? "指定なし" }));
+    };
+    const handleRishuNenjiChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, rishuNenji: event.target.value as SearchOptions['rishuNenji'] }));
+    };
+    const handleRishuNenjiFilterChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, rishuNenjiFilter: event.target.value as SearchOptions['rishuNenjiFilter'] }));
+    };
+    const handleBookmarkFilterChange = (event: SelectChangeEvent) => {
+        setSearchOptions(prevOptions => ({ ...prevOptions, bookmarkFilter: event.target.value as SearchOptions['bookmarkFilter'] }));
+    };
+    const handleSubjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchOptions(prev => ({ ...prev, subjectName: event.target.value }));
+    };
+    const handleTeacherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchOptions(prev => ({ ...prev, teacher: event.target.value }));
+    };
+    const handleSubjectCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchOptions(prev => ({ ...prev, subjectCode: event.target.value }));
+    };
 
-    const kaikouBukyokuOptions = React.useMemo(() => {
-        let baseOptions: readonly string[];
+    const kaikouBukyokuFilteredOptions = useMemo(() => {
         switch (searchOptions.courseType) {
-            case "学部":
-                baseOptions = kaikouBukyokuGakubus;
-                break;
-            case "大学院":
-                baseOptions = kaikouBukyokuDaigakuins;
-                break;
-            default:
-                baseOptions = kaikouBukyokus;
+            case "学部": return kaikouBukyokuGakubuSelectOptions;
+            case "大学院": return kaikouBukyokuDaigakuinSelectOptions;
+            default: return kaikouBukyokuSelectOptions;
         }
-        // 先頭に "指定なし" を追加
-        return ["指定なし", ...baseOptions] as SearchOptions['kaikouBukyoku'][];
     }, [searchOptions.courseType]);
+
+    const renderKaikouBukyokuOption = (
+        props: React.HTMLAttributes<HTMLLIElement>,
+        option: string
+    ) => {
+        const numerator = filterCounts?.kaikouBukyoku?.[option] ?? (isCalculating ? '...' : 0);
+        const denominator = totalOptionCounts?.kaikouBukyoku?.[option] || 0;
+        const label = option;
+        return (
+            <li {...props}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <Typography variant="body2" component="span" sx={{ flexGrow: 1, mr: 1, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {label}
+                    </Typography>
+                    <Typography variant="body2" component="span" sx={{ color: 'text.secondary', fontSize: '0.8em', flexShrink: 0 }}>
+                        ({numerator} / {denominator})
+                    </Typography>
+                </Box>
+            </li>
+        );
+    };
+
 
     return (
         <>
-            <Box sx={{ border: '1px solid #ccc', p: 3 }}>
+            <Box sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1, p: 3, position: 'relative' }}>
+                {isCalculating && (
+                    <Box sx={{
+                        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                        display: 'flex', justifyContent: 'center', alignItems: 'center',
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                        zIndex: 10,
+                    }}>
+                        <CircularProgress size={24} />
+                        <Typography variant="caption" sx={{ ml: 1 }}>件数計算中...</Typography>
+                    </Box>
+                )}
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="campus-select-label">キャンパス</InputLabel>
-                                <Select
-                                    labelId="campus-select-label"
-                                    id="campus-select"
-                                    value={searchOptions.campus}
-                                    label="キャンパス"
-                                    onChange={handleCampusChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    <MenuItem value="東広島">東広島</MenuItem>
-                                    <MenuItem value="霞">霞</MenuItem>
-                                    <MenuItem value="東千田">東千田</MenuItem>
-                                    <MenuItem value="その他">その他</MenuItem>
+                                <Select value={searchOptions.campus} onChange={handleCampusChange} label="キャンパス" renderValue={(value) => value}>
+                                    {campusSelectOptions.map((option) => {
+                                        const numerator = filterCounts?.campus?.[option] ?? (isCalculating ? '...' : 0);
+                                        const denominator = totalOptionCounts?.campus?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="semester-select-label">セメスター</InputLabel>
-                                <Select
-                                    labelId="semester-select-label"
-                                    id="semester-select"
-                                    value={searchOptions.semester}
-                                    label="セメスター"
-                                    onChange={handleSemesterChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    <MenuItem value="前期">前期</MenuItem>
-                                    <MenuItem value="後期">後期</MenuItem>
+                                <Select value={searchOptions.semester} onChange={handleSemesterChange} label="セメスター" renderValue={(value) => value}>
+                                    {semesterSelectOptions.map((option) => {
+                                        const numerator = filterCounts?.semester?.[option] ?? (isCalculating ? '...' : 0);
+                                        const denominator = totalOptionCounts?.semester?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="jiki-kubun-select-label">時期区分</InputLabel>
-                                <Select
-                                    labelId="jiki-kubun-select-label"
-                                    id="jiki-kubun-select"
-                                    value={searchOptions.jikiKubun}
-                                    label="時期区分"
-                                    onChange={handleJikiKubunChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    <MenuItem value="１ターム">１ターム</MenuItem>
-                                    <MenuItem value="２ターム">２ターム</MenuItem>
-                                    <MenuItem value="３ターム">３ターム</MenuItem>
-                                    <MenuItem value="４ターム">４ターム</MenuItem>
-                                    <MenuItem value="セメスター（前期）">セメスター（前期）</MenuItem>
-                                    <MenuItem value="セメスター（後期）">セメスター（後期）</MenuItem>
-                                    <MenuItem value="ターム外（前期）">ターム外（前期）</MenuItem>
-                                    <MenuItem value="ターム外（後期）">ターム外（後期）</MenuItem>
-                                    <MenuItem value="年度">年度</MenuItem>
-                                    <MenuItem value="通年">通年</MenuItem>
-                                    <MenuItem value="集中">集中</MenuItem>
+                                <Select value={searchOptions.jikiKubun} onChange={handleJikiKubunChange} label="時期区分" renderValue={(value) => value}>
+                                    {jikiKubunSelectOptions.map((option) => {
+                                        const numerator = filterCounts?.jikiKubun?.[option] ?? (isCalculating ? '...' : 0);
+                                        const denominator = totalOptionCounts?.jikiKubun?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="kamoku-kubun-select-label">科目区分</InputLabel>
-                                <Select
-                                    labelId="kamoku-kubun-select-label"
-                                    id="kamoku-kubun-select"
-                                    value={searchOptions.kamokuKubun}
-                                    label="科目区分"
-                                    onChange={handleKamokuKubunChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    <MenuItem value="大学教育入門">{"(教養科目)     大学教育入門"}</MenuItem>
-                                    <MenuItem value="展開ゼミ">{"(教養科目)     展開ゼミ"}</MenuItem>
-                                    <MenuItem value="平和科目">{"(教養科目)     平和科目"}</MenuItem>
-                                    <MenuItem value="外国語科目">{"(教養科目)     外国語科目"}</MenuItem>
-                                    <MenuItem value="情報・データサイエンス科目">{"(教養科目)     情報・データサイエンス科目"}</MenuItem>
-                                    <MenuItem value="領域科目">{"(教養科目)     領域科目"}</MenuItem>
-                                    <MenuItem value="基盤科目">{"(教養科目)     基盤科目"}</MenuItem>
-                                    <MenuItem value="社会連携科目">{"(教養科目)     社会連携科目"}</MenuItem>
-                                    <MenuItem value="健康スポーツ科目">{"(教養科目)     健康スポーツ科目"}</MenuItem>
-                                    <MenuItem value="教養教育科目（昼）">{"(教養ゼミ)     教養教育科目（昼）"}</MenuItem>
-                                    <MenuItem value="教養教育科目（夜）">{"(教養ゼミ)     教養教育科目（夜）"}</MenuItem>
-                                    <MenuItem value="専門教育科目">専門教育科目</MenuItem>
-                                    <MenuItem value="教職専門科目">教職専門科目</MenuItem>
-                                    <MenuItem value="他学部・他研究科科目">他学部・他研究科科目</MenuItem>
-                                    <MenuItem value="大学院共通科目">大学院共通科目</MenuItem>
-                                    <MenuItem value="専門的教育科目">専門的教育科目</MenuItem>
+                                <Select value={searchOptions.kamokuKubun} onChange={handleKamokuKubunChange} label="科目区分" renderValue={(value) => value}>
+                                    {kamokuKubunSelectOptions.map((option) => {
+                                        const numerator = filterCounts?.kamokuKubun?.[option] ?? (isCalculating ? '...' : 0);
+                                        const denominator = totalOptionCounts?.kamokuKubun?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="language-select-label">使用言語</InputLabel>
-                                <Select
-                                    labelId="language-select-label"
-                                    id="language-select"
-                                    value={searchOptions.language}
-                                    label="使用言語"
-                                    onChange={handleLanguageChange}
-                                >
-                                    <MenuItem value="指定なし">指定なし</MenuItem>
-                                    <MenuItem value="J : 日本語">J : 日本語</MenuItem>
-                                    <MenuItem value="E : 英語">E : 英語</MenuItem>
-                                    <MenuItem value="B : 日本語・英語">B : 日本語・英語</MenuItem>
-                                    <MenuItem value="O : その他">O : その他</MenuItem>
+                                <Select value={searchOptions.language} onChange={handleLanguageChange} label="使用言語" renderValue={(value) => value}>
+                                    {languageSelectOptions.map((option) => {
+                                        const numerator = filterCounts?.language?.[option] ?? (isCalculating ? '...' : 0);
+                                        const denominator = totalOptionCounts?.language?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
+
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="course-type-select-label">学部／大学院</InputLabel>
-                                <Select
-                                    labelId="course-type-select-label"
-                                    id="course-type-select"
-                                    value={searchOptions.courseType}
-                                    label="学部／大学院"
-                                    onChange={handleCourseTypeChange}
-                                >
-                                    <MenuItem value={"指定なし"}>{"指定なし"}</MenuItem>
-                                    <MenuItem value="学部">学部</MenuItem>
-                                    <MenuItem value="大学院">大学院</MenuItem>
+                                <Select value={searchOptions.courseType} onChange={handleCourseTypeChange} label="学部／大学院" renderValue={(value) => value}>
+                                    {courseTypeSelectOptions.map((option) => {
+                                        const numerator = filterCounts?.courseType?.[option] ?? (isCalculating ? '...' : 0);
+                                        const denominator = totalOptionCounts?.courseType?.[option] || 0;
+                                        return (
+                                            <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                <span>{option}</span>
+                                                <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                    ({numerator} / {denominator})
+                                                </Box>
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Select>
                             </FormControl>
+
+
                             <Autocomplete
                                 id="kaikou-bukyoku-autocomplete"
-                                options={kaikouBukyokuOptions}
+                                options={kaikouBukyokuFilteredOptions}
                                 value={searchOptions.kaikouBukyoku}
                                 onChange={handleKaikouBukyokuChange}
                                 getOptionLabel={(option) => option}
                                 isOptionEqualToValue={(option, value) => option === value}
                                 renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        label="開講部局"
-                                        size="small"
-                                    />
+                                    <TextField {...params} label="開講部局" size="small" />
                                 )}
+                                renderOption={renderKaikouBukyokuOption}
                                 sx={{ minWidth: 80 }}
                             />
                             <Box sx={{ minWidth: 80 }}>
@@ -200,35 +278,30 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
                                     <Grid item xs={7}>
                                         <FormControl fullWidth size="small" variant="outlined">
                                             <InputLabel id="rishu-nenji-select-label">年次</InputLabel>
-                                            <Select
-                                                labelId="rishu-nenji-select-label"
-                                                id="rishu-nenji-select"
-                                                value={searchOptions.rishuNenji as string}
-                                                label="年次"
-                                                onChange={handleRishuNenjiChange}
-                                            >
-                                                <MenuItem value={"指定なし"}>{"指定なし"}</MenuItem>
-                                                <MenuItem value="1">1</MenuItem>
-                                                <MenuItem value="2">2</MenuItem>
-                                                <MenuItem value="3">3</MenuItem>
-                                                <MenuItem value="4">4</MenuItem>
-                                                <MenuItem value="5">5</MenuItem>
-                                                <MenuItem value="6">6</MenuItem>
+                                            <Select value={searchOptions.rishuNenji as string} onChange={handleRishuNenjiChange} label="年次" renderValue={(value) => value === "指定なし" ? "指定なし" : `${value}年次`}>
+                                                {rishuNenjiSelectOptions.map((option) => {
+                                                    const numerator = filterCounts?.rishuNenji?.[String(option)] ?? (isCalculating ? '...' : 0);
+                                                    const denominator = totalOptionCounts?.rishuNenji?.[String(option)] || 0;
+                                                    return (
+                                                        <MenuItem key={option} value={option} sx={{ justifyContent: 'space-between' }}>
+                                                            <span>{option === "指定なし" ? "指定なし" : `${option}年次`}</span>
+                                                            <Box component="span" sx={{ ml: 0.75, color: 'text.secondary', fontSize: '0.8em' }}>
+                                                                ({numerator} / {denominator})
+                                                            </Box>
+                                                        </MenuItem>
+                                                    );
+                                                })}
                                             </Select>
                                         </FormControl>
                                     </Grid>
+
                                     <Grid item xs={5}>
                                         <FormControl fullWidth size="small" variant="outlined" disabled={searchOptions.rishuNenji === "指定なし"}>
                                             <InputLabel id="rishu-nenji-filter-select-label">条件</InputLabel>
-                                            <Select
-                                                labelId="rishu-nenji-filter-select-label"
-                                                id="rishu-nenji-filter-select"
-                                                value={searchOptions.rishuNenjiFilter}
-                                                label="条件"
-                                                onChange={handleRishuNenjiFilterChange}
-                                            >
-                                                <MenuItem value="以下">以下</MenuItem>
-                                                <MenuItem value="のみ">のみ</MenuItem>
+                                            <Select value={searchOptions.rishuNenjiFilter} onChange={handleRishuNenjiFilterChange} label="条件">
+                                                {rishuNenjiFilterOptions.map((option) => (
+                                                    <MenuItem key={option} value={option}>{option}</MenuItem>
+                                                ))}
                                             </Select>
                                         </FormControl>
                                     </Grid>
@@ -239,49 +312,17 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ searchOptions, setSea
 
                     <Grid item xs={12} sm={6} lg={4}>
                         <Stack spacing={2}>
-                            <TextField
-                                id="subject-name"
-                                label="授業科目名(部分一致)"
-                                variant="outlined"
-                                size="small"
-                                value={searchOptions.subjectName}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, subjectName: e.target.value })}
-                                // placeholder="例: 力学"
-                                sx={{ minWidth: 80 }}
-                            />
-                            <TextField
-                                id="teacher-name"
-                                label="担当教員名(部分一致)"
-                                variant="outlined"
-                                size="small"
-                                value={searchOptions.teacher}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, teacher: e.target.value })}
-                                // placeholder="例: 田中太郎"
-                                sx={{ minWidth: 80 }}
-                            />
-                            <TextField
-                                id="subject-code"
-                                label="講義コード(前方一致)"
-                                variant="outlined"
-                                size="small"
-                                value={searchOptions.subjectCode}
-                                onChange={(e) => setSearchOptions({ ...searchOptions, subjectCode: e.target.value })}
-                                // placeholder="例: CC2(教育学部第二類)"
-                                sx={{ minWidth: 80 }}
-                            />
-
+                            <TextField id="subject-name" label="授業科目名(部分一致)" variant="outlined" size="small" value={searchOptions.subjectName} onChange={handleSubjectNameChange} sx={{ minWidth: 80 }} />
+                            <TextField id="teacher-name" label="担当教員名(部分一致)" variant="outlined" size="small" value={searchOptions.teacher} onChange={handleTeacherChange} sx={{ minWidth: 80 }} />
+                            <TextField id="subject-code" label="講義コード(前方一致)" variant="outlined" size="small" value={searchOptions.subjectCode} onChange={handleSubjectCodeChange} sx={{ minWidth: 80 }} />
                             <FormControl sx={{ minWidth: 80 }} size="small">
                                 <InputLabel id="bookmark-filter-select-label">ブックマーク</InputLabel>
-                                <Select
-                                    labelId="bookmark-filter-select-label"
-                                    id="bookmark-filter-select"
-                                    value={searchOptions.bookmarkFilter}
-                                    label="ブックマーク"
-                                    onChange={handleBookmarkFilterChange}
-                                >
-                                    <MenuItem value="all">指定なし</MenuItem>
-                                    <MenuItem value="bookmark">ブックマークのみを表示</MenuItem>
-                                    <MenuItem value="except-bookmark">ブックマークを除外</MenuItem>
+                                <Select value={searchOptions.bookmarkFilter} onChange={handleBookmarkFilterChange} label="ブックマーク">
+                                    {bookmarkFilterOptions.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </Stack>
