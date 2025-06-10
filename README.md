@@ -10,3 +10,6 @@
 
 ## 参考にさせていただいたもの
 [KdBっぽいなにか](https://make-it-tsukuba.github.io/alternative-tsukuba-kdb/)([リポジトリ](https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb))
+
+## 開発
+`pnpm`を使っています。
