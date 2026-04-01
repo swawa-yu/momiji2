@@ -1,34 +1,34 @@
-
 import {
-    Campus,
-    Semester,
-    JikiKubun,
-    Language,
-    YoubiKoma,
-} from "../types/subject";
-
+  BookmarkFilterValue,
+  CampusSelectOption,
+  CourseTypeSelectOption,
+  JikiKubunSelectOption,
+  KaikouBukyokuSelectOption,
+  KamokuKubunSelectOption,
+  LanguageSelectOption,
+  RishuNenjiFilterOption,
+  RishuNenjiSelectOption,
+  SemesterSelectOption,
+  YoubiKoma,
+} from '../types/subject';
 
 export type YoubiKomaSelected = {
-    [key in YoubiKoma]: boolean;
+  [key in YoubiKoma]: boolean;
 };
 
-export type BookmarkFilter = 'all' | 'bookmark' | 'except-bookmark'
-
-
-
 export interface SearchOptions {
-    campus: Campus | "その他" | "指定なし"
-    subjectName: string
-    teacher: string
-    bookmarkFilter: BookmarkFilter
-    kamokuKubun: string
-    kaikouBukyoku: string
-    youbiKoma: YoubiKomaSelected
-    semester: Semester | "指定なし"
-    jikiKubun: JikiKubun | "指定なし"
-    courseType: "学部" | "大学院" | "指定なし"
-    language: Language | "指定なし"
-    rishuNenji: number | "指定なし"
-    rishuNenjiFilter: "以下" | "のみ"
-    subjectCode: string
+  campus: CampusSelectOption;
+  subjectName: string;
+  teacher: string;
+  bookmarkFilter: BookmarkFilterValue;
+  kamokuKubun: KamokuKubunSelectOption;
+  kaikouBukyoku: KaikouBukyokuSelectOption;
+  youbiKoma: YoubiKomaSelected;
+  semester: SemesterSelectOption;
+  jikiKubun: JikiKubunSelectOption;
+  courseType: CourseTypeSelectOption;
+  language: LanguageSelectOption;
+  rishuNenji: RishuNenjiSelectOption;
+  rishuNenjiFilter: RishuNenjiFilterOption;
+  subjectCode: string;
 }
