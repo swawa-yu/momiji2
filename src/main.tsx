@@ -1,13 +1,14 @@
+import './index.css';
+
+import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import App from './App';
-import './index.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 
 const momijiLight = 'hsl(12, 86.80%, 58.40%)'; // From index.css
 // const momijiDark = 'rgb(200, 84, 55)'; // For later dark mode
-
 
 const theme = createTheme({
   palette: {
@@ -36,5 +37,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <CssBaseline />
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
