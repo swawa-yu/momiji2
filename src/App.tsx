@@ -130,7 +130,7 @@ function App() {
               最新のシラバス情報はMyもみじから確認してください！！
             </Alert>
             <Alert severity="info" sx={{ mb: 1 }}>
-              2025年4月3日時点での
+              2026年4月1日時点での
               <a href="https://momiji.hiroshima-u.ac.jp/syllabusHtml/">
                 広島大学シラバス
               </a>
