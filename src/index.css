@@ -83,3 +83,49 @@ table td {
 table thead {
   background-color: var(--table-head-bg-color);
 }
+
+/* mobile-friendly adjustments */
+@media (max-width: 960px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .MuiDataGrid-root {
+    min-width: 900px;
+  }
+
+  .MuiAppBar-root .MuiToolbar-root {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .MuiContainer-root {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .MuiDataGrid-root {
+    min-width: 700px;
+  }
+}
+

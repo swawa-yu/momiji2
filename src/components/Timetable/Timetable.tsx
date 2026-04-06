@@ -107,20 +107,21 @@ const Timetable = () => {
       className="timetable"
       sx={{
         position: 'fixed',
-        bottom: 100,
+        bottom: { xs: 80, sm: 100 },
         right: { xs: 16, sm: 32 },
-        width: '400px',
-        height: { xs: '50vh', sm: '440px' },
+        left: { xs: 16, sm: 'auto' },
+        width: { xs: 'calc(100% - 32px)', sm: '400px' },
+        maxWidth: { xs: 'calc(100% - 32px)', sm: '400px' },
+        maxHeight: { xs: '60vh', sm: '440px' },
+        height: { xs: 'auto', sm: '440px' },
         zIndex: (theme) => theme.zIndex.drawer - 1,
         border: '1px solid',
         borderColor: 'divider',
         backgroundColor: 'background.paper',
-        opacity: 0.9,
+        opacity: 0.95,
         boxShadow: 4,
         overflow: 'auto',
-        // 角丸
         borderRadius: 2,
-        // --- 内部レイアウト用 (これは必要なら残す) ---
         display: 'flex',
         flexDirection: 'column',
       }}
