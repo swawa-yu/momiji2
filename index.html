@@ -1,38 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
+  <head>
+    <title>momiji2</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
 
-<head>
-  <title>momiji2</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+    <meta
+      name="description"
+      content="広島大学シラバス検索システム momiji2(非公式)"
+    />
+    <meta
+      name="keywords"
+      content="広島大学,広大,シラバス,momiji2,momiji,もみじ"
+    />
+    <meta name="author" content="swawa_yu" />
 
-  <meta name="description" content="広島大学シラバス検索システム momiji2(非公式)" />
-  <meta name="keywords" content="広島大学,広大,シラバス,momiji2,momiji,もみじ" />
-  <meta name="author" content="swawa_yu" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@swawa_yu" />
+    <meta property="og:url" content="https://swawa-yu.github.io/momiji2/" />
+    <meta property="og:title" content="momiji2" />
+    <meta
+      property="og:description"
+      content="広島大学シラバス検索システム momiji2(非公式)"
+    />
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:creator" content="@swawa_yu" />
-  <meta property="og:url" content="https://swawa-yu.github.io/momiji2/" />
-  <meta property="og:title" content="momiji2" />
-  <meta property="og:description" content="広島大学シラバス検索システム momiji2(非公式)" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-</head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-1MGSM0B6GJ"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MGSM0B6GJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
+    gtag('config', 'G-1MGSM0B6GJ');
+  </script>
 
-  gtag('config', 'G-1MGSM0B6GJ');
-</script>
-
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
