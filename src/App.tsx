@@ -123,7 +123,15 @@ function App() {
           </DialogActions>
         </Dialog>
 
-        <Container maxWidth="xl" sx={{ mt: 2, mb: 2, flexGrow: 1 }}>
+        <Container
+          maxWidth="xl"
+          sx={{
+            mt: 2,
+            mb: 2,
+            flexGrow: 1,
+            px: { xs: 1, sm: 2, md: 3 },
+          }}
+        >
           <Box sx={{ mb: 3 }}>
             <Alert severity="warning" sx={{ mb: 1 }}>
               <strong>【重要】</strong>
@@ -154,8 +162,9 @@ function App() {
           onClick={toggleTimetable}
           sx={{
             position: 'fixed',
-            bottom: 32,
-            right: 32,
+            bottom: { xs: 16, sm: 32 },
+            right: { xs: 16, sm: 32 },
+            zIndex: (theme) => theme.zIndex.tooltip,
           }}
         >
           <CalendarMonthIcon />
