@@ -26,6 +26,16 @@ type TimetableSlotData = {
 
 const displayTerms = ['１ターム', '２ターム', '３ターム', '４ターム', '集中'];
 
+const timeByKoma: { [koma: number]: { start: string; end: string } } = {
+  1: { start: '8:45', end: '10:15' },
+  2: { start: '10:30', end: '12:00' },
+  3: { start: '12:50', end: '14:20' },
+  4: { start: '14:35', end: '16:05' },
+  5: { start: '16:20', end: '17:50' },
+  6: { start: '18:00', end: '19:30' },
+  7: { start: '19:40', end: '21:10' },
+};
+
 const Timetable = () => {
   const [displayTerm, setDisplayTerm] = useState<JikiKubun>('１ターム'); // TODO: その時期に応じた初期値を設定する
 
@@ -203,9 +213,38 @@ const Timetable = () => {
                     verticalAlign: 'top',
                     borderRight: '1px solid',
                     borderColor: 'divider',
+                    p: 0.5,
                   }}
                 >
-                  {koma}
+                  <Stack spacing={0.1} alignItems="center">
+                    <Typography variant="body2">{koma}</Typography>
+                    {timeByKoma[koma]?.start && (
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: 'text.secondary',
+                          fontSize: '0.6rem',
+                          opacity: 0.75,
+                          lineHeight: 1.0,
+                        }}
+                      >
+                        {timeByKoma[koma].start}
+                      </Typography>
+                    )}
+                    {timeByKoma[koma]?.end && (
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: 'text.secondary',
+                          fontSize: '0.6rem',
+                          opacity: 0.75,
+                          lineHeight: 1.0,
+                        }}
+                      >
+                        {timeByKoma[koma].end}
+                      </Typography>
+                    )}
+                  </Stack>
                 </TableCell>
                 {youbis.map((youbi) => {
                   const key = `${youbi}${koma}`;

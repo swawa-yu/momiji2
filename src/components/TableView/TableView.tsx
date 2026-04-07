@@ -16,15 +16,15 @@ function TableView({ searchOptions }: TableViewProps) {
   const bookmarkedSubjects = useContext(BookmarkContext).bookmarkedSubjects;
   const filteredSubjectCodes = React.useMemo(
     () => filterSubjectCodeList(searchOptions, bookmarkedSubjects),
-    [searchOptions]
+    [searchOptions, bookmarkedSubjects]
   );
 
   const filteredSubjects = React.useMemo(() => {
     return filteredSubjectCodes.map((subjectCode) => subjectMap[subjectCode]);
-  }, [searchOptions]);
+  }, [filteredSubjectCodes]);
   const filteredSubjects2 = React.useMemo(() => {
     return filteredSubjectCodes.map((subjectCode) => subject2Map[subjectCode]);
-  }, [searchOptions]);
+  }, [filteredSubjectCodes]);
 
   const subjects2ToShow = React.useMemo(() => {
     return filteredSubjects2;
