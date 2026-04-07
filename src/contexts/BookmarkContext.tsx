@@ -12,13 +12,49 @@ export const BookmarkContext = createContext<BookmarkContextType>({
   handleBookmarkToggle: () => {},
 });
 
+const BOOKMARK_STORAGE_KEY = 'bookmarkedSubjects';
+
+const loadBookmarkedSubjects = (): Set<string> => {
+  if (typeof window === 'undefined') {
+    return new Set();
+  }
+
+  try {
+    const stored = window.localStorage.getItem(BOOKMARK_STORAGE_KEY);
+    if (!stored) {
+      return new Set();
+    }
+    const parsed = JSON.parse(stored);
+    if (!Array.isArray(parsed)) {
+      return new Set();
+    }
+    return new Set(parsed.filter((item) => typeof item === 'string'));
+  } catch (error) {
+    console.warn('Failed to load bookmarked subjects from localStorage', error);
+    return new Set();
+  }
+};
+
+const saveBookmarkedSubjects = (subjects: Set<string>) => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    const serialized = JSON.stringify(Array.from(subjects));
+    window.localStorage.setItem(BOOKMARK_STORAGE_KEY, serialized);
+  } catch (error) {
+    console.warn('Failed to save bookmarked subjects to localStorage', error);
+  }
+};
+
 export const BookmarkProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
   const [bookmarkedSubjects, setBookmarkedSubjects] = useState<Set<string>>(
-    new Set()
+    loadBookmarkedSubjects
   );
 
   const handleBookmarkToggle = (lectureCode: string) => {
@@ -29,6 +65,7 @@ export const BookmarkProvider = ({
       } else {
         newBookmarks.add(lectureCode);
       }
+      saveBookmarkedSubjects(newBookmarks);
       return newBookmarks;
     });
   };
