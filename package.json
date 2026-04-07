@@ -5,6 +5,8 @@
   "type": "module",
   "homepage": "https://swawa-yu.github.io/momiji2",
   "scripts": {
+    "predev": "node ./scripts/generate-subject-constants.mjs",
+    "prebuild": "node ./scripts/generate-subject-constants.mjs",
     "dev": "vite",
     "build": "tsc && vite build && cp -r dist docs",
     "rebuild": "tsc && vite build && rm -R docs && cp -r dist docs",

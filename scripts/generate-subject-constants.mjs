@@ -1,11 +1,12 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { pathToFileURL } from 'url';
 
 const root = process.cwd();
 const jsonPath = path.join(root, 'data', 'subjectConstants.json');
 const tsPath = path.join(root, 'src', 'types', 'subjectConstants.ts');
 
-async function main() {
+export async function generateSubjectConstants() {
   const jsonText = await fs.readFile(jsonPath, 'utf8');
   const constants = JSON.parse(jsonText);
 
@@ -50,7 +51,13 @@ export const rishuNenjiNumbers = ${JSON.stringify(constants.rishuNenjiNumbers, n
   console.log(`Generated ${path.relative(root, tsPath)}`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+async function main() {
+  await generateSubjectConstants();
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
