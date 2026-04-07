@@ -69,7 +69,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
     useContext<BookmarkContextType>(BookmarkContext);
   const [, startTransitionEffect] = useTransition();
   const activeCalculationRef = useRef(true);
-  const idleCallbackRef = useRef<number | null>(null);
+  const idleCallbackRef = useRef<number | ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     activeCalculationRef.current = true;
@@ -102,7 +102,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
           timeout: 300,
         });
       } else {
-        idleCallbackRef.current = window.setTimeout(runCalculation, 50);
+        idleCallbackRef.current = setTimeout(runCalculation, 50);
       }
     };
 
@@ -112,9 +112,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
       activeCalculationRef.current = false;
       if (idleCallbackRef.current !== null) {
         if ('cancelIdleCallback' in window) {
-          window.cancelIdleCallback(idleCallbackRef.current);
+          window.cancelIdleCallback(idleCallbackRef.current as number);
         } else {
-          window.clearTimeout(idleCallbackRef.current);
+          clearTimeout(idleCallbackRef.current);
         }
       }
     };
