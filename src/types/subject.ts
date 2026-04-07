@@ -57,7 +57,7 @@ export type Semester = (typeof semesters)[number];
 // 時期区分 ----------------------------------------------------------------------------------------------------
 export type JikiKubun = (typeof jikiKubuns)[number];
 
-export { 
+export {
   campuses,
   semesters,
   jikiKubunMap,
