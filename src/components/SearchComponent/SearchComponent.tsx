@@ -10,25 +10,9 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import React, {
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useTransition,
-} from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
-import {
-  BookmarkContext,
-  BookmarkContextType,
-} from '../../contexts/BookmarkContext';
-import {
-  calculateAllOptionCounts,
-  FilterCounts,
-  initialSearchOptions,
-} from '../../search';
-import { totalOptionCounts } from '../../subject';
+import { initialSearchOptions } from '../../search';
 import { SearchOptions, YoubiKomaSelected } from '../../types/search';
 import {
   bookmarkFilterOptions,
@@ -56,8 +40,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
   searchOptions,
   setSearchOptions,
 }: SearchComponentProps) => {
-  const [filterCounts, setFilterCounts] = useState<FilterCounts | null>(null);
-  const [isCalculating, setIsCalculating] = useState(false);
   const [localSubjectName, setLocalSubjectName] = useState(
     searchOptions.subjectName
   );
@@ -65,61 +47,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
   const [localSubjectCode, setLocalSubjectCode] = useState(
     searchOptions.subjectCode
   );
-  const { bookmarkedSubjects } =
-    useContext<BookmarkContextType>(BookmarkContext);
-  const [, startTransitionEffect] = useTransition();
-  const activeCalculationRef = useRef(true);
-  const idleCallbackRef = useRef<number | ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    activeCalculationRef.current = true;
-    setIsCalculating(true);
-
-    const scheduleCountUpdate = () => {
-      const runCalculation = () => {
-        if (!activeCalculationRef.current) {
-          return;
-        }
-
-        startTransitionEffect(() => {
-          if (!activeCalculationRef.current) {
-            return;
-          }
-          const newCounts = calculateAllOptionCounts(
-            searchOptions,
-            bookmarkedSubjects
-          );
-          if (!activeCalculationRef.current) {
-            return;
-          }
-          setFilterCounts(newCounts);
-          setIsCalculating(false);
-        });
-      };
-
-      if ('requestIdleCallback' in window) {
-        idleCallbackRef.current = window.requestIdleCallback(runCalculation, {
-          timeout: 300,
-        });
-      } else {
-        idleCallbackRef.current = setTimeout(runCalculation, 50);
-      }
-    };
-
-    scheduleCountUpdate();
-
-    return () => {
-      activeCalculationRef.current = false;
-      if (idleCallbackRef.current !== null) {
-        if ('cancelIdleCallback' in window) {
-          window.cancelIdleCallback(idleCallbackRef.current as number);
-        } else {
-          clearTimeout(idleCallbackRef.current);
-        }
-      }
-    };
-  }, [searchOptions, bookmarkedSubjects]);
-
   useEffect(() => {
     setLocalSubjectName(searchOptions.subjectName);
     setLocalTeacher(searchOptions.teacher);
@@ -249,43 +176,21 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
     props: React.HTMLAttributes<HTMLLIElement>,
     option: string
   ) => {
-    const numerator =
-      filterCounts?.kaikouBukyoku?.[option] ?? (isCalculating ? '...' : 0);
-    const denominator = totalOptionCounts?.kaikouBukyoku?.[option] || 0;
     const label = option;
     return (
       <li {...props}>
-        <Box
+        <Typography
+          variant="body2"
+          component="span"
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '100%',
+            flexGrow: 1,
+            mr: 1,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
-          <Typography
-            variant="body2"
-            component="span"
-            sx={{
-              flexGrow: 1,
-              mr: 1,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            {label}
-          </Typography>
-          <Typography
-            variant="body2"
-            component="span"
-            sx={{
-              color: 'text.secondary',
-              fontSize: '0.8em',
-              flexShrink: 0,
-            }}
-          >
-            ({numerator} / {denominator})
-          </Typography>
-        </Box>
+          {label}
+        </Typography>
       </li>
     );
   };
@@ -313,30 +218,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                   renderValue={(value) => value}
                 >
                   {campusSelectOptions.map((option) => {
-                    const numerator =
-                      filterCounts?.campus?.[option] ??
-                      (isCalculating ? '...' : 0);
-                    const denominator =
-                      totalOptionCounts?.campus?.[option] || 0;
                     return (
-                      <MenuItem
-                        key={option}
-                        value={option}
-                        sx={{
-                          justifyContent: 'space-between',
-                        }}
-                      >
+                      <MenuItem key={option} value={option}>
                         <span>{option}</span>
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: 0.75,
-                            color: 'text.secondary',
-                            fontSize: '0.8em',
-                          }}
-                        >
-                          ({numerator} / {denominator})
-                        </Box>
                       </MenuItem>
                     );
                   })}
@@ -352,30 +236,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                   renderValue={(value) => value}
                 >
                   {semesterSelectOptions.map((option) => {
-                    const numerator =
-                      filterCounts?.semester?.[option] ??
-                      (isCalculating ? '...' : 0);
-                    const denominator =
-                      totalOptionCounts?.semester?.[option] || 0;
                     return (
-                      <MenuItem
-                        key={option}
-                        value={option}
-                        sx={{
-                          justifyContent: 'space-between',
-                        }}
-                      >
+                      <MenuItem key={option} value={option}>
                         <span>{option}</span>
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: 0.75,
-                            color: 'text.secondary',
-                            fontSize: '0.8em',
-                          }}
-                        >
-                          ({numerator} / {denominator})
-                        </Box>
                       </MenuItem>
                     );
                   })}
@@ -391,30 +254,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                   renderValue={(value) => value}
                 >
                   {jikiKubunSelectOptions.map((option) => {
-                    const numerator =
-                      filterCounts?.jikiKubun?.[option] ??
-                      (isCalculating ? '...' : 0);
-                    const denominator =
-                      totalOptionCounts?.jikiKubun?.[option] || 0;
                     return (
-                      <MenuItem
-                        key={option}
-                        value={option}
-                        sx={{
-                          justifyContent: 'space-between',
-                        }}
-                      >
+                      <MenuItem key={option} value={option}>
                         <span>{option}</span>
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: 0.75,
-                            color: 'text.secondary',
-                            fontSize: '0.8em',
-                          }}
-                        >
-                          ({numerator} / {denominator})
-                        </Box>
                       </MenuItem>
                     );
                   })}
@@ -430,30 +272,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                   renderValue={(value) => value}
                 >
                   {kamokuKubunSelectOptions.map((option) => {
-                    const numerator =
-                      filterCounts?.kamokuKubun?.[option] ??
-                      (isCalculating ? '...' : 0);
-                    const denominator =
-                      totalOptionCounts?.kamokuKubun?.[option] || 0;
                     return (
-                      <MenuItem
-                        key={option}
-                        value={option}
-                        sx={{
-                          justifyContent: 'space-between',
-                        }}
-                      >
+                      <MenuItem key={option} value={option}>
                         <span>{option}</span>
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: 0.75,
-                            color: 'text.secondary',
-                            fontSize: '0.8em',
-                          }}
-                        >
-                          ({numerator} / {denominator})
-                        </Box>
                       </MenuItem>
                     );
                   })}
@@ -469,30 +290,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                   renderValue={(value) => value}
                 >
                   {languageSelectOptions.map((option) => {
-                    const numerator =
-                      filterCounts?.language?.[option] ??
-                      (isCalculating ? '...' : 0);
-                    const denominator =
-                      totalOptionCounts?.language?.[option] || 0;
                     return (
-                      <MenuItem
-                        key={option}
-                        value={option}
-                        sx={{
-                          justifyContent: 'space-between',
-                        }}
-                      >
+                      <MenuItem key={option} value={option}>
                         <span>{option}</span>
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: 0.75,
-                            color: 'text.secondary',
-                            fontSize: '0.8em',
-                          }}
-                        >
-                          ({numerator} / {denominator})
-                        </Box>
                       </MenuItem>
                     );
                   })}
@@ -510,30 +310,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                   renderValue={(value) => value}
                 >
                   {courseTypeSelectOptions.map((option) => {
-                    const numerator =
-                      filterCounts?.courseType?.[option] ??
-                      (isCalculating ? '...' : 0);
-                    const denominator =
-                      totalOptionCounts?.courseType?.[option] || 0;
                     return (
-                      <MenuItem
-                        key={option}
-                        value={option}
-                        sx={{
-                          justifyContent: 'space-between',
-                        }}
-                      >
+                      <MenuItem key={option} value={option}>
                         <span>{option}</span>
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: 0.75,
-                            color: 'text.secondary',
-                            fontSize: '0.8em',
-                          }}
-                        >
-                          ({numerator} / {denominator})
-                        </Box>
                       </MenuItem>
                     );
                   })}
@@ -569,35 +348,13 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                         }
                       >
                         {rishuNenjiSelectOptions.map((option) => {
-                          const numerator =
-                            filterCounts?.rishuNenji?.[String(option)] ??
-                            (isCalculating ? '...' : 0);
-                          const denominator =
-                            totalOptionCounts?.rishuNenji?.[String(option)] ||
-                            0;
                           return (
-                            <MenuItem
-                              key={option}
-                              value={option}
-                              sx={{
-                                justifyContent: 'space-between',
-                              }}
-                            >
+                            <MenuItem key={option} value={option}>
                               <span>
                                 {option === '指定なし'
                                   ? '指定なし'
                                   : `${option}年次`}
                               </span>
-                              <Box
-                                component="span"
-                                sx={{
-                                  ml: 0.75,
-                                  color: 'text.secondary',
-                                  fontSize: '0.8em',
-                                }}
-                              >
-                                ({numerator} / {denominator})
-                              </Box>
                             </MenuItem>
                           );
                         })}
