@@ -1,14 +1,18 @@
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import InfoIcon from '@mui/icons-material/Info';
 import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import React, { useEffect, useMemo, useState } from 'react';
 
@@ -418,6 +422,38 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                 value={localSubjectCode}
                 onChange={handleSubjectCodeChange}
                 sx={{ minWidth: 80 }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <Tooltip
+                        title={
+                          <Box
+                            sx={{ whiteSpace: 'pre-line', fontSize: '0.85rem' }}
+                          >
+                            講義コードによる検索のヒント
+                            {'\n'}
+                            {'\n'}
+                            CC2：教育学部第二類
+                            {'\n'}
+                            CC21：教育学部第二類自然系コース
+                            {'\n'}
+                            CC23：教育学部第二類技術・情報系コース
+                            {/* 「教育学部第二類」の授業を"CC2"で検索できます。「教育学部第二類自然系コース」は"CC21"、「教育学部第二類技術・情報系コース」は"CC23"で始まります。 */}
+                          </Box>
+                        }
+                        arrow
+                      >
+                        <IconButton
+                          aria-label="講義コード検索のヒント"
+                          edge="end"
+                          size="small"
+                        >
+                          <InfoIcon fontSize="small" />
+                        </IconButton>
+                      </Tooltip>
+                    </InputAdornment>
+                  ),
+                }}
               />
               <FormControl sx={{ minWidth: 80 }} size="small">
                 <InputLabel id="bookmark-filter-select-label">
