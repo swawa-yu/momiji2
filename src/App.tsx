@@ -16,7 +16,7 @@ import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useDeferredValue, useState } from 'react';
+import { useDeferredValue, useEffect, useState } from 'react';
 
 import ExportBookmarkButton from './components/ExportBookmarkButton';
 import SearchComponent from './components/SearchComponent';
@@ -39,6 +39,12 @@ function App() {
   const handleInfoDialogClose = () => setInfoDialogOpen(false);
   const [isTimetableVisible, setIsTimetableVisible] = useState(false);
   const toggleTimetable = () => setIsTimetableVisible((prev) => !prev);
+  const [tooltipOpen, setTooltipOpen] = useState(true);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setTooltipOpen(false), 5000);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <Box
@@ -163,19 +169,32 @@ function App() {
         {isTimetableVisible && <Timetable />}
 
         {/* TODO: 非表示状態の時、ブックマーク追加時に目を引くようにする */}
-        <Fab
-          color="primary"
-          aria-label="時間割 表示/非表示"
-          onClick={toggleTimetable}
-          sx={{
-            position: 'fixed',
-            bottom: { xs: 16, sm: 32 },
-            right: { xs: 16, sm: 32 },
-            zIndex: (theme) => theme.zIndex.tooltip,
-          }}
+        <Tooltip
+          title={
+            <Box sx={{ whiteSpace: 'pre-line', fontSize: '0.75rem' }}>
+              このボタンで時間割の表示/非表示を切り替えます。
+              {'\n'}ブックマークした授業が時間割表に反映されます。
+            </Box>
+          }
+          arrow
+          open={tooltipOpen}
+          onOpen={() => setTooltipOpen(true)}
+          onClose={() => setTooltipOpen(false)}
         >
-          <CalendarMonthIcon />
-        </Fab>
+          <Fab
+            color="primary"
+            aria-label="時間割 表示/非表示"
+            onClick={toggleTimetable}
+            sx={{
+              position: 'fixed',
+              bottom: { xs: 16, sm: 32 },
+              right: { xs: 16, sm: 32 },
+              zIndex: (theme) => theme.zIndex.tooltip,
+            }}
+          >
+            <CalendarMonthIcon />
+          </Fab>
+        </Tooltip>
       </BookmarkProvider>
 
       <Box
