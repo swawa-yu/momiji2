@@ -167,7 +167,7 @@ export const initialSearchOptions: SearchOptions = {
   youbiKoma: initializeYoubiKoma(true),
   semester: '指定なし',
   jikiKubun: '指定なし',
-  courseType: '学部',
+  courseType: '指定なし',
   language: '指定なし',
   rishuNenji: '指定なし',
   rishuNenjiFilter: '以下',
