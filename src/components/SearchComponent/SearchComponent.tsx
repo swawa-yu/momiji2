@@ -2,7 +2,6 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
@@ -12,11 +11,12 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import React, {
-  startTransition,
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
+  useTransition,
 } from 'react';
 
 import {
@@ -58,20 +58,92 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
 }: SearchComponentProps) => {
   const [filterCounts, setFilterCounts] = useState<FilterCounts | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [localSubjectName, setLocalSubjectName] = useState(
+    searchOptions.subjectName
+  );
+  const [localTeacher, setLocalTeacher] = useState(searchOptions.teacher);
+  const [localSubjectCode, setLocalSubjectCode] = useState(
+    searchOptions.subjectCode
+  );
   const { bookmarkedSubjects } =
     useContext<BookmarkContextType>(BookmarkContext);
+  const [, startTransitionEffect] = useTransition();
+  const activeCalculationRef = useRef(true);
+  const idleCallbackRef = useRef<number | null>(null);
 
   useEffect(() => {
+    activeCalculationRef.current = true;
     setIsCalculating(true);
-    startTransition(() => {
-      const newCounts = calculateAllOptionCounts(
-        searchOptions,
-        bookmarkedSubjects
-      );
-      setFilterCounts(newCounts);
-      setIsCalculating(false);
-    });
+
+    const scheduleCountUpdate = () => {
+      const runCalculation = () => {
+        if (!activeCalculationRef.current) {
+          return;
+        }
+
+        startTransitionEffect(() => {
+          if (!activeCalculationRef.current) {
+            return;
+          }
+          const newCounts = calculateAllOptionCounts(
+            searchOptions,
+            bookmarkedSubjects
+          );
+          if (!activeCalculationRef.current) {
+            return;
+          }
+          setFilterCounts(newCounts);
+          setIsCalculating(false);
+        });
+      };
+
+      if ('requestIdleCallback' in window) {
+        idleCallbackRef.current = window.requestIdleCallback(runCalculation, {
+          timeout: 300,
+        });
+      } else {
+        idleCallbackRef.current = window.setTimeout(runCalculation, 50);
+      }
+    };
+
+    scheduleCountUpdate();
+
+    return () => {
+      activeCalculationRef.current = false;
+      if (idleCallbackRef.current !== null) {
+        if ('cancelIdleCallback' in window) {
+          window.cancelIdleCallback(idleCallbackRef.current);
+        } else {
+          window.clearTimeout(idleCallbackRef.current);
+        }
+      }
+    };
   }, [searchOptions, bookmarkedSubjects]);
+
+  useEffect(() => {
+    setLocalSubjectName(searchOptions.subjectName);
+    setLocalTeacher(searchOptions.teacher);
+    setLocalSubjectCode(searchOptions.subjectCode);
+  }, [
+    searchOptions.subjectName,
+    searchOptions.teacher,
+    searchOptions.subjectCode,
+  ]);
+
+  useEffect(() => {
+    const debounceTimer = window.setTimeout(() => {
+      setSearchOptions((prev) => ({
+        ...prev,
+        subjectName: localSubjectName,
+        teacher: localTeacher,
+        subjectCode: localSubjectCode,
+      }));
+    }, 300);
+
+    return () => {
+      window.clearTimeout(debounceTimer);
+    };
+  }, [localSubjectName, localTeacher, localSubjectCode, setSearchOptions]);
 
   const handleClear = () => {
     setSearchOptions(initialSearchOptions);
@@ -151,21 +223,15 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
   const handleSubjectNameChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setSearchOptions((prev) => ({
-      ...prev,
-      subjectName: event.target.value,
-    }));
+    setLocalSubjectName(event.target.value);
   };
   const handleTeacherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchOptions((prev) => ({ ...prev, teacher: event.target.value }));
+    setLocalTeacher(event.target.value);
   };
   const handleSubjectCodeChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setSearchOptions((prev) => ({
-      ...prev,
-      subjectCode: event.target.value,
-    }));
+    setLocalSubjectCode(event.target.value);
   };
 
   const kaikouBukyokuFilteredOptions = useMemo(() => {
@@ -235,27 +301,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
           position: 'relative',
         }}
       >
-        {isCalculating && (
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
-              zIndex: 10,
-            }}
-          >
-            <CircularProgress size={24} />
-            <Typography variant="caption" sx={{ ml: 1 }}>
-              件数計算中...
-            </Typography>
-          </Box>
-        )}
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} lg={4}>
             <Stack spacing={2}>
@@ -595,7 +640,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                 label="授業科目名(部分一致)"
                 variant="outlined"
                 size="small"
-                value={searchOptions.subjectName}
+                value={localSubjectName}
                 onChange={handleSubjectNameChange}
                 sx={{ minWidth: 80 }}
               />
@@ -604,7 +649,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                 label="担当教員名(部分一致)"
                 variant="outlined"
                 size="small"
-                value={searchOptions.teacher}
+                value={localTeacher}
                 onChange={handleTeacherChange}
                 sx={{ minWidth: 80 }}
               />
@@ -613,7 +658,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
                 label="講義コード(前方一致)"
                 variant="outlined"
                 size="small"
-                value={searchOptions.subjectCode}
+                value={localSubjectCode}
                 onChange={handleSubjectCodeChange}
                 sx={{ minWidth: 80 }}
               />
