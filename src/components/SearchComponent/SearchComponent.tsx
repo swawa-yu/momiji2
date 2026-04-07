@@ -421,7 +421,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
               />
               <FormControl sx={{ minWidth: 80 }} size="small">
                 <InputLabel id="bookmark-filter-select-label">
-                  ブックマーク
+                  ☆ブックマーク
                 </InputLabel>
                 <Select
                   value={searchOptions.bookmarkFilter}
