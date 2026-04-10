@@ -141,10 +141,10 @@ function App() {
           <Box sx={{ mb: 3 }}>
             <Alert severity="warning" sx={{ mb: 1 }}>
               <strong>【重要】</strong>
-              最新のシラバス情報はMyもみじから確認してください！！
+              授業の内容や時間割は変更される可能性があります。最新の情報はMyもみじから確認してください！！
             </Alert>
             <Alert severity="info" sx={{ mb: 1 }}>
-              2026年4月7日時点での
+              データは
               <Link
                 href="https://momiji.hiroshima-u.ac.jp/syllabusHtml/"
                 target="_blank"
@@ -152,10 +152,7 @@ function App() {
               >
                 広島大学シラバス
               </Link>
-              {/* <a href="https://momiji.hiroshima-u.ac.jp/syllabusHtml/">
-                広島大学シラバス
-              </a> */}
-              から取得したデータを元に作成しています。
+              から取得したものを使用しています。（最終データ更新日：2026年4月7日）
             </Alert>
           </Box>
 
