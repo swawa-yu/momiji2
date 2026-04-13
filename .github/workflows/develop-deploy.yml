@@ -46,4 +46,4 @@ jobs:
           git add dev
           git diff --staged --quiet || git commit -m "Deploy develop branch to /dev directory"
           git fetch origin gh-pages
-        git push --force https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} gh-pages
+          git push --force https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} gh-pages
