@@ -22,7 +22,22 @@ const rawPropertiesTsPath = path.join(
   'types',
   'rawSubjectProperties.ts'
 );
-const manifestPath = path.join(root, 'data', 'subjectDataManifest.json');
+const subjectDataManifests = [
+  {
+    academicYear: '2025年度',
+    dataFile: 'subject_details_main_2025-04-03.json',
+    retrievedAt: '2025-04-03',
+    subjectCount: 11989,
+    source: 'https://momiji.hiroshima-u.ac.jp/syllabusHtml/',
+  },
+  {
+    academicYear: '2026年度',
+    dataFile: 'subject_details_main_2026-04-07.json',
+    retrievedAt: '2026-04-07',
+    subjectCount: 12489,
+    source: 'https://momiji.hiroshima-u.ac.jp/syllabusHtml/',
+  },
+];
 
 const expectedRawProperties = [
   'relative URL',
@@ -105,13 +120,45 @@ test('raw properties, TypeScript model, and validator share the 19-field contrac
   assert.ok(!rawProperties.some((field) => field.includes('\t')));
 });
 
-test('2026 data keeps blank category and campus values as valid raw strings', async () => {
-  const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
-  const data = JSON.parse(
-    await fs.readFile(path.join(root, 'data', manifest.dataFile), 'utf8')
-  );
-  const result = validateSubjectData(data, manifest);
+for (const manifest of subjectDataManifests) {
+  test(`${manifest.academicYear} data satisfies the complete 19-field contract`, async () => {
+    const data = JSON.parse(
+      await fs.readFile(path.join(root, 'data', manifest.dataFile), 'utf8')
+    );
+    const result = validateSubjectData(data, manifest);
 
-  assert.equal(result.emptyValueCounts['科目区分'], 17);
-  assert.equal(result.emptyValueCounts['開講キャンパス'], 132);
-});
+    assert.equal(
+      result.academicYear,
+      manifest.academicYear,
+      `${manifest.academicYear}: validator returned the wrong academic year`
+    );
+    assert.equal(
+      result.subjectCount,
+      manifest.subjectCount,
+      `${manifest.academicYear}: subject count changed`
+    );
+
+    for (const [lectureCode, subject] of Object.entries(data)) {
+      assert.deepEqual(
+        new Set(Object.keys(subject)),
+        new Set(expectedRawProperties),
+        `${manifest.academicYear}: field contract changed for ${lectureCode}`
+      );
+    }
+
+    const expectedEmptyCounts =
+      manifest.academicYear === '2025年度'
+        ? { 科目区分: 19, 開講キャンパス: 90 }
+        : { 科目区分: 17, 開講キャンパス: 132 };
+    assert.equal(
+      result.emptyValueCounts['科目区分'],
+      expectedEmptyCounts['科目区分'],
+      `${manifest.academicYear}: blank category count changed`
+    );
+    assert.equal(
+      result.emptyValueCounts['開講キャンパス'],
+      expectedEmptyCounts['開講キャンパス'],
+      `${manifest.academicYear}: blank campus count changed`
+    );
+  });
+}
