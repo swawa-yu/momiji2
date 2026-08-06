@@ -4,28 +4,15 @@ import { pathToFileURL } from 'url';
 
 const root = process.cwd();
 const defaultManifestPath = path.join(root, 'data', 'subjectDataManifest.json');
+const rawPropertiesPath = new URL(
+  '../data/subjectRawProperties.json',
+  import.meta.url
+);
+const requiredFieldSet = new Set(
+  JSON.parse(await fs.readFile(rawPropertiesPath, 'utf8'))
+);
 
-export const requiredFields = [
-  'relative URL',
-  '年度',
-  '開講部局',
-  '講義コード',
-  '科目区分',
-  '授業科目名',
-  '担当教員名',
-  '開講キャンパス',
-  '開設期',
-  '曜日・時限・講義室',
-  '単位',
-  '使用言語',
-  '学習の段階',
-  '対象学生',
-  '授業の目標・概要等',
-  '予習・復習への アドバイス',
-  '履修上の注意 受講条件等',
-  'メッセージ',
-  'その他',
-];
+export const requiredFields = [...requiredFieldSet];
 
 export function validateManifest(manifest) {
   if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
@@ -105,6 +92,14 @@ export function validateSubjectData(data, manifest) {
       }
       if (subject[field] === '') {
         emptyValueCounts[field] += 1;
+      }
+    }
+
+    for (const field of Object.keys(subject)) {
+      if (!requiredFieldSet.has(field)) {
+        throw new Error(
+          `Subject ${lectureCode} has unexpected field: ${field}`
+        );
       }
     }
 

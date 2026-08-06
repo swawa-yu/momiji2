@@ -1,15 +1,16 @@
 // 時間割関連 ----------------------------------------------------------------------------------------------------
+import { rawSubjectProperties } from './rawSubjectProperties';
 import {
   campuses,
-  semesters,
   jikiKubunMap,
   jikiKubuns,
-  kamokuKubuns,
-  kaikouBukyokuGakubus,
   kaikouBukyokuDaigakuins,
+  kaikouBukyokuGakubus,
   kaikouBukyokus,
+  kamokuKubuns,
   languages,
   rishuNenjiNumbers,
+  semesters,
 } from './subjectConstants';
 
 export const youbis = ['月', '火', '水', '木', '金', '土'] as const;
@@ -34,7 +35,7 @@ export interface Kaisetsuki {
   jikiKubun: JikiKubun;
 }
 
-// TODO 命名が最悪すぎる　「jigen」ってなんだ
+// TODO: 命名が最悪すぎる。「jigen」ってなんだ
 export interface Jigen {
   youbi: Youbi;
   jigenRange: { begin: number; last: number };
@@ -49,7 +50,7 @@ export interface Schedule {
 
 // TODO: 動的に取得するなり、変更に対応できるようにしたい
 // キャンパス ----------------------------------------------------------------------------------------------------
-export type Campus = (typeof campuses)[number];
+export type Campus = (typeof campuses)[number] | '';
 
 // セメスタ ー----------------------------------------------------------------------------------------------------
 export type Semester = (typeof semesters)[number];
@@ -59,19 +60,19 @@ export type JikiKubun = (typeof jikiKubuns)[number];
 
 export {
   campuses,
-  semesters,
   jikiKubunMap,
   jikiKubuns,
-  kamokuKubuns,
-  kaikouBukyokuGakubus,
   kaikouBukyokuDaigakuins,
+  kaikouBukyokuGakubus,
   kaikouBukyokus,
+  kamokuKubuns,
   languages,
   rishuNenjiNumbers,
+  semesters,
 };
 
 // 科目区分 ----------------------------------------------------------------------------------------------------
-export type KamokuKubun = (typeof kamokuKubuns)[number];
+export type KamokuKubun = (typeof kamokuKubuns)[number] | '';
 
 // 開講部局 ----------------------------------------------------------------------------------------------------
 export type KaikouBukyokuGakubu = (typeof kaikouBukyokuGakubus)[number];
@@ -81,58 +82,28 @@ export type KaikouBukyoku = (typeof kaikouBukyokus)[number];
 // 言語 ----------------------------------------------------------------------------------------------------
 export type Language = (typeof languages)[number];
 
-export type SubjectProperty =
-  | 'relative URL'
-  | '年度'
-  | '開講部局'
-  | '講義コード'
-  | '科目区分'
-  | '授業科目名'
-  | '担当教員名'
-  | '開講キャンパス'
-  | '開設期'
-  | '曜日・時限・講義室'
-  | '単位'
-  | '使用言語'
-  | '教科書・参考書等'
-  | '対象学生'
-  | '授業の目標・概要等'
-  | '予習・復習への アドバイス'
-  | '履修上の注意 受講条件等	メッセージ'
-  | 'メッセージ'
-  | 'その他';
-
-export type Subject = { [key in SubjectProperty]: string };
+export { rawSubjectProperties };
+export type RawSubjectProperty = (typeof rawSubjectProperties)[number];
+export type RawSubject = Record<RawSubjectProperty, string>;
+export type RawSubjectMap = Record<string, RawSubject>;
 
 // Subject2をはじめに作っておくことで検索時に毎回parseする必要がなくなる
 // TODO: 例外処理 "解析エラー"と書いているの部分をもっと良くする方法
-export type Subject2 = {
-  'relative URL': string;
-  年度: string;
+export type Subject2 = Omit<
+  RawSubject,
+  '開講部局' | '科目区分' | '担当教員名' | '開講キャンパス' | '使用言語'
+> & {
   開講部局: KaikouBukyoku;
-  講義コード: string;
   科目区分: KamokuKubun;
-  授業科目名: string;
   担当教員名: string[];
   開講キャンパス: Campus;
   セメスター: Semester | undefined;
   時期区分: JikiKubun | undefined;
   履修年次: number | undefined;
   '授業時間・講義室': Schedule[] | undefined;
-  開設期: string;
-  '曜日・時限・講義室': string;
-  単位: string;
   使用言語: Language;
-  '教科書・参考書等': string;
-  対象学生: string;
-  '授業の目標・概要等': string;
-  '予習・復習への アドバイス': string;
-  '履修上の注意 受講条件等	メッセージ': string;
-  メッセージ: string;
-  その他: string;
 };
 
-export type SubjectMap = { [subjectCode: string]: Subject };
 export type Subject2Map = { [subjectCode: string]: Subject2 };
 
 export const komaTime: { [key in Koma]: { start: string; end: string } } = {

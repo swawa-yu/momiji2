@@ -218,7 +218,8 @@ function matchesCampus(
     searchOptions.campus === '指定なし' ||
     subject['開講キャンパス'] === searchOptions.campus ||
     (searchOptions.campus === 'その他' &&
-      !campuses.includes(subject['開講キャンパス']))
+      (subject['開講キャンパス'] === '' ||
+        !campuses.includes(subject['開講キャンパス'])))
   );
 }
 

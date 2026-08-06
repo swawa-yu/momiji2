@@ -15,6 +15,7 @@
     "validate:data": "node ./scripts/validate-subject-data.mjs",
     "test:subject-constants": "node --test ./scripts/generate-subject-constants.test.mjs",
     "test:data-validator": "node --test ./scripts/validate-subject-data.test.mjs",
+    "test:raw-subject-contract": "node --test ./scripts/raw-subject-contract.test.mjs",
     "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,md,json}\"",

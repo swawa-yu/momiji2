@@ -49,6 +49,17 @@ test('rejects a missing required field', () => {
   );
 });
 
+test('rejects a subject with an extra field', () => {
+  assert.throws(
+    () =>
+      validateSubjectData(
+        { 10000100: createSubject({ extraField: 'unexpected' }) },
+        createManifest()
+      ),
+    /has unexpected field: extraField/
+  );
+});
+
 test('rejects a lecture code that differs from its object key', () => {
   assert.throws(
     () =>

@@ -3,26 +3,21 @@
 // import subjectData from '../../data/subject_details_main.json'
 // import subjectData from '../../data/subject-maininfo.json'
 import {
-  Campus,
   campuses,
   jikiKubuns,
-  KaikouBukyoku,
   kaikouBukyokuDaigakuins,
   kaikouBukyokuGakubus,
   kaikouBukyokus,
-  KamokuKubun,
   kamokuKubuns,
-  Language,
   languages,
+  RawSubjectMap,
   semesters,
-  Subject,
   Subject2,
-  SubjectMap,
 } from '../types/subject';
 import { subjectData } from './activeSubjectData';
 import { parseKaisetsuki, parseSchedule } from './utils';
 
-export const subjectMap: SubjectMap = {};
+export const subjectMap: RawSubjectMap = {};
 export const subject2Map: { [subjectCode: string]: Subject2 } = {};
 export const subjectCodeList = Object.keys(subjectMap);
 
@@ -38,6 +33,26 @@ export const subjectProperties: string[] = [];
 type OptionCounts = { [key: string]: { [option: string | number]: number } };
 export let totalOptionCounts: OptionCounts = {};
 
+function toKnownValue<T extends readonly string[]>(
+  value: string,
+  options: T,
+  field: string
+): T[number] {
+  if (!options.includes(value as T[number])) {
+    throw new Error(`Unknown ${field} value in syllabus data: ${value}`);
+  }
+
+  return value as T[number];
+}
+
+function toKnownValueOrEmpty<T extends readonly string[]>(
+  value: string,
+  options: T,
+  field: string
+): T[number] | '' {
+  return value === '' ? '' : toKnownValue(value, options, field);
+}
+
 export const initializeSubject = () => {
   // subjectMap, subjectCodeList, propertyToShowListの初期化
   Object.keys(subjectMap).forEach((key) => {
@@ -48,11 +63,11 @@ export const initializeSubject = () => {
 
   // subjectMap, subjectCodeListの初期化
   // 授業データの読み込み
-  const subjectMap_ = subjectData as unknown as SubjectMap;
+  const rawSubjectMap: RawSubjectMap = subjectData;
 
   // 表示する授業を記憶しておく配列とかに値を設定する
-  Object.entries(subjectMap_).forEach(([subjectCode, subject]) => {
-    subjectMap[subjectCode] = subject as Subject;
+  Object.entries(rawSubjectMap).forEach(([subjectCode, subject]) => {
+    subjectMap[subjectCode] = subject;
     subjectCodeList.push(subjectCode);
   });
 
@@ -60,30 +75,24 @@ export const initializeSubject = () => {
     const kaisetsuki = parseKaisetsuki(subject['開設期']);
     const schedules = parseSchedule(subject['曜日・時限・講義室']);
     subject2Map[subjectCode] = {
-      'relative URL': subject['relative URL'],
-      年度: subject['年度'],
-      開講部局: subject['開講部局'] as KaikouBukyoku,
-      講義コード: subject['講義コード'],
-      科目区分: subject['科目区分'] as KamokuKubun,
-      授業科目名: subject['授業科目名'],
+      ...subject,
+      開講部局: toKnownValue(subject['開講部局'], kaikouBukyokus, '開講部局'),
+      科目区分: toKnownValueOrEmpty(
+        subject['科目区分'],
+        kamokuKubuns,
+        '科目区分'
+      ),
       担当教員名: subject['担当教員名'].split(',').filter((s) => s !== 'null'),
-      開講キャンパス: subject['開講キャンパス'] as Campus,
+      開講キャンパス: toKnownValueOrEmpty(
+        subject['開講キャンパス'],
+        campuses,
+        '開講キャンパス'
+      ),
       セメスター: kaisetsuki ? kaisetsuki.semester : undefined,
       時期区分: kaisetsuki ? kaisetsuki.jikiKubun : undefined,
       履修年次: kaisetsuki ? kaisetsuki.rishuNenji : undefined,
       '授業時間・講義室': schedules,
-      開設期: subject['開設期'],
-      '曜日・時限・講義室': subject['曜日・時限・講義室'],
-      単位: subject['単位'],
-      使用言語: subject['使用言語'] as Language,
-      '教科書・参考書等': subject['教科書・参考書等'],
-      対象学生: subject['対象学生'],
-      '授業の目標・概要等': subject['授業の目標・概要等'],
-      '予習・復習への アドバイス': subject['予習・復習への アドバイス'],
-      '履修上の注意 受講条件等	メッセージ':
-        subject['履修上の注意 受講条件等	メッセージ'],
-      メッセージ: subject['メッセージ'],
-      その他: subject['その他'],
+      使用言語: toKnownValue(subject['使用言語'], languages, '使用言語'),
     };
   });
 
@@ -103,12 +112,10 @@ export const initializeSubject = () => {
   calculatedCounts.campus['指定なし'] = totalSubjects;
   [...campuses, 'その他'].forEach((option) => {
     calculatedCounts.campus[option] = allSubjects.filter((s) => {
-      const subjectCampus = s.開講キャンパス as
-        | (typeof campuses)[number]
-        | undefined; // 型付け
+      const subjectCampus = s.開講キャンパス;
       if (option === 'その他') {
         // campuses 配列に含まれないものを「その他」とする
-        return subjectCampus !== undefined && !campuses.includes(subjectCampus);
+        return subjectCampus === '' || !campuses.includes(subjectCampus);
       }
       return subjectCampus === option;
     }).length;
@@ -151,10 +158,10 @@ export const initializeSubject = () => {
   initField('courseType');
   calculatedCounts.courseType['指定なし'] = totalSubjects;
   calculatedCounts.courseType['学部'] = allSubjects.filter((s) =>
-    kaikouBukyokuGakubus.includes(s.開講部局 as any)
+    kaikouBukyokuGakubus.some((value) => value === s.開講部局)
   ).length;
   calculatedCounts.courseType['大学院'] = allSubjects.filter((s) =>
-    kaikouBukyokuDaigakuins.includes(s.開講部局 as any)
+    kaikouBukyokuDaigakuins.some((value) => value === s.開講部局)
   ).length;
 
   // 開講部局 (kaikouBukyoku) - UIでは "" が "指定なし"
