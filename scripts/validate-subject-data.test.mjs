@@ -3,6 +3,7 @@ import test from 'node:test';
 
 import {
   requiredFields,
+  validateManifest,
   validateSubjectData,
 } from './validate-subject-data.mjs';
 
@@ -74,5 +75,24 @@ test('rejects a subject count that differs from the manifest', () => {
   assert.throws(
     () => validateSubjectData({}, createManifest()),
     /Subject count mismatch/
+  );
+});
+
+test('rejects unsafe data filenames before they are used', () => {
+  assert.throws(
+    () =>
+      validateManifest({
+        ...createManifest(),
+        dataFile: '../outside.json',
+      }),
+    /dataFile must be a JSON filename in data/
+  );
+  assert.throws(
+    () =>
+      validateManifest({
+        ...createManifest(),
+        dataFile: "invalid'import.json",
+      }),
+    /dataFile must be a JSON filename in data/
   );
 });

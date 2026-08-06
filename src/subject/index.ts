@@ -2,15 +2,14 @@
 // 全授業の主要情報の辞書
 // import subjectData from '../../data/subject_details_main.json'
 // import subjectData from '../../data/subject-maininfo.json'
-import subjectData from '../../data/subject_details_main_2026-04-07.json';
 import {
+  Campus,
   campuses,
   jikiKubuns,
   KaikouBukyoku,
   kaikouBukyokuDaigakuins,
   kaikouBukyokuGakubus,
   kaikouBukyokus,
-  Campus,
   KamokuKubun,
   kamokuKubuns,
   Language,
@@ -20,6 +19,7 @@ import {
   Subject2,
   SubjectMap,
 } from '../types/subject';
+import { subjectData } from './activeSubjectData';
 import { parseKaisetsuki, parseSchedule } from './utils';
 
 export const subjectMap: SubjectMap = {};

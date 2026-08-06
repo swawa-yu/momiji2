@@ -27,7 +27,7 @@ export const requiredFields = [
   'その他',
 ];
 
-function assertManifest(manifest) {
+export function validateManifest(manifest) {
   if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
     throw new Error('Manifest must be a JSON object.');
   }
@@ -48,7 +48,7 @@ function assertManifest(manifest) {
   if (
     typeof manifest.dataFile !== 'string' ||
     path.basename(manifest.dataFile) !== manifest.dataFile ||
-    !manifest.dataFile.endsWith('.json')
+    !/^[A-Za-z0-9._-]+\.json$/.test(manifest.dataFile)
   ) {
     throw new Error('Manifest dataFile must be a JSON filename in data/.');
   }
@@ -70,7 +70,7 @@ function assertManifest(manifest) {
 }
 
 export function validateSubjectData(data, manifest) {
-  assertManifest(manifest);
+  validateManifest(manifest);
 
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
     throw new Error('Subject data must be an object keyed by lecture code.');
@@ -133,7 +133,7 @@ export async function loadAndValidateSubjectData(
 ) {
   const manifestText = await fs.readFile(manifestPath, 'utf8');
   const manifest = JSON.parse(manifestText);
-  assertManifest(manifest);
+  validateManifest(manifest);
 
   const dataPath = path.join(path.dirname(manifestPath), manifest.dataFile);
   const dataText = await fs.readFile(dataPath, 'utf8');
