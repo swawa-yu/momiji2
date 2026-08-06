@@ -25,7 +25,13 @@ import Timetable from './components/Timetable';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import { initialSearchOptions } from './search/';
 import { initializeSubject } from './subject';
+import { subjectDataManifest } from './subject/activeSubjectData';
 import { SearchOptions } from './types/search';
+
+const formatRetrievedAt = (retrievedAt: string) => {
+  const [year, month, day] = retrievedAt.split('-');
+  return `${year}年${Number(month)}月${Number(day)}日`;
+};
 
 function App() {
   initializeSubject();
@@ -152,7 +158,9 @@ function App() {
               >
                 広島大学シラバス
               </Link>
-              から取得したものを使用しています。（最終データ更新日：2026年4月7日）
+              から取得したものを使用しています。（
+              {subjectDataManifest.academicYear}・最終データ取得日：
+              {formatRetrievedAt(subjectDataManifest.retrievedAt)}）
             </Alert>
           </Box>
 
