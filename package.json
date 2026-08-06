@@ -12,6 +12,8 @@
     "rebuild": "tsc && vite build && rm -R docs && cp -r dist docs",
     "generate:subject-constants": "node ./scripts/generate-subject-constants.mjs",
     "check:subject-constants": "node ./scripts/generate-subject-constants.mjs --check",
+    "import:harvester-generation": "node ./scripts/import-harvester-generation.mjs",
+    "test:import-harvester-generation": "node --test ./scripts/import-harvester-generation.test.mjs",
     "validate:data": "node ./scripts/validate-subject-data.mjs",
     "test:subject-constants": "node --test ./scripts/generate-subject-constants.test.mjs",
     "test:data-validator": "node --test ./scripts/validate-subject-data.test.mjs",

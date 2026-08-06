@@ -24,7 +24,7 @@
 ### P2: 更新フローを半自動化する
 
 1. [#19 シラバスデータの更新を自動で行う](https://github.com/swawa-yu/momiji2/issues/19)
-   - まず手動起動、検証、PR作成まで。安定後に年度更新期だけ定期実行する。
+   - まず`pnpm import:harvester-generation --manifest <Harvester manifest> --departments <artifact> --check`で検証し、次に`pnpm import:harvester-generation --manifest <Harvester manifest> --departments <artifact>`で取り込んでから`pnpm generate:subject-constants`を実行する。安定後に年度更新期だけ定期実行する。
 2. [#30 更新されたシラバスを確認できるようにしたい](https://github.com/swawa-yu/momiji2/issues/30)
    - 安定したデータ契約と更新フローの後に、追加・削除・変更差分を表示する。
 
