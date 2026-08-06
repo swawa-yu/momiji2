@@ -28,6 +28,12 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Preserve build output
+        run: |
+          rm -rf "$RUNNER_TEMP/momiji2-dist"
+          mkdir -p "$RUNNER_TEMP/momiji2-dist"
+          cp -R dist/. "$RUNNER_TEMP/momiji2-dist/"
+
       - name: Fetch and checkout gh-pages branch
         run: |
           git fetch origin gh-pages:gh-pages
@@ -41,9 +47,10 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          mkdir -p dev
-          cp -r dist/* dev/
-          git add dev
+          rm -rf ./dev
+          mkdir -p ./dev
+          cp -R "$RUNNER_TEMP/momiji2-dist"/. ./dev/
+          git add -A dev
           git diff --staged --quiet || git commit -m "Deploy develop branch to /dev directory"
           git fetch origin gh-pages
           git push --force https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} gh-pages

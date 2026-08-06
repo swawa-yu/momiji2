@@ -29,12 +29,29 @@ jobs:
     - name: Build
       run: pnpm run build
 
-    - name: "DEBUG: show build output"
-      run: ls -R ./dist || echo "dist not found!"
+    - name: Preserve build output
+      run: |
+        rm -rf "$RUNNER_TEMP/momiji2-dist"
+        mkdir -p "$RUNNER_TEMP/momiji2-dist"
+        cp -R dist/. "$RUNNER_TEMP/momiji2-dist/"
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        publish_dir: ./dist
-        keep_files: true
+    - name: Fetch and checkout gh-pages branch
+      run: |
+        git fetch origin gh-pages:gh-pages
+        git reset --hard HEAD
+        git checkout gh-pages
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+    - name: Commit and push changes
+      run: |
+        find . -mindepth 1 -maxdepth 1 ! -name .git ! -name dev -exec rm -rf -- {} +
+        cp -R "$RUNNER_TEMP/momiji2-dist"/. ./
+        touch .nojekyll
+        git add -A
+        git diff --staged --quiet || git commit -m "Deploy main branch to root directory"
+        git fetch origin gh-pages
+        git push --force https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} gh-pages
