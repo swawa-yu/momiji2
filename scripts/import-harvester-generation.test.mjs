@@ -1,11 +1,15 @@
 import assert from 'node:assert/strict';
+import { execFile } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import { promisify } from 'node:util';
 
 import { importHarvesterGeneration } from './import-harvester-generation.mjs';
+
+const execFileAsync = promisify(execFile);
 
 const fields = [
   'relative URL',
@@ -38,6 +42,9 @@ function subjectData(year = '2027年度') {
         開講部局: '学部A',
         講義コード: '10000100',
         授業科目名: 'Test',
+        科目区分: '科目A',
+        開講キャンパス: '東広島',
+        使用言語: 'J',
       }
     ),
   };
@@ -99,6 +106,26 @@ async function dispose(value) {
   await fs.rm(value.root, { recursive: true, force: true });
 }
 
+async function writeBaseline(value, data) {
+  await fs.mkdir(value.destination, { recursive: true });
+  const dataFile = 'baseline.json';
+  const manifest = {
+    dataFile,
+    academicYear: '2026年度',
+    retrievedAt: '2026-04-01',
+    subjectCount: Object.keys(data).length,
+    source: value.manifest.source,
+  };
+  await fs.writeFile(
+    path.join(value.destination, dataFile),
+    JSON.stringify(data)
+  );
+  await fs.writeFile(
+    path.join(value.destination, 'subjectDataManifest.json'),
+    JSON.stringify(manifest)
+  );
+}
+
 test('imports a fully validated Harvester generation', async () => {
   const value = await fixture();
   try {
@@ -135,6 +162,189 @@ test('check validates without writing', async () => {
       check: true,
     });
     await assert.rejects(fs.access(value.destination));
+  } finally {
+    await dispose(value);
+  }
+});
+
+test('CLI check prints a stable no-baseline guard report', async () => {
+  const value = await fixture();
+  try {
+    const { stdout } = await execFileAsync(
+      process.execPath,
+      [
+        'scripts/import-harvester-generation.mjs',
+        '--manifest',
+        value.manifestPath,
+        '--departments',
+        value.departmentsPath,
+        '--check',
+        '--destination-data-dir',
+        value.destination,
+        '--update-guard',
+        path.resolve('data/updateGuard.json'),
+      ],
+      { cwd: process.cwd() }
+    );
+    assert.match(stdout, /"info": \[\n {4}"no baseline"/);
+    assert.match(stdout, /Validated/);
+  } finally {
+    await dispose(value);
+  }
+});
+
+test('review changes require acknowledgement while check remains write-free', async () => {
+  const value = await fixture();
+  try {
+    await writeBaseline(value, subjectData('2026年度'));
+    const baselinePath = path.join(value.destination, 'baseline.json');
+    const baseline = JSON.parse(await fs.readFile(baselinePath, 'utf8'));
+    baseline['10000100']['開講部局'] = '旧部局';
+    await fs.writeFile(baselinePath, JSON.stringify(baseline));
+    const guard = JSON.parse(
+      await fs.readFile('data/updateGuard.json', 'utf8')
+    );
+    guard.fields['開講部局'].hardMinUniqueRetention = 0;
+    const guardPath = path.join(value.root, 'updateGuard.json');
+    await fs.writeFile(guardPath, JSON.stringify(guard));
+    const checked = await importHarvesterGeneration({
+      manifestPath: value.manifestPath,
+      departmentsPath: value.departmentsPath,
+      destinationDataDir: value.destination,
+      updateGuardPath: guardPath,
+      check: true,
+    });
+    assert.ok(checked.guardReport.review.length > 0);
+    await assert.rejects(
+      execFileAsync(
+        process.execPath,
+        [
+          'scripts/import-harvester-generation.mjs',
+          '--manifest',
+          value.manifestPath,
+          '--departments',
+          value.departmentsPath,
+          '--destination-data-dir',
+          value.destination,
+          '--update-guard',
+          guardPath,
+        ],
+        { cwd: process.cwd() }
+      ),
+      (error) =>
+        error.code === 1 &&
+        /Update guard review required:/.test(error.stderr) &&
+        /旧部局/.test(error.stderr)
+    );
+    await assert.rejects(
+      importHarvesterGeneration({
+        manifestPath: value.manifestPath,
+        departmentsPath: value.departmentsPath,
+        destinationDataDir: value.destination,
+        updateGuardPath: guardPath,
+      }),
+      /review required/
+    );
+    await importHarvesterGeneration({
+      manifestPath: value.manifestPath,
+      departmentsPath: value.departmentsPath,
+      destinationDataDir: value.destination,
+      updateGuardPath: guardPath,
+      acceptReview: true,
+    });
+  } finally {
+    await dispose(value);
+  }
+});
+
+test('accept-review cannot bypass hard guard failures', async () => {
+  const value = await fixture();
+  try {
+    const baseline = Object.fromEntries(
+      Array.from({ length: 10 }, (_, index) => {
+        const entry = subjectData('2026年度')['10000100'];
+        entry['講義コード'] = String(index);
+        return [String(index), entry];
+      })
+    );
+    await writeBaseline(value, baseline);
+    await assert.rejects(
+      importHarvesterGeneration({
+        manifestPath: value.manifestPath,
+        departmentsPath: value.departmentsPath,
+        destinationDataDir: value.destination,
+        acceptReview: true,
+      }),
+      /hard failure/
+    );
+  } finally {
+    await dispose(value);
+  }
+});
+
+test('existing baseline with missing data aborts unchanged', async () => {
+  const value = await fixture();
+  try {
+    await fs.mkdir(value.destination, { recursive: true });
+    const manifest = {
+      dataFile: 'missing.json',
+      academicYear: '2026年度',
+      retrievedAt: '2026-04-01',
+      subjectCount: 1,
+      source: value.manifest.source,
+    };
+    const bytes = JSON.stringify(manifest);
+    await fs.writeFile(
+      path.join(value.destination, 'subjectDataManifest.json'),
+      bytes
+    );
+    await assert.rejects(
+      importHarvesterGeneration({
+        manifestPath: value.manifestPath,
+        departmentsPath: value.departmentsPath,
+        destinationDataDir: value.destination,
+      }),
+      /ENOENT/
+    );
+    assert.equal(
+      await fs.readFile(
+        path.join(value.destination, 'subjectDataManifest.json'),
+        'utf8'
+      ),
+      bytes
+    );
+  } finally {
+    await dispose(value);
+  }
+});
+
+test('normal import re-evaluates baseline after taking the lock', async () => {
+  const value = await fixture();
+  try {
+    await writeBaseline(value, subjectData('2026年度'));
+    await assert.rejects(
+      importHarvesterGeneration({
+        manifestPath: value.manifestPath,
+        departmentsPath: value.departmentsPath,
+        destinationDataDir: value.destination,
+        afterLock: async () => {
+          const baseline = Object.fromEntries(
+            Array.from({ length: 10 }, (_, index) => {
+              const entry = structuredClone(
+                subjectData('2026年度')['10000100']
+              );
+              entry['講義コード'] = String(index);
+              return [String(index), entry];
+            })
+          );
+          await writeBaseline(value, baseline);
+        },
+      }),
+      /hard failure/
+    );
+    await assert.rejects(
+      fs.access(path.join(value.destination, value.dataFile))
+    );
   } finally {
     await dispose(value);
   }
@@ -278,13 +488,12 @@ test('rejects a different-byte destination collision without mutation', async ()
 test('final manifest failure restores the old department artifact and manifest', async () => {
   const value = await fixture();
   try {
-    await fs.mkdir(value.destination, { recursive: true });
-    const oldManifest = '{"dataFile":"old.json"}\n';
-    const oldDepartments = '{"old":"departments"}\n';
-    await fs.writeFile(
+    await writeBaseline(value, subjectData('2026年度'));
+    const oldManifest = await fs.readFile(
       path.join(value.destination, 'subjectDataManifest.json'),
-      oldManifest
+      'utf8'
     );
+    const oldDepartments = '{"old":"departments"}\n';
     await fs.writeFile(
       path.join(value.destination, 'department_constants.json'),
       oldDepartments
@@ -315,6 +524,9 @@ test('final manifest failure restores the old department artifact and manifest',
         'utf8'
       ),
       oldDepartments
+    );
+    await assert.rejects(
+      fs.access(path.join(value.destination, value.dataFile))
     );
   } finally {
     await dispose(value);

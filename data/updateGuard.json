@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "subjectCount": {
+    "hardMinRatio": 0.8,
+    "reviewMinRatio": 0.9,
+    "reviewMaxRatio": 1.15
+  },
+  "fields": {
+    "開講部局": {
+      "hardMaxEmptyRate": 0,
+      "hardMinUniqueRetention": 0.8,
+      "reviewAdded": true,
+      "reviewRemoved": true
+    },
+    "科目区分": {
+      "hardMaxEmptyRate": 0.01,
+      "hardMinUniqueRetention": 0.7,
+      "reviewAdded": true,
+      "reviewRemoved": true
+    },
+    "開講キャンパス": {
+      "hardMaxEmptyRate": 0.03,
+      "hardMinUniqueRetention": 0.5,
+      "reviewAdded": true,
+      "reviewRemoved": true
+    },
+    "使用言語": {
+      "hardMaxEmptyRate": 0,
+      "hardMinUniqueRetention": 0.75,
+      "reviewAdded": true,
+      "reviewRemoved": true
+    }
+  },
+  "reviewEmptyRateMultiplier": 2
+}

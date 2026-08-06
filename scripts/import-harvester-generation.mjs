@@ -9,6 +9,10 @@ import {
   validateDepartmentConstants,
 } from './generate-subject-constants.mjs';
 import {
+  evaluateUpdateGuard,
+  validateUpdateGuardConfig,
+} from './update-guard.mjs';
+import {
   validateManifest,
   validateSubjectData,
 } from './validate-subject-data.mjs';
@@ -42,6 +46,10 @@ function parseArguments(argv) {
       values.check = true;
       continue;
     }
+    if (argument === '--accept-review') {
+      values.acceptReview = true;
+      continue;
+    }
     if (argument === '--manifest' || argument === '--departments') {
       if (!argv[index + 1] || values[argument.slice(2)]) {
         throw new Error(`Expected one value for ${argument}.`);
@@ -49,12 +57,63 @@ function parseArguments(argv) {
       values[argument.slice(2)] = argv[(index += 1)];
       continue;
     }
+    if (
+      argument === '--destination-data-dir' ||
+      argument === '--update-guard'
+    ) {
+      if (!argv[index + 1])
+        throw new Error(`Expected one value for ${argument}.`);
+      values[
+        argument === '--update-guard' ? 'updateGuardPath' : 'destinationDataDir'
+      ] = argv[(index += 1)];
+      continue;
+    }
     throw new Error(`Unknown argument: ${argument}`);
   }
   if (!values.manifest || !values.departments) {
-    throw new Error('Usage: --manifest <path> --departments <path> [--check]');
+    throw new Error(
+      'Usage: --manifest <path> --departments <path> [--check] [--accept-review]'
+    );
   }
   return values;
+}
+
+async function evaluateDestinationGuard(destinationDataDir, incoming, config) {
+  const manifestPath = path.join(
+    destinationDataDir,
+    'subjectDataManifest.json'
+  );
+  let bytes;
+  try {
+    bytes = await fs.readFile(manifestPath);
+  } catch (error) {
+    if (error.code === 'ENOENT')
+      return { hardFailures: [], review: [], info: ['no baseline'] };
+    throw error;
+  }
+  let manifest;
+  try {
+    manifest = JSON.parse(bytes.toString('utf8'));
+  } catch (error) {
+    throw new Error(`Invalid baseline manifest JSON: ${error.message}`);
+  }
+  validateManifest(manifest);
+  const baseline = JSON.parse(
+    await fs.readFile(path.join(destinationDataDir, manifest.dataFile), 'utf8')
+  );
+  validateSubjectData(baseline, manifest);
+  return evaluateUpdateGuard(baseline, incoming, config);
+}
+
+function enforceGuard(report, check, acceptReview) {
+  if (report.hardFailures.length)
+    throw new Error(
+      `Update guard hard failure: ${report.hardFailures.join('; ')}`
+    );
+  if (!check && report.review.length && !acceptReview)
+    throw new Error(
+      `Update guard review required: ${report.review.join('; ')}. Re-run with --accept-review.`
+    );
 }
 
 async function canonicalPath(filePath) {
@@ -114,7 +173,10 @@ export async function importHarvesterGeneration({
   departmentsPath,
   destinationDataDir = path.join(process.cwd(), 'data'),
   check = false,
+  acceptReview = false,
+  updateGuardPath = path.join(process.cwd(), 'data', 'updateGuard.json'),
   replaceFile = atomicReplace,
+  afterLock,
 }) {
   const sourceManifestPath = path.resolve(manifestPath);
   const sourceDepartmentsPath = path.resolve(departmentsPath);
@@ -150,11 +212,27 @@ export async function importHarvesterGeneration({
   validateDepartmentConstants(departmentConstants, manifest, sha256);
   deriveSubjectConstants(data, departmentConstants, manifest, sha256);
 
-  if (check) return { manifest, sha256, changed: false };
+  const updateGuard = await readJson(updateGuardPath, 'update guard config');
+  validateUpdateGuardConfig(updateGuard);
+  let guardReport = await evaluateDestinationGuard(
+    destinationDataDir,
+    data,
+    updateGuard
+  );
+  enforceGuard(guardReport, check, acceptReview);
+
+  if (check) return { manifest, sha256, changed: false, guardReport };
 
   await fs.mkdir(destinationDataDir, { recursive: true });
   const releaseLock = await acquireLock(destinationDataDir);
   try {
+    if (afterLock) await afterLock();
+    guardReport = await evaluateDestinationGuard(
+      destinationDataDir,
+      data,
+      updateGuard
+    );
+    enforceGuard(guardReport, false, acceptReview);
     let existingData;
     let previousDepartments;
     try {
@@ -174,8 +252,12 @@ export async function importHarvesterGeneration({
     }
 
     let installedDepartments = false;
+    let createdData = false;
     try {
-      if (!existingData) await replaceFile(destinationDataPath, dataBytes);
+      if (!existingData) {
+        await replaceFile(destinationDataPath, dataBytes);
+        createdData = true;
+      }
       await replaceFile(
         destinationDepartmentsPath,
         `${JSON.stringify(departmentConstants, null, 2)}\n`
@@ -193,9 +275,10 @@ export async function importHarvesterGeneration({
           await fs.rm(destinationDepartmentsPath, { force: true });
         }
       }
+      if (createdData) await fs.rm(destinationDataPath, { force: true });
       throw error;
     }
-    return { manifest, sha256, changed: true };
+    return { manifest, sha256, changed: true, guardReport };
   } finally {
     await releaseLock();
   }
@@ -207,7 +290,12 @@ async function main() {
     manifestPath: arguments_.manifest,
     departmentsPath: arguments_.departments,
     check: arguments_.check,
+    acceptReview: arguments_.acceptReview,
+    destinationDataDir: arguments_.destinationDataDir,
+    updateGuardPath: arguments_.updateGuardPath,
   });
+  if (arguments_.check)
+    console.log(JSON.stringify(result.guardReport, null, 2));
   console.log(
     `${arguments_.check ? 'Validated' : 'Imported'} ${result.manifest.dataFile}. ${arguments_.check ? '' : 'Run pnpm generate:subject-constants before build.'}`.trim()
   );
