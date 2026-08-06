@@ -28,14 +28,15 @@ import { initializeSubject } from './subject';
 import { subjectDataManifest } from './subject/activeSubjectData';
 import { SearchOptions } from './types/search';
 
+// Initialize subject data once when this module is evaluated, not on every render.
+initializeSubject();
+
 const formatRetrievedAt = (retrievedAt: string) => {
   const [year, month, day] = retrievedAt.split('-');
   return `${year}年${Number(month)}月${Number(day)}日`;
 };
 
 function App() {
-  initializeSubject();
-
   const [searchOptions, setSearchOptions] =
     useState<SearchOptions>(initialSearchOptions);
 
