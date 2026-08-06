@@ -7,6 +7,11 @@ import { generateSubjectConstants } from './scripts/generate-subject-constants.m
 import { validateManifest } from './scripts/validate-subject-data.mjs';
 
 const jsonFile = path.resolve(__dirname, 'data', 'subjectConstants.json');
+const departmentConstantsFile = path.resolve(
+  __dirname,
+  'data',
+  'department_constants.json'
+);
 const manifestFile = path.resolve(
   __dirname,
   'data',
@@ -23,6 +28,7 @@ function getActiveDataFile() {
 export default defineConfig(({ command }) => {
   const watchedSourceFiles = new Set([
     jsonFile,
+    departmentConstantsFile,
     manifestFile,
     getActiveDataFile(),
   ]);
