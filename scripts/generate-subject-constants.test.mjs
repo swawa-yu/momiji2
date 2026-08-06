@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 
 import {
   deriveSubjectConstants,
+  parseAndHashSubjectData,
   uniqueNonEmptyValues,
   validateDepartmentConstants,
 } from './generate-subject-constants.mjs';
@@ -16,12 +18,56 @@ const departmentConstants = JSON.parse(
     'utf8'
   )
 );
+const manifest = JSON.parse(
+  await fs.readFile(path.join(root, 'data', 'subjectDataManifest.json'), 'utf8')
+);
+const subjectDataSha256 = createHash('sha256')
+  .update(await fs.readFile(path.join(root, 'data', manifest.dataFile)))
+  .digest('hex');
+
+function createDepartmentConstants(overrides = {}) {
+  return {
+    schemaVersion: 1,
+    academicYear: manifest.academicYear,
+    retrievedAt: manifest.retrievedAt,
+    source: manifest.source,
+    subjectData: {
+      dataFile: manifest.dataFile,
+      sha256: subjectDataSha256,
+      subjectCount: manifest.subjectCount,
+    },
+    departments: {
+      kaikouBukyokuGakubus: ['学部B', '学部A', '未観測学部'],
+      kaikouBukyokuDaigakuins: ['大学院A'],
+    },
+    ...overrides,
+  };
+}
+
+function deriveForTest(data, constants = createDepartmentConstants()) {
+  return deriveSubjectConstants(data, constants, manifest, subjectDataSha256);
+}
 
 test('uses first appearance order, removes empty values, and deduplicates', () => {
   assert.deepEqual(
     uniqueNonEmptyValues(['霞', '双方向', '東広島', '', '双方向']),
     ['霞', '双方向', '東広島']
   );
+});
+
+test('parses and hashes the same supplied subject-data bytes', () => {
+  const firstBytes = Buffer.from('{"A":{"開講部局":"学部A"}}', 'utf8');
+  const secondBytes = Buffer.from('{"A":{"開講部局":"学部B"}}', 'utf8');
+  const first = parseAndHashSubjectData(firstBytes);
+  const second = parseAndHashSubjectData(secondBytes);
+
+  assert.deepEqual(first.data, { A: { 開講部局: '学部A' } });
+  assert.equal(
+    first.sha256,
+    createHash('sha256').update(firstBytes).digest('hex')
+  );
+  assert.notEqual(first.sha256, second.sha256);
+  assert.deepEqual(second.data, { A: { 開講部局: '学部B' } });
 });
 
 test('derives searchable classifications from subject data and page-ordered departments', () => {
@@ -43,23 +89,17 @@ test('derives searchable classifications from subject data and page-ordered depa
     },
   };
 
-  assert.deepEqual(
-    deriveSubjectConstants(data, {
-      kaikouBukyokuGakubus: ['学部B', '学部A', '未観測学部'],
-      kaikouBukyokuDaigakuins: ['大学院A'],
-    }),
-    {
-      campuses: ['東広島', '双方向'],
-      kamokuKubuns: ['平和科目', '平和共修科目'],
-      languages: ['J : 日本語', 'B : 日本語・英語'],
-      kaikouBukyokuGakubus: [],
-      kaikouBukyokuDaigakuins: [],
-    }
-  );
+  assert.deepEqual(deriveForTest(data), {
+    campuses: ['東広島', '双方向'],
+    kamokuKubuns: ['平和科目', '平和共修科目'],
+    languages: ['J : 日本語', 'B : 日本語・英語'],
+    kaikouBukyokuGakubus: [],
+    kaikouBukyokuDaigakuins: [],
+  });
 });
 
 test('keeps the Harvester page order and excludes artifact-only parents', () => {
-  const result = deriveSubjectConstants(
+  const result = deriveForTest(
     {
       A: { 開講部局: '学部A', 開講キャンパス: '', 科目区分: '', 使用言語: '' },
       B: {
@@ -70,10 +110,12 @@ test('keeps the Harvester page order and excludes artifact-only parents', () => 
       },
       C: { 開講部局: '学部B', 開講キャンパス: '', 科目区分: '', 使用言語: '' },
     },
-    {
-      kaikouBukyokuGakubus: ['学部B', '中間親', '学部A'],
-      kaikouBukyokuDaigakuins: ['大学院A'],
-    }
+    createDepartmentConstants({
+      departments: {
+        kaikouBukyokuGakubus: ['学部B', '中間親', '学部A'],
+        kaikouBukyokuDaigakuins: ['大学院A'],
+      },
+    })
   );
 
   assert.deepEqual(result.kaikouBukyokuGakubus, ['学部B', '学部A']);
@@ -83,45 +125,129 @@ test('keeps the Harvester page order and excludes artifact-only parents', () => 
 test('rejects unclassified observed departments in data order', () => {
   assert.throws(
     () =>
-      deriveSubjectConstants(
+      deriveForTest(
         {
           A: { 開講部局: '未分類A' },
           B: { 開講部局: '未分類B' },
         },
-        {
-          kaikouBukyokuGakubus: ['学部A'],
-          kaikouBukyokuDaigakuins: ['大学院A'],
-        }
+        createDepartmentConstants({
+          departments: {
+            kaikouBukyokuGakubus: ['学部A'],
+            kaikouBukyokuDaigakuins: ['大学院A'],
+          },
+        })
       ),
     /Unclassified observed 開講部局: 未分類A, 未分類B/
   );
 });
 
-test('rejects malformed department artifacts', () => {
+test('rejects malformed department envelopes', () => {
   class DepartmentConstants {
+    schemaVersion = 1;
+    academicYear = manifest.academicYear;
+    retrievedAt = manifest.retrievedAt;
+    source = manifest.source;
+    subjectData = { ...createDepartmentConstants().subjectData };
+    departments = { ...createDepartmentConstants().departments };
+  }
+  class DepartmentLists {
     kaikouBukyokuGakubus = ['学部A'];
     kaikouBukyokuDaigakuins = ['大学院A'];
   }
 
-  const valid = {
-    kaikouBukyokuGakubus: ['学部A'],
-    kaikouBukyokuDaigakuins: ['大学院A'],
-  };
   for (const artifact of [
     {},
-    { kaikouBukyokuGakubus: ['学部A'] },
     new DepartmentConstants(),
-    { ...valid, extra: [] },
-    { kaikouBukyokuGakubus: [], kaikouBukyokuDaigakuins: ['大学院A'] },
-    { kaikouBukyokuGakubus: [' '], kaikouBukyokuDaigakuins: ['大学院A'] },
-    { kaikouBukyokuGakubus: [' 学部A'], kaikouBukyokuDaigakuins: ['大学院A'] },
-    {
-      kaikouBukyokuGakubus: ['学部A', '学部A'],
-      kaikouBukyokuDaigakuins: ['大学院A'],
-    },
-    { kaikouBukyokuGakubus: ['共通'], kaikouBukyokuDaigakuins: ['共通'] },
+    createDepartmentConstants({ schemaVersion: 2 }),
+    createDepartmentConstants({ extra: [] }),
+    createDepartmentConstants({
+      subjectData: { ...createDepartmentConstants().subjectData, extra: [] },
+    }),
+    createDepartmentConstants({
+      subjectData: {
+        ...createDepartmentConstants().subjectData,
+        sha256: 'ABC',
+      },
+    }),
+    createDepartmentConstants({ departments: new DepartmentLists() }),
+    createDepartmentConstants({
+      departments: {
+        kaikouBukyokuGakubus: [],
+        kaikouBukyokuDaigakuins: ['大学院A'],
+      },
+    }),
+    createDepartmentConstants({
+      departments: {
+        kaikouBukyokuGakubus: [' '],
+        kaikouBukyokuDaigakuins: ['大学院A'],
+      },
+    }),
+    createDepartmentConstants({
+      departments: {
+        kaikouBukyokuGakubus: ['学部A', '学部A'],
+        kaikouBukyokuDaigakuins: ['大学院A'],
+      },
+    }),
+    createDepartmentConstants({
+      departments: {
+        kaikouBukyokuGakubus: ['共通'],
+        kaikouBukyokuDaigakuins: ['共通'],
+      },
+    }),
   ]) {
-    assert.throws(() => validateDepartmentConstants(artifact));
+    assert.throws(() =>
+      validateDepartmentConstants(artifact, manifest, subjectDataSha256)
+    );
+  }
+});
+
+test('rejects envelope metadata or data bindings that differ from the active manifest', () => {
+  const cases = [
+    [
+      createDepartmentConstants({ academicYear: '2025年度' }),
+      /academicYear does not match/,
+    ],
+    [
+      createDepartmentConstants({ retrievedAt: '2025-04-03' }),
+      /retrievedAt does not match/,
+    ],
+    [
+      createDepartmentConstants({ source: 'https://example.test/' }),
+      /source does not match/,
+    ],
+    [
+      createDepartmentConstants({
+        subjectData: {
+          ...createDepartmentConstants().subjectData,
+          dataFile: 'other.json',
+        },
+      }),
+      /subjectData.dataFile does not match/,
+    ],
+    [
+      createDepartmentConstants({
+        subjectData: {
+          ...createDepartmentConstants().subjectData,
+          subjectCount: 1,
+        },
+      }),
+      /subjectData.subjectCount does not match/,
+    ],
+    [
+      createDepartmentConstants({
+        subjectData: {
+          ...createDepartmentConstants().subjectData,
+          sha256: '0'.repeat(64),
+        },
+      }),
+      /subjectData.sha256 does not match active subject data/,
+    ],
+  ];
+  for (const [artifact, message] of cases) {
+    assert.throws(
+      () => validateDepartmentConstants(artifact, manifest, subjectDataSha256),
+      message
+    );
   }
 });
 
@@ -132,15 +258,23 @@ test('2026 data classifies all observed departments with the 147-candidate artif
       'utf8'
     )
   );
-  const result = deriveSubjectConstants(data, departmentConstants);
+  const result = deriveSubjectConstants(
+    data,
+    departmentConstants,
+    manifest,
+    subjectDataSha256
+  );
 
-  assert.equal(departmentConstants.kaikouBukyokuGakubus.length, 40);
-  assert.equal(departmentConstants.kaikouBukyokuDaigakuins.length, 107);
+  assert.equal(departmentConstants.departments.kaikouBukyokuGakubus.length, 40);
+  assert.equal(
+    departmentConstants.departments.kaikouBukyokuDaigakuins.length,
+    107
+  );
   assert.equal(result.kaikouBukyokuGakubus.length, 34);
   assert.equal(result.kaikouBukyokuDaigakuins.length, 95);
 });
 
-test('2025 data fails rather than classifying a department absent from the 2026 artifact', async () => {
+test('2025 manifest and data fail the 2026 envelope binding before classification', async () => {
   const data = JSON.parse(
     await fs.readFile(
       path.join(root, 'data', 'subject_details_main_2025-04-03.json'),
@@ -148,8 +282,25 @@ test('2025 data fails rather than classifying a department absent from the 2026 
     )
   );
 
+  const manifest2025 = {
+    ...manifest,
+    dataFile: 'subject_details_main_2025-04-03.json',
+    academicYear: '2025年度',
+    retrievedAt: '2025-04-03',
+    subjectCount: 11989,
+  };
+  const sha2562025 = createHash('sha256')
+    .update(await fs.readFile(path.join(root, 'data', manifest2025.dataFile)))
+    .digest('hex');
+
   assert.throws(
-    () => deriveSubjectConstants(data, departmentConstants),
-    /Unclassified observed 開講部局: 教育学研究科博士課程後期/
+    () =>
+      deriveSubjectConstants(
+        data,
+        departmentConstants,
+        manifest2025,
+        sha2562025
+      ),
+    /academicYear does not match subject data manifest/
   );
 });

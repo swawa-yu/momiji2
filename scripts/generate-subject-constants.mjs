@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 import prettier from 'prettier';
@@ -40,6 +41,13 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, 'utf8'));
 }
 
+export function parseAndHashSubjectData(dataBytes) {
+  return {
+    data: JSON.parse(dataBytes.toString('utf8')),
+    sha256: createHash('sha256').update(dataBytes).digest('hex'),
+  };
+}
+
 export function uniqueNonEmptyValues(observedValues) {
   return [
     ...new Set(
@@ -50,29 +58,39 @@ export function uniqueNonEmptyValues(observedValues) {
   ];
 }
 
-export function validateDepartmentConstants(departmentConstants) {
+function isPlainJsonObject(value) {
+  return (
+    value &&
+    typeof value === 'object' &&
+    !Array.isArray(value) &&
+    Object.getPrototypeOf(value) === Object.prototype
+  );
+}
+
+function hasExactKeys(value, expectedKeys) {
+  return (
+    isPlainJsonObject(value) &&
+    Object.keys(value).length === expectedKeys.length &&
+    expectedKeys.every((key) => Object.hasOwn(value, key))
+  );
+}
+
+function validateDepartmentLists(departments) {
   const expectedKeys = ['kaikouBukyokuGakubus', 'kaikouBukyokuDaigakuins'];
 
-  if (
-    !departmentConstants ||
-    typeof departmentConstants !== 'object' ||
-    Array.isArray(departmentConstants) ||
-    Object.getPrototypeOf(departmentConstants) !== Object.prototype ||
-    Object.keys(departmentConstants).length !== expectedKeys.length ||
-    !expectedKeys.every((key) => Object.hasOwn(departmentConstants, key))
-  ) {
+  if (!hasExactKeys(departments, expectedKeys)) {
     throw new Error(
-      'Department constants must be an object with exactly kaikouBukyokuGakubus and kaikouBukyokuDaigakuins.'
+      'Department constants departments must be an object with exactly kaikouBukyokuGakubus and kaikouBukyokuDaigakuins.'
     );
   }
 
   const seen = new Set();
   for (const key of expectedKeys) {
-    const departments = departmentConstants[key];
-    if (!Array.isArray(departments) || departments.length === 0) {
+    const values = departments[key];
+    if (!Array.isArray(values) || values.length === 0) {
       throw new Error(`Department constants ${key} must be a nonempty array.`);
     }
-    for (const department of departments) {
+    for (const department of values) {
       if (
         typeof department !== 'string' ||
         department.trim() === '' ||
@@ -92,16 +110,76 @@ export function validateDepartmentConstants(departmentConstants) {
   }
 }
 
-export function deriveSubjectConstants(data, departmentConstants) {
+export function validateDepartmentConstants(
+  departmentConstants,
+  manifest,
+  subjectDataSha256
+) {
+  const expectedKeys = [
+    'schemaVersion',
+    'academicYear',
+    'retrievedAt',
+    'source',
+    'subjectData',
+    'departments',
+  ];
+  if (!hasExactKeys(departmentConstants, expectedKeys)) {
+    throw new Error(
+      'Department constants must be a plain object with exactly schemaVersion, academicYear, retrievedAt, source, subjectData, and departments.'
+    );
+  }
+  if (departmentConstants.schemaVersion !== 1) {
+    throw new Error('Department constants schemaVersion must be 1.');
+  }
+  for (const key of ['academicYear', 'retrievedAt', 'source']) {
+    if (departmentConstants[key] !== manifest[key]) {
+      throw new Error(
+        `Department constants ${key} does not match subject data manifest.`
+      );
+    }
+  }
+
+  const expectedSubjectDataKeys = ['dataFile', 'sha256', 'subjectCount'];
+  if (!hasExactKeys(departmentConstants.subjectData, expectedSubjectDataKeys)) {
+    throw new Error(
+      'Department constants subjectData must be a plain object with exactly dataFile, sha256, and subjectCount.'
+    );
+  }
+  for (const key of ['dataFile', 'subjectCount']) {
+    if (departmentConstants.subjectData[key] !== manifest[key]) {
+      throw new Error(
+        `Department constants subjectData.${key} does not match subject data manifest.`
+      );
+    }
+  }
+  if (!/^[a-f0-9]{64}$/.test(departmentConstants.subjectData.sha256)) {
+    throw new Error(
+      'Department constants subjectData.sha256 must be a full lowercase SHA-256 hex digest.'
+    );
+  }
+  if (departmentConstants.subjectData.sha256 !== subjectDataSha256) {
+    throw new Error(
+      'Department constants subjectData.sha256 does not match active subject data.'
+    );
+  }
+  validateDepartmentLists(departmentConstants.departments);
+}
+
+export function deriveSubjectConstants(
+  data,
+  departmentConstants,
+  manifest,
+  subjectDataSha256
+) {
   const subjects = Object.values(data);
-  validateDepartmentConstants(departmentConstants);
+  validateDepartmentConstants(departmentConstants, manifest, subjectDataSha256);
 
   const observedKaikouBukyokus = uniqueNonEmptyValues(
     subjects.map((subject) => subject['開講部局'])
   );
   const classifiedKaikouBukyokus = new Set([
-    ...departmentConstants.kaikouBukyokuGakubus,
-    ...departmentConstants.kaikouBukyokuDaigakuins,
+    ...departmentConstants.departments.kaikouBukyokuGakubus,
+    ...departmentConstants.departments.kaikouBukyokuDaigakuins,
   ]);
   const unclassified = observedKaikouBukyokus.filter(
     (department) => !classifiedKaikouBukyokus.has(department)
@@ -123,12 +201,14 @@ export function deriveSubjectConstants(data, departmentConstants) {
     languages: uniqueNonEmptyValues(
       subjects.map((subject) => subject['使用言語'])
     ),
-    kaikouBukyokuGakubus: departmentConstants.kaikouBukyokuGakubus.filter(
-      (department) => observedSet.has(department)
-    ),
-    kaikouBukyokuDaigakuins: departmentConstants.kaikouBukyokuDaigakuins.filter(
-      (department) => observedSet.has(department)
-    ),
+    kaikouBukyokuGakubus:
+      departmentConstants.departments.kaikouBukyokuGakubus.filter(
+        (department) => observedSet.has(department)
+      ),
+    kaikouBukyokuDaigakuins:
+      departmentConstants.departments.kaikouBukyokuDaigakuins.filter(
+        (department) => observedSet.has(department)
+      ),
   };
 }
 
@@ -196,12 +276,19 @@ async function expectedOutputs() {
   const manifest = await readJson(manifestPath);
   validateManifest(manifest);
   const dataPath = path.join(root, 'data', manifest.dataFile);
-  const data = await readJson(dataPath);
+  const { data, sha256: subjectDataSha256 } = parseAndHashSubjectData(
+    await fs.readFile(dataPath)
+  );
   const departmentConstants = await readJson(departmentConstantsPath);
   const rawProperties = await readJson(rawPropertiesJsonPath);
 
   validateSubjectData(data, manifest);
-  const derivedConstants = deriveSubjectConstants(data, departmentConstants);
+  const derivedConstants = deriveSubjectConstants(
+    data,
+    departmentConstants,
+    manifest,
+    subjectDataSha256
+  );
   const allConstants = { ...staticConstants, ...derivedConstants };
   const prettierConfig = (await prettier.resolveConfig(tsPath)) ?? {};
 
