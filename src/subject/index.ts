@@ -14,7 +14,6 @@ import {
   semesters,
   Subject2,
 } from '../types/subject';
-import { subjectData } from './activeSubjectData';
 import { parseKaisetsuki, parseSchedule } from './utils';
 
 export const subjectMap: RawSubjectMap = {};
@@ -53,18 +52,19 @@ function toKnownValueOrEmpty<T extends readonly string[]>(
   return value === '' ? '' : toKnownValue(value, options, field);
 }
 
-export const initializeSubject = () => {
-  // subjectMap, subjectCodeList, propertyToShowListの初期化
+export const initializeSubject = (rawSubjectMap: RawSubjectMap) => {
+  // subjectMap, subject2Map, subjectCodeList, propertyToShowListの初期化
   Object.keys(subjectMap).forEach((key) => {
     delete subjectMap[key];
+  });
+  Object.keys(subject2Map).forEach((key) => {
+    delete subject2Map[key];
   });
   subjectCodeList.length = 0;
   propertyToShowList.length = 0;
 
   // subjectMap, subjectCodeListの初期化
   // 授業データの読み込み
-  const rawSubjectMap: RawSubjectMap = subjectData;
-
   // 表示する授業を記憶しておく配列とかに値を設定する
   Object.entries(rawSubjectMap).forEach(([subjectCode, subject]) => {
     subjectMap[subjectCode] = subject;

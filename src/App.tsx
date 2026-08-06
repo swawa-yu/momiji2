@@ -24,12 +24,8 @@ import TableView from './components/TableView';
 import Timetable from './components/Timetable';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import { initialSearchOptions } from './search/';
-import { initializeSubject } from './subject';
 import { subjectDataManifest } from './subject/activeSubjectData';
 import { SearchOptions } from './types/search';
-
-// Initialize subject data once when this module is evaluated, not on every render.
-initializeSubject();
 
 const formatRetrievedAt = (retrievedAt: string) => {
   const [year, month, day] = retrievedAt.split('-');

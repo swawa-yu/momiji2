@@ -70,6 +70,16 @@ test('parses and hashes the same supplied subject-data bytes', () => {
   assert.deepEqual(second.data, { A: { 開講部局: '学部B' } });
 });
 
+test('generates an explicit cache option for active subject data loading', async () => {
+  const generated = await fs.readFile(
+    path.join(root, 'src', 'subject', 'activeSubjectData.ts'),
+    'utf8'
+  );
+
+  assert.match(generated, /cache: RequestCache = 'default'/);
+  assert.match(generated, /fetch\(subjectDataUrl, \{ cache \}\)/);
+});
+
 test('derives searchable classifications from subject data and page-ordered departments', () => {
   const data = {
     A: {
