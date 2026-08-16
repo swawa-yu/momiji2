@@ -261,15 +261,16 @@ test('CLI check prints a stable no-baseline guard report', async () => {
 test('review changes require acknowledgement while check remains write-free', async () => {
   const value = await fixture();
   try {
-    await writeBaseline(value, subjectData('2026年度'));
-    const baselinePath = path.join(value.destination, 'baseline.json');
-    const baseline = JSON.parse(await fs.readFile(baselinePath, 'utf8'));
-    baseline['10000100']['開講部局'] = '旧部局';
-    await fs.writeFile(baselinePath, JSON.stringify(baseline));
+    const baseline = subjectData('2026年度');
+    baseline['10000200'] = {
+      ...baseline['10000100'],
+      講義コード: '10000200',
+    };
+    await writeBaseline(value, baseline);
     const guard = JSON.parse(
       await fs.readFile('data/updateGuard.json', 'utf8')
     );
-    guard.fields['開講部局'].hardMinUniqueRetention = 0;
+    guard.subjectCount.hardMinRatio = 0.4;
     const guardPath = path.join(value.root, 'updateGuard.json');
     await fs.writeFile(guardPath, JSON.stringify(guard));
     const checked = await importHarvesterGeneration({
@@ -299,7 +300,7 @@ test('review changes require acknowledgement while check remains write-free', as
       (error) =>
         error.code === 1 &&
         /Update guard review required:/.test(error.stderr) &&
-        /旧部局/.test(error.stderr)
+        /subject count ratio/.test(error.stderr)
     );
     await assert.rejects(
       importHarvesterGeneration({

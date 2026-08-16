@@ -119,7 +119,12 @@ async function evaluateDestinationGuard(destinationDataDir, incoming, config) {
     bytes = await fs.readFile(manifestPath);
   } catch (error) {
     if (error.code === 'ENOENT')
-      return { hardFailures: [], review: [], info: ['no baseline'] };
+      return {
+        hardFailures: [],
+        review: [],
+        analysis: [],
+        info: ['no baseline'],
+      };
     throw error;
   }
   let manifest;
