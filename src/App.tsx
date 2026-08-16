@@ -1,4 +1,5 @@
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import HistoryIcon from '@mui/icons-material/History';
 import InfoIcon from '@mui/icons-material/Info';
 import Alert from '@mui/material/Alert';
 import AppBar from '@mui/material/AppBar';
@@ -19,6 +20,7 @@ import Typography from '@mui/material/Typography';
 import { useDeferredValue, useEffect, useState } from 'react';
 
 import ExportBookmarkButton from './components/ExportBookmarkButton';
+import HistoryDialog from './components/History/HistoryDialog';
 import SearchComponent from './components/SearchComponent';
 import TableView from './components/TableView';
 import Timetable from './components/Timetable';
@@ -40,6 +42,7 @@ function App() {
   const [infoDialogOpen, setInfoDialogOpen] = useState(false);
   const handleInfoDialogOpen = () => setInfoDialogOpen(true);
   const handleInfoDialogClose = () => setInfoDialogOpen(false);
+  const [historyDialogOpen, setHistoryDialogOpen] = useState(false);
   const [isTimetableVisible, setIsTimetableVisible] = useState(false);
   const toggleTimetable = () => setIsTimetableVisible((prev) => !prev);
   const [tooltipOpen, setTooltipOpen] = useState(true);
@@ -72,6 +75,17 @@ function App() {
             <Box sx={{ flexGrow: 1 }} />
 
             <ExportBookmarkButton />
+
+            <Tooltip title="同一年度内の更新履歴">
+              <IconButton
+                sx={{ ml: 1 }}
+                color="inherit"
+                onClick={() => setHistoryDialogOpen(true)}
+                aria-label="同一年度内の更新履歴を開く"
+              >
+                <HistoryIcon />
+              </IconButton>
+            </Tooltip>
 
             <Tooltip title="このアプリについて">
               <IconButton
@@ -131,6 +145,11 @@ function App() {
             </Button>
           </DialogActions>
         </Dialog>
+
+        <HistoryDialog
+          open={historyDialogOpen}
+          onClose={() => setHistoryDialogOpen(false)}
+        />
 
         <Container
           maxWidth="xl"
