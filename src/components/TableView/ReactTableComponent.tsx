@@ -259,7 +259,7 @@ const ReactTableComponent: React.FC<ReactTableComponentProps> = React.memo(
         width: 160,
         sortable: false,
         renderCell: (params: GridRenderCellParams<Subject2>) => {
-          const schedules = params.row.曜日・時限・講義室.split(',');
+          const schedules = params.row['曜日・時限・講義室'].split(',');
           return (
             <Box
               sx={{
