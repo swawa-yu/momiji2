@@ -107,3 +107,19 @@ test('rejects unsafe data filenames before they are used', () => {
     /dataFile must be a JSON filename in data/
   );
 });
+
+test('accepts legacy manifests and rejects unsupported structure versions', () => {
+  validateManifest(createManifest());
+  assert.throws(
+    () =>
+      validateManifest({
+        ...createManifest(),
+        schemaVersion: 2,
+        structureReport: {
+          dataFile: 'subject_structure_generation.json',
+          sha256: 'a'.repeat(64),
+        },
+      }),
+    /schemaVersion must be 1/
+  );
+});

@@ -54,6 +54,29 @@ export function validateManifest(manifest) {
   ) {
     throw new Error('Manifest source must be an HTTPS URL.');
   }
+  const hasVersion = 'schemaVersion' in manifest;
+  const hasStructureReport = 'structureReport' in manifest;
+  if (hasVersion || hasStructureReport) {
+    if (manifest.schemaVersion !== 1) {
+      throw new Error('Manifest schemaVersion must be 1.');
+    }
+    const binding = manifest.structureReport;
+    if (
+      !binding ||
+      typeof binding !== 'object' ||
+      Array.isArray(binding) ||
+      Object.keys(binding).sort().join(',') !== 'dataFile,sha256' ||
+      typeof binding.dataFile !== 'string' ||
+      path.basename(binding.dataFile) !== binding.dataFile ||
+      !/^subject_structure_[A-Za-z0-9._-]+\.json$/.test(binding.dataFile) ||
+      typeof binding.sha256 !== 'string' ||
+      !/^[a-f0-9]{64}$/.test(binding.sha256)
+    ) {
+      throw new Error(
+        'Manifest structureReport must be a valid version 1 binding.'
+      );
+    }
+  }
 }
 
 export function validateSubjectData(data, manifest) {

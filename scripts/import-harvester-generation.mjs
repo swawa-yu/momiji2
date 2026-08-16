@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto';
+import { createHash, randomUUID } from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 import { pathToFileURL } from 'url';
@@ -22,6 +22,37 @@ async function readJson(filePath, label) {
     return JSON.parse(await fs.readFile(filePath, 'utf8'));
   } catch (error) {
     throw new Error(`Invalid ${label} JSON: ${error.message}`);
+  }
+}
+
+function validateStructureReport(report, manifest, dataSha256) {
+  if (manifest.schemaVersion !== 1 || !manifest.structureReport) {
+    throw new Error(
+      'Harvester manifest must include a version 1 structure report.'
+    );
+  }
+  if (
+    !report ||
+    typeof report !== 'object' ||
+    Array.isArray(report) ||
+    report.schemaVersion !== 1 ||
+    report.academicYear !== manifest.academicYear ||
+    report.retrievedAt !== manifest.retrievedAt ||
+    report.source !== manifest.source ||
+    !report.subjectData ||
+    report.subjectData.dataFile !== manifest.dataFile ||
+    report.subjectData.sha256 !== dataSha256 ||
+    report.subjectData.subjectCount !== manifest.subjectCount ||
+    !report.structure ||
+    report.structure.subjectPageCount !== manifest.subjectCount ||
+    !Array.isArray(report.structure.unknownHeaders) ||
+    report.structure.unknownHeaders.length !== 0 ||
+    !Array.isArray(report.structure.missingHeaders) ||
+    report.structure.missingHeaders.length !== 0
+  ) {
+    throw new Error(
+      'Harvester structure report does not match the generation.'
+    );
   }
 }
 
@@ -182,9 +213,18 @@ export async function importHarvesterGeneration({
   const sourceDepartmentsPath = path.resolve(departmentsPath);
   const manifest = await readJson(sourceManifestPath, 'Harvester manifest');
   validateManifest(manifest);
+  if (manifest.schemaVersion !== 1 || !manifest.structureReport) {
+    throw new Error(
+      'Harvester manifest must include a version 1 structure report.'
+    );
+  }
   const sourceDataPath = path.resolve(
     path.dirname(sourceManifestPath),
     manifest.dataFile
+  );
+  const sourceStructurePath = path.resolve(
+    path.dirname(sourceManifestPath),
+    manifest.structureReport?.dataFile ?? ''
   );
   const destinationDataPath = path.resolve(
     destinationDataDir,
@@ -194,22 +234,46 @@ export async function importHarvesterGeneration({
     destinationDataDir,
     'department_constants.json'
   );
+  const destinationStructurePath = path.resolve(
+    destinationDataDir,
+    'subject_structure.json'
+  );
   const destinationManifestPath = path.resolve(
     destinationDataDir,
     'subjectDataManifest.json'
   );
   await assertDistinctInputPaths(
-    [sourceManifestPath, sourceDataPath, sourceDepartmentsPath],
-    [destinationDataPath, destinationDepartmentsPath, destinationManifestPath]
+    [
+      sourceManifestPath,
+      sourceDataPath,
+      sourceDepartmentsPath,
+      sourceStructurePath,
+    ],
+    [
+      destinationDataPath,
+      destinationDepartmentsPath,
+      destinationStructurePath,
+      destinationManifestPath,
+    ]
   );
 
-  const [dataBytes, departmentConstants] = await Promise.all([
-    fs.readFile(sourceDataPath),
-    readJson(sourceDepartmentsPath, 'Harvester department artifact'),
-  ]);
+  const [dataBytes, departmentConstants, structureBytes, structureReport] =
+    await Promise.all([
+      fs.readFile(sourceDataPath),
+      readJson(sourceDepartmentsPath, 'Harvester department artifact'),
+      fs.readFile(sourceStructurePath),
+      readJson(sourceStructurePath, 'Harvester structure report'),
+    ]);
   const { data, sha256 } = parseAndHashSubjectData(dataBytes);
   validateSubjectData(data, manifest);
   validateDepartmentConstants(departmentConstants, manifest, sha256);
+  const structureSha256 = createHash('sha256')
+    .update(structureBytes)
+    .digest('hex');
+  if (structureSha256 !== manifest.structureReport.sha256) {
+    throw new Error('Harvester structure report hash does not match manifest.');
+  }
+  validateStructureReport(structureReport, manifest, sha256);
   deriveSubjectConstants(data, departmentConstants, manifest, sha256);
 
   const updateGuard = await readJson(updateGuardPath, 'update guard config');
@@ -235,6 +299,7 @@ export async function importHarvesterGeneration({
     enforceGuard(guardReport, false, acceptReview);
     let existingData;
     let previousDepartments;
+    let previousStructure;
     try {
       existingData = await fs.readFile(destinationDataPath);
     } catch (error) {
@@ -245,6 +310,11 @@ export async function importHarvesterGeneration({
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
     }
+    try {
+      previousStructure = await fs.readFile(destinationStructurePath);
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
     if (existingData && !existingData.equals(dataBytes)) {
       throw new Error(
         `Destination data collision for ${manifest.dataFile}: bytes differ.`
@@ -252,6 +322,7 @@ export async function importHarvesterGeneration({
     }
 
     let installedDepartments = false;
+    let installedStructure = false;
     let createdData = false;
     try {
       if (!existingData) {
@@ -263,11 +334,20 @@ export async function importHarvesterGeneration({
         `${JSON.stringify(departmentConstants, null, 2)}\n`
       );
       installedDepartments = true;
+      await replaceFile(destinationStructurePath, structureBytes);
+      installedStructure = true;
       await replaceFile(
         destinationManifestPath,
         `${JSON.stringify(manifest, null, 2)}\n`
       );
     } catch (error) {
+      if (installedStructure) {
+        if (previousStructure) {
+          await replaceFile(destinationStructurePath, previousStructure);
+        } else {
+          await fs.rm(destinationStructurePath, { force: true });
+        }
+      }
       if (installedDepartments) {
         if (previousDepartments) {
           await replaceFile(destinationDepartmentsPath, previousDepartments);
