@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "pairs": [
     {
       "baseline": {
@@ -70,7 +70,8 @@
           "メッセージ": 626,
           "その他": 676
         }
-      }
+      },
+      "warnings": []
     },
     {
       "baseline": {
@@ -141,7 +142,8 @@
           "メッセージ": 1082,
           "その他": 936
         }
-      }
+      },
+      "warnings": []
     }
   ]
 }

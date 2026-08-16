@@ -53,3 +53,49 @@ test('keeps raw changes and excludes metadata-only changes from display counts',
     assert.equal(await fs.readFile(summaryPath, 'utf8'), beforeGap);
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
 });
+
+test('adds deterministic warnings, including the strict threshold boundaries', async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'momiji-summary-warnings-'));
+  try {
+    const files = ['subject_2024-01-01.json', 'subject_2025-01-01.json'];
+    const baseline = Object.fromEntries(Array.from({ length: 100 }, (_, i) => [
+      `base-${i}`, record(`base-${i}`, '2024年度'),
+    ]));
+    const incoming = Object.fromEntries(Array.from({ length: 90 }, (_, i) => [
+      `base-${i}`, record(`base-${i}`, '2025年度'),
+    ]));
+    // 100 baseline -> 90 incoming: 10% count shift, 0% added, 10% removed, 0% changed.
+    await fs.writeFile(path.join(dir, files[0]), JSON.stringify(baseline));
+    await fs.writeFile(path.join(dir, files[1]), JSON.stringify(incoming));
+    const { buildRegistry } = await import('./yearly-subject-baselines.mjs');
+    const registry = await buildRegistry(files, dir);
+    const registryPath = path.join(dir, 'registry.json');
+    const summaryPath = path.join(dir, 'summary.json');
+    await fs.writeFile(registryPath, JSON.stringify(registry));
+    const boundary = await generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath });
+    assert.deepEqual(boundary.pairs[0].warnings, []);
+
+    const changedIncoming = Object.fromEntries([
+      ...Object.entries(incoming),
+      ...Array.from({ length: 31 }, (_, i) => [`added-${i}`, record(`added-${i}`, '2025年度')]),
+    ]);
+    for (const [key, subject] of Object.entries(changedIncoming).slice(0, 81)) subject['授業科目名'] = `${subject['授業科目名']}-changed`;
+    await fs.writeFile(path.join(dir, files[1]), JSON.stringify(changedIncoming));
+    await fs.writeFile(registryPath, JSON.stringify(await buildRegistry(files, dir)));
+    const warnings = await generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath });
+    assert.deepEqual(warnings.pairs[0].warnings.map(({ code }) => code), [
+      'subject-count-shift', 'added-ratio', 'display-changed-ratio',
+    ]);
+
+    const noCommon = Object.fromEntries(Array.from({ length: 90 }, (_, i) => [
+      `other-${i}`, record(`other-${i}`, '2025年度'),
+    ]));
+    await fs.writeFile(path.join(dir, files[1]), JSON.stringify(noCommon));
+    await fs.writeFile(registryPath, JSON.stringify(await buildRegistry(files, dir)));
+    const noCommonSummary = await generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath });
+    assert.deepEqual(noCommonSummary.pairs[0].warnings.map(({ code }) => code), [
+      'added-ratio', 'removed-ratio', 'display-changed-ratio',
+    ]);
+    assert.equal(noCommonSummary.pairs[0].warnings[2].observed, null);
+  } finally { await fs.rm(dir, { recursive: true, force: true }); }
+});

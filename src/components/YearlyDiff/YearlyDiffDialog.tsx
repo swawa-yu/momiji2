@@ -1,3 +1,4 @@
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
@@ -56,6 +57,19 @@ export default function YearlyDiffDialog({ open, onClose }: Props) {
                 取得日：{formatDate(pair.baseline.retrievedAt)} →{' '}
                 {formatDate(pair.incoming.retrievedAt)}
               </Typography>
+              {pair.warnings.length > 0 && (
+                <Stack spacing={1} sx={{ mb: 1.5 }}>
+                  {pair.warnings.map((item) => (
+                    <Alert severity="warning" key={item.code}>
+                      {item.message}（観測値：
+                      {item.observed === null
+                        ? '算出不能（共通科目なし）'
+                        : item.observed.toFixed(3)}
+                      、閾値：{item.threshold.toFixed(2)}）
+                    </Alert>
+                  ))}
+                </Stack>
+              )}
               <Grid container spacing={1} sx={{ mb: 1.5 }}>
                 <Grid item xs={12} sm={4}>
                   <Chip

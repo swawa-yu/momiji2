@@ -11,6 +11,19 @@ import {
 
 export const defaultSummaryPath = path.join(defaultDataDir, 'yearlySubjectDiffSummary.json');
 
+// Temporary guardrails exceed the current pair maxima (about 4.7%, 17.1%,
+// 16.7%, and 68.5%) while catching large parser/year-selection anomalies.
+const WARNING_THRESHOLDS = {
+  subjectCountShift: 0.1,
+  addedRatio: 0.25,
+  removedRatio: 0.25,
+  displayChangedRatio: 0.8,
+};
+
+function warning(code, message, observed, threshold) {
+  return { code, message, observed, threshold };
+}
+
 function summarizePair(baselineEntry, incomingEntry, baseline, incoming) {
   const diff = compareSubjectData(baseline, incoming);
   const rawFieldChanges = Object.fromEntries(requiredFields.map((field) => [field, 0]));
@@ -28,6 +41,22 @@ function summarizePair(baselineEntry, incomingEntry, baseline, incoming) {
       if (kind === 'content') displayFieldChanges[field] += 1;
     }
   }
+  const added = diff.added.length;
+  const removed = diff.removed.length;
+  const commonCount = baselineEntry.subjectCount - removed;
+  const warnings = [];
+  const subjectCountShift = Math.abs(incomingEntry.subjectCount - baselineEntry.subjectCount) / baselineEntry.subjectCount;
+  if (subjectCountShift > WARNING_THRESHOLDS.subjectCountShift)
+    warnings.push(warning('subject-count-shift', '科目数の変動が閾値を超えています。', subjectCountShift, WARNING_THRESHOLDS.subjectCountShift));
+  const addedRatio = added / incomingEntry.subjectCount;
+  if (addedRatio > WARNING_THRESHOLDS.addedRatio)
+    warnings.push(warning('added-ratio', '追加科目の割合が閾値を超えています。', addedRatio, WARNING_THRESHOLDS.addedRatio));
+  const removedRatio = removed / baselineEntry.subjectCount;
+  if (removedRatio > WARNING_THRESHOLDS.removedRatio)
+    warnings.push(warning('removed-ratio', '削除科目の割合が閾値を超えています。', removedRatio, WARNING_THRESHOLDS.removedRatio));
+  const displayChangedRatio = commonCount > 0 ? displayChanged / commonCount : null;
+  if (commonCount <= 0 || displayChangedRatio > WARNING_THRESHOLDS.displayChangedRatio)
+    warnings.push(warning('display-changed-ratio', '共通科目の内容変更割合が閾値を超えています。', displayChangedRatio, WARNING_THRESHOLDS.displayChangedRatio));
   return {
     baseline: {
       academicYear: baselineEntry.academicYear,
@@ -52,6 +81,7 @@ function summarizePair(baselineEntry, incomingEntry, baseline, incoming) {
       metadataOnlyChanged,
       fieldChangeCounts: displayFieldChanges,
     },
+    warnings,
   };
 }
 
@@ -81,7 +111,7 @@ export async function generateYearlySubjectDiffSummary({
     ]);
     pairs.push(summarizePair(baselineEntry, incomingEntry, baseline, incoming));
   }
-  const expected = { schemaVersion: 1, pairs };
+  const expected = { schemaVersion: 2, pairs };
   const actual = await fs.readFile(summaryPath, 'utf8').catch((error) => {
     if (check && error.code === 'ENOENT') throw new Error(`Yearly subject diff summary is missing: ${summaryPath}`);
     if (check) throw error;
