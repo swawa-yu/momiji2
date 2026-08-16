@@ -5,15 +5,21 @@ import { rawSubjectProperties } from '../types/rawSubjectProperties';
 import type { RawSubjectMap } from '../types/subject';
 
 export const subjectDataManifest = {
-  dataFile: 'subject_details_main_2026-04-07.json',
+  dataFile: 'subject_details_main_2026-08-16_6a424cab5342.json',
   academicYear: '2026年度',
-  retrievedAt: '2026-04-07',
-  subjectCount: 12489,
+  retrievedAt: '2026-08-16',
+  subjectCount: 12481,
   source: 'https://momiji.hiroshima-u.ac.jp/syllabusHtml/',
+  schemaVersion: 1,
+  structureReport: {
+    dataFile:
+      'subject_structure_subject_details_main_2026-08-16_6a424cab5342_af08d8f17f76.json',
+    sha256: 'af08d8f17f76773c45d52a84615e1eaa90d3d1349db86611f011d67afb4a56bd',
+  },
 } as const;
 
 export const subjectDataUrl = new URL(
-  '../../data/subject_details_main_2026-04-07.json',
+  '../../data/subject_details_main_2026-08-16_6a424cab5342.json',
   import.meta.url
 ).href;
 
