@@ -118,18 +118,24 @@ test('keeps the Harvester page order and excludes artifact-only parents', () => 
         科目区分: '',
         使用言語: '',
       },
-      C: { 開講部局: '学部B', 開講キャンパス: '', 科目区分: '', 使用言語: '' },
+      C: {
+        開講部局: '大学院B',
+        開講キャンパス: '',
+        科目区分: '',
+        使用言語: '',
+      },
+      D: { 開講部局: '学部B', 開講キャンパス: '', 科目区分: '', 使用言語: '' },
     },
     createDepartmentConstants({
       departments: {
         kaikouBukyokuGakubus: ['学部B', '中間親', '学部A'],
-        kaikouBukyokuDaigakuins: ['大学院A'],
+        kaikouBukyokuDaigakuins: ['大学院A', '大学院B'],
       },
     })
   );
 
   assert.deepEqual(result.kaikouBukyokuGakubus, ['学部B', '学部A']);
-  assert.deepEqual(result.kaikouBukyokuDaigakuins, ['大学院A']);
+  assert.deepEqual(result.kaikouBukyokuDaigakuins, ['大学院A', '大学院B']);
 });
 
 test('rejects unclassified observed departments in data order', () => {
@@ -261,7 +267,7 @@ test('rejects envelope metadata or data bindings that differ from the active man
   }
 });
 
-test('2026 data classifies all observed departments with the 147-candidate artifact', async () => {
+test('current data classifications agree with the department artifact', async () => {
   const data = JSON.parse(
     await fs.readFile(
       path.join(root, 'data', 'subject_details_main_2026-04-07.json'),
@@ -275,13 +281,31 @@ test('2026 data classifies all observed departments with the 147-candidate artif
     subjectDataSha256
   );
 
-  assert.equal(departmentConstants.departments.kaikouBukyokuGakubus.length, 40);
-  assert.equal(
-    departmentConstants.departments.kaikouBukyokuDaigakuins.length,
-    107
+  const observedDepartments = uniqueNonEmptyValues(
+    Object.values(data).map((subject) => subject['開講部局'])
   );
-  assert.equal(result.kaikouBukyokuGakubus.length, 34);
-  assert.equal(result.kaikouBukyokuDaigakuins.length, 95);
+  const classifiedDepartments = new Set([
+    ...departmentConstants.departments.kaikouBukyokuGakubus,
+    ...departmentConstants.departments.kaikouBukyokuDaigakuins,
+  ]);
+  assert.deepEqual(
+    observedDepartments.filter(
+      (department) => !classifiedDepartments.has(department)
+    ),
+    []
+  );
+  assert.deepEqual(
+    result.kaikouBukyokuGakubus,
+    departmentConstants.departments.kaikouBukyokuGakubus.filter((department) =>
+      observedDepartments.includes(department)
+    )
+  );
+  assert.deepEqual(
+    result.kaikouBukyokuDaigakuins,
+    departmentConstants.departments.kaikouBukyokuDaigakuins.filter(
+      (department) => observedDepartments.includes(department)
+    )
+  );
 });
 
 test('2025 manifest and data fail the 2026 envelope binding before classification', async () => {
