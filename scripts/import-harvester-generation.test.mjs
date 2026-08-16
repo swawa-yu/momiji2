@@ -255,6 +255,30 @@ test('rejects missing headers and inconsistent unknown header presence before wr
         },
       },
     },
+    {
+      observedHeaders: fields.slice().sort(),
+      unknownHeaders: ['HTML追加項目'],
+      headerPresence: {
+        HTML追加項目: {
+          presentCount: 1,
+          presenceRate: 1,
+          emptyCount: 0,
+          emptyRate: 0,
+        },
+      },
+    },
+    {
+      observedHeaders: [...fields, 'HTML追加項目'].sort(),
+      unknownHeaders: ['HTML追加項目'],
+      headerPresence: {
+        HTML追加項目: {
+          presentCount: 0,
+          presenceRate: 0,
+          emptyCount: 0,
+          emptyRate: 0,
+        },
+      },
+    },
   ]) {
     const value = await fixture({
       structure: {

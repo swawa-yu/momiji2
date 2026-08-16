@@ -52,7 +52,11 @@ function validateStructureReport(report, manifest, dataSha256) {
     typeof report.structure.headerPresence !== 'object' ||
     !isSortedUniqueStrings(report.structure.unknownHeaders) ||
     !isSortedUniqueStrings(report.structure.missingHeaders) ||
+    !isSortedUniqueStrings(report.structure.observedHeaders) ||
     report.structure.missingHeaders.length !== 0 ||
+    report.structure.unknownHeaders.some(
+      (header) => !report.structure.observedHeaders.includes(header)
+    ) ||
     report.structure.unknownHeaders.some(
       (header) =>
         !validHeaderPresence(
@@ -79,7 +83,7 @@ function validHeaderPresence(value, pageCount) {
     value &&
     typeof value === 'object' &&
     Number.isInteger(value.presentCount) &&
-    value.presentCount >= 0 &&
+    value.presentCount > 0 &&
     value.presentCount <= pageCount &&
     value.presenceRate === value.presentCount / pageCount &&
     Number.isInteger(value.emptyCount) &&
