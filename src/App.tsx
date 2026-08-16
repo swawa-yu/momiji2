@@ -1,4 +1,5 @@
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import HistoryIcon from '@mui/icons-material/History';
 import InfoIcon from '@mui/icons-material/Info';
 import Alert from '@mui/material/Alert';
@@ -24,6 +25,7 @@ import HistoryDialog from './components/History/HistoryDialog';
 import SearchComponent from './components/SearchComponent';
 import TableView from './components/TableView';
 import Timetable from './components/Timetable';
+import YearlyDiffDialog from './components/YearlyDiff/YearlyDiffDialog';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import { initialSearchOptions } from './search/';
 import { subjectDataManifest } from './subject/activeSubjectData';
@@ -43,6 +45,7 @@ function App() {
   const handleInfoDialogOpen = () => setInfoDialogOpen(true);
   const handleInfoDialogClose = () => setInfoDialogOpen(false);
   const [historyDialogOpen, setHistoryDialogOpen] = useState(false);
+  const [yearlyDiffDialogOpen, setYearlyDiffDialogOpen] = useState(false);
   const [isTimetableVisible, setIsTimetableVisible] = useState(false);
   const toggleTimetable = () => setIsTimetableVisible((prev) => !prev);
   const [tooltipOpen, setTooltipOpen] = useState(true);
@@ -84,6 +87,17 @@ function App() {
                 aria-label="同一年度内の更新履歴を開く"
               >
                 <HistoryIcon />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="年度間の変更概要">
+              <IconButton
+                sx={{ ml: 1 }}
+                color="inherit"
+                onClick={() => setYearlyDiffDialogOpen(true)}
+                aria-label="年度間の変更概要を開く"
+              >
+                <CompareArrowsIcon />
               </IconButton>
             </Tooltip>
 
@@ -150,6 +164,10 @@ function App() {
           open={historyDialogOpen}
           onClose={() => setHistoryDialogOpen(false)}
         />
+        <YearlyDiffDialog
+          open={yearlyDiffDialogOpen}
+          onClose={() => setYearlyDiffDialogOpen(false)}
+        />
 
         <Container
           maxWidth="xl"
@@ -210,7 +228,7 @@ function App() {
               position: 'fixed',
               bottom: { xs: 16, sm: 32 },
               right: { xs: 16, sm: 32 },
-              zIndex: (theme) => theme.zIndex.tooltip,
+              zIndex: (theme) => theme.zIndex.speedDial,
             }}
           >
             <CalendarMonthIcon />
