@@ -220,8 +220,8 @@ export function validateClassificationArtifact(artifact, knownHashes) {
     ])
   )
     throw new Error('Classification artifact has an invalid contract.');
-  if (artifact.schemaVersion !== 1)
-    throw new Error('Classification artifact schemaVersion must be 1.');
+  if (artifact.schemaVersion !== 2)
+    throw new Error('Classification artifact schemaVersion must be 2.');
   const metadataKeys = historyMetadataFields.filter(
     (field) => field !== 'source'
   );
@@ -253,6 +253,9 @@ export function validateClassificationArtifact(artifact, knownHashes) {
         'afterUniqueCount',
         'beforeEmptyCount',
         'afterEmptyCount',
+        'beforeEmptyRate',
+        'afterEmptyRate',
+        'emptyRateChange',
         'added',
         'removed',
         'beforeValues',
@@ -263,7 +266,16 @@ export function validateClassificationArtifact(artifact, knownHashes) {
       !Number.isInteger(value.beforeEmptyCount) ||
       value.beforeEmptyCount < 0 ||
       !Number.isInteger(value.afterEmptyCount) ||
-      value.afterEmptyCount < 0
+      value.afterEmptyCount < 0 ||
+      !Number.isFinite(value.beforeEmptyRate) ||
+      !Number.isFinite(value.afterEmptyRate) ||
+      !Number.isFinite(value.emptyRateChange) ||
+      value.beforeEmptyRate < 0 ||
+      value.beforeEmptyRate > 1 ||
+      value.afterEmptyRate < 0 ||
+      value.afterEmptyRate > 1 ||
+      value.emptyRateChange < -1 ||
+      value.emptyRateChange > 1
     )
       throw new Error(`Classification ${field} contract is invalid.`);
     for (const key of ['added', 'removed', 'beforeValues', 'afterValues'])
@@ -279,6 +291,14 @@ export function validateClassificationArtifact(artifact, knownHashes) {
         artifact.target.subjectCount
     )
       throw new Error(`Classification ${field} unique count does not match.`);
+    if (
+      value.beforeEmptyRate !==
+        value.beforeEmptyCount / artifact.base.subjectCount ||
+      value.afterEmptyRate !==
+        value.afterEmptyCount / artifact.target.subjectCount ||
+      value.emptyRateChange !== value.afterEmptyRate - value.beforeEmptyRate
+    )
+      throw new Error(`Classification ${field} empty rates do not match.`);
     const before = new Map(
       value.beforeValues.map((item) => [item.value, item])
     );
