@@ -99,3 +99,53 @@ test('adds deterministic warnings, including the strict threshold boundaries', a
     assert.equal(noCommonSummary.pairs[0].warnings[2].observed, null);
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
 });
+
+test('does not warn at exact added, removed, or display-change thresholds', async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'momiji-summary-thresholds-'));
+  try {
+    const files = ['subject_2024-01-01.json', 'subject_2025-01-01.json'];
+    const baseline = Object.fromEntries(Array.from({ length: 100 }, (_, i) => [
+      `base-${i}`, record(`base-${i}`, '2024年度'),
+    ]));
+    const { buildRegistry } = await import('./yearly-subject-baselines.mjs');
+    const registryPath = path.join(dir, 'registry.json');
+    const summaryPath = path.join(dir, 'summary.json');
+    await fs.writeFile(path.join(dir, files[0]), JSON.stringify(baseline));
+
+    const writeAndSummarize = async (incoming) => {
+      await fs.writeFile(path.join(dir, files[1]), JSON.stringify(incoming));
+      await fs.writeFile(registryPath, JSON.stringify(await buildRegistry(files, dir)));
+      return generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath });
+    };
+    const warningCodes = (summary) => summary.pairs[0].warnings.map(({ code }) => code);
+
+    // Added: 25/100 = 0.25 is silent; 26/101 > 0.25 warns.
+    const addedAt = Object.fromEntries([
+      ...Array.from({ length: 75 }, (_, i) => [`base-${i}`, record(`base-${i}`, '2025年度')]),
+      ...Array.from({ length: 25 }, (_, i) => [`added-${i}`, record(`added-${i}`, '2025年度')]),
+    ]);
+    assert.equal(warningCodes(await writeAndSummarize(addedAt)).includes('added-ratio'), false);
+    const addedOver = { ...addedAt, ...Object.fromEntries([
+      ['added-over', record('added-over', '2025年度')],
+    ]) };
+    assert.equal(warningCodes(await writeAndSummarize(addedOver)).includes('added-ratio'), true);
+
+    // Removed: 25/100 = 0.25 is silent; 26/100 > 0.25 warns.
+    const removedAt = Object.fromEntries(Array.from({ length: 75 }, (_, i) => [
+      `base-${i}`, record(`base-${i}`, '2025年度'),
+    ]));
+    assert.equal(warningCodes(await writeAndSummarize(removedAt)).includes('removed-ratio'), false);
+    const removedOverByOne = Object.fromEntries(Array.from({ length: 74 }, (_, i) => [
+      `base-${i}`, record(`base-${i}`, '2025年度'),
+    ]));
+    assert.equal(warningCodes(await writeAndSummarize(removedOverByOne)).includes('removed-ratio'), true);
+
+    // Display changed: 80/100 = 0.8 is silent; 81/100 > 0.8 warns.
+    const displayAt = Object.fromEntries(Array.from({ length: 100 }, (_, i) => [
+      `base-${i}`, record(`base-${i}`, '2025年度', i < 80 ? { 授業科目名: `changed-${i}` } : {}),
+    ]));
+    assert.equal(warningCodes(await writeAndSummarize(displayAt)).includes('display-changed-ratio'), false);
+    const displayOver = { ...displayAt, ['base-80']: record('base-80', '2025年度', { 授業科目名: 'changed-80' }) };
+    assert.equal(warningCodes(await writeAndSummarize(displayOver)).includes('display-changed-ratio'), true);
+  } finally { await fs.rm(dir, { recursive: true, force: true }); }
+});
