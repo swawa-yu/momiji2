@@ -256,3 +256,44 @@ test('rejects path escape and inconsistent classification counts', async () => {
     await fs.rm(inconsistent.root, { recursive: true, force: true });
   }
 });
+
+test('rejects classification artifacts with tampered empty rates', async () => {
+  const value = await fixture();
+  try {
+    const classificationPath = path.join(
+      value.historyDir,
+      value.classificationFile
+    );
+    const classification = JSON.parse(
+      await fs.readFile(classificationPath, 'utf8')
+    );
+    classification.fields['開講部局'].emptyRateChange = 0.25;
+    const payload = bytes(classification);
+    value.index.classificationArtifacts[0].sha256 = sha256(payload);
+    await fs.writeFile(classificationPath, payload);
+    await fs.writeFile(
+      path.join(value.historyDir, 'index.json'),
+      JSON.stringify(value.index)
+    );
+    await assert.rejects(
+      validateHistoryDataDir(value.dataDir),
+      /empty rates do not match/
+    );
+
+    classification.fields['開講部局'].emptyRateChange = 0;
+    classification.fields['開講部局'].beforeEmptyRate = 1.1;
+    const outOfRangePayload = bytes(classification);
+    value.index.classificationArtifacts[0].sha256 = sha256(outOfRangePayload);
+    await fs.writeFile(classificationPath, outOfRangePayload);
+    await fs.writeFile(
+      path.join(value.historyDir, 'index.json'),
+      JSON.stringify(value.index)
+    );
+    await assert.rejects(
+      validateHistoryDataDir(value.dataDir),
+      /Classification 開講部局 contract is invalid/
+    );
+  } finally {
+    await fs.rm(value.root, { recursive: true, force: true });
+  }
+});
