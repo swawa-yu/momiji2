@@ -95,6 +95,11 @@ export function createClassificationDiff(
       afterUniqueCount: after.values.length,
       beforeEmptyCount: before.emptyCount,
       afterEmptyCount: after.emptyCount,
+      beforeEmptyRate: before.emptyCount / base.subjectCount,
+      afterEmptyRate: after.emptyCount / target.subjectCount,
+      emptyRateChange:
+        after.emptyCount / target.subjectCount -
+        before.emptyCount / base.subjectCount,
       added: after.values.filter(({ value }) => !beforeMap.has(value)),
       removed: before.values.filter(({ value }) => !afterMap.has(value)),
       beforeValues: before.values,
@@ -102,7 +107,7 @@ export function createClassificationDiff(
     };
   }
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     comparisonType:
       base.academicYear === target.academicYear
         ? 'same-academic-year'

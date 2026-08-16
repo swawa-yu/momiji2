@@ -52,7 +52,7 @@ test('reports deterministic same-year value counts without blocking semantics', 
     manifest(incoming, '2026年度', '2026-04-02')
   );
 
-  assert.equal(artifact.schemaVersion, 1);
+  assert.equal(artifact.schemaVersion, 2);
   assert.equal(artifact.comparisonType, 'same-academic-year');
   assert.deepEqual(artifact.fields['開講部局'].added, [
     { value: '新部局', lectureCount: 2 },
@@ -60,6 +60,9 @@ test('reports deterministic same-year value counts without blocking semantics', 
   assert.deepEqual(artifact.fields['開講部局'].removed, [
     { value: '廃止部局', lectureCount: 1 },
   ]);
+  assert.equal(artifact.fields['開講部局'].beforeEmptyRate, 0);
+  assert.equal(artifact.fields['開講部局'].afterEmptyRate, 0);
+  assert.equal(artifact.fields['開講部局'].emptyRateChange, 0);
   assert.deepEqual(artifact.fields['開講部局'].afterValues, [
     { value: '新部局', lectureCount: 2 },
     { value: '部局A', lectureCount: 1 },
@@ -99,6 +102,45 @@ test('distinguishes academic-year rollover and preserves raw values', () => {
   assert.deepEqual(artifact.fields['開講部局'].added, [
     { value: '新年度部局', lectureCount: 1 },
   ]);
+  assert.equal(artifact.fields['開講部局'].emptyRateChange, 0);
+});
+
+test('reports empty-rate worsening, improvement, and invariance', () => {
+  const baseline = {
+    1: subject('1', '2026年度', { 使用言語: '' }),
+    2: subject('2', '2026年度'),
+  };
+  const target = {
+    1: subject('1', '2026年度', { 使用言語: '' }),
+    2: subject('2', '2026年度', { 使用言語: '' }),
+  };
+  const improved = {
+    1: subject('1', '2026年度'),
+    2: subject('2', '2026年度'),
+  };
+  const worsening = createClassificationDiff(
+    baseline,
+    manifest(baseline, '2026年度', '2026-04-01'),
+    target,
+    manifest(target, '2026年度', '2026-04-02')
+  ).fields['使用言語'];
+  const improvement = createClassificationDiff(
+    baseline,
+    manifest(baseline, '2026年度', '2026-04-01'),
+    improved,
+    manifest(improved, '2026年度', '2026-04-02')
+  ).fields['使用言語'];
+  assert.equal(worsening.emptyRateChange, 0.5);
+  assert.equal(improvement.emptyRateChange, -0.5);
+  assert.equal(
+    createClassificationDiff(
+      baseline,
+      manifest(target, '2026年度', '2026-04-02'),
+      baseline,
+      manifest(baseline, '2026年度', '2026-04-03')
+    ).fields['使用言語'].emptyRateChange,
+    0
+  );
 });
 
 test('matches canonical SHA-256 and real yearly classification counts', async () => {
@@ -121,6 +163,27 @@ test('matches canonical SHA-256 and real yearly classification counts', async ()
   assert.equal(artifact.target.canonicalSha256, canonicalSha256(incoming));
   assert.equal(artifact.fields['開講部局'].beforeUniqueCount, 115);
   assert.equal(artifact.fields['開講部局'].afterUniqueCount, 129);
+  for (const field of [
+    '開講部局',
+    '科目区分',
+    '開講キャンパス',
+    '使用言語',
+  ]) {
+    const value = artifact.fields[field];
+    assert.equal(
+      value.beforeEmptyRate,
+      value.beforeEmptyCount / Object.keys(baseline).length
+    );
+    assert.equal(
+      value.afterEmptyRate,
+      value.afterEmptyCount / Object.keys(incoming).length
+    );
+    assert.equal(
+      value.emptyRateChange,
+      value.afterEmptyCount / Object.keys(incoming).length -
+        value.beforeEmptyCount / Object.keys(baseline).length
+    );
+  }
   assert.ok(
     artifact.fields['開講部局'].added.some(
       ({ value, lectureCount }) =>

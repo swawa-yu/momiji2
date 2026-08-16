@@ -63,7 +63,7 @@ async function fixture() {
   };
   const artifactBytes = bytes(artifact);
   const classification = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     comparisonType: 'same-academic-year',
     base: Object.fromEntries(
       Object.entries(artifact.base).filter(([key]) => key !== 'source')
@@ -79,6 +79,9 @@ async function fixture() {
           afterUniqueCount: 1,
           beforeEmptyCount: 0,
           afterEmptyCount: 0,
+          beforeEmptyRate: 0,
+          afterEmptyRate: 0,
+          emptyRateChange: 0,
           added: [],
           removed: [],
           beforeValues: [{ value: base['1'][field], lectureCount: 1 }],
