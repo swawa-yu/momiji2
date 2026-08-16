@@ -13,7 +13,7 @@ export const metadataFields = ['relative URL', '年度'];
 const requiredFieldSet = new Set(requiredFields);
 const metadataFieldSet = new Set(metadataFields);
 
-function validateYearData(data, label) {
+export function validateYearData(data, label) {
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
     throw new Error(`${label} must be a JSON object keyed by lecture code.`);
   }

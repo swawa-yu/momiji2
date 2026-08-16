@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "academicYear": "2024年度",
+      "retrievedAt": "2024-04-05",
+      "dataFile": "subject_data_main_2024-04-05.json",
+      "sha256": "a352cd95510bb604aaa87fb373876b6a2a9aded9c80b97c2317c4debd605521e",
+      "subjectCount": 12547
+    },
+    {
+      "academicYear": "2025年度",
+      "retrievedAt": "2025-04-03",
+      "dataFile": "subject_details_main_2025-04-03.json",
+      "sha256": "3a9eb6115417456185dc99e74e3662b121866f57a99a2a4e55a5e08532145915",
+      "subjectCount": 11989
+    },
+    {
+      "academicYear": "2026年度",
+      "retrievedAt": "2026-04-07",
+      "dataFile": "subject_details_main_2026-04-07.json",
+      "sha256": "85473b84b5dc13fde6f1c414b735529cb0b2713a47d69470cafff6ee23dd2525",
+      "subjectCount": 12489
+    }
+  ]
+}
