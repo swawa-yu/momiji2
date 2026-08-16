@@ -58,6 +58,7 @@ async function fixture(overrides = {}) {
   const dataFile = 'subject_details_main_2027-04-01_deadbeef.json';
   const dataBytes = Buffer.from(JSON.stringify(subjectData()), 'utf8');
   const manifest = {
+    schemaVersion: 1,
     dataFile,
     academicYear: '2027年度',
     retrievedAt: '2027-04-01',
@@ -82,12 +83,38 @@ async function fixture(overrides = {}) {
     },
     ...overrides.artifact,
   };
+  const structure = {
+    schemaVersion: 1,
+    academicYear: manifest.academicYear,
+    retrievedAt: manifest.retrievedAt,
+    source: manifest.source,
+    subjectData: {
+      dataFile: manifest.dataFile,
+      sha256,
+      subjectCount: manifest.subjectCount,
+    },
+    structure: {
+      subjectPageCount: manifest.subjectCount,
+      observedHeaders: fields.slice().sort(),
+      unknownHeaders: [],
+      missingHeaders: [],
+      headerPresence: {},
+    },
+    ...overrides.structure,
+  };
+  const structureBytes = Buffer.from(JSON.stringify(structure));
+  const structureFile = 'subject_structure_generation.json';
+  manifest.structureReport = {
+    dataFile: structureFile,
+    sha256: createHash('sha256').update(structureBytes).digest('hex'),
+  };
   const manifestPath = path.join(source, 'subjectDataManifest.json');
   const departmentsPath = path.join(source, 'department_constants.json');
   await Promise.all([
     fs.writeFile(path.join(source, dataFile), dataBytes),
     fs.writeFile(manifestPath, JSON.stringify(manifest)),
     fs.writeFile(departmentsPath, JSON.stringify(artifact)),
+    fs.writeFile(path.join(source, structureFile), structureBytes),
   ]);
   return {
     root,
@@ -99,6 +126,8 @@ async function fixture(overrides = {}) {
     artifact,
     manifestPath,
     departmentsPath,
+    structure,
+    structureBytes,
   };
 }
 
@@ -147,6 +176,10 @@ test('imports a fully validated Harvester generation', async () => {
       ),
       value.manifest
     );
+    assert.deepEqual(
+      await fs.readFile(path.join(value.destination, 'subject_structure.json')),
+      value.structureBytes
+    );
   } finally {
     await dispose(value);
   }
@@ -164,6 +197,38 @@ test('check validates without writing', async () => {
     await assert.rejects(fs.access(value.destination));
   } finally {
     await dispose(value);
+  }
+});
+
+test('rejects unsupported or tampered structure reports before writing', async () => {
+  const unsupported = await fixture({ structure: { schemaVersion: 2 } });
+  const tampered = await fixture();
+  try {
+    await assert.rejects(
+      importHarvesterGeneration({
+        manifestPath: unsupported.manifestPath,
+        departmentsPath: unsupported.departmentsPath,
+        destinationDataDir: unsupported.destination,
+      }),
+      /structure report does not match/
+    );
+    await fs.appendFile(
+      path.join(tampered.source, tampered.manifest.structureReport.dataFile),
+      '\n'
+    );
+    await assert.rejects(
+      importHarvesterGeneration({
+        manifestPath: tampered.manifestPath,
+        departmentsPath: tampered.departmentsPath,
+        destinationDataDir: tampered.destination,
+      }),
+      /structure report hash does not match/
+    );
+    await assert.rejects(fs.access(unsupported.destination));
+    await assert.rejects(fs.access(tampered.destination));
+  } finally {
+    await dispose(unsupported);
+    await dispose(tampered);
   }
 });
 
@@ -196,15 +261,16 @@ test('CLI check prints a stable no-baseline guard report', async () => {
 test('review changes require acknowledgement while check remains write-free', async () => {
   const value = await fixture();
   try {
-    await writeBaseline(value, subjectData('2026年度'));
-    const baselinePath = path.join(value.destination, 'baseline.json');
-    const baseline = JSON.parse(await fs.readFile(baselinePath, 'utf8'));
-    baseline['10000100']['開講部局'] = '旧部局';
-    await fs.writeFile(baselinePath, JSON.stringify(baseline));
+    const baseline = subjectData('2026年度');
+    baseline['10000200'] = {
+      ...baseline['10000100'],
+      講義コード: '10000200',
+    };
+    await writeBaseline(value, baseline);
     const guard = JSON.parse(
       await fs.readFile('data/updateGuard.json', 'utf8')
     );
-    guard.fields['開講部局'].hardMinUniqueRetention = 0;
+    guard.subjectCount.hardMinRatio = 0.4;
     const guardPath = path.join(value.root, 'updateGuard.json');
     await fs.writeFile(guardPath, JSON.stringify(guard));
     const checked = await importHarvesterGeneration({
@@ -234,7 +300,7 @@ test('review changes require acknowledgement while check remains write-free', as
       (error) =>
         error.code === 1 &&
         /Update guard review required:/.test(error.stderr) &&
-        /旧部局/.test(error.stderr)
+        /subject count ratio/.test(error.stderr)
     );
     await assert.rejects(
       importHarvesterGeneration({
@@ -344,6 +410,9 @@ test('normal import re-evaluates baseline after taking the lock', async () => {
     );
     await assert.rejects(
       fs.access(path.join(value.destination, value.dataFile))
+    );
+    await assert.rejects(
+      fs.access(path.join(value.destination, 'subject_structure.json'))
     );
   } finally {
     await dispose(value);

@@ -115,6 +115,7 @@ export function evaluateUpdateGuard(baseline, incoming, config) {
   const incomingCodes = new Set(Object.keys(incoming));
   const hardFailures = [];
   const review = [];
+  const analysis = [];
   if (ratio < config.subjectCount.hardMinRatio)
     hardFailures.push(
       `subject count ratio ${ratio.toFixed(6)} is below ${config.subjectCount.hardMinRatio}`
@@ -149,13 +150,13 @@ export function evaluateUpdateGuard(baseline, incoming, config) {
         `${field} empty rate ${emptyRate.toFixed(6)} exceeds ${rule.hardMaxEmptyRate}`
       );
     if (retention < rule.hardMinUniqueRetention)
-      hardFailures.push(
+      analysis.push(
         `${field} unique retention ${retention.toFixed(6)} is below ${rule.hardMinUniqueRetention}`
       );
     if (rule.reviewAdded && added.length)
-      review.push(`${field} added values: ${added.join(', ')}`);
+      analysis.push(`${field} added values: ${added.join(', ')}`);
     if (rule.reviewRemoved && removed.length)
-      review.push(`${field} removed values: ${removed.join(', ')}`);
+      analysis.push(`${field} removed values: ${removed.join(', ')}`);
     if (
       emptyRate > 0 &&
       (baselineEmptyRate === 0 ||
@@ -188,6 +189,7 @@ export function evaluateUpdateGuard(baseline, incoming, config) {
       (code) => !incomingCodes.has(code)
     ).length,
     fields,
+    analysis,
     hardFailures,
     review,
     info: [],

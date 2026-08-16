@@ -19,7 +19,7 @@ const subject = (code, values = {}) => [
   },
 ];
 
-test('known 2025 to 2026 change passes hard guard and reports expected review', async () => {
+test('known 2025 to 2026 change reports value-set analysis without blocking', async () => {
   const baseline = JSON.parse(
     await fs.readFile('data/subject_details_main_2025-04-03.json', 'utf8')
   );
@@ -31,15 +31,16 @@ test('known 2025 to 2026 change passes hard guard and reports expected review', 
   assert.equal(report.incomingSubjectCount, 12489);
   assert.equal(report.subjectCountDelta, 500);
   assert.equal(report.hardFailures.length, 0);
+  assert.equal(report.review.length, 0);
   assert.ok(
-    report.review.some((item) => item.includes('開講部局 added values'))
+    report.analysis.some((item) => item.includes('開講部局 added values'))
   );
   assert.ok(
-    report.review.some((item) => item.includes('教育学研究科博士課程後期'))
+    report.analysis.some((item) => item.includes('教育学研究科博士課程後期'))
   );
 });
 
-test('hard-fails truncation, excessive empty rates, and unique retention loss', () => {
+test('hard-fails truncation and excessive empty rates', () => {
   const baseline = Object.fromEntries(
     Array.from({ length: 10 }, (_, index) =>
       subject(String(index), {
@@ -61,12 +62,10 @@ test('hard-fails truncation, excessive empty rates, and unique retention loss', 
     report.hardFailures.some((item) => item.includes('subject count ratio'))
   );
   assert.ok(report.hardFailures.some((item) => item.includes('empty rate')));
-  assert.ok(
-    report.hardFailures.some((item) => item.includes('unique retention'))
-  );
+  assert.ok(report.analysis.some((item) => item.includes('unique retention')));
 });
 
-test('plausible added and removed values require review', () => {
+test('added and removed values are analysis rather than review', () => {
   const baseline = Object.fromEntries(
     Array.from({ length: 10 }, (_, index) =>
       subject(String(index), { 開講部局: `部局${index}` })
@@ -76,8 +75,9 @@ test('plausible added and removed values require review', () => {
   incoming['9']['開講部局'] = '新部局';
   const report = evaluateUpdateGuard(baseline, incoming, config);
   assert.equal(report.hardFailures.length, 0);
-  assert.ok(report.review.some((item) => item.includes('新部局')));
-  assert.ok(report.review.some((item) => item.includes('部局9')));
+  assert.equal(report.review.length, 0);
+  assert.ok(report.analysis.some((item) => item.includes('新部局')));
+  assert.ok(report.analysis.some((item) => item.includes('部局9')));
 });
 
 test('strictly validates versioned config', () => {
