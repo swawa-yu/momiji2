@@ -63,6 +63,14 @@ export async function generateYearlySubjectDiffSummary({
 } = {}) {
   const registry = JSON.parse(await fs.readFile(registryPath, 'utf8'));
   await validateYearlySubjectBaselines(registry, dataDir);
+  for (let index = 0; index < registry.entries.length - 1; index += 1) {
+    const baselineYear = Number(registry.entries[index].academicYear.slice(0, 4));
+    const incomingYear = Number(registry.entries[index + 1].academicYear.slice(0, 4));
+    if (incomingYear !== baselineYear + 1)
+      throw new Error(
+        `Yearly subject diff summary requires consecutive academic years: ${registry.entries[index].academicYear} -> ${registry.entries[index + 1].academicYear}`
+      );
+  }
   const pairs = [];
   for (let index = 0; index < registry.entries.length - 1; index += 1) {
     const baselineEntry = registry.entries[index];

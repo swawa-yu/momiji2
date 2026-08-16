@@ -42,5 +42,14 @@ test('keeps raw changes and excludes metadata-only changes from display counts',
     await assert.rejects(() => generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath, check: true }), /out of date/);
     await fs.writeFile(summaryPath, `${JSON.stringify(summary, null, 2)}\n`);
     await generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath, check: true });
+
+    const gapRegistry = { ...valid, entries: [valid.entries[0], valid.entries[2]] };
+    await fs.writeFile(registryPath, JSON.stringify(gapRegistry));
+    const beforeGap = await fs.readFile(summaryPath, 'utf8');
+    await assert.rejects(
+      () => generateYearlySubjectDiffSummary({ registryPath, dataDir: dir, summaryPath }),
+      /consecutive academic years/
+    );
+    assert.equal(await fs.readFile(summaryPath, 'utf8'), beforeGap);
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
 });
