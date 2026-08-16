@@ -6,6 +6,13 @@ export type YearlyDiffCounts = {
   changed: number;
 };
 
+export type YearlyDiffWarning = {
+  code: string;
+  message: string;
+  observed: number | null;
+  threshold: number;
+};
+
 export type YearlyDiffPair = {
   baseline: { academicYear: string; retrievedAt: string };
   incoming: { academicYear: string; retrievedAt: string };
@@ -14,10 +21,11 @@ export type YearlyDiffPair = {
     metadataOnlyChanged: number;
     fieldChangeCounts: Record<string, number>;
   };
+  warnings: YearlyDiffWarning[];
 };
 
 export type YearlyDiffSummary = {
-  schemaVersion: 1;
+  schemaVersion: 2;
   pairs: YearlyDiffPair[];
 };
 
@@ -56,6 +64,15 @@ function isPair(value: unknown): value is YearlyDiffPair {
     isRecord(display.fieldChangeCounts) &&
     Object.values(display.fieldChangeCounts).every(
       (count) => typeof count === 'number'
+    ) &&
+    Array.isArray(value.warnings) &&
+    value.warnings.every(
+      (item) =>
+        isRecord(item) &&
+        typeof item.code === 'string' &&
+        typeof item.message === 'string' &&
+        (typeof item.observed === 'number' || item.observed === null) &&
+        typeof item.threshold === 'number'
     )
   );
 }
@@ -63,13 +80,13 @@ function isPair(value: unknown): value is YearlyDiffPair {
 function loadSummary(value: unknown): YearlyDiffSummary {
   if (
     !isRecord(value) ||
-    value.schemaVersion !== 1 ||
+    value.schemaVersion !== 2 ||
     !Array.isArray(value.pairs) ||
     !value.pairs.every(isPair)
   ) {
     throw new Error('年度間差分概要の形式が不正です。');
   }
-  return { schemaVersion: 1, pairs: value.pairs };
+  return { schemaVersion: 2, pairs: value.pairs };
 }
 
 export const yearlyDiffSummary = loadSummary(summaryJson);
