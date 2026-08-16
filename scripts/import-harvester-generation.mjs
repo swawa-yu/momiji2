@@ -46,14 +46,65 @@ function validateStructureReport(report, manifest, dataSha256) {
     !report.structure ||
     report.structure.subjectPageCount !== manifest.subjectCount ||
     !Array.isArray(report.structure.unknownHeaders) ||
-    report.structure.unknownHeaders.length !== 0 ||
     !Array.isArray(report.structure.missingHeaders) ||
-    report.structure.missingHeaders.length !== 0
+    !Array.isArray(report.structure.observedHeaders) ||
+    !report.structure.headerPresence ||
+    typeof report.structure.headerPresence !== 'object' ||
+    !isSortedUniqueStrings(report.structure.unknownHeaders) ||
+    !isSortedUniqueStrings(report.structure.missingHeaders) ||
+    !isSortedUniqueStrings(report.structure.observedHeaders) ||
+    report.structure.missingHeaders.length !== 0 ||
+    report.structure.unknownHeaders.some(
+      (header) => !report.structure.observedHeaders.includes(header)
+    ) ||
+    report.structure.unknownHeaders.some(
+      (header) =>
+        !validHeaderPresence(
+          report.structure.headerPresence[header],
+          report.structure.subjectPageCount
+        )
+    )
   ) {
     throw new Error(
       'Harvester structure report does not match the generation.'
     );
   }
+}
+
+function isSortedUniqueStrings(values) {
+  return values.every(
+    (value, index) =>
+      typeof value === 'string' && value > (values[index - 1] ?? '')
+  );
+}
+
+function validHeaderPresence(value, pageCount) {
+  return (
+    value &&
+    typeof value === 'object' &&
+    Number.isInteger(value.presentCount) &&
+    value.presentCount > 0 &&
+    value.presentCount <= pageCount &&
+    value.presenceRate === value.presentCount / pageCount &&
+    Number.isInteger(value.emptyCount) &&
+    value.emptyCount >= 0 &&
+    value.emptyCount <= value.presentCount &&
+    value.emptyRate === value.emptyCount / pageCount
+  );
+}
+
+function addStructureInfo(guardReport, structure) {
+  if (structure.unknownHeaders.length === 0) return guardReport;
+  return {
+    ...guardReport,
+    info: [
+      ...guardReport.info,
+      ...structure.unknownHeaders.map((header) => {
+        const presence = structure.headerPresence[header];
+        return `HTML extra header: ${header} (present ${presence.presentCount}/${structure.subjectPageCount}, empty ${presence.emptyCount}/${structure.subjectPageCount})`;
+      }),
+    ],
+  };
 }
 
 async function atomicReplace(filePath, bytes) {
@@ -283,10 +334,9 @@ export async function importHarvesterGeneration({
 
   const updateGuard = await readJson(updateGuardPath, 'update guard config');
   validateUpdateGuardConfig(updateGuard);
-  let guardReport = await evaluateDestinationGuard(
-    destinationDataDir,
-    data,
-    updateGuard
+  let guardReport = addStructureInfo(
+    await evaluateDestinationGuard(destinationDataDir, data, updateGuard),
+    structureReport.structure
   );
   enforceGuard(guardReport, check, acceptReview);
 
@@ -296,10 +346,9 @@ export async function importHarvesterGeneration({
   const releaseLock = await acquireLock(destinationDataDir);
   try {
     if (afterLock) await afterLock();
-    guardReport = await evaluateDestinationGuard(
-      destinationDataDir,
-      data,
-      updateGuard
+    guardReport = addStructureInfo(
+      await evaluateDestinationGuard(destinationDataDir, data, updateGuard),
+      structureReport.structure
     );
     enforceGuard(guardReport, false, acceptReview);
     let existingData;

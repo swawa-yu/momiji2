@@ -200,6 +200,114 @@ test('check validates without writing', async () => {
   }
 });
 
+test('accepts unknown headers as deterministic info in check and import', async () => {
+  const value = await fixture({
+    structure: {
+      structure: {
+        subjectPageCount: 1,
+        observedHeaders: [...fields, 'HTML追加項目'].sort(),
+        unknownHeaders: ['HTML追加項目'],
+        missingHeaders: [],
+        headerPresence: {
+          HTML追加項目: {
+            presentCount: 1,
+            presenceRate: 1,
+            emptyCount: 0,
+            emptyRate: 0,
+          },
+        },
+      },
+    },
+  });
+  try {
+    const checked = await importHarvesterGeneration({
+      manifestPath: value.manifestPath,
+      departmentsPath: value.departmentsPath,
+      destinationDataDir: value.destination,
+      check: true,
+    });
+    assert.deepEqual(checked.guardReport.info, [
+      'no baseline',
+      'HTML extra header: HTML追加項目 (present 1/1, empty 0/1)',
+    ]);
+    const imported = await importHarvesterGeneration({
+      manifestPath: value.manifestPath,
+      departmentsPath: value.departmentsPath,
+      destinationDataDir: value.destination,
+    });
+    assert.deepEqual(imported.guardReport.info, checked.guardReport.info);
+  } finally {
+    await dispose(value);
+  }
+});
+
+test('rejects missing headers and inconsistent unknown header presence before writing', async () => {
+  for (const structure of [
+    { missingHeaders: ['年度'] },
+    {
+      unknownHeaders: ['HTML追加項目'],
+      headerPresence: {
+        HTML追加項目: {
+          presentCount: 1,
+          presenceRate: 0,
+          emptyCount: 0,
+          emptyRate: 0,
+        },
+      },
+    },
+    {
+      observedHeaders: fields.slice().sort(),
+      unknownHeaders: ['HTML追加項目'],
+      headerPresence: {
+        HTML追加項目: {
+          presentCount: 1,
+          presenceRate: 1,
+          emptyCount: 0,
+          emptyRate: 0,
+        },
+      },
+    },
+    {
+      observedHeaders: [...fields, 'HTML追加項目'].sort(),
+      unknownHeaders: ['HTML追加項目'],
+      headerPresence: {
+        HTML追加項目: {
+          presentCount: 0,
+          presenceRate: 0,
+          emptyCount: 0,
+          emptyRate: 0,
+        },
+      },
+    },
+  ]) {
+    const value = await fixture({
+      structure: {
+        structure: {
+          subjectPageCount: 1,
+          observedHeaders: fields.slice().sort(),
+          unknownHeaders: [],
+          missingHeaders: [],
+          headerPresence: {},
+          ...structure,
+        },
+      },
+    });
+    try {
+      await assert.rejects(
+        importHarvesterGeneration({
+          manifestPath: value.manifestPath,
+          departmentsPath: value.departmentsPath,
+          destinationDataDir: value.destination,
+        }),
+        /structure report does not match/
+      );
+      await assert.rejects(fs.access(value.destination));
+    } finally {
+      await dispose(value);
+    }
+  }
+});
+
 test('rejects unsupported or tampered structure reports before writing', async () => {
   const unsupported = await fixture({ structure: { schemaVersion: 2 } });
   const tampered = await fixture();
