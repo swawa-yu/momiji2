@@ -54,7 +54,11 @@ function validateStructureReport(report, manifest, dataSha256) {
     !isSortedUniqueStrings(report.structure.missingHeaders) ||
     report.structure.missingHeaders.length !== 0 ||
     report.structure.unknownHeaders.some(
-      (header) => !validHeaderPresence(report.structure.headerPresence[header], report.structure.subjectPageCount)
+      (header) =>
+        !validHeaderPresence(
+          report.structure.headerPresence[header],
+          report.structure.subjectPageCount
+        )
     )
   ) {
     throw new Error(
@@ -64,7 +68,10 @@ function validateStructureReport(report, manifest, dataSha256) {
 }
 
 function isSortedUniqueStrings(values) {
-  return values.every((value, index) => typeof value === 'string' && value > (values[index - 1] ?? ''));
+  return values.every(
+    (value, index) =>
+      typeof value === 'string' && value > (values[index - 1] ?? '')
+  );
 }
 
 function validHeaderPresence(value, pageCount) {
@@ -324,11 +331,7 @@ export async function importHarvesterGeneration({
   const updateGuard = await readJson(updateGuardPath, 'update guard config');
   validateUpdateGuardConfig(updateGuard);
   let guardReport = addStructureInfo(
-    await evaluateDestinationGuard(
-    destinationDataDir,
-    data,
-    updateGuard
-    ),
+    await evaluateDestinationGuard(destinationDataDir, data, updateGuard),
     structureReport.structure
   );
   enforceGuard(guardReport, check, acceptReview);

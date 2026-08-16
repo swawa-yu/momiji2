@@ -209,7 +209,7 @@ test('accepts unknown headers as deterministic info in check and import', async 
         unknownHeaders: ['HTML追加項目'],
         missingHeaders: [],
         headerPresence: {
-          'HTML追加項目': {
+          HTML追加項目: {
             presentCount: 1,
             presenceRate: 1,
             emptyCount: 0,
@@ -247,7 +247,7 @@ test('rejects missing headers and inconsistent unknown header presence before wr
     {
       unknownHeaders: ['HTML追加項目'],
       headerPresence: {
-        'HTML追加項目': {
+        HTML追加項目: {
           presentCount: 1,
           presenceRate: 0,
           emptyCount: 0,
