@@ -243,7 +243,7 @@ export default function HistoryDialog({ open, onClose }: Props) {
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>閉じる</Button>
+        <Button onClick={handleClose}>閉じる</Button>
       </DialogActions>
     </Dialog>
   );
