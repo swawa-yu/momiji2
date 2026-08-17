@@ -1,11 +1,16 @@
 {
   "academicYear": "2026年度",
-  "artifacts": [],
+  "artifacts": [
+    {
+      "dataFile": "history_2026-04-07_2026-08-16_021ed5980058.json",
+      "sha256": "021ed5980058779507209286f8c99b5de4f03dfac510547050ffce65ef389da9"
+    }
+  ],
   "baseline": {
-    "canonicalSha256": "7e30140f900ebac23254a01205217d3d3664a444a579cef32f759671d5964f33",
-    "dataFile": "subject_details_main_2026-08-16_6a424cab5342.json",
-    "retrievedAt": "2026-08-16",
-    "subjectCount": 12481
+    "canonicalSha256": "11857716260badc40e7ac53be1479849b52921ae9ad83abf8e31d8a28620fc98",
+    "dataFile": "subject_details_main_2026-04-07.json",
+    "retrievedAt": "2026-04-07",
+    "subjectCount": 12489
   },
   "classificationArtifacts": [
     {

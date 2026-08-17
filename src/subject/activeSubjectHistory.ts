@@ -27,4 +27,12724 @@ export type SubjectHistoryEntry = {
   readonly changes: readonly SubjectHistoryChange[];
 };
 
-export const subjectHistory: readonly SubjectHistoryEntry[] = [];
+export const subjectHistory: readonly SubjectHistoryEntry[] = [
+  {
+    "academicYear": "2026年度",
+    "baseRetrievedAt": "2026-04-07",
+    "targetRetrievedAt": "2026-08-16",
+    "baseSubjectCount": 12489,
+    "targetSubjectCount": 12481,
+    "addedCount": 74,
+    "removedCount": 82,
+    "changedCount": 835,
+    "changes": [
+      {
+        "type": "changed",
+        "lectureCode": "11025001",
+        "titleBefore": "戦争と平和に関する学際的考察",
+        "titleAfter": "戦争と平和に関する学際的考察",
+        "fields": [
+          {
+            "after": "(2T) 月1-4：総K103",
+            "before": "(2T) 月1-4：総K314",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "11026001",
+        "titleBefore": "暴力の比較宗教学",
+        "titleAfter": "暴力の比較宗教学",
+        "fields": [
+          {
+            "after": "(2T) 月5-8：経B255",
+            "before": "(2T) 月5-8：総K106",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "11027001",
+        "titleBefore": "核時代の科学と社会",
+        "titleAfter": "核時代の科学と社会",
+        "fields": [
+          {
+            "after": "(2T) 月5-8：総K203",
+            "before": "(2T) 月5-8：総K211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "11033001",
+        "titleBefore": "霞キャンパスからの平和発信",
+        "titleAfter": "霞キャンパスからの平和発信",
+        "fields": [
+          {
+            "after": "久保 達彦,福永 亜美,小林 雄晟,岩本 優子,武島 幸男,AMATYA VISHWA JEET,嘉陽 礼文",
+            "before": "久保 達彦,酒井 規雄,福永 亜美,小林 雄晟,岩本 優子,武島 幸男,AMATYA VISHWA JEET,嘉陽 礼文",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "11051001",
+        "titleBefore": "広島の歴史と戦争・平和",
+        "titleAfter": "広島の歴史と戦争・平和",
+        "fields": [
+          {
+            "after": "(2T) 月5-8：総K211",
+            "before": "(2T) 月5-8：総K203",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "11053001",
+        "titleBefore": "平和とウェルビーイング（Peace and Wellbeing）",
+        "titleAfter": "平和とウェルビーイング（Peace and Wellbeing）",
+        "fields": [
+          {
+            "after": "川合 紀宗,田口 陽子,西 真如,上手 由香,KABIR RUSSELL SARWAR,吉田 真理子,郷司 寿朗,岡本 百合,片柳 真理",
+            "before": "川合 紀宗,田口 陽子,西 真如,上手 由香,KABIR RUSSELL SARWAR,吉田 真理子,NURUL HIDAYATI ROFIAH,郷司 寿朗,岡本 百合,片柳 真理",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21210101",
+        "titleBefore": "コミュニケーションIＡ",
+        "titleAfter": "コミュニケーションIＡ",
+        "fields": [
+          {
+            "after": "FRASER SIMON ALASDAIR,FRASER SIMON ALASDAIR",
+            "before": "FRASER SIMON ALASDAIR",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21210221",
+        "titleBefore": "コミュニケーションIＡ",
+        "titleAfter": "コミュニケーションIＡ",
+        "fields": [
+          {
+            "after": "FRASER SIMON ALASDAIR,FRASER SIMON ALASDAIR",
+            "before": "FRASER SIMON ALASDAIR",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21210251",
+        "titleBefore": "コミュニケーションIＡ",
+        "titleAfter": "コミュニケーションIＡ",
+        "fields": [
+          {
+            "after": "木場 安莉沙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21220121",
+        "titleBefore": "コミュニケーションIＢ",
+        "titleAfter": "コミュニケーションIＢ",
+        "fields": [
+          {
+            "after": "FRASER SIMON ALASDAIR,FRASER SIMON ALASDAIR",
+            "before": "FRASER SIMON ALASDAIR",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21220235",
+        "titleBefore": "コミュニケーションIＢ",
+        "titleAfter": "コミュニケーションIＢ",
+        "fields": [
+          {
+            "after": "木場 安莉沙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21220236",
+        "titleBefore": "コミュニケーションIＢ",
+        "titleAfter": "コミュニケーションIＢ",
+        "fields": [
+          {
+            "after": "FRASER SIMON ALASDAIR,FRASER SIMON ALASDAIR",
+            "before": "FRASER SIMON ALASDAIR",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21230106",
+        "titleBefore": "コミュニケーションIIＡ",
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": [
+          {
+            "after": "木場 安莉沙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21230122",
+        "titleBefore": "コミュニケーションIIＡ",
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": [
+          {
+            "after": "木場 安莉沙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "21230173",
+        "titleBefore": null,
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21230231",
+        "titleBefore": "コミュニケーションIIＡ",
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": [
+          {
+            "after": "木場 安莉沙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21230237",
+        "titleBefore": "コミュニケーションIIＡ",
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": [
+          {
+            "after": "FRASER SIMON ALASDAIR,FRASER SIMON ALASDAIR",
+            "before": "FRASER SIMON ALASDAIR",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "21230255",
+        "titleBefore": "コミュニケーションIIＡ",
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": [
+          {
+            "after": "木場 安莉沙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "21230264",
+        "titleBefore": "コミュニケーションIIＡ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "21230273",
+        "titleBefore": null,
+        "titleAfter": "コミュニケーションIIＡ",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "21240161",
+        "titleBefore": "コミュニケーションIIＢ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "22101015",
+        "titleBefore": "ベーシック・ドイツ語I",
+        "titleAfter": "ベーシック・ドイツ語I",
+        "fields": [
+          {
+            "after": "SCHELLETTER CHRISTOPHER",
+            "before": "SCHELLETTER CHRISTOPHER,小林 英起子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "22121015",
+        "titleBefore": "ベーシック・ドイツ語II",
+        "titleAfter": "ベーシック・ドイツ語II",
+        "fields": [
+          {
+            "after": "SCHELLETTER CHRISTOPHER",
+            "before": "SCHELLETTER CHRISTOPHER,小林 英起子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23101006",
+        "titleBefore": "ベーシック・フランス語I",
+        "titleAfter": "ベーシック・フランス語I",
+        "fields": [
+          {
+            "after": "(1T) 火5-6：霞R203講義室, (1T) 金5-6：総K311,霞R203講義室",
+            "before": "(1T) 火5-6：霞R303講義室, (1T) 金5-6：総K311,霞R303講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23101009",
+        "titleBefore": "ベーシック・フランス語I",
+        "titleAfter": "ベーシック・フランス語I",
+        "fields": [
+          {
+            "after": "(1T) 火3-4：総K105, (1T) 木3-4：総K202",
+            "before": "(1T) 火3-4,木3-4：総K105",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23121006",
+        "titleBefore": "ベーシック・フランス語II",
+        "titleAfter": "ベーシック・フランス語II",
+        "fields": [
+          {
+            "after": "(2T) 火5-6,金5-6：霞R203講義室",
+            "before": "(2T) 火5-6,金5-6：霞R303講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23131001",
+        "titleBefore": "ベーシック・フランス語III",
+        "titleAfter": "ベーシック・フランス語III",
+        "fields": [
+          {
+            "after": "山本 佳生,松本 陵磨",
+            "before": "山本 佳生,川上 夏林",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(3T) 火5-6：総J303, (3T) 木5-6：総K105",
+            "before": "(3T) 火5-6,木5-6：総J303",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23131003",
+        "titleBefore": "ベーシック・フランス語III",
+        "titleAfter": "ベーシック・フランス語III",
+        "fields": [
+          {
+            "after": "渡部 浩見,山本 佳生",
+            "before": "川上 夏林,山本 佳生",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23141001",
+        "titleBefore": "ベーシック・フランス語IV",
+        "titleAfter": "ベーシック・フランス語IV",
+        "fields": [
+          {
+            "after": "山本 佳生,松本 陵磨",
+            "before": "山本 佳生,川上 夏林",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(4T) 火5-6：総J206, (4T) 木5-6：総K105",
+            "before": "(4T) 火5-6,木5-6：総J206",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "23141003",
+        "titleBefore": "ベーシック・フランス語IV",
+        "titleAfter": "ベーシック・フランス語IV",
+        "fields": [
+          {
+            "after": "渡部 浩見,山本 佳生",
+            "before": "川上 夏林,山本 佳生",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "24101002",
+        "titleBefore": "ベーシック・スペイン語I",
+        "titleAfter": "ベーシック・スペイン語I",
+        "fields": [
+          {
+            "after": "(1T) 火3-4,木3-4：総K205",
+            "before": "(1T) 火3-4,木3-4：総K210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "26101017",
+        "titleBefore": "(オ)ベーシック中国語I",
+        "titleAfter": "(オ)ベーシック中国語I",
+        "fields": [
+          {
+            "after": "(1T) 火9-10：総K202, (1T) 木9-10：オンライン",
+            "before": "(1T) 火9-10,木9-10：オンライン",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "26101018",
+        "titleBefore": "ベーシック中国語I",
+        "titleAfter": "ベーシック中国語I",
+        "fields": [
+          {
+            "after": "(1T) 火7-8：霞R401講義室, (1T) 金7-8：総K312,霞R304講義室",
+            "before": "(1T) 火7-8：霞R401講義室, (1T) 金7-8：総K312,霞R401講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "26101019",
+        "titleBefore": "ベーシック中国語I",
+        "titleAfter": "ベーシック中国語I",
+        "fields": [
+          {
+            "after": "(1T) 火7-8：霞R402講義室, (1T) 金7-8：総K303,霞R401講義室",
+            "before": "(1T) 火7-8：霞R402講義室, (1T) 金7-8：総K303,霞R402講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "26101021",
+        "titleBefore": "ベーシック中国語I",
+        "titleAfter": "ベーシック中国語I",
+        "fields": [
+          {
+            "after": "(1T) 火3-4,木3-4：総K210",
+            "before": "(1T) 火3-4,木3-4：総K205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "26121014",
+        "titleBefore": "ベーシック中国語II",
+        "titleAfter": "ベーシック中国語II",
+        "fields": [
+          {
+            "after": "玉素甫 艾沙",
+            "before": "玉素甫 艾沙,玉素甫 艾沙",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "26121017",
+        "titleBefore": "(オ)ベーシック中国語II",
+        "titleAfter": "(オ)ベーシック中国語II",
+        "fields": [
+          {
+            "after": "(2T) 火9-10：総K202, (2T) 木9-10：オンライン",
+            "before": "(2T) 火9-10,木9-10：オンライン",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "27201002",
+        "titleBefore": "ベーシック韓国語I",
+        "titleAfter": "ベーシック韓国語I",
+        "fields": [
+          {
+            "after": "(1T) 火3-4,木3-4：総K303",
+            "before": "(1T) 火3-4,木3-4：総K102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "27221002",
+        "titleBefore": "ベーシック韓国語II",
+        "titleAfter": "ベーシック韓国語II",
+        "fields": [
+          {
+            "after": "(2T) 火3-4,木3-4：総K303",
+            "before": "(2T) 火3-4,木3-4：総K102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "30040002",
+        "titleBefore": "情報・データ科学入門[1文,1理数,1理生,1工一,1情]",
+        "titleAfter": "情報・データ科学入門[1文,1理数,1理生,1工一,1情]",
+        "fields": [
+          {
+            "after": "稲垣 知宏,中島 健一郎,村上 祐子,匹田 篤,眞邉 潤,梶本 剛,隅谷 孝洋,長登 康,山本 幹雄",
+            "before": "稲垣 知宏,岩沢 和男,中島 健一郎,村上 祐子,匹田 篤,眞邉 潤,梶本 剛,隅谷 孝洋,長登 康,山本 幹雄",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "30101001",
+        "titleBefore": "データサイエンス基礎",
+        "titleAfter": "データサイエンス基礎",
+        "fields": [
+          {
+            "after": "小田 凌也,伊森 晋平,門田 麗,助永 真之,若木 宏文",
+            "before": "小田 凌也,山田 宏,伊森 晋平,門田 麗,助永 真之,若木 宏文",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "30105001",
+        "titleBefore": "Starting Programming from Scratch[1総国,1教多]",
+        "titleAfter": "Starting Programming from Scratch[1総国,1教多]",
+        "fields": [
+          {
+            "after": "戴 憶菱",
+            "before": "連 卓涛",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "30850001",
+        "titleBefore": "情報・データ科学入門[1法夜,1経夜]",
+        "titleAfter": "情報・データ科学入門[1法夜,1経夜]",
+        "fields": [
+          {
+            "after": "湧田 雄基",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "51001001",
+        "titleBefore": "教育と制度",
+        "titleAfter": "教育と制度",
+        "fields": [
+          {
+            "after": "(1T) 月1-4：総L101",
+            "before": "(1T) 月1-4：総K210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "53001001",
+        "titleBefore": "脳と行動",
+        "titleAfter": "脳と行動",
+        "fields": [
+          {
+            "after": "(2T) 月1-4：総K314",
+            "before": "(2T) 月1-4：総K103",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "53020101",
+        "titleBefore": "全身の健康と口腔科学I[1歯]",
+        "titleAfter": "全身の健康と口腔科学I[1歯]",
+        "fields": [
+          {
+            "after": "相川 友直,宿南 知佐,花本 博,野村 良太,濱田 充子,岡田 芳幸,吉川 峰加,河口 浩之,小松澤 均,柴 秀樹,谷本 幸太郎,水野 智仁,中元 崇,飛梅 圭,應原 一久",
+            "before": "相川 友直,宿南 知佐,野村 良太,濱田 充子,岡田 芳幸,吉川 峰加,河口 浩之,小松澤 均,柴 秀樹,谷本 幸太郎,水野 智仁,中元 崇,飛梅 圭,應原 一久,二宮 嘉昭,吉田 充広",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "53020201",
+        "titleBefore": "全身の健康と口腔科学II[1歯]",
+        "titleAfter": "全身の健康と口腔科学II[1歯]",
+        "fields": [
+          {
+            "after": "加来 真人,内藤 真理子,兼保 佳乃,重石 英生,二川 浩樹,峯 裕一,西村 瑠美,田地 豪,太田 耕司,仁井谷 善恵,下江 宰司",
+            "before": "加来 真人,内藤 真理子,兼保 佳乃,重石 英生,二川 浩樹,竹本 俊伸,峯 裕一,西村 瑠美,田地 豪,太田 耕司,仁井谷 善恵,村山 長,下江 宰司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "54022001",
+        "titleBefore": "人の健康と社会",
+        "titleAfter": "人の健康と社会",
+        "fields": [
+          {
+            "after": "加澤 佳奈,伊達 翔太,和田 峰子,澤渡 浩之,山田 崇史,猪村 剛史,黒瀬 智之,藤本 紗央里,金子 史子,那須 佳津美",
+            "before": "加澤 佳奈,浦川 将,伊達 翔太,桐本 光,陳 三妹,齊田 和哉,澤渡 浩之,有馬 知志,高橋 真",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "61042101",
+        "titleBefore": "南アジア宗教論",
+        "titleAfter": "南アジア宗教論",
+        "fields": [
+          {
+            "after": "(1T) 木5-8：総K108",
+            "before": "(1T) 木5-8：総K210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "61050002",
+        "titleBefore": "芸術学Ａ",
+        "titleAfter": "芸術学Ａ",
+        "fields": [
+          {
+            "after": "(2T) 木5-8：総K108",
+            "before": "(2T) 木5-8：総L201",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "62011002",
+        "titleBefore": "日本史Ｂ",
+        "titleAfter": "日本史Ｂ",
+        "fields": [
+          {
+            "after": "(1T) 月1-4：総K203",
+            "before": "(1T) 月1-4：総K312",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "62021001",
+        "titleBefore": "アジア史Ａ",
+        "titleAfter": "アジア史Ａ",
+        "fields": [
+          {
+            "after": "(1T) 月1-4：総K305",
+            "before": "(1T) 月1-4：総K303",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "62153001",
+        "titleBefore": "日本国憲法",
+        "titleAfter": "日本国憲法",
+        "fields": [
+          {
+            "after": "(1T) 水5-8：オンライン",
+            "before": "(1T) 水5-8：オンライン,総K107",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "62154101",
+        "titleBefore": "Law and Politics II",
+        "titleAfter": "Law and Politics II",
+        "fields": [
+          {
+            "after": "Active participation is encouraged. This class will be held in-person for the 1st and 2nd sessions (10/2) and 15th session (11/28), and online for the 3rd and 4th sessions (10/9), the 5th and 6th sessions (10/23), 7th and 8th sessions (10/30), 9th and 10th sessions (11/6), 11th and 12th sessions (11/13), 13th and 14th sessions (11/20). Please be careful not to confuse the dates of the in-person and online sessions.",
+            "before": "Active participation is encouraged. This class will be held in-person for the 1st and 2nd sessions (10/3), 3rd and 4th sessions (10/10), and 15th session (11/28), and online for the 5th and 6th sessions (10/17), 7th and 8th sessions (10/24), 9th and 10th sessions (10/31), 11th and 12th sessions (11/14), 13th and 14th sessions (11/21). Please be careful not to confuse the dates of the in-person and online sessions.",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "永山 博之,山本 哲史,長久 明日香,荒木 隆人,稲谷 信行,小林 悠太,SUN LU,高田 恭子,金本 佑太",
+            "before": "永山 博之,小松崎 俊作,長久 明日香,荒木 隆人,稲谷 信行,重村 壮平,SUN LU,高田 恭子,金本 佑太",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63100202",
+        "titleBefore": "物理の視点B",
+        "titleAfter": "物理の視点B",
+        "fields": [
+          {
+            "after": "小椎尾 謙",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63101105",
+        "titleBefore": "物理学実験法・同実験I[1工一]",
+        "titleAfter": "物理学実験法・同実験I[1工一]",
+        "fields": [
+          {
+            "after": "荻田 典男,小椎尾 謙",
+            "before": "荻田 典男",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63120004",
+        "titleBefore": "コンピュータ・プログラミング",
+        "titleAfter": "コンピュータ・プログラミング",
+        "fields": [
+          {
+            "after": "(2T) 水1-2,木3-4：総J201",
+            "before": "(2T) 水1-2,木3-4：オンライン",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63200701",
+        "titleBefore": "Modern Chemistry",
+        "titleAfter": "Modern Chemistry",
+        "fields": [
+          {
+            "after": "安倍 学,高口 博志,井口 佳哉,石坂 昌司,齋藤 健一,二宮 和彦,中田 聡,稲葉 央,水田 勉,灰野 岳晴,西原 禎文,吉田 拡人",
+            "before": "安倍 学,高口 博志,井口 佳哉,石坂 昌司,齋藤 健一,二宮 和彦,中田 聡,泉 俊輔,水田 勉,灰野 岳晴,西原 禎文,吉田 拡人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271101",
+        "titleBefore": "化学実験法・同実験I[1教理,1教家]",
+        "titleAfter": "化学実験法・同実験I[1教理,1教家]",
+        "fields": [
+          {
+            "after": "岩本 洋子,竹田 一彦,根平 達夫",
+            "before": "岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271102",
+        "titleBefore": "化学実験法・同実験I[1理生]",
+        "titleAfter": "化学実験法・同実験I[1理生]",
+        "fields": [
+          {
+            "after": "渡邊 千穂,竹田 一彦,根平 達夫",
+            "before": "渡邊 千穂,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271104",
+        "titleBefore": "化学実験法・同実験I[2理化]",
+        "titleAfter": "化学実験法・同実験I[2理化]",
+        "fields": [
+          {
+            "after": "宮川 晃尚,竹田 一彦,根平 達夫",
+            "before": "宮川 晃尚,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271105",
+        "titleBefore": "化学実験法・同実験I[2理化]",
+        "titleAfter": "化学実験法・同実験I[2理化]",
+        "fields": [
+          {
+            "after": "松嶋 亮人,竹田 一彦,根平 達夫",
+            "before": "松嶋 亮人,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271106",
+        "titleBefore": "化学実験法・同実験I[2理物,2理地]",
+        "titleAfter": "化学実験法・同実験I[2理物,2理地]",
+        "fields": [
+          {
+            "after": "中根 達人,竹田 一彦,根平 達夫",
+            "before": "中根 達人,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271111",
+        "titleBefore": "化学実験法・同実験I[1工一]",
+        "titleAfter": "化学実験法・同実験I[1工一]",
+        "fields": [
+          {
+            "after": "中根 達人,竹田 一彦,根平 達夫",
+            "before": "中根 達人,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271112",
+        "titleBefore": "化学実験法・同実験I[1工一]",
+        "titleAfter": "化学実験法・同実験I[1工一]",
+        "fields": [
+          {
+            "after": "福岡 宏,三木江 翼,竹田 一彦,根平 達夫",
+            "before": "福岡 宏,岩本 洋子,三木江 翼,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271113",
+        "titleBefore": "化学実験法・同実験I[1工一]",
+        "titleAfter": "化学実験法・同実験I[1工一]",
+        "fields": [
+          {
+            "after": "石田 敦彦,根平 達夫",
+            "before": "石田 敦彦,岩本 洋子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271201",
+        "titleBefore": "化学実験法・同実験II[1教理,1教家]",
+        "titleAfter": "化学実験法・同実験II[1教理,1教家]",
+        "fields": [
+          {
+            "after": "岩本 洋子,竹田 一彦,根平 達夫",
+            "before": "岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271202",
+        "titleBefore": "化学実験法・同実験II[1理生]",
+        "titleAfter": "化学実験法・同実験II[1理生]",
+        "fields": [
+          {
+            "after": "渡邊 千穂,竹田 一彦,根平 達夫",
+            "before": "渡邊 千穂,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271204",
+        "titleBefore": "化学実験法・同実験II[2理化]",
+        "titleAfter": "化学実験法・同実験II[2理化]",
+        "fields": [
+          {
+            "after": "宮川 晃尚,竹田 一彦,根平 達夫",
+            "before": "宮川 晃尚,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271205",
+        "titleBefore": "化学実験法・同実験II[2理化]",
+        "titleAfter": "化学実験法・同実験II[2理化]",
+        "fields": [
+          {
+            "after": "松嶋 亮人,竹田 一彦,根平 達夫",
+            "before": "松嶋 亮人,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271206",
+        "titleBefore": "化学実験法・同実験II[2理物,2理地]",
+        "titleAfter": "化学実験法・同実験II[2理物,2理地]",
+        "fields": [
+          {
+            "after": "中根 達人,渡邊 千穂,竹田 一彦,根平 達夫",
+            "before": "中根 達人,渡邊 千穂,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271211",
+        "titleBefore": "化学実験法・同実験II[1工一]",
+        "titleAfter": "化学実験法・同実験II[1工一]",
+        "fields": [
+          {
+            "after": "中根 達人,竹田 一彦,根平 達夫",
+            "before": "中根 達人,岩本 洋子,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271212",
+        "titleBefore": "化学実験法・同実験II[1工一]",
+        "titleAfter": "化学実験法・同実験II[1工一]",
+        "fields": [
+          {
+            "after": "三木江 翼,福岡 宏,竹田 一彦,根平 達夫",
+            "before": "三木江 翼,岩本 洋子,湊 拓生,竹田 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63271213",
+        "titleBefore": "化学実験法・同実験II[1工一]",
+        "titleAfter": "化学実験法・同実験II[1工一]",
+        "fields": [
+          {
+            "after": "石田 敦彦,根平 達夫",
+            "before": "石田 敦彦,岩本 洋子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63330011",
+        "titleBefore": "細胞科学（アドバンストプレイスメント）",
+        "titleAfter": "細胞科学（アドバンストプレイスメント）",
+        "fields": [
+          {
+            "after": "高大接続型プログラムに志願した高校３年生",
+            "before": "必修：生物生産学部の全プログラム",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "63680001",
+        "titleBefore": "フィールド科学入門",
+        "titleAfter": "フィールド科学入門",
+        "fields": [
+          {
+            "after": "黒川 勇三,妹尾 あいら,鈴木 直樹,MILLS MATTHEW STEVAN,中口 和光,加藤 亜記,淺野 敏久,吉冨 健一,和田 茂樹",
+            "before": "黒川 勇三,妹尾 あいら,鈴木 直樹,中口 和光,加藤 亜記,淺野 敏久,吉冨 健一,和田 茂樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "65255001",
+        "titleBefore": "海外短期研修(START) A",
+        "titleAfter": "海外短期研修(START) A",
+        "fields": [
+          {
+            "after": "金子 慎治,近藤 雅征,DOS MUCHANGOS LETICIA SARMENTO,朝倉 隆道,KHAN GHULAM DASTGIR,姜 姫銀",
+            "before": "金子 慎治",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "65256001",
+        "titleBefore": "海外短期研修(START+)",
+        "titleAfter": "海外短期研修(START+)",
+        "fields": [
+          {
+            "after": "金子 慎治,姜 姫銀,万 奕,JOSHI NIRAJ PRAKASH",
+            "before": "金子 慎治",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "65294001",
+        "titleBefore": "広島と世界を結ぶ半導体",
+        "titleAfter": "広島と世界を結ぶ半導体",
+        "fields": [
+          {
+            "after": "(2T) 金1-4：総L101",
+            "before": "(2T) 金1-4：総K110",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "65400301",
+        "titleBefore": "機械システムの設計と最適化",
+        "titleAfter": "機械システムの設計と最適化",
+        "fields": [
+          {
+            "after": "山田 啓司,田中 隆太郎,菊植 亮,茨木 創一,河野 佑,大倉 和博,村松 久圭,LI ZONGZE,岩本 剛,和田 信敬,關谷 克彦,江口 透",
+            "before": "山田 啓司,田中 隆太郎,菊植 亮,茨木 創一,河野 佑,大倉 和博,村松 久圭,池条 清隆,岩本 剛,和田 信敬,關谷 克彦,江口 透",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "66280001",
+        "titleBefore": "ビジネスクリエーション",
+        "titleAfter": "ビジネスクリエーション",
+        "fields": [
+          {
+            "after": "(2T) 金5-8：総K211",
+            "before": "(2T) 金5-8：総K314",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "66803001",
+        "titleBefore": "キャリアマネジメント概論",
+        "titleAfter": "キャリアマネジメント概論",
+        "fields": [
+          {
+            "after": "(前) 水11-12：東千田M201/202講義室",
+            "before": "(前) 水11-12：東千田M301講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "67012001",
+        "titleBefore": "心理学の最前線",
+        "titleAfter": "心理学の最前線",
+        "fields": [
+          {
+            "after": "小宮 あすか,難波 修史,藤木 大介,梅村 比丘,李 受ミン,KONG GARRY,吉本 早苗,朱 建宏,樫原 潤,山本 一希,林 光緒,小川 景子,戸谷 彰宏",
+            "before": "小宮 あすか,難波 修史,藤木 大介,梅村 比丘,李 受ミン,KONG GARRY,吉本 早苗,朱 建宏,波光 涼風,樫原 潤,山本 一希,林 光緒,小川 景子,戸谷 彰宏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "67100501",
+        "titleBefore": "Learning Hiroshima: Intercultural Fieldwork (地域社会を学ぶ: 異文化間フィールドワーク)",
+        "titleAfter": "Learning Hiroshima: Intercultural Fieldwork (地域社会を学ぶ: 異文化間フィールドワーク)",
+        "fields": [
+          {
+            "after": "DELAKORDA KAWASHIMA TINKA,大池 真知子,桑山 尚司",
+            "before": "DELAKORDA KAWASHIMA TINKA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140001",
+        "titleBefore": "微分積分学I[1理化,1理地]",
+        "titleAfter": "微分積分学I[1理化,1理地]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140002",
+        "titleBefore": "微分積分学I[1理物]",
+        "titleAfter": "微分積分学I[1理物]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140003",
+        "titleBefore": "微分積分学I[1工一]",
+        "titleAfter": "微分積分学I[1工一]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140005",
+        "titleBefore": "微分積分学I[1工二]",
+        "titleAfter": "微分積分学I[1工二]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140007",
+        "titleBefore": "微分積分学I[1工三,1工特]",
+        "titleAfter": "微分積分学I[1工三,1工特]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140008",
+        "titleBefore": "微分積分学I[1工四]",
+        "titleAfter": "微分積分学I[1工四]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140009",
+        "titleBefore": "微分積分学I[1情]",
+        "titleAfter": "微分積分学I[1情]",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68140011",
+        "titleBefore": "微分積分学I",
+        "titleAfter": "微分積分学I",
+        "fields": [
+          {
+            "after": "【受講希望者が250人を超えたときは受講者抽選を行う可能性があります。】",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "必要に応じて既習事項を復習すること．",
+            "before": "予習は教科書を軽く眺める程度で構いません．復習はきちんとやって下さい．授業中に演習の時間はほとんどないので問題演習は各自に任されます． なお，高校の数学IIIで学んだ微分と積分の計算は既知のものとします．忘れていそうな人は思い出しておいて下さい．",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "講義，板書中心ですが，なにか疑問点があればその場で私の説明を中断させてもよいので質問して下さい．自分が疑問に思う箇所は他の人にとっても躓きやすいポイントであることが多いです． 気恥ずかしいと感じる人は授業の前後やMoodleに用意する掲示板で質問しても構いません．",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "68151005",
+        "titleBefore": "一般力学II[1工二]",
+        "titleAfter": "一般力学II[1工二]",
+        "fields": [
+          {
+            "after": "乾 雅祝",
+            "before": "乾 雅祝,乾 雅祝",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "71001052",
+        "titleBefore": "健康スポーツ科学[1医理,1医作]",
+        "titleAfter": "健康スポーツ科学[1医理,1医作]",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B000640",
+        "titleBefore": "研究指導II",
+        "titleAfter": "研究指導II",
+        "fields": [
+          {
+            "after": "渠 蒙",
+            "before": "張 慶在",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B112001",
+        "titleBefore": "日本語上級映像A",
+        "titleAfter": "日本語上級映像A",
+        "fields": [
+          {
+            "after": "(1T) 月5-6：教K308（森戸）, (1T) 水5-6：教K209（森戸）,教K210（森戸）",
+            "before": "(1T) 月5-6,水5-6：教K308（森戸）",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B113702",
+        "titleBefore": "日本語上級読解A",
+        "titleAfter": "日本語上級読解A",
+        "fields": [
+          {
+            "after": "野地 知子",
+            "before": "",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B210602",
+        "titleBefore": "Upper-Intermediate Japanese D-1",
+        "titleAfter": "Upper-Intermediate Japanese D-1",
+        "fields": [
+          {
+            "after": "(1T) 水1, (1T) 水2：教K213（森戸）, (1T) 金7-8：教K308（森戸）",
+            "before": "(1T) 水1-2：教K213（森戸）, (1T) 金7-8：教K308（森戸）",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B211501",
+        "titleBefore": "Elementary Japanese A-2",
+        "titleAfter": "Elementary Japanese A-2",
+        "fields": [
+          {
+            "after": "(2T) 水3-4,金5-6：教K213（森戸）",
+            "before": "(2T) 水3-4：教K213（森戸）, (2T) 金5-6：教K308（森戸）",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B211903",
+        "titleBefore": "Intermediate Japanese F-2",
+        "titleAfter": "Intermediate Japanese F-2",
+        "fields": [
+          {
+            "after": "霞",
+            "before": "",
+            "field": "開講キャンパス"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B212002",
+        "titleBefore": "Upper-Intermediate Japanese D-2",
+        "titleAfter": "Upper-Intermediate Japanese D-2",
+        "fields": [
+          {
+            "after": "(2T) 水1-2,金7-8：教K213（森戸）",
+            "before": "(2T) 水1-2：教K213（森戸）, (2T) 金7-8：教K308（森戸）",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B213501",
+        "titleBefore": "Upper-Intermediate Japanese B-1",
+        "titleAfter": "Upper-Intermediate Japanese B-1",
+        "fields": [
+          {
+            "after": "小口 悠紀子",
+            "before": "小口 悠紀子,道法 愛",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(3T) 火5-6",
+            "before": "(3T) 火5-6：教K208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B214901",
+        "titleBefore": "Upper-Intermediate Japanese B-2",
+        "titleAfter": "Upper-Intermediate Japanese B-2",
+        "fields": [
+          {
+            "after": "小口 悠紀子",
+            "before": "小口 悠紀子,道法 愛",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B420801",
+        "titleBefore": "人文社会科学研究基礎講義I",
+        "titleAfter": "人文社会科学研究基礎講義I",
+        "fields": [
+          {
+            "after": "3年次生 後期 セメスター（後期）",
+            "before": "1年次生 後期 セメスター（後期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B420900",
+        "titleBefore": "人文社会科学研究基礎講義II",
+        "titleAfter": "人文社会科学研究基礎講義II",
+        "fields": [
+          {
+            "after": "3年次生 前期 セメスター（前期）",
+            "before": "1年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8B611001",
+        "titleBefore": "ビジネス日本語",
+        "titleAfter": "ビジネス日本語",
+        "fields": [
+          {
+            "after": "(3T) 木5-8：教K115",
+            "before": "(3T) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8E000301",
+        "titleBefore": "Japanese Experience of Social Development- Economy, Infrastructure, and Peace",
+        "titleAfter": "Japanese Experience of Social Development- Economy, Infrastructure, and Peace",
+        "fields": [
+          {
+            "after": "鹿嶋 小緒里,高橋 与志,渡邉 園子,JOSHI NIRAJ PRAKASH,片柳 真理",
+            "before": "鹿嶋 小緒里,吉田 修,高橋 与志,JOSHI NIRAJ PRAKASH,片柳 真理",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8E001101",
+        "titleBefore": "Innovation and Practice for Smart Society",
+        "titleAfter": "Innovation and Practice for Smart Society",
+        "fields": [
+          {
+            "after": "力石 真,NGUYEN VAN QUAN,藤吉 奏,近藤 雅征,島崎 航平,李 漢洙,JOSHI NIRAJ PRAKASH",
+            "before": "力石 真,NGUYEN VAN QUAN,藤吉 奏,近藤 雅征,島崎 航平,TRAN ANH DUC,李 漢洙,JOSHI NIRAJ PRAKASH",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8E050351",
+        "titleBefore": "普遍的平和を目指して（オンデマンド・多分野オムニバス形式）",
+        "titleAfter": "普遍的平和を目指して（オンデマンド・多分野オムニバス形式）",
+        "fields": [
+          {
+            "after": "VAN DER DOES LULI,保田 浩志,石田 芳文,掛江 朋子,川野 徳幸",
+            "before": "VAN DER DOES LULI,保田 浩志,石田 芳文,掛江 朋子,中坪 孝之,川野 徳幸",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8E550301",
+        "titleBefore": "データサイエンティスト養成",
+        "titleAfter": "データサイエンティスト養成",
+        "fields": [
+          {
+            "after": "(集) 集中：総K203",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8E550991",
+        "titleBefore": "Introduction to business creation",
+        "titleAfter": "Introduction to business creation",
+        "fields": [
+          {
+            "after": "",
+            "before": "This course is one of the on-demand courses offered for those who have difficulty attending school during regular hours (doctoral course). All students are eligible to take these on-demand classes, but there are a limited number of places. Priority will be given to those who have filled out the priority registration request form and stated that they are unable to take the course during regular hours. Remaining places will be allocated to other students by computerized random selection. Please check the following URL for further details. https://momiji.hiroshima-u.ac.jp/momiji-top/en/learning/cgcinfo-d-1.html",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8H000101",
+        "titleBefore": "Overview of Diversity and Inclusion",
+        "titleAfter": "Overview of Diversity and Inclusion",
+        "fields": [
+          {
+            "after": "本授業はD&Iの特定プログラム、Understanding D&I From the Sciences and Humanities Lensの必修科目でもある。該当特定プログラムを取るには英語レベルの条件もあるため、必ず英文のシラバスを確認すること。",
+            "before": "",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "8H000102",
+        "titleBefore": "Overview of Diversity and Inclusion",
+        "titleAfter": "Overview of Diversity and Inclusion",
+        "fields": [
+          {
+            "after": "本授業はD&Iの特定プログラム、Understanding D&I From the Sciences and Humanities Lensの必修科目でもある。該当特定プログラムを取るには英語レベルの条件もあるため、必ず英文のシラバスを確認すること。",
+            "before": "",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "AC02603A",
+        "titleBefore": null,
+        "titleAfter": "特別研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ADO01001",
+        "titleBefore": "総合科学へのいざない",
+        "titleAfter": "総合科学へのいざない",
+        "fields": [
+          {
+            "after": "細分化した学問的現状，総合科学部の歩み，総合科学部への期待と課題を理解し，学際的、分離融合的発想のもとで，問題の発見と解決に向けた探究の姿勢について考える。また，実務経験のある外部講師から，実社会において必要な学際的、分離融合的思考について学ぶ。",
+            "before": "細分化した学問的現状，総合科学部の歩み，総合科学への期待と課題を理解し，総合科学的発想のもとで，問題の発見と解決に向けた探究の姿勢について考える。また，実務経験のある外部講師から，実社会において必要な総合科学的思考について学ぶ。",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(2T) 火9-10,木9-10：総K108",
+            "before": "(2T) 火9-10,木9-10：総L102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHA26001",
+        "titleBefore": "行動科学特論",
+        "titleAfter": "行動科学特論",
+        "fields": [
+          {
+            "after": "(集) 集中：総J204",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHA27001",
+        "titleBefore": "行動科学外書特別演習",
+        "titleAfter": "行動科学外書特別演習",
+        "fields": [
+          {
+            "after": "集中講義日程 2026年8月18日（火） 1-10時限 2026年8月19日（水） 1-10時限 2026年8月20日（木） 1-10時限 2026年度9月卒業予定者は履修対象外です。",
+            "before": "集中講義日程 2026年8月18日（火） 1-10時限 2026年8月19日（水） 1-10時限 2026年8月20日（木） 1-10時限 2025年度9月卒業予定者は履修対象外です。",
+            "field": "メッセージ"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHH12001",
+        "titleBefore": "人間文化特論",
+        "titleAfter": "人間文化特論",
+        "fields": [
+          {
+            "after": "授業日程 2027年2月14日(日) 1-8時限 2027年2月15日(月) 1-8時限 2027年2月16日(火) 1-8時限 2027年2月17日(水) 1-8時限 2027年3月卒業予定者は履修対象外です。 すべての授業科目において，授業改善アンケートを実施していますので，回答に協⼒してください。 回答に対しては教員からコメントを⼊⼒しており，今後の改善につなげていきます。",
+            "before": "すべての授業科目において，授業改善アンケートを実施していますので，回答に 協⼒してください。 回答に対しては教員からコメントを⼊⼒しており，今後の改善につなげていきま す。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHH35001",
+        "titleBefore": "社会文化論",
+        "titleAfter": "社会文化論",
+        "fields": [
+          {
+            "after": "2026年9月卒業予定者は履修対象外です。 授業日程 2026年8月17日(月) 1-8時限 2026年8月18日(火) 1-8時限 2026年8月19日(水) 1-8時限 2026年8月20日(木) 1-8時限",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：総J206",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHL03001",
+        "titleBefore": "英語コーパス言語学",
+        "titleAfter": "英語コーパス言語学",
+        "fields": [
+          {
+            "after": "授業日程 2027年2月12日（金）3-10時限 2027年2月15日（月）3-10時限 2027年2月16日（火）3-10時限 2027年2月17日（水）3-10時限 2027年3月卒業予定者は履修対象外です。",
+            "before": "授業日程 2027年2月12日（金）3-10時限 2027年2月15日（月）3-10時限 2027年2月16日（火）3-10時限 2027年2月17日（水）3-8時限 2026年度3月卒業予定者は履修対象外です。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "AHL12101",
+        "titleBefore": "フランス語学研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHL13001",
+        "titleBefore": "現代中国語学研究",
+        "titleAfter": "現代中国語学研究",
+        "fields": [
+          {
+            "after": "2027年3月卒業予定者は，履修対象外です。 講義日程 2027年2月12日(金) 5-10時限 2027年2月15日(月) 5-10時限 2027年2月16日(火) 5-10時限 2027年2月17日(水) 5-10時限 2027年2月18日(木) 5-10時限",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：オンライン",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "",
+            "before": "東広島",
+            "field": "開講キャンパス"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHL19001",
+        "titleBefore": "語彙論",
+        "titleAfter": "語彙論",
+        "fields": [
+          {
+            "after": "※2026年9月卒業予定者は履修対象外です。 講義日程 2026年8月6日(木) 5-10時限 2026年8月17日(月) 5-10時限 2026年8月18日(火) 5-10時限 2026年8月19日(水) 5-10時限 2026年8月20日(木) 5-10時限",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：オンライン",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "",
+            "before": "東広島",
+            "field": "開講キャンパス"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHL25101",
+        "titleBefore": "フランス語学演習",
+        "titleAfter": "フランス語学演習",
+        "fields": [
+          {
+            "after": "(前) 金5-6：総J303",
+            "before": "(前) 金5-6：総J305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHS03001",
+        "titleBefore": "スポーツ健康科学特論",
+        "titleAfter": "スポーツ健康科学特論",
+        "fields": [
+          {
+            "after": "担当教員：岡野憲一 帝京平成大学人文社会学部 准教授 日本オリンピック委員会 強化スタッフ(医・科学) 日本バレーボール協会 ハイパフォーマンス委員会トレーナーユニット 委員 集中授業実施日時は以下の予定です．（午前中はJ305，午後は西体育館で授業を実施します） 8月18日（火） １～１０時限 8月19日（水） １～１０時限 8月20日（木） １～１０時限 世話教員：田部井祐介",
+            "before": "担当教員：岡野憲一 帝京平成大学人文社会学部 准教授 日本オリンピック委員会 強化スタッフ(医・科学) 日本バレーボール協会 ハイパフォーマンス委員会トレーナーユニット 委員 集中授業実施日時は以下の予定です． 8月18日（火） １～１０時限 8月19日（水） １～１０時限 8月20日（木） １～１０時限 世話教員：田部井祐介",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：西体育館,総J305",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AHS14001",
+        "titleBefore": "身体運動制御学",
+        "titleAfter": "身体運動制御学",
+        "fields": [
+          {
+            "after": "(1T) 金5-8：総K204",
+            "before": "(1T) 金5-8：総K112",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AKY08001",
+        "titleBefore": "ドイツ語中級会話演習I",
+        "titleAfter": "ドイツ語中級会話演習I",
+        "fields": [
+          {
+            "after": "(前) 水7-8：総J306",
+            "before": "(前) 水7-8：総J305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AKY20001",
+        "titleBefore": "フランス語中級総合演習IIＢ",
+        "titleAfter": "フランス語中級総合演習IIＢ",
+        "fields": [
+          {
+            "after": "金子 真,金子 真",
+            "before": "金子 真",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AKY36001",
+        "titleBefore": "ドイツ語文章法演習",
+        "titleAfter": "ドイツ語文章法演習",
+        "fields": [
+          {
+            "after": "(前) 火3-4：総K308",
+            "before": "(前) 火3-4：総K112",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANL14001",
+        "titleBefore": "脳機能学",
+        "titleAfter": "脳機能学",
+        "fields": [
+          {
+            "after": "(1T) 火5-8：総J204",
+            "before": "(1T) 火5-8：総K210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANL24001",
+        "titleBefore": "臨海実習・同講義",
+        "titleAfter": "臨海実習・同講義",
+        "fields": [
+          {
+            "after": "集中講義日程（事前講義はオンデマンドで行う。9月7~10の実習は向島の臨海実験所で行う。） 2026年9月1日(予定) 5-8時限 2026年9月7日(月) 2-10時限 2026年9月8日(火) 1-10時限 2026年9月9日(水) 1-10時限 2026年9月10日(木) 1-8時限 ・合宿中は必要に応じて1時限以前や10時限以降も実習を行います。 2026年度9月卒業予定者は履修対象外です。",
+            "before": "集中講義日程（事前講義はオンデマンドで行う。9月7~10の実習は向島の臨海実験所で行う。） 2025年9月1日(予定) 5-8時限 2025年9月7日(月) 2-10時限 2025年9月8日(火) 1-10時限 2025年9月9日(水) 1-10時限 2025年9月10日(木) 1-8時限 ・合宿中は必要に応じて1時限以前や10時限以降も実習を行います。 2026年度9月卒業予定者は履修対象外です。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANL32001",
+        "titleBefore": "生命科学特論Ｅ",
+        "titleAfter": "生命科学特論Ｅ",
+        "fields": [
+          {
+            "after": "【集中講義日程（予定）】 2026年夏休み中に2日間の予定で行います。 2026年9月24日(木) 1-8時限 2026年9月25日(金) 1-8時限",
+            "before": "【集中講義日程（予定）】 2026年夏休み中に2日間の予定で行います。 日程はまだ未定ですが、5月初旬頃に決定します。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "(集) 集中：総K306",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANL33001",
+        "titleBefore": "生命科学特論Ｆ",
+        "titleAfter": "生命科学特論Ｆ",
+        "fields": [
+          {
+            "after": "講義日程 2026年8月5日（水）8:45～16:05 2026年8月6日（木）8:45～15:20 2026年9月卒業予定者は履修対象外です。",
+            "before": "2026年8月5日（水）8:45～16:05 2026年8月6日（木）8:45～(16:05)",
+            "field": "メッセージ"
+          },
+          {
+            "after": "(集) 集中：総J205",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANM23001",
+        "titleBefore": "情報数理学特講ＩＩ",
+        "titleAfter": "情報数理学特講ＩＩ",
+        "fields": [
+          {
+            "after": "9月7日 第 1~4回 （1-8時限）， 9月8日 第5~8回（1-8時限）， 9月9日 第9~12回（1-8時限）， 9月10日 第13~15回（1-6時限） 2026年9月卒業予定者は履修対象外です。",
+            "before": "9月7日第 1~4回，9月8日第5~8回，9月9日第9~12回，9月10日第13~15回（日程は仮のものである）",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：総J205",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANN05001",
+        "titleBefore": "自然環境航海実習",
+        "titleAfter": "自然環境航海実習",
+        "fields": [
+          {
+            "after": "2026年9月卒業予定者は履修対象外です。",
+            "before": "2026年度9月卒業予定者は履修対象外です。",
+            "field": "その他"
+          },
+          {
+            "after": "事前ガイダンスが6-7月にあります。 ガイダンス日程は履修登録者に対しアナウンスします。 豊潮丸への乗船は 2026年8月1日（土）-2日（日）の予定です 日程 2026年7月25日 1-8時限 2026年8月1日 1-10時限 2026年8月2日 1-8時限",
+            "before": "事前ガイダンスが6-7月にあります。 ガイダンス日程は履修登録者に対しアナウンスします。 豊潮丸への乗船は 2026年8月1日（土）-2日（日）の予定です",
+            "field": "メッセージ"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANN24001",
+        "titleBefore": "自然環境実験Ｂ",
+        "titleAfter": "自然環境実験Ｂ",
+        "fields": [
+          {
+            "after": "平山 恭之,竹田 一彦,戸田 求,小野寺 真一,土谷 彰男,小澤 久,横山 正,齋藤 光代,ヴィレヌーヴ 真澄美,石田 卓也,駒田 夏生,山田 俊弘,王 崑陽,岩本 洋子,KIMBI SHARON BIH",
+            "before": "平山 恭之,竹田 一彦,戸田 求,小野寺 真一,土谷 彰男,小澤 久,横山 正,齋藤 光代,ヴィレヌーヴ 真澄美,石田 卓也,駒田 夏生,山田 俊弘,王 崑陽,岩本 洋子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANN25001",
+        "titleBefore": "自然環境実験法Ｂ",
+        "titleAfter": "自然環境実験法Ｂ",
+        "fields": [
+          {
+            "after": "平山 恭之,竹田 一彦,戸田 求,小野寺 真一,土谷 彰男,小澤 久,横山 正,齋藤 光代,山田 俊弘,ヴィレヌーヴ 真澄美,石田 卓也,駒田 夏生,王 崑陽,岩本 洋子,KIMBI SHARON BIH",
+            "before": "平山 恭之,竹田 一彦,戸田 求,小野寺 真一,土谷 彰男,小澤 久,横山 正,齋藤 光代,山田 俊弘,ヴィレヌーヴ 真澄美,石田 卓也,駒田 夏生,王 崑陽,岩本 洋子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANN26201",
+        "titleBefore": "気候生態学",
+        "titleAfter": "気候生態学",
+        "fields": [
+          {
+            "after": "(1T) 火5-8：総K309",
+            "before": "(1T) 火5-8：総J301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANN37001",
+        "titleBefore": "自然環境野外実習・同講義",
+        "titleAfter": "自然環境野外実習・同講義",
+        "fields": [
+          {
+            "after": "2026年9月卒業予定者は履修対象外です。",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANN39001",
+        "titleBefore": "陸域水環境学",
+        "titleAfter": "陸域水環境学",
+        "fields": [
+          {
+            "after": "(2T) 火1-4：総K111",
+            "before": "(2T) 火1-4：総L102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANP06001",
+        "titleBefore": "物理科学概論",
+        "titleAfter": "物理科学概論",
+        "fields": [
+          {
+            "after": "荻田 典男,石坂 智,田口 健,東谷 誠二,小椎尾 謙,田中 晋平,宗尻 修治,梶原 行夫,長谷川 巧,杉本 暁,片山 春菜,青山 和司,中平 夕貴",
+            "before": "荻田 典男,石坂 智,田口 健,東谷 誠二,田中 晋平,宗尻 修治,梶原 行夫,長谷川 巧,杉本 暁,片山 春菜,青山 和司,中平 夕貴",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANP07001",
+        "titleBefore": "電磁気学ＩＩ",
+        "titleAfter": "電磁気学ＩＩ",
+        "fields": [
+          {
+            "after": "浴野 稔一",
+            "before": "浴野 稔一,浴野 稔一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANP22001",
+        "titleBefore": "物理科学特論Ａ",
+        "titleAfter": "物理科学特論Ａ",
+        "fields": [
+          {
+            "after": "(集) 集中：総J303",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANP26001",
+        "titleBefore": "量子力学演習ＩＩ",
+        "titleAfter": "量子力学演習ＩＩ",
+        "fields": [
+          {
+            "after": "片山 春菜,青山 和司",
+            "before": "片山 春菜,東谷 誠二",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ANP27001",
+        "titleBefore": "物理科学特論Ｃ",
+        "titleAfter": "物理科学特論Ｃ",
+        "fields": [
+          {
+            "after": "(集) 集中：総J303",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQH50202",
+        "titleBefore": "身体運動科学概論 I",
+        "titleAfter": "身体運動科学概論 I",
+        "fields": [
+          {
+            "after": "田中 亮,緒形 ひとみ,長谷川 博,出口 達也,上泉 康樹,柳岡 拓磨,加藤 荘志",
+            "before": "田中 亮,緒形 ひとみ,進矢 正宏,長谷川 博,出口 達也,上泉 康樹,黒坂 志穂",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQH50302",
+        "titleBefore": "身体運動科学概論 II",
+        "titleAfter": "身体運動科学概論 II",
+        "fields": [
+          {
+            "after": "田中 亮,進矢 正宏,関矢 寛史,緒形 ひとみ,上田 毅,黒坂 志穂,松本 佑介,田部井 祐介,小野 晃路,瀧 慎伍",
+            "before": "田中 亮,関矢 寛史,緒形 ひとみ,上田 毅,加藤 荘志,柳岡 拓磨,松本 佑介,田部井 祐介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQN00401",
+        "titleBefore": "Frontiers of Material Science (物質科学の最前線)",
+        "titleAfter": "Frontiers of Material Science (物質科学の最前線)",
+        "fields": [
+          {
+            "after": "田中 晋平,石坂 智,荻田 典男,東谷 誠二,梶原 行夫,杉本 暁,田口 健,長谷川 巧,宗尻 修治",
+            "before": "田中 晋平,石坂 智,乾 雅祝,荻田 典男,東谷 誠二,梶原 行夫,杉本 暁,田口 健,長谷川 巧,宗尻 修治",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQS00601",
+        "titleBefore": "Tourism Studies (観光論)",
+        "titleAfter": "Tourism Studies (観光論)",
+        "fields": [
+          {
+            "after": "関 恒樹,FUNCK CAROLIN ELISABETH HANNA,中屋敷 千尋,渠 蒙,長坂 格,ZOLLET SIMONA",
+            "before": "関 恒樹,FUNCK CAROLIN ELISABETH HANNA,FUNCK，CAROLIN・ELISABETH HANNA,長坂 格,ZOLLET SIMONA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQS00602",
+        "titleBefore": "観光論",
+        "titleAfter": "観光論",
+        "fields": [
+          {
+            "after": "匹田 篤,FUNCK CAROLIN ELISABETH HANNA,福田 恵,淺野 敏久",
+            "before": "匹田 篤,福田 恵,FUNCK，CAROLIN・ELISABETH HANNA,淺野 敏久",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQS00902",
+        "titleBefore": "健康・ジェンダー・権力の人類学",
+        "titleAfter": "健康・ジェンダー・権力の人類学",
+        "fields": [
+          {
+            "after": "(2T) 木3-4：総K104",
+            "before": "(2T) 木3-4：総K107",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "AQS50702",
+        "titleBefore": "農村の社会・文化・自然",
+        "titleAfter": "農村の社会・文化・自然",
+        "fields": [
+          {
+            "after": "(2T) 火7-8：総K211",
+            "before": "(2T) 火7-8：総L102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARC01401",
+        "titleBefore": "Social Statistics Analysis I (社会統計・データ分析 I)",
+        "titleAfter": "Social Statistics Analysis I (社会統計・データ分析 I)",
+        "fields": [
+          {
+            "after": "(1T) 水9-10：オンライン",
+            "before": "(1T) 水9-10：総K205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARC01501",
+        "titleBefore": "Social Statistics Analysis II (社会統計・データ分析 II)",
+        "titleAfter": "Social Statistics Analysis II (社会統計・データ分析 II)",
+        "fields": [
+          {
+            "after": "(2T) 水9-10：オンライン",
+            "before": "(2T) 水9-10：総K205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARC01600",
+        "titleBefore": "Special English Training for Studying Abroad (英語特別演習)",
+        "titleAfter": "Special English Training for Studying Abroad (英語特別演習)",
+        "fields": [
+          {
+            "after": "(2T) 火9-10,集中9-10：教員研究室",
+            "before": "(2T) 火9-10,集中9-10：総J304",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS10601",
+        "titleBefore": "Contemporary Issues in International Tourism I (国際観光論 I)",
+        "titleAfter": "Contemporary Issues in International Tourism I (国際観光論 I)",
+        "fields": [
+          {
+            "after": "\" Contemporary Issues in International Tourism I \" and \" Contemporary Issues in International Tourism II\" should be taken together. 【Contemporary Issues in International Tourism I (ARS10601）】 September 7th 10：30-16：05 September 8th 10：30-16：05 September 9th 10：30-13：35 【Contemporary Issues in International Tourism II (ARS10701)】 September 9th 13：35-16：05 September 10th 10：30-16：05 September 11th 10：30-16：05",
+            "before": "",
+            "field": "メッセージ"
+          },
+          {
+            "after": "本授業の目的は、国際観光に関わるIssuesについて理解を深めることである。globalisation, climate change, threats of terrorism and natural disasters, mobility, technological innovations, demographic change, emerging consumer trends and new product developmentsなど国際観光に影響を与える様々な社会現象について学んだ上、そのような現象が観光産業、観光地マネジメントにどのような変化をもたらすかについて理解する。",
+            "before": "本授業の目的は、国際観光に関わるIssuesについて理解を深めることである。globalisation, climate change, threats of terrorism and natural disasters, mobility, technological innovations, demographic change, emerging consumer trends and new product developmentsなど国際観光に影響を与える様々な社会現象について学んだ上、そのような現象が観光産業、観光地マネジメントにどのような変化をもたらすかについて理解する。 （Iは必修、IIは選択必修となっているが、Iを受講してからIIを履修することをすすめる）",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(外前) 集中：総K210",
+            "before": "(外前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS10701",
+        "titleBefore": "Contemporary Issues in International Tourism II (国際観光論 II)",
+        "titleAfter": "Contemporary Issues in International Tourism II (国際観光論 II)",
+        "fields": [
+          {
+            "after": "\" Contemporary Issues in International Tourism I \" and \" Contemporary Issues in International Tourism II\" should be taken together. 【Contemporary Issues in International Tourism I (ARS10601）】 September 7th 10：30-16：05 September 8th 10：30-16：05 September 9th 10：30-13：35 【Contemporary Issues in International Tourism II (ARS10701)】 September 9th 13：35-16：05 September 10th 10：30-16：05 September 11th 10：30-16：05",
+            "before": "",
+            "field": "メッセージ"
+          },
+          {
+            "after": "本授業の目的は、国際観光に関わるIssuesについて理解を深めることである。globalisation, climate change, threats of terrorism and natural disasters, mobility, technological innovations, demographic change, emerging consumer trends and new product developmentsなど国際観光に影響を与える様々な社会現象について学んだ上、そのような現象が観光産業、観光地マネジメントにどのような変化をもたらすかについて理解する。",
+            "before": "本授業の目的は、国際観光に関わるIssuesについて理解を深めることである。globalisation, climate change, threats of terrorism and natural disasters, mobility, technological innovations, demographic change, emerging consumer trends and new product developmentsなど国際観光に影響を与える様々な社会現象について学んだ上、そのような現象が観光産業、観光地マネジメントにどのような変化をもたらすかについて理解する。 （Iは必修、IIは選択必修となっているが、Iを受講してからIIを履修することをすすめる）",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(外前) 集中：総K210",
+            "before": "(外前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS40001",
+        "titleBefore": "Cultural Psychology I (文化心理学 I)",
+        "titleAfter": "Cultural Psychology I (文化心理学 I)",
+        "fields": [
+          {
+            "after": "(2T) 火3-4：総K203",
+            "before": "(2T) 火3-4：総J206",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS40101",
+        "titleBefore": "Cultural Psychology II (文化心理学 II)",
+        "titleAfter": "Cultural Psychology II (文化心理学 II)",
+        "fields": [
+          {
+            "after": "(2T) 木3-4：総K107",
+            "before": "(2T) 木3-4：総J206",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS41201",
+        "titleBefore": "Psycholinguistics I (心理言語学 I)",
+        "titleAfter": "Psycholinguistics I (心理言語学 I)",
+        "fields": [
+          {
+            "after": "(1T) 月1-2：総J206",
+            "before": "(1T) 月1-2：総J305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS41301",
+        "titleBefore": "Psycholinguistics II (心理言語学 II)",
+        "titleAfter": "Psycholinguistics II (心理言語学 II)",
+        "fields": [
+          {
+            "after": "(2T) 月1-2：総J206",
+            "before": "(2T) 月1-2：総J305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "ARS71201",
+        "titleBefore": "Family Diversity I (家族の多様性 I)",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "ARS71301",
+        "titleBefore": "Family Diversity II (家族の多様性 II)",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ARS73601",
+        "titleBefore": "Experimental Methods and Laboratory Work in Science for IGS III (IGS 自然科学実験法・同実験 III)",
+        "titleAfter": "Experimental Methods and Laboratory Work in Science for IGS III (IGS 自然科学実験法・同実験 III)",
+        "fields": [
+          {
+            "after": "(2T) 火5-8：総C511,総H109,総H301,総H302",
+            "before": "(2T) 火5-8：総C511,総H109,総H302",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASA04001",
+        "titleBefore": "東アジア地域史",
+        "titleAfter": "東アジア地域史",
+        "fields": [
+          {
+            "after": "(2T) 火5-8：総J305",
+            "before": "(2T) 火5-8：総K314",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASA08001",
+        "titleBefore": "地域文化研究特論Ｂ",
+        "titleAfter": "地域文化研究特論Ｂ",
+        "fields": [
+          {
+            "after": "講義予定 2026年9月1日(火) 1-8時限 2026年9月2日(水) 1-8時限 2026年9月3日(木) 1-8時限 2026年9月4日(金) 1-8時限 2026年9月卒業予定者は履修対象外です。",
+            "before": "講義予定 2026年9月1日～9月4日",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：総J206",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASA14001",
+        "titleBefore": "現代中国文化論",
+        "titleAfter": "現代中国文化論",
+        "fields": [
+          {
+            "after": "(1T) 火1-4：総K211",
+            "before": "(1T) 火1-4：総K111",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASA17001",
+        "titleBefore": "アメリカ社会研究",
+        "titleAfter": "アメリカ社会研究",
+        "fields": [
+          {
+            "after": "夏季休業中の開講を予定しているため、2026年度9月卒業予定の4年生は履修対象外となります。 【講義日程】 2026年9月1日（火）1-10時限 2026年9月2日（水）1-10時限 2026年9月3日（木）1-10時限",
+            "before": "夏季休業中の開講を予定しているため、2026年度9月卒業予定の4年生は履修対象外となります。 【講義日程】 2026年8月6日（水） 1-10時限 2026年8月7日（木） 1-10時限 2026年8月8日（金） 1-10時限",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：総K109",
+            "before": "(集) 集中：総J304",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASA26001",
+        "titleBefore": "アメリカ社会研究演習",
+        "titleAfter": "アメリカ社会研究演習",
+        "fields": [
+          {
+            "after": "2027年2月10日（水）～13日（土）での集中講義を予定しています。 日程 2027年2月10日(水) 1-8時限 2027年2月11日(木) 1-8時限 2027年2月12日(金) 1-8時限 2027年2月13日(土) 1-6時限 2027年3月卒業予定者は履修対象外です。",
+            "before": "2027年2月10日（水）～13日（土）での集中講義を予定しています。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASB01001",
+        "titleBefore": "テクスト文化論",
+        "titleAfter": "テクスト文化論",
+        "fields": [
+          {
+            "after": "2026年度9月卒業予定者は履修対象外です。 講義日程 2026年8月5日(水) 1-10時限 2026年8月6日(木) 1-10時限 2026年8月7日(金) 1-10時限",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(集) 集中：総J206",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASF08001",
+        "titleBefore": "環境と平和論",
+        "titleAfter": "環境と平和論",
+        "fields": [
+          {
+            "after": "講義日程 2027年2月15日（月）1-10時限 2027年2月16日（火）1-10時限 2027年2月17日（水）1-10時限 ※2027年3月卒業予定者は履修対象外です。",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "西 佳代",
+            "before": "西 佳代,西 佳代",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(集) 集中",
+            "before": "(集) 集中：総K205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASF18001",
+        "titleBefore": "ヨーロッパ地誌研究演習",
+        "titleAfter": "ヨーロッパ地誌研究演習",
+        "fields": [
+          {
+            "after": "FUNCK CAROLIN ELISABETH HANNA",
+            "before": "FUNCK CAROLIN ELISABETH HANNA,FUNCK，CAROLIN・ELISABETH HANNA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "ASF33001",
+        "titleBefore": "社会フィールド研究特論Ａ",
+        "titleAfter": "社会フィールド研究特論Ａ",
+        "fields": [
+          {
+            "after": "FUNCK CAROLIN ELISABETH HANNA",
+            "before": "FUNCK CAROLIN ELISABETH HANNA,FUNCK，CAROLIN・ELISABETH HANNA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "B1000007",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "(1T) 火9-10,水9-10：文A302",
+            "before": "(1T) 火9-10,水9-10：文A152",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BA003201",
+        "titleBefore": "哲学・倫理学基礎演習（ドイツ語）",
+        "titleAfter": "哲学・倫理学基礎演習（ドイツ語）",
+        "fields": [
+          {
+            "after": "(前) 金3-4：教K217",
+            "before": "(前) 金3-4：文A402",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BA207101",
+        "titleBefore": "西洋哲学研究A",
+        "titleAfter": "西洋哲学研究A",
+        "fields": [
+          {
+            "after": "実施日程：９月１日（火）～９月４日（金）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B104",
+            "before": "(外前) 集中：講義室未定",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BA402001",
+        "titleBefore": "近世哲学基礎演習",
+        "titleAfter": "近世哲学基礎演習",
+        "fields": [
+          {
+            "after": "(2T) 火5-6,水3-4：文A101",
+            "before": "(2T) 火5-6,水3-4：文A302",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BD200001",
+        "titleBefore": "中国思想史概説",
+        "titleAfter": "中国思想史概説",
+        "fields": [
+          {
+            "after": "(1T) 月1-4：文B104",
+            "before": "(1T) 月1-4：文B153",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BD401001",
+        "titleBefore": "諸子学文献Ａ",
+        "titleAfter": "諸子学文献Ａ",
+        "fields": [
+          {
+            "after": "(1T) 金7-8：文B251, (2T) 金7-8",
+            "before": "(前) 金7-8：文A152",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BE212001",
+        "titleBefore": "日本近代研究Ａ",
+        "titleAfter": "日本近代研究Ａ",
+        "fields": [
+          {
+            "after": "実施日程：8月6日（木），８月８日(土）～8月11日（火）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "奈良 勝司",
+            "before": "奈良 勝司,奈良 勝司",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(外前) 集中：詳細は掲示板参照",
+            "before": "(前) 集中：詳細は掲示板参照",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "2年次生 前期 ターム外（前期）",
+            "before": "2年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BE214001",
+        "titleBefore": "日本近代研究Ｃ",
+        "titleAfter": "日本近代研究Ｃ",
+        "fields": [
+          {
+            "after": "実施日程：8月6日（木），８月８日（土）～8月11日（火）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "3年次生 前期 ターム外（前期）",
+            "before": "3年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "BE301001",
+        "titleBefore": "日本史実習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BF208001",
+        "titleBefore": "中国経済史研究A",
+        "titleAfter": "中国経済史研究A",
+        "fields": [
+          {
+            "after": "金子 肇",
+            "before": "金子 肇,金子 肇",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BF502101",
+        "titleBefore": "中国経済史史料解析学Ｃ",
+        "titleAfter": "中国経済史史料解析学Ｃ",
+        "fields": [
+          {
+            "after": "金子 肇",
+            "before": "金子 肇,金子 肇",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BG200002",
+        "titleBefore": "世界システム論研究",
+        "titleAfter": "世界システム論研究",
+        "fields": [
+          {
+            "after": "実施日程：８月２４日（月）～８月２７日（木）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "3,4年次生",
+            "before": "2,3,4年次生",
+            "field": "対象学生"
+          },
+          {
+            "after": "(外前) 集中：文B104",
+            "before": "(外前) 集中：講義室未定",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BG201001",
+        "titleBefore": "大西洋地域システム研究",
+        "titleAfter": "大西洋地域システム研究",
+        "fields": [
+          {
+            "after": "実施日程：８月２４日（月）～８月２７日（木）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B104",
+            "before": "(外前) 集中：講義室未定",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BH213101",
+        "titleBefore": "地理学特論B",
+        "titleAfter": "地理学特論B",
+        "fields": [
+          {
+            "after": "実施日程：８月２７日（木）～８月２９日（土）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BH302101",
+        "titleBefore": "地理学野外実験",
+        "titleAfter": "地理学野外実験",
+        "fields": [
+          {
+            "after": "(外前) 集中",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "3年次生 前期 ターム外（前期）",
+            "before": "3年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BI200001",
+        "titleBefore": "考古学基礎論Ａ",
+        "titleAfter": "考古学基礎論Ａ",
+        "fields": [
+          {
+            "after": "集中講義日程 実施日程：８月31日（月）～9月２日（水）",
+            "before": "集中講義日程 未定",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B253",
+            "before": "(外前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BJ213002",
+        "titleBefore": "総合文化財学応用研究",
+        "titleAfter": "総合文化財学応用研究",
+        "fields": [
+          {
+            "after": "実施日程：6月13日（土）～6月14日（日），6月27（土）～6月28日（日）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(2T) 集中：詳細は掲示板参照",
+            "before": "(前) 集中：詳細は掲示板参照",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "2年次生 前期 ２ターム",
+            "before": "2年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BK212201",
+        "titleBefore": "日本語学研究法II",
+        "titleAfter": "日本語学研究法II",
+        "fields": [
+          {
+            "after": "実施日程：9月8日（火）～9月11日（金）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B253",
+            "before": "(外前) 集中：講義室未定",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BK213001",
+        "titleBefore": "近代文学概説",
+        "titleAfter": "近代文学概説",
+        "fields": [
+          {
+            "after": "日本近代を代表する作家・志賀直哉の作品の精読を通じて、小説の分析や考察の基礎的方法を学ぶ。加えて他作家との比較により、言語芸術の多様な方法、並びに現代へと連なる近代という時代の価値観・人間観・世界観について理解を深める。",
+            "before": "日本近代文学史において後景に置かれてきた、明治・大正・昭和前期の女性作家たちの作品の読解を通じて、日本近代の社会構造や家族のかたち、女性を取り巻く規範や教育、価値観について認識を深める。同時代の男性作家の作品や同時代言説との比較検討も踏まえて、女性作家たちの自己表象の在り方や表現特徴について考察し、現代の文学・ジェンダー観の形成に至るまでの史的経緯と文学という方法の可能性及び限界について考察する。",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(4T) 金7-10：文B251",
+            "before": "(4T) 金7,金9-10：文B251, (4T) 金8",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BK404101",
+        "titleBefore": "中世近世文学演習I",
+        "titleAfter": "中世近世文学演習I",
+        "fields": [
+          {
+            "after": "(前) 火3-4：文B251",
+            "before": "(前) 火5-6：文B251",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BK506001",
+        "titleBefore": "現代文学演習II",
+        "titleAfter": "現代文学演習II",
+        "fields": [
+          {
+            "after": "DALMI KATALIN",
+            "before": "DALMI KATALIN,DALMI KATALIN",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BL205001",
+        "titleBefore": "中国文学語学特講Ｂ",
+        "titleAfter": "中国文学語学特講Ｂ",
+        "fields": [
+          {
+            "after": "実施日程：8月24日（月）～8月27日（木）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BL402001",
+        "titleBefore": "現代中国語演習A",
+        "titleAfter": "現代中国語演習A",
+        "fields": [
+          {
+            "after": "(前) 火3-4：文B201",
+            "before": "(前) 火3-4：文A152",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BM001102",
+        "titleBefore": "欧米文学語学・言語学入門",
+        "titleAfter": "欧米文学語学・言語学入門",
+        "fields": [
+          {
+            "after": "今林 修,尾園 絢一,SCHELLETTER CHRISTOPHER,宮川 朗子,上野 貴史,今道 晴彦",
+            "before": "今林 修,尾園 絢一,宮川 朗子,上野 貴史,今道 晴彦,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BM212001",
+        "titleBefore": "エスニック文学講義",
+        "titleAfter": "エスニック文学講義",
+        "fields": [
+          {
+            "after": "実施日程：8月17日（月）～8月20日（木）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BM404002",
+        "titleBefore": "アメリカ詩文学演習 A",
+        "titleAfter": "アメリカ詩文学演習 A",
+        "fields": [
+          {
+            "after": "もみじ掲示板を適宜確認してください。",
+            "before": "日本語訳、文法解説、語彙解説、疑問点提示の担当があります。語彙を調べる際にはOEDを活用してください。 担当表などはもみじの掲示板を使用しますので、もみじ掲示板を適宜確認してください。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "本演習では、17世紀アメリカ植民地期の詩を精読し、ピューリタン神学、聖書解釈学、植民地主義的言説との関係を検討する。主としてニューイングランド詩を扱いながら、アメリカ文学の起源が宗教的想像力とどのように結びついていたのかを明らかにする。",
+            "before": "本演習では、17世紀アメリカ植民地期の詩を精読し、ピューリタン神学、聖書解釈学、植民地主義的言説との関係を検討する。主としてニューイングランド詩を扱いながら、アメリカ文学の起源が宗教的想像力とどのように結びついていたのかを明らかにする。要約は一切行わず、全行を逐語的に読解する。学生は一行ずつ音読し、日本語訳および文法解説、議論の中心となる疑問点提示等を担当する。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BM506001",
+        "titleBefore": "イギリス詩文学演習 Ａ",
+        "titleAfter": "イギリス詩文学演習 Ａ",
+        "fields": [
+          {
+            "after": "語彙を調べる際にはOEDを使ってください。",
+            "before": "語彙を調べる際にはOEDを使ってください。担当表などはもみじの掲示板を使用しますので、もみじ掲示板を適宜確認してください。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "本講義は、17世紀イギリスにおける形而上派詩人（Metaphysical Poets）の作品を精読し、恋愛・宗教・時間・死といった主題を思想史的文脈の中で考察することを目的とする。",
+            "before": "本講義は、17世紀イギリスにおける形而上派詩人（Metaphysical Poets）の作品を精読し、恋愛・宗教・時間・死といった主題を思想史的文脈の中で考察することを目的とする。要約は一切行わず、全行を逐語的に読解する。学生は一行ずつ音読し、日本語訳および文法解説を担当する。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BN518001",
+        "titleBefore": "ドイツ近現代文学演習Ａ",
+        "titleAfter": "ドイツ近現代文学演習Ａ",
+        "fields": [
+          {
+            "after": "実施日程：9月16日（水）～9月19日（土）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B201",
+            "before": "(前) 集中：文B253",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "3年次生 前期 ターム外（前期）",
+            "before": "3年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BN518201",
+        "titleBefore": "ドイツ近現代文学演習Ｃ",
+        "titleAfter": "ドイツ近現代文学演習Ｃ",
+        "fields": [
+          {
+            "after": "実施日程：9月16日（水）～9月19日（土）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B201",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "4年次生 前期 ターム外（前期）",
+            "before": "4年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BO206102",
+        "titleBefore": "現代フランス文学序説Ａ",
+        "titleAfter": "現代フランス文学序説Ａ",
+        "fields": [
+          {
+            "after": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。 実施日程：9月19日（土）～9月22日（火）",
+            "before": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。",
+            "field": "その他"
+          },
+          {
+            "after": "BEAUVIEUX MARIE NOELLE BENEDICTE ISABELL",
+            "before": "BEAUVIEUX MARIE NOELLE BENEDICTE",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BO206202",
+        "titleBefore": "現代フランス文学序説Ｂ",
+        "titleAfter": "現代フランス文学序説Ｂ",
+        "fields": [
+          {
+            "after": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。 実施日程：9月19日（土）～9月22日（火）",
+            "before": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。",
+            "field": "その他"
+          },
+          {
+            "after": "BEAUVIEUX MARIE NOELLE BENEDICTE ISABELL",
+            "before": "BEAUVIEUX MARIE NOELLE BENEDICTE",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BO206302",
+        "titleBefore": "現代フランス文学序説Ｃ",
+        "titleAfter": "現代フランス文学序説Ｃ",
+        "fields": [
+          {
+            "after": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。 実施日程：9月19日（土）～9月22日（火）",
+            "before": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。",
+            "field": "その他"
+          },
+          {
+            "after": "BEAUVIEUX MARIE NOELLE BENEDICTE ISABELL",
+            "before": "BEAUVIEUX MARIE NOELLE BENEDICTE",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BP400201",
+        "titleBefore": "一般言語学基礎演習",
+        "titleAfter": "一般言語学基礎演習",
+        "fields": [
+          {
+            "after": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。 実施日程：8月31日（月）～9月2日（水）",
+            "before": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B102",
+            "before": "(前) 集中：講義室未定",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "2年次生 前期 ターム外（前期）",
+            "before": "2年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BP412102",
+        "titleBefore": "歴史言語学演習",
+        "titleAfter": "歴史言語学演習",
+        "fields": [
+          {
+            "after": "実施日程：9月7日（月）～9月9日（水）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：文B102",
+            "before": "(外前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "BX250051",
+        "titleBefore": null,
+        "titleAfter": "卒業論文",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BX410061",
+        "titleBefore": "卒業論文指導Ａ",
+        "titleAfter": "卒業論文指導Ａ",
+        "fields": [
+          {
+            "after": "(前) 集中：教員研究室",
+            "before": "(前) 水1-2：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BX420061",
+        "titleBefore": "卒業論文指導Ｂ",
+        "titleAfter": "卒業論文指導Ｂ",
+        "fields": [
+          {
+            "after": "(後) 集中：教員研究室",
+            "before": "(後) 水1-2：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "BY020101",
+        "titleBefore": "基礎書道",
+        "titleAfter": "基礎書道",
+        "fields": [
+          {
+            "after": "実施日程：8月18日（火）～8月21日（金）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC112323",
+        "titleBefore": "初等国語",
+        "titleAfter": "初等国語",
+        "fields": [
+          {
+            "after": "松本 仁志,細 恵子",
+            "before": "松本 仁志,瀧口 美絵",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC117406",
+        "titleBefore": "理科学習材講義（R4以前入学生用）",
+        "titleAfter": "理科学習材講義（R4以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC118206",
+        "titleBefore": "初等教科研究法II",
+        "titleAfter": "初等教科研究法II",
+        "fields": [
+          {
+            "after": "(後) 木1-2：教L205,教L207",
+            "before": "(後) 木1-2：教Ｃ509,教L205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC119902",
+        "titleBefore": "地域初等教育入門",
+        "titleAfter": "地域初等教育入門",
+        "fields": [
+          {
+            "after": "松本 仁志,担当教員未定",
+            "before": "松本 仁志",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC134501",
+        "titleBefore": "特別支援学校教育実習入門",
+        "titleAfter": "特別支援学校教育実習入門",
+        "fields": [
+          {
+            "after": "林田 真志,永瀬 開,氏間 和仁",
+            "before": "林田 真志,永瀬 開",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC134604",
+        "titleBefore": "特別支援学校教育実習観察",
+        "titleAfter": "特別支援学校教育実習観察",
+        "fields": [
+          {
+            "after": "森 まゆ,新海 晃,朝岡 寛史",
+            "before": "氏間 和仁,森 まゆ,新海 晃,朝岡 寛史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC134706",
+        "titleBefore": "特別支援学校教育実習",
+        "titleAfter": "特別支援学校教育実習",
+        "fields": [
+          {
+            "after": "氏間 和仁,森 まゆ,林田 真志,船橋 篤彦,川合 紀宗,村上 理絵,新海 晃,永瀬 開,朝岡 寛史",
+            "before": "氏間 和仁,森 まゆ,林田 真志,船橋 篤彦,川合 紀宗,村上 理絵,新海 晃,毛 月,永瀬 開,朝岡 寛史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "CC136215",
+        "titleBefore": "卒業論文",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC211305",
+        "titleBefore": "自然システム（理科）教育実践論",
+        "titleAfter": "自然システム（理科）教育実践論",
+        "fields": [
+          {
+            "after": "・集中講義で行う。本年度の日程は、6月6日(土)，6月27日(土)，6月28日(日)である。 ・出欠や資料配付は、Teamsにて配布予定である。後日登録について連絡をするので確認すること。",
+            "before": "・集中講義で行う。本年度の日程は、6月7日(土)、6月28日(土)、6月29日(日)である。 ・出欠や資料配付は、Teamsにて配布予定である。後日登録について連絡をするので確認すること。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC212703",
+        "titleBefore": "生物とその多様性のリテラシーII",
+        "titleAfter": "生物とその多様性のリテラシーII",
+        "fields": [
+          {
+            "after": "岡 浩平",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC213705",
+        "titleBefore": "生物教材内容論II",
+        "titleAfter": "生物教材内容論II",
+        "fields": [
+          {
+            "after": "今井 章裕",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC222806",
+        "titleBefore": "幾何学研究法II（R5以前入学生用）",
+        "titleAfter": "幾何学研究法II（R5以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC223106",
+        "titleBefore": "解析学研究法II（R5以前入学生用）",
+        "titleAfter": "解析学研究法II（R5以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC237701",
+        "titleBefore": "マルチメディア研究法",
+        "titleAfter": "マルチメディア研究法",
+        "fields": [
+          {
+            "after": "(集) 集中：教C310",
+            "before": "(2T) 火1-4：教C310",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "4年次生 前期 集中",
+            "before": "4年次生 前期 ２ターム",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC241401",
+        "titleBefore": "経済学概説",
+        "titleAfter": "経済学概説",
+        "fields": [
+          {
+            "after": "経済学は理論中心の学問であり、高校までの「経済」とは全く別物である。「歴史」と「歴史学」のような接続性はほぼない。ただ、経済学部での本格的な経済理論とは異なり、少しでも高校の「経済」との接続を意識し、数学もあまり利用することなく(但し、算数レベルの数学は多用する。経済学は物理の力学のように、経済活動・現象を法則化して、数式表記する学問である)、且つ、経済学の世界を味わえる講義である。尚、教育指導法などとは無縁の講義である。法令に従い、経済学そのものの講義である。そもそも教育学部生が中社・地歴・公民科の教免を取得できるのは、経済学の私をはじめ、地理学や歴史学そのものを専門とする教育学部所属の専任教員が規定の人数揃い、経済学そのものほかの講義を行っているからである。法令上は、教育学部であっても社会科教育専門の専任教員は0でもOKなのである。この点も意識してこれからの４年間、学習していただきたい。",
+            "before": "経済学は理論中心の学問であり、高校までの「経済」とは全く別物である。「歴史」と「歴史学」のような接続性はほぼない。ただ、経済学部での本格的な経済理論とは異なり、高校の「経済」との接続を意識し、数学もほとんど利用することなく、且つ、経済学の世界を味わえる講義である。尚、教育指導法などとは無縁の講義である。法令に従い、経済学そのものの講義である。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "講義内容(口頭・講義録とも)については、全て理解し、頭に入れて(暗記して)持ち込み不可で実施する期末試験に臨むように。本講義の単位は教員免許状取得の一部をなしている。国家試験の一部と言える。医師や薬剤師などの国家試験は持ち込み不可である。大学入試も共通テスト筆頭に持ち込み不可であろう。しっかりと学習を。それに不満があるのならば、教員になられた際に、漢字や英単語、九九はじめ計算問題から元素記号を確認する試験をはじめ、全て持ち込み可で行えばと言いたい。そんな試験で、どれけの学習効果があるのか教えて欲しい位である。",
+            "before": "必要に応じて指示する。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "最終日に持ち込み不可で実施の筆記試験を受験できる者。単位不要の履修登録は認めない。",
+            "before": "最終日に持ち込み不可で実施の筆記試験を受験できる者。1",
+            "field": "対象学生"
+          },
+          {
+            "after": "持ち込み不可で実施する筆記試験で単位取得可能レベルの答案を作成できるために、十分、本講義のために時間と労力をかけられる者のみ受講を。経済学と法律学は、難関国家試験や公務員試験のメイン科目でもあるため、それなりに時間をかけて学習しないと理解することは無理であろう。そもそも高校までの学習内容で理解できる内容ならば、大学に進学する必要はないであろう。便覧を見るとわかるように、遺憾ながら、本講義を履修しなくても社会系Pを卒業でき、他学部の指定された講義の単位取得で社会科・公民科の教員免許状も取得できる。大学は実力・競争社会であり、出席しただけや受験しただけでは、単位取得できない。自信のない者は、他学部の代替となる講義の履修を強く勧める。",
+            "before": "持ち込み不可で実施する筆記試験で単位取得可能レベルの答案を作成できるために、十分、本講義のために時間と労力をかけられる者のみ受講を。便覧を見るとわかるように、遺憾ながら、本講義を履修しなくても社会系Pを卒業でき、他学部の指定された講義の単位取得で社会科・公民科の教員免許状も取得できる。大学は実力・競争社会であり、出席しただけや受験しただけでは、単位取得できない。自信のない者は、他学部の代替となる講義の履修を強く勧める。",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "経済学の入門。特に、経済学（経済理論）の基本となる完全競争市場における需給均衡についての経済学的意義を講義した上で、市場への政府の介入の必要性について講義していく。更に、経済学分析にとって必要不可欠なゲーム理論の入り口部分についても講義する。教育学部開設の講義ではあるが、講義内容は法令に従い経済学そのものである。教育方法などは一切触れず、(ギリギリ)大学レベルの経済学そのものの教育と理解を目的としている。",
+            "before": "経済学の入門。特に、経済学（経済理論）の基本となる完全競争市場における需給均衡についての経済学的意義を講義した上で、市場への政府の介入の必要性について講義していく。更に、経済学分析にとって必要不可欠なゲーム理論の入り口部分についても講義する。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC245703",
+        "titleBefore": "経済学各論I",
+        "titleAfter": "経済学各論I",
+        "fields": [
+          {
+            "after": "学期末の学習内容もしっかりと時間をかけて学んでいただくため、オンデマンドを利用して、予習・自習した上で、対面講義に参加していただくことになる。講義スピードは、枠が固定されているシラバス記載の講義日よりも早く進む予定である。そのつもりで履修していただきたい。まずは、オンデマンドでガイダンスなどを読んだうえで、それでも単位取得を目指して期末試験に向けて勉強される方のみ履修を。",
+            "before": "学期末の学習内容もしっかりと時間をかけて学んでいただくため、オンデマンドを利用して、予習・自習した上で、対面講義に参加していただくことになる。講義スピードは、枠が固定されているシラバス記載の講義日よりも早く進む予定である。そのつもりで履修していただきたい。尚、6月6日はオンデマンドのみでの開講予定(対面無し)。ガイダンスなどを読んだうえで、それでも単位取得を目指して期末試験に向けて勉強される方のみ履修を。",
+            "field": "その他"
+          },
+          {
+            "after": "社会系の学生にとって、経済学各論Ⅰ・Ⅱ・Ⅲいずれも履修しないと週休3日以上になるとのこと。経済学史は数式を多用する経済理論の変遷史であり、理解するにはそれなりに時間をかけて学習する必要がある。また評価は、持ち込み不可で実施する期末試験の結果のみで行う。よって、特に社会系の学生は、本講義の講義内容が本当に研究や教育実習などに必要な方のみ履修して下さい。社会系ではない方々は、どなたでも大歓迎。まずは、一般常識とも言える現実の経済用語である一国の経済の規模の諸概念を中心に、本講義において学んでいっていただきたい。その上で、高校の教科書では必ず取り上げられる経済学者たち、並びに、実体経済の変化・発展と経済理論・思想がどのように変化していったのかを経済学史・思想史と経済史を融合させながら、講義していく。",
+            "before": "社会系の学生にとって、経済学各論Ⅰ・Ⅱ・Ⅲいずれも履修しないと週休3日以上になるとのこと。経済学史は数式を多用する経済理論の変遷史であり、理解するにはそれなりに時間をかけて学習する必要がある。また評価は、持ち込み不可で実施する期末試験の結果のみで行う。よって、特に社会系の学生は、本講義の講義内容が本当に研究などに必要な方のみ履修して下さい。社会系ではない方々は、どなたでも大歓迎。まずは、一般常識とも言える現実の経済用語である一国の経済の規模の諸概念を中心に、本講義において学んでいっていただきたい。その上で、高校の教科書では必ず取り上げられる経済学者たち、並びに、実体経済の変化・発展と経済理論・思想がどのように変化していったのかを経済史と経済学史・思想史を融合させながら、講義していく。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "講義内容(口頭・講義録とも)については、全て理解し、頭に入れて(暗記して)持ち込み不可で実施する期末試験に臨むように。本講義の単位は教員免許状取得の一部をなしている。国家試験の一部と言える。医師や薬剤師などの国家試験は持ち込み不可である。大学入試も共通テスト筆頭に持ち込み不可であろう。しっかりと学習を。それに不満があるのならば、教員になられた際に、漢字や英単語、九九はじめ計算問題から元素記号を確認する試験をはじめ、全て持ち込み可で行えばと言いたい。そんな試験で、どれけの学習効果があるのか教えて欲しい位である。",
+            "before": "その都度、指示する。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "最終日に実施予定の筆記試験を受験できる者。単位不要の履修は認めない。",
+            "before": "最終日に実施予定の筆記試験を受験できる者。10名程度以下での開講を想定（本書のメッセージ欄参照）",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC245804",
+        "titleBefore": "経済学各論II",
+        "titleAfter": "経済学各論II",
+        "fields": [
+          {
+            "after": "定員20名程度の小さな講義室であり、持ち込み不可で実施する期末試験を円滑に実施するためにも受講者は、10名程度かそれ以下の人数としたい。社会系の学生にとって、経済学各論Ⅰ・Ⅱ・Ⅲいずれも履修しないと週休3日以上になるとのこと。週休3日を選び各論Ⅰを履修しなかった社会系学生の履修は不可とする。他方、特に初等の3・4年生の履修を大いに期待している。初回の10月2日はオンデマンドのみ（対面は無し）。10月9日から対面開始。",
+            "before": "定員20名程度の小さな講義室であり、持ち込み不可で実施する期末試験を円滑に実施するためにも受講者は、10名程度かそれ以下の人数としたい。社会系の学生にとって、経済学各論Ⅰ・Ⅱ・Ⅲいずれも履修しないと週休3日以上になるとのこと。評価は、持ち込み不可で実施する期末試験の結果のみで行う。よって、特に社会系の学生は、本講義の講義内容が本当に研究などに必要な方のみ履修して下さい。初回の10月2日はオンデマンドのみ（対面は無し）。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "講義内容(口頭・講義録とも)については、全て理解し、期末試験に臨むように。本講義の単位は教員免許状取得の一部をなしている。国家試験の一部と言える。医師や薬剤師などの国家試験は持ち込み不可である。大学入試も共通テスト筆頭に持ち込み不可であろう。しっかりと学習を。それに不満があるのならば、教員になられた際に、漢字や英単語、九九はじめ計算問題から元素記号を確認する試験をはじめ、全て持ち込み可で行えばと言いたい。そんな試験で、どれけの学習効果があるのか教えて欲しい位である。",
+            "before": "その都度、指示する。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "最終日に実施予定の筆記試験を受験できる者。よって、単位不要の履修登録は認めない。10名程度以下での開講を想定（本書のメッセージ欄参照）また、各論Ⅰを履修していない社会系の学生も不可。",
+            "before": "最終日に実施予定の筆記試験を受験できる者。10名程度以下での開講を想定（本書のメッセージ欄参照）",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC246603",
+        "titleBefore": "社会系（公民）カリキュラムデザイン論",
+        "titleAfter": "社会系（公民）カリキュラムデザイン論",
+        "fields": [
+          {
+            "after": "田中 伸",
+            "before": "草原 和博",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(集) 集中",
+            "before": "(集) 集中：教K102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC310803",
+        "titleBefore": "国語文化概論Ｃ（国語文化と漢文）",
+        "titleAfter": "国語文化概論Ｃ（国語文化と漢文）",
+        "fields": [
+          {
+            "after": "(2T) 火5-8：教K102",
+            "before": "(2T) 火5-8：教K104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC331203",
+        "titleBefore": "現代文化論",
+        "titleAfter": "現代文化論",
+        "fields": [
+          {
+            "after": "(1T) 水5-8：教K104",
+            "before": "(1T) 水5-8：教K208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC331204",
+        "titleBefore": "第二言語学習の心理（R6以前入学生用）",
+        "titleAfter": "第二言語学習の心理（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC331403",
+        "titleBefore": "日本語の文法（R6以前入学生用）",
+        "titleAfter": "日本語の文法（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC332204",
+        "titleBefore": "日本文化研究（R6以前入学生用）",
+        "titleAfter": "日本文化研究（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC332303",
+        "titleBefore": "異文化接触と文化学習",
+        "titleAfter": "異文化接触と文化学習",
+        "fields": [
+          {
+            "after": "(2T) 火5-8：教K203",
+            "before": "(2T) 火5-8：教K114",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC332604",
+        "titleBefore": "日本語教育評価法（R6以前入学生用）",
+        "titleAfter": "日本語教育評価法（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC333406",
+        "titleBefore": "対照言語学演習",
+        "titleAfter": "対照言語学演習",
+        "fields": [
+          {
+            "after": "仁科 陽江,仁科 陽江",
+            "before": "仁科 陽江",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC335102",
+        "titleBefore": "日本語教育学特定研究I",
+        "titleAfter": "日本語教育学特定研究I",
+        "fields": [
+          {
+            "after": "(前) 木9-10：教員研究室",
+            "before": "(前) 火9-10：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC340202",
+        "titleBefore": "Education in Multicultural Society（多文化社会の教育）",
+        "titleAfter": "Education in Multicultural Society（多文化社会の教育）",
+        "fields": [
+          {
+            "after": "【重要】 7月22日の学外訪問に際し、学生は交通費（往復2,200円~2500円）を負担する必要があります。 ・履修登録の優先順位は、MUGLEDの学生を最優先とし、次に他プログラム・他学部の1年生、その後にその他の学年の学生とします。 ・定員を超えた場合は、担当教員が抽選を行い、授業開始前に選ばれた学生へ通知します。",
+            "before": "【重要】 TECS訪問にあたり、往復バス代として一人あたり約2,000円～2,500円の費用が必要となる。実施日は6月8日または15日（予定、未確定）である。TECS訪問への参加は全員必須とする。",
+            "field": "その他"
+          },
+          {
+            "after": "【重要】 7月22日の学外訪問に際し、学生は交通費（往復2,200円~2500円）を負担する必要があります。 ・履修登録の優先順位は、MUGLEDの学生を最優先とし、次に他プログラム・他学部の1年生、その後にその他の学年の学生とします。 ・定員を超えた場合は、担当教員が抽選を行い、授業開始前に選ばれた学生へ通知します。",
+            "before": "【重要】 TECS訪問にあたり、往復バス代として一人あたり約2,000円～2,500円の費用が必要となる。実施日は6月8日または15日（予定、未確定）である。TECS訪問への参加は全員必須とする。",
+            "field": "メッセージ"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC410604",
+        "titleBefore": "生涯活動教育論（R6以前入学生用）",
+        "titleAfter": "生涯活動教育論（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC411102",
+        "titleBefore": "体つくり運動・器械運動",
+        "titleAfter": "体つくり運動・器械運動",
+        "fields": [
+          {
+            "after": "(3T) 木1-4：北体育館,教L206",
+            "before": "(3T) 水1-4：北体育館,教K208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC411303",
+        "titleBefore": "水泳",
+        "titleAfter": "水泳",
+        "fields": [
+          {
+            "after": "齊藤 一彦,黒坂 志穂,松本 佑介,林 七虹",
+            "before": "齊藤 一彦,黒坂 志穂,松本 佑介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC415106",
+        "titleBefore": "器械運動指導演習",
+        "titleAfter": "器械運動指導演習",
+        "fields": [
+          {
+            "after": "(3T) 木5-8：北体育館,教L206",
+            "before": "(4T) 水1-4：北体育館,教K208",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "3年次生 後期 ３ターム",
+            "before": "3年次生 後期 ４ターム",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC415305",
+        "titleBefore": "水泳指導演習",
+        "titleAfter": "水泳指導演習",
+        "fields": [
+          {
+            "after": "齊藤 一彦,黒坂 志穂,松本 佑介,林 七虹",
+            "before": "齊藤 一彦,黒坂 志穂,松本 佑介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC513764",
+        "titleBefore": "幼児教育学演習I",
+        "titleAfter": "幼児教育学演習I",
+        "fields": [
+          {
+            "after": "(4T) 水1-2：教K104",
+            "before": "(4T) 木5-6：教K104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC513774",
+        "titleBefore": "幼児教育学演習II",
+        "titleAfter": "幼児教育学演習II",
+        "fields": [
+          {
+            "after": "(4T) 水3-4：教K104",
+            "before": "(4T) 木7-8：教K104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600113",
+        "titleBefore": "教職入門",
+        "titleAfter": "教職入門",
+        "fields": [
+          {
+            "after": "曽余田 浩史,澤田 百花,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "before": "曽余田 浩史,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600123",
+        "titleBefore": "教職入門",
+        "titleAfter": "教職入門",
+        "fields": [
+          {
+            "after": "曽余田 浩史,澤田 百花,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "before": "曽余田 浩史,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600133",
+        "titleBefore": "教職入門",
+        "titleAfter": "教職入門",
+        "fields": [
+          {
+            "after": "曽余田 浩史,澤田 百花,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "before": "曽余田 浩史,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600143",
+        "titleBefore": "教職入門",
+        "titleAfter": "教職入門",
+        "fields": [
+          {
+            "after": "曽余田 浩史,澤田 百花,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "before": "曽余田 浩史,村上 真実,杉原 満治,藤田 典生,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600415",
+        "titleBefore": "教育課程論",
+        "titleAfter": "教育課程論",
+        "fields": [
+          {
+            "after": "吉田 成章,金原 遼,澤田 百花,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "before": "吉田 成章,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600425",
+        "titleBefore": "教育課程論",
+        "titleAfter": "教育課程論",
+        "fields": [
+          {
+            "after": "吉田 成章,金原 遼,澤田 百花,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "before": "吉田 成章,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600435",
+        "titleBefore": "教育課程論",
+        "titleAfter": "教育課程論",
+        "fields": [
+          {
+            "after": "吉田 成章,金原 遼,澤田 百花,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "before": "吉田 成章,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600445",
+        "titleBefore": "教育課程論",
+        "titleAfter": "教育課程論",
+        "fields": [
+          {
+            "after": "吉田 成章,金原 遼,澤田 百花,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "before": "吉田 成章,松田 充,宮本 勇一,福田 敦志,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600535",
+        "titleBefore": "道徳教育指導法",
+        "titleAfter": "道徳教育指導法",
+        "fields": [
+          {
+            "after": "杉田 浩崇,山中 翔,丸山 恭司",
+            "before": "杉田 浩崇,丸山 恭司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600714",
+        "titleBefore": "教育方法・技術論及び情報活用教育論",
+        "titleAfter": "教育方法・技術論及び情報活用教育論",
+        "fields": [
+          {
+            "after": "福田 敦志,金原 遼,澤田 百花,松田 充,吉田 成章",
+            "before": "福田 敦志,松田 充,吉田 成章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600724",
+        "titleBefore": "教育方法・技術論及び情報活用教育論",
+        "titleAfter": "教育方法・技術論及び情報活用教育論",
+        "fields": [
+          {
+            "after": "教育学部（４・５類）",
+            "before": "教育学部（２・３類）",
+            "field": "対象学生"
+          },
+          {
+            "after": "福田 敦志,金原 遼,澤田 百花,松田 充,吉田 成章",
+            "before": "福田 敦志,松田 充,吉田 成章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600734",
+        "titleBefore": "教育方法・技術論及び情報活用教育論",
+        "titleAfter": "教育方法・技術論及び情報活用教育論",
+        "fields": [
+          {
+            "after": "総文法経用",
+            "before": "教育学部（２・３類）",
+            "field": "対象学生"
+          },
+          {
+            "after": "福田 敦志,金原 遼,澤田 百花,松田 充,吉田 成章",
+            "before": "福田 敦志,松田 充,吉田 成章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC600744",
+        "titleBefore": "教育方法・技術論及び情報活用教育論",
+        "titleAfter": "教育方法・技術論及び情報活用教育論",
+        "fields": [
+          {
+            "after": "理工生情用",
+            "before": "教育学部（２・３類）",
+            "field": "対象学生"
+          },
+          {
+            "after": "福田 敦志,金原 遼,澤田 百花,松田 充,吉田 成章",
+            "before": "福田 敦志,松田 充,吉田 成章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC603501",
+        "titleBefore": "中・高等学校教育実習入門",
+        "titleAfter": "中・高等学校教育実習入門",
+        "fields": [
+          {
+            "after": "多田羅 多起子,岡崎 正和,清水 寿代,瀧日 滋野,谷田 親彦,奥村 安寿子,池尻 良平,影山 和也,川口 広美,徳永 崇,蜂谷 昌之,一鍬田 徹,山内 優佳,福田 敦志,松本 佑介,CHANG CHIH HAO,田村 惇,三好 美織,伊藤 真,間瀬 茂夫,齊藤 一彦",
+            "before": "多田羅 多起子,岡崎 正和,草原 和博,清水 寿代,瀧日 滋野,谷田 親彦,奥村 安寿子,池尻 良平,影山 和也,川口 広美,徳永 崇,蜂谷 昌之,一鍬田 徹,山内 優佳,福田 敦志,松本 佑介,CHANG CHIH HAO,田村 惇,三好 美織,伊藤 真,間瀬 茂夫,齊藤 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC604202",
+        "titleBefore": "世界の教育・日本の教育（R6以前入学生用）",
+        "titleAfter": "世界の教育・日本の教育（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC605102",
+        "titleBefore": "グローバル教員養成演習（R6以前入学生用）",
+        "titleAfter": "グローバル教員養成演習（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC605103",
+        "titleBefore": "グローバル教員養成演習（R6以前入学生用）",
+        "titleAfter": "グローバル教員養成演習（R6以前入学生用）",
+        "fields": [
+          {
+            "after": "専門教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC606111",
+        "titleBefore": "教職実践演習（幼・小）",
+        "titleAfter": "教職実践演習（幼・小）",
+        "fields": [
+          {
+            "after": "米沢 崇,永田 忠道,木村 博一,深谷 達史,山内 規嗣,林田 真志,船橋 篤彦,真野 祐輔,伊藤 優,渡邉 巧,藤木 大介,川合 紀宗,児玉 真樹子,松宮 奈賀子,寺内 大輔,池田 吏志,中井 悠加,村上 理絵,高橋 均,新海 晃,岡村 美由規,中村 和世,雲財 寛,又野 陽子,戸高 真也,永瀬 開,松本 仁志,松浦 武人,南浦 涼介,久保 研二,氏間 和仁,宇都宮 明子,朝岡 寛史",
+            "before": "渡邉 巧,永田 忠道,木村 博一,深谷 達史,山内 規嗣,林田 真志,船橋 篤彦,真野 祐輔,米沢 崇,伊藤 優,藤木 大介,川合 紀宗,児玉 真樹子,松宮 奈賀子,寺内 大輔,池田 吏志,中井 悠加,村上 理絵,高橋 均,新海 晃,岡村 美由規,中村 和世,雲財 寛,又野 陽子,戸高 真也,永瀬 開,松本 仁志,松浦 武人,南浦 涼介,久保 研二,氏間 和仁,宇都宮 明子,朝岡 寛史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "CC606232",
+        "titleBefore": "教職実践演習（中・高）",
+        "titleAfter": "教職実践演習（中・高）",
+        "fields": [
+          {
+            "after": "杉尾 健次郎,田中 秀幸,滝沢 潤,松浦 拓也,森田 愛子,尾川 満宏",
+            "before": "杉尾 健次郎,滝沢 潤,松浦 拓也,森田 愛子,尾川 満宏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F0001117",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "(前) 火13-14：東千田M203講義室",
+            "before": "(前) 火13-14：東千田A402講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F0040000",
+        "titleBefore": "親族法",
+        "titleAfter": "親族法",
+        "fields": [
+          {
+            "after": "(前) 火13-14：東千田M201/202講義室",
+            "before": "(前) 火13-14：東千田M301講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F0041030",
+        "titleBefore": "外国書講読（中国語）",
+        "titleAfter": "外国書講読（中国語）",
+        "fields": [
+          {
+            "after": "(前) 木9-10：東千田ミーティングルーム3-1",
+            "before": "(前) 木9-10：東千田M302講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1000005",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "(前) 水7-8：東千田M301講義室",
+            "before": "(前) 水7-8：東千田M201/202講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1036125",
+        "titleBefore": "行政法１",
+        "titleAfter": "行政法１",
+        "fields": [
+          {
+            "after": "(1T) 木5-8：東千田M304講義室",
+            "before": "(1T) 木5-8：東千田M401/402講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1083554",
+        "titleBefore": "（特講）社会安全政策論",
+        "titleAfter": "（特講）社会安全政策論",
+        "fields": [
+          {
+            "after": "(2T) 火7-8,金7-8：東千田M203講義室",
+            "before": "(2T) 火7-8,金7-8：東千田M302講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1207135",
+        "titleBefore": "国際法１",
+        "titleAfter": "国際法１",
+        "fields": [
+          {
+            "after": "楼 ジェ",
+            "before": "楼 ジェ,楼 ジェ",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1217115",
+        "titleBefore": "戦争と平和の国際法",
+        "titleAfter": "戦争と平和の国際法",
+        "fields": [
+          {
+            "after": "(2T) 月5-8：東千田M201/202講義室",
+            "before": "(2T) 月5-8：東千田M301講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1307143",
+        "titleBefore": "社会調査論",
+        "titleAfter": "社会調査論",
+        "fields": [
+          {
+            "after": "(1T) 木5-8：東千田M203講義室",
+            "before": "(1T) 木5-8：東千田M304講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "F1309154",
+        "titleBefore": "（特講）日本法入門Ⅰ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1310254",
+        "titleBefore": "（特講）日本法入門Ⅱ",
+        "titleAfter": "（特講）日本法入門Ⅱ",
+        "fields": [
+          {
+            "after": "葛 虹,葛 虹",
+            "before": "葛 虹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1321122",
+        "titleBefore": "国際政治経済学",
+        "titleAfter": "国際政治経済学",
+        "fields": [
+          {
+            "after": "(2T) 木1-4：東千田M203講義室",
+            "before": "(2T) 木1-4：東千田M301講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F1981124",
+        "titleBefore": "（特講）中国法",
+        "titleAfter": "（特講）中国法",
+        "fields": [
+          {
+            "after": "葛 虹,葛 虹",
+            "before": "葛 虹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F2021225",
+        "titleBefore": "アジア政治の基礎",
+        "titleAfter": "アジア政治の基礎",
+        "fields": [
+          {
+            "after": "吉田 修",
+            "before": "吉田 修,吉田 修",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F2135000",
+        "titleBefore": "外国書講読（中国語）",
+        "titleAfter": "外国書講読（中国語）",
+        "fields": [
+          {
+            "after": "(前) 木9-10：東千田ミーティングルーム3-1",
+            "before": "(前) 木9-10：東千田M302講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F2138253",
+        "titleBefore": "税法２",
+        "titleAfter": "税法２",
+        "fields": [
+          {
+            "after": "(2T) 木5-8：東千田M204講義室",
+            "before": "(2T) 木5-8：東千田M401/402講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F2190100",
+        "titleBefore": "民事訴訟法（法曹）[新カリキュラム]",
+        "titleAfter": "民事訴訟法（法曹）[新カリキュラム]",
+        "fields": [
+          {
+            "after": "田邊 誠",
+            "before": "田邊 誠,安永 祐司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "F4300200",
+        "titleBefore": null,
+        "titleAfter": "Legal System and Japanese Society",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "F8007000",
+        "titleBefore": "（特講）アジアにおける法政を学ぶ",
+        "titleAfter": "（特講）アジアにおける法政を学ぶ",
+        "fields": [
+          {
+            "after": "",
+            "before": "積極的に発言や議論ができる者の参加を歓迎します。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "基礎的な英語力があることが望ましいです。",
+            "before": "すべての参加者に十分な英語/中国語能力が必要です。英語のみ、中国語のみの授業があるので注意すること。",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "法学・政治学・経済学の観点からアジアにおける法政の諸課題を検討し、ディスカッションを通じて理解を深めるとともに、国際的視野を涵養することを目的とする。",
+            "before": "法学・政治学・経済学の観点から検討を行い、海外の学生との英語および中国語によるディスカッションを通じて、アジアにおける法政の諸課題を理解するとともに、国際的視野を涵養することを目的とする。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "F9991000",
+        "titleBefore": null,
+        "titleAfter": "（特講）法学部入門",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G5261101",
+        "titleBefore": "労働経済学",
+        "titleAfter": "労働経済学",
+        "fields": [
+          {
+            "after": "瀧 敦弘",
+            "before": "瀧 敦弘,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G5810004",
+        "titleBefore": "演習",
+        "titleAfter": "演習",
+        "fields": [
+          {
+            "after": "(通) 木3-4：経B151",
+            "before": "(通) 木3-4：経B251",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6004312",
+        "titleBefore": "統計学１",
+        "titleAfter": "統計学１",
+        "fields": [
+          {
+            "after": "富岡 知己",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6005411",
+        "titleBefore": "統計学２",
+        "titleAfter": "統計学２",
+        "fields": [
+          {
+            "after": "富岡 知己",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6025501",
+        "titleBefore": "経営史",
+        "titleAfter": "経営史",
+        "fields": [
+          {
+            "after": "趙 勝新",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6047225",
+        "titleBefore": "金融論１",
+        "titleAfter": "金融論１",
+        "fields": [
+          {
+            "after": "村上 恵子,null",
+            "before": "千田 隆,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6166101",
+        "titleBefore": "金融論２（平成30年度以降入学生）・金融論３（平成29年度以前入学生）",
+        "titleAfter": "金融論２（平成30年度以降入学生）・金融論３（平成29年度以前入学生）",
+        "fields": [
+          {
+            "after": "村上 恵子,null",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6173100",
+        "titleBefore": "簿記概論",
+        "titleAfter": "簿記概論",
+        "fields": [
+          {
+            "after": "",
+            "before": "成績評価時期の関係上，今年度前期末卒業予定者は履修対象外となります。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6177325",
+        "titleBefore": "経済統計学",
+        "titleAfter": "経済統計学",
+        "fields": [
+          {
+            "after": "中西 正",
+            "before": "担当教員未定,中西 正",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(2T) 金1-4：経B257",
+            "before": "(2T) 金1-4",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6209342",
+        "titleBefore": "特別講義(Access to TOEIC (R) 2)",
+        "titleAfter": "特別講義(Access to TOEIC (R) 2)",
+        "fields": [
+          {
+            "after": "TOEIC L&R TESTの演習問題を解きながら、出題形式や頻出表現を丁寧に確認し、スコアアップのための英語学習方法などを習得する。各Unitで全パートを学習することにより、特定パートに対する苦手意識を減らす。また特にTOEIC によく登場する重要な語彙や表現などを問題を通してスパイラル学習することにより、TOEIC の目標スコア取得を目指す。また授業内では、一部テキストの問題文や会話文などを実際に声に出す口頭トレーニングを体験することにより、スコアアップのみならず英語でのコミュニケーション実践のための基礎体力をつける。（英語を声にだすことに「慣れる」）",
+            "before": "TOEIC L&R TESTの演習問題を解きながら、出題形式や頻出表現を丁寧に確認し、スコアアップのための英語学習方法などを習得する。各Unitをある程度集中的反復的に学習することにより、Unitごとの効果的なアプローチ方法を身に着ける。また特にTOEIC によく登場する重要な語彙や表現などを問題を通してスパイラル学習することにより、TOEIC の目標スコア取得を目指す。また授業内では、一部テキストの問題文や会話文などを実際に声に出す口頭トレーニングを体験することにより、スコアアップのみならず英語でのコミュニケーション実践のための基礎体力をつける。（英語を声にだすことに「慣れる」）",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6249002",
+        "titleBefore": "演習",
+        "titleAfter": "演習",
+        "fields": [
+          {
+            "after": "",
+            "before": "授業計画は、学生の理解度等に応じて、多少変更される場合がある。原則として毎回、講義のテーマおよび時事問題に関連するディベートを行う。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "講義の復習が大事になります。講義で指示します。",
+            "before": "毎回の講義で指示する",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "4 : 上級レベル",
+            "before": "3 : 中級レベル",
+            "field": "学習の段階"
+          },
+          {
+            "after": "３年次",
+            "before": "３年次生以上",
+            "field": "対象学生"
+          },
+          {
+            "after": "PC演習後、研究プロジェクトを遂行",
+            "before": "本講義は、医療経済学の理解に必要な初歩的なミクロ経済学の応用概念をカバーする。特に経済学的な思考法の訓練に重点を置き、社会経済的課題の原因と対策について理解を深める事を目的とする。",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(通) 木3-4：経B251",
+            "before": "(通) 木3-4：（経）大会議室,経A203計算機室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6253104",
+        "titleBefore": "卒業論文",
+        "titleAfter": "卒業論文",
+        "fields": [
+          {
+            "after": "(通) 木1-2,集中1-2：経B151",
+            "before": "(通) 木1-2,集中1-2：経B251",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6253302",
+        "titleBefore": "卒業論文",
+        "titleAfter": "卒業論文",
+        "fields": [
+          {
+            "after": "(通) 木1-2,集中1-2：経B251",
+            "before": "(通) 木1-2,集中1-2：（経）大会議室,経A203計算機室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G6265000",
+        "titleBefore": "特別講義（財務会計論）",
+        "titleAfter": "特別講義（財務会計論）",
+        "fields": [
+          {
+            "after": "予習は不要、復習は以下参照。 回 数 復習内容 第１回 講義の復習 第２回 講義の復習 第３回 講義の復習 第４回 講義の復習 第５回 講義の復習 第６回 講義の復習 第７回 講義の復習 第８回 講義の復習 第９回 講義の復習 第10回 講義の復習 第11回 講義の復習 第12回 講義の復習 第13回 講義の復習",
+            "before": "予習は不要、復習は以下参照。 回 数 復習内容 第１回 講義の復習 第２回 講義の復習 第３回 講義の復習 第４回 講義の復習 第５回 講義の復習 第６回 講義の復習 第７回 講義の復習 第８回 講義の復習 第９回 講義の復習 第10回 講義の復習 第11回 講義の復習 第12回 講義の復習 第13回 講義の復習 第14回 講義の復習 第15回 講義の復習",
+            "field": "予習・復習への アドバイス"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "G6275001",
+        "titleBefore": null,
+        "titleAfter": "特別講義（Applied Economics）",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "G6996001",
+        "titleBefore": null,
+        "titleAfter": "教養ゼミ",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G8234100",
+        "titleBefore": "経営組織論",
+        "titleAfter": "経営組織論",
+        "fields": [
+          {
+            "after": "(前) 水11-12：東千田A402講義室",
+            "before": "(前) 水11-12：東千田M301講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "G8271000",
+        "titleBefore": null,
+        "titleAfter": "財政学",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G8336000",
+        "titleBefore": "社会心理学",
+        "titleAfter": "社会心理学",
+        "fields": [
+          {
+            "after": "(前) 火11-12：東千田M302講義室",
+            "before": "(前) 火11-12：東千田M304講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "G8346000",
+        "titleBefore": "地域経済学",
+        "titleAfter": "地域経済学",
+        "fields": [
+          {
+            "after": "東千田",
+            "before": "",
+            "field": "開講キャンパス"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "H1000002",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "(2T) 火9-10,金5-6：理C106,先402N,先403N",
+            "before": "(2T) 火9-10,金5-6：理B301,先402N,先403N",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "H1000004",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "坪田 博美,井川 武,荻野 肇,坂本 敦,今村 拓也,鈴木 誠,草場 信,千原 崇裕,高橋 治子,島田 裕士,信澤 岳,菊池 裕,松井 彩,大森 義裕,林 利憲,豊倉 浩一,細羽 康介,平川 有宇樹,高橋 美佐,守口 和基,田澤 一朗,鈴木 厚,富原 壮真,中島 圭介,坂本 尚昭,濱生 こずえ,嶋村 正樹,浮田 有美子,深澤 壽太郎,本田 瑞季",
+            "before": "坪田 博美,井川 武,荻野 肇,坂本 敦,今村 拓也,鈴木 誠,草場 信,千原 崇裕,高橋 治子,島田 裕士,信澤 岳,岡本 和子,菊池 裕,松井 彩,大森 義裕,林 利憲,豊倉 浩一,細羽 康介,平川 有宇樹,高橋 美佐,守口 和基,田澤 一朗,鈴木 厚,富原 壮真,中島 圭介,坂本 尚昭,濱生 こずえ,嶋村 正樹,浮田 有美子,深澤 壽太郎,本田 瑞季",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(2T) 火9-10,木9-10：理E210",
+            "before": "(2T) 火9-10,木9-10：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HA000000",
+        "titleBefore": "数学英語演習",
+        "titleAfter": "数学英語演習",
+        "fields": [
+          {
+            "after": "(3T) 火3-4,木3-4：理E104",
+            "before": "(3T) 火3-4,木3-4：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HA020000",
+        "titleBefore": "解析学I",
+        "titleAfter": "解析学I",
+        "fields": [
+          {
+            "after": "(2T) 火9-10,木1-2：理E104",
+            "before": "(2T) 火9-10,木1-2：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HA075000",
+        "titleBefore": "解析学III演習",
+        "titleAfter": "解析学III演習",
+        "fields": [
+          {
+            "after": "(2T) 金1-4：理E209",
+            "before": "(2T) 金1-4：理E104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HA080000",
+        "titleBefore": "解析学IV",
+        "titleAfter": "解析学IV",
+        "fields": [
+          {
+            "after": "(4T) 月1-2,木3-4：理C107",
+            "before": "(4T) 月1-2,木3-4：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HA120000",
+        "titleBefore": "代数学II",
+        "titleAfter": "代数学II",
+        "fields": [
+          {
+            "after": "(3T) 火5-6,金1-2：理E209",
+            "before": "(3T) 火5-6,金1-2：理E104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HA240000",
+        "titleBefore": "数学通論II演習",
+        "titleAfter": "数学通論II演習",
+        "fields": [
+          {
+            "after": "(3T) 火1-2,木1-2：理E104",
+            "before": "(3T) 火1-2,木1-2：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB040000",
+        "titleBefore": "代数学Ｂ",
+        "titleAfter": "代数学Ｂ",
+        "fields": [
+          {
+            "after": "(4T) 水3-4,金3-4：理C107",
+            "before": "(4T) 水3-4：理E210, (4T) 金3-4：経B159",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB090000",
+        "titleBefore": "幾何学Ｂ演習",
+        "titleAfter": "幾何学Ｂ演習",
+        "fields": [
+          {
+            "after": "小川 健翔",
+            "before": "奥田 隆幸",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(4T) 火3-4,金9-10：理C101",
+            "before": "(4T) 火3-4,金9-10：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB110000",
+        "titleBefore": "解析学Ａ演習",
+        "titleAfter": "解析学Ａ演習",
+        "fields": [
+          {
+            "after": "(2T) 水1-2：理E211, (2T) 木5-6：理E210",
+            "before": "(2T) 水1-2,木5-6：理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB140000",
+        "titleBefore": "解析学Ｃ",
+        "titleAfter": "解析学Ｃ",
+        "fields": [
+          {
+            "after": "(3T) 水3-4,金5-6：理C107",
+            "before": "(3T) 水3-4,金5-6：理E102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB150000",
+        "titleBefore": "解析学Ｃ演習",
+        "titleAfter": "解析学Ｃ演習",
+        "fields": [
+          {
+            "after": "(3T) 火3-4,木3-4：理C107",
+            "before": "(3T) 火3-4,木3-4：理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB160000",
+        "titleBefore": "解析学Ｄ",
+        "titleAfter": "解析学Ｄ",
+        "fields": [
+          {
+            "after": "(3T) 水9-10,金3-4：理E102",
+            "before": "(3T) 水9-10,金3-4：理E002AV",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB170000",
+        "titleBefore": "解析学Ｄ演習",
+        "titleAfter": "解析学Ｄ演習",
+        "fields": [
+          {
+            "after": "(3T) 火7-8,木5-6：理E211",
+            "before": "(3T) 火7-8：理E211, (3T) 木5-6：経B155",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB185000",
+        "titleBefore": "計算数学",
+        "titleAfter": "計算数学",
+        "fields": [
+          {
+            "after": "(4T) 火7-8,木1-2：理E210",
+            "before": "(4T) 火7-8,木1-2：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB206000",
+        "titleBefore": "計算数理Ｂ",
+        "titleAfter": "計算数理Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 月5-6,木5-6：先403N",
+            "before": "(3T) 月5-6,木5-6",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB220000",
+        "titleBefore": "確率・統計Ａ",
+        "titleAfter": "確率・統計Ａ",
+        "fields": [
+          {
+            "after": "(2T) 火3-4,木1-2：理E209",
+            "before": "(2T) 火3-4,木1-2：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB230000",
+        "titleBefore": "確率・統計Ａ演習",
+        "titleAfter": "確率・統計Ａ演習",
+        "fields": [
+          {
+            "after": "(2T) 水3-4,金5-6：理E209",
+            "before": "(2T) 水3-4,金5-6：理E104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB270000",
+        "titleBefore": "幾何学Ｄ",
+        "titleAfter": "幾何学Ｄ",
+        "fields": [
+          {
+            "after": "奥田 隆幸",
+            "before": "村尾 智",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(4T) 水5-6,金5-6：理E210",
+            "before": "(4T) 水5-6,金5-6：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB282000",
+        "titleBefore": "数理解析学Ｂ",
+        "titleAfter": "数理解析学Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 火7-8,水5-6：理E209",
+            "before": "(3T) 火7-8,水5-6：理E208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB305000",
+        "titleBefore": "非線形数理",
+        "titleAfter": "非線形数理",
+        "fields": [
+          {
+            "after": "(3T) 水1-2,金7-8：理E208",
+            "before": "(3T) 水1-2,金7-8：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB315000",
+        "titleBefore": "複雑系数理",
+        "titleAfter": "複雑系数理",
+        "fields": [
+          {
+            "after": "(2T) 水3-4,金7-8：理C106",
+            "before": "(2T) 水3-4,金7-8：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB320000",
+        "titleBefore": "確率・統計Ｂ",
+        "titleAfter": "確率・統計Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 火9-10,木9-10：理E209",
+            "before": "(3T) 火9-10：理E209, (3T) 木9-10：理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB330000",
+        "titleBefore": "確率・統計Ｃ",
+        "titleAfter": "確率・統計Ｃ",
+        "fields": [
+          {
+            "after": "(3T) 月3-4,水7-8：理E211",
+            "before": "(3T) 月3-4,水7-8：先405N",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB340000",
+        "titleBefore": "代数学特殊講義",
+        "titleAfter": "代数学特殊講義",
+        "fields": [
+          {
+            "after": "(2T) 火7-8,金3-4：理C101",
+            "before": "(2T) 火7-8,金3-4：理E102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB350000",
+        "titleBefore": "幾何学特殊講義",
+        "titleAfter": "幾何学特殊講義",
+        "fields": [
+          {
+            "after": "(2T) 火3-4,金5-6：理C101",
+            "before": "(2T) 火3-4,金5-6：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB360000",
+        "titleBefore": "解析学特殊講義",
+        "titleAfter": "解析学特殊講義",
+        "fields": [
+          {
+            "after": "(4T) 火7-8,水7-8：理C107",
+            "before": "(4T) 火7-8,水7-8：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "HB390032",
+        "titleBefore": null,
+        "titleAfter": "数学情報課題研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HB390039",
+        "titleBefore": null,
+        "titleAfter": "数学情報課題研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HB390044",
+        "titleBefore": null,
+        "titleAfter": "数学情報課題研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HB395032",
+        "titleBefore": null,
+        "titleAfter": "数学情報課題研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HB395039",
+        "titleBefore": null,
+        "titleAfter": "数学情報課題研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HB395044",
+        "titleBefore": null,
+        "titleAfter": "数学情報課題研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HB510000",
+        "titleBefore": "代数学E",
+        "titleAfter": "代数学E",
+        "fields": [
+          {
+            "after": "(4T) 月5-6,木3-4：理C101",
+            "before": "(4T) 月5-6,木3-4",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HC016000",
+        "titleBefore": "力学演習",
+        "titleAfter": "力学演習",
+        "fields": [
+          {
+            "after": "(後) 金1-4：理C106,理E210,理E211",
+            "before": "(後) 金1-4：理B301,理E210,理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HC075000",
+        "titleBefore": "統計力学演習",
+        "titleAfter": "統計力学演習",
+        "fields": [
+          {
+            "after": "(後) 木1-4：理C106,理E208,理E209",
+            "before": "(後) 木1-4：理B301,理E208,理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HC086000",
+        "titleBefore": "電磁・量力演習",
+        "titleAfter": "電磁・量力演習",
+        "fields": [
+          {
+            "after": "(後) 水7-10：理C101,理C106,理E210",
+            "before": "(後) 水7-10：理B301,理B305,理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HC401000",
+        "titleBefore": "先端物理学",
+        "titleAfter": "先端物理学",
+        "fields": [
+          {
+            "after": "野原 実,中島 伸夫,松村 武,岡部 信広,黒岩 芳弘,深澤 泰司,木村 昭夫,嶋原 浩,檜垣 浩之,野中 千穂,飯沼 昌隆,志垣 賢太,川端 弘治,鬼丸 孝博,加藤 政博,栗木 雅夫",
+            "before": "野原 実,中島 伸夫,松村 武,岡部 信広,黒岩 芳弘,深澤 泰司,木村 昭夫,嶋原 浩,檜垣 浩之,野中 千穂,飯沼 昌隆,和田 真一,志垣 賢太,川端 弘治,鬼丸 孝博,加藤 政博,栗木 雅夫",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HD017000",
+        "titleBefore": "物理学実験I",
+        "titleAfter": "物理学実験I",
+        "fields": [
+          {
+            "after": "梅尾 和則,吉田 啓晃,中島 伸夫,松村 武,青山 拓也,八木 隆多,須田 祐介,塚田 真也,KIM SANGWOOK,LIPTAK ZACHARY JOHN,八野 哲,志村 恭通,角田 一樹,高橋 修,伊藤 清一,鬼丸 孝博,橋本 聡",
+            "before": "梅尾 和則,吉田 啓晃,中島 伸夫,松村 武,青山 拓也,八木 隆多,須田 祐介,塚田 真也,KIM SANGWOOK,LIPTAK ZACHARY JOHN,八野 哲,志村 恭通,角田 一樹,高橋 修,森吉 千佳子,伊藤 清一,鬼丸 孝博,橋本 聡",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HD018000",
+        "titleBefore": "物理学実験II",
+        "titleAfter": "物理学実験II",
+        "fields": [
+          {
+            "after": "梅尾 和則,吉田 啓晃,中島 伸夫,松村 武,青山 拓也,八木 隆多,須田 祐介,塚田 真也,KIM SANGWOOK,LIPTAK ZACHARY JOHN,八野 哲,志村 恭通,角田 一樹,高橋 修,伊藤 清一,鬼丸 孝博,橋本 聡",
+            "before": "梅尾 和則,吉田 啓晃,中島 伸夫,松村 武,青山 拓也,八木 隆多,須田 祐介,塚田 真也,KIM SANGWOOK,LIPTAK ZACHARY JOHN,八野 哲,志村 恭通,角田 一樹,高橋 修,森吉 千佳子,伊藤 清一,鬼丸 孝博,橋本 聡",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HD290000",
+        "titleBefore": "粒子実験物理学",
+        "titleAfter": "粒子実験物理学",
+        "fields": [
+          {
+            "after": "(後) 水7-8：理E104",
+            "before": "(後) 水7-8",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "HF180017",
+        "titleBefore": null,
+        "titleAfter": "卒業研究Ａ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HF180056",
+        "titleBefore": null,
+        "titleAfter": "卒業研究Ａ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HF190017",
+        "titleBefore": null,
+        "titleAfter": "卒業研究Ｂ",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HG200000",
+        "titleBefore": "先端化学",
+        "titleAfter": "先端化学",
+        "fields": [
+          {
+            "after": "安倍 学,井上 克也,高口 博志,井口 佳哉,石坂 昌司,石谷 治,齋藤 健一,二宮 和彦,中田 聡,水田 勉,灰野 岳晴,西原 禎文,吉田 拡人",
+            "before": "安倍 学,井上 克也,高口 博志,井口 佳哉,石坂 昌司,石谷 治,齋藤 健一,二宮 和彦,中田 聡,泉 俊輔,水田 勉,灰野 岳晴,西原 禎文,吉田 拡人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HG280000",
+        "titleBefore": "物理化学IIＡ",
+        "titleAfter": "物理化学IIＡ",
+        "fields": [
+          {
+            "after": "(3T) 水9-10,木9-10：理C107",
+            "before": "(3T) 水9-10,木9-10：理E104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HG350007",
+        "titleBefore": "卒業研究",
+        "titleAfter": "卒業研究",
+        "fields": [
+          {
+            "after": "中田 聡,松尾 宗征",
+            "before": "中田 聡,松尾 宗征,久世 雅和",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "HG350025",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HG350040",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HG355025",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HG355040",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HG355041",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HG355042",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ150000",
+        "titleBefore": "生体物質化学",
+        "titleAfter": "生体物質化学",
+        "fields": [
+          {
+            "after": "",
+            "before": "生命現象を化学の言葉で理解することを目的にしています。 他学科の学生の皆さんでも興味のある人は受講してみてください。 またOffice Hourを設けています（最初の講義で説明）ので、利用してください。 （期末試験の前に、演習問題を一気に解くようなことがないようにしましょう。）",
+            "field": "メッセージ"
+          },
+          {
+            "after": "生体物質の化学構造は一般的に複雑ですが、それを読み解く能力を身につける講義となります。生体物質の基本的な構造と物性、立体化学を理解できるよう、毎回の講義の復習をきちんと行うこと。",
+            "before": "第１回授業後 授業内容の確認と高校の化学の該当分野の復習。 第２-４回授業後 授業内容の確認と復習。配付資料に基づく次回授業の予習。 第4回終了時点で、糖質の終了となるので、代表的な基本事項のチェックを行う 第５-7回授業後 授業内容の確認と復習。配付資料に基づく次回授業の予習。 第７回終了時点で、脂質の終了となるので、代表的な基本事項のチェックを行う。 第８-１１回授業後 授業内容の確認と復習。配付資料に基づく次回授業の予習。 アミノ酸に関しては、構造と表記の確実な理解が必要。（確実に暗記すべきものは暗記すること） 第１２-１４回授業後 質量分析学はこれまでの履修内容と比べて異質である。物理化学の知識が必要とされることが多い。あらかじめ復習しておくこと。 第１５回授業後 授業内容の総確認と総復習。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "演示実験を伴うため70名以上はお引き受けできません。 その際には理学部学生を優先します。 高校の時に生物学を学んだかどうかは全く問いません。 （これまでの統計では，高校の時に物理を学んでいた学生と生物を学んでいた学生のこの講義での平均点に差は見られない。）",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "生理活性物質、生体構築物質、生体エネルギー供給物質、遺伝情報物質などの生体物質の化学構造と性質についての基礎事項を概説し、それらが生体現象 (生体機能) にどのように関わっているかを物質間相互作用や化学反応の点から理解する。",
+            "before": "生理活性物質、生体構築物質、生体エネルギー供給物質、遺伝情報物質などの 生体物質の化学構造と性質についての基礎事項を概説し、それらが生命現象（生体機能）にどのようにかかわっているのかを物質間相互作用や化学反応の観点から理解する。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ211000",
+        "titleBefore": "化学実験I",
+        "titleAfter": "化学実験I",
+        "fields": [
+          {
+            "after": "久米 晶子,松尾 宗征,高口 博志,柘植 雅士,中本 真晃,茅原 栄一,平尾 岳大,村松 悟,安田 恭大,久野 尚之,眞邉 潤,鴨川 径,久保 和幸,大前 英司,片柳 克夫,岡田 和正,高木 隆吉,西原 禎文,芦田 嘉之,松原 弘樹,宮川 晃尚",
+            "before": "久米 晶子,松尾 宗征,高口 博志,中本 真晃,茅原 栄一,平尾 岳大,村松 悟,安田 恭大,久野 尚之,眞邉 潤,久世 雅和,久保 和幸,大前 英司,片柳 克夫,岡田 和正,高木 隆吉,西原 禎文,芦田 嘉之,松原 弘樹,宮川 晃尚",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ212000",
+        "titleBefore": "化学実験II",
+        "titleAfter": "化学実験II",
+        "fields": [
+          {
+            "after": "久米 晶子,松尾 宗征,高口 博志,柘植 雅士,中本 真晃,茅原 栄一,平尾 岳大,村松 悟,安田 恭大,久野 尚之,眞邉 潤,鴨川 径,久保 和幸,大前 英司,片柳 克夫,岡田 和正,高木 隆吉,西原 禎文,芦田 嘉之,松原 弘樹,宮川 晃尚",
+            "before": "久米 晶子,松尾 宗征,高口 博志,中本 真晃,茅原 栄一,平尾 岳大,村松 悟,安田 恭大,久野 尚之,眞邉 潤,久世 雅和,久保 和幸,大前 英司,片柳 克夫,岡田 和正,高木 隆吉,西原 禎文,芦田 嘉之,松原 弘樹,宮川 晃尚",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ276000",
+        "titleBefore": "分子光化学",
+        "titleAfter": "分子光化学",
+        "fields": [
+          {
+            "after": "(4T) 水3-4,金7-8：理E002AV",
+            "before": "(4T) 水3-4,金7-8：理E104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ290000",
+        "titleBefore": "機器分析化学",
+        "titleAfter": "機器分析化学",
+        "fields": [
+          {
+            "after": "(2T) 月1-2,木1-2：理E210",
+            "before": "(2T) 月1-2,木1-2：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ320000",
+        "titleBefore": "放射化学",
+        "titleAfter": "放射化学",
+        "fields": [
+          {
+            "after": "(3T) 月7-8,金7-8：理C107",
+            "before": "(3T) 月7-8,金7-8：理E208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ350000",
+        "titleBefore": "生物化学",
+        "titleAfter": "生物化学",
+        "fields": [
+          {
+            "after": "参考書の類似した項目を学習し、配布資料等を参考に理解を深めること。",
+            "before": "第2回ー第8回 参考書の類似した項目について目を通し、授業後はノートおよび配布資料を参考に理解を進めること。第10-12回 第10回および11回の内容を受けてレポート作成および第12回に行う予定のプレゼンテーションの準備に取り組むこと。",
+            "field": "予習・復習への アドバイス"
+          },
+          {
+            "after": "",
+            "before": "特にありません。 他学科からの履修も歓迎します。",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "分子生物学 (DNAの複製、転写、翻訳) および創薬化学 (Structure-Based Drug Design, 低分子から高分子医薬品) の基礎について理解する。",
+            "before": "DNAの複製やDNAから蛋白質までの生体反応での分子機構、創薬の基礎について理解する。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HJ540000",
+        "titleBefore": "基礎有機化学",
+        "titleAfter": "基礎有機化学",
+        "fields": [
+          {
+            "after": "(3T) 火1-2,金3-4：理C107",
+            "before": "(3T) 火1-2：理E002AV, (3T) 金3-4：理E102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK100000",
+        "titleBefore": "先端生物学",
+        "titleAfter": "先端生物学",
+        "fields": [
+          {
+            "after": "(2T) 水3-4,木7-8：理E211",
+            "before": "(2T) 水3-4,木7-8：理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK150000",
+        "titleBefore": "基礎生物科学Ｂ",
+        "titleAfter": "基礎生物科学Ｂ",
+        "fields": [
+          {
+            "after": "(2T) 水5-8：理C107",
+            "before": "(2T) 水5-8：理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK190000",
+        "titleBefore": "生化学Ａ",
+        "titleAfter": "生化学Ａ",
+        "fields": [
+          {
+            "after": "(4T) 水5-6,金5-6：理C106",
+            "before": "(4T) 水5-6,金5-6：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK220000",
+        "titleBefore": "植物生態学Ａ",
+        "titleAfter": "植物生態学Ａ",
+        "fields": [
+          {
+            "after": "(2T) 金5-8：理C107",
+            "before": "(2T) 金5-8：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK270000",
+        "titleBefore": "細胞生物学Ａ",
+        "titleAfter": "細胞生物学Ａ",
+        "fields": [
+          {
+            "after": "(2T) 水5-6,木5-6：理C106",
+            "before": "(2T) 水5-6,木5-6：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK300000",
+        "titleBefore": "分子遺伝学Ｂ",
+        "titleAfter": "分子遺伝学Ｂ",
+        "fields": [
+          {
+            "after": "(4T) 水3-4,金3-4：理C101",
+            "before": "(4T) 水3-4,金3-4：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK320000",
+        "titleBefore": "植物生理学Ｂ",
+        "titleAfter": "植物生理学Ｂ",
+        "fields": [
+          {
+            "after": "(4T) 木3-6：理E211",
+            "before": "(4T) 木3-6：理E210",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK330000",
+        "titleBefore": "発生生物学Ｂ",
+        "titleAfter": "発生生物学Ｂ",
+        "fields": [
+          {
+            "after": "(2T) 火5-8：理E210",
+            "before": "(2T) 火5-8：理E208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK333000",
+        "titleBefore": "再生生物学",
+        "titleAfter": "再生生物学",
+        "fields": [
+          {
+            "after": "林 利憲,田澤 一朗,中島 圭介",
+            "before": "林 利憲,岡本 和子,田澤 一朗,中島 圭介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK450027",
+        "titleBefore": "卒業研究",
+        "titleAfter": "卒業研究",
+        "fields": [
+          {
+            "after": "林 利憲",
+            "before": "林 利憲,岡本 和子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK455027",
+        "titleBefore": "卒業研究",
+        "titleAfter": "卒業研究",
+        "fields": [
+          {
+            "after": "林 利憲",
+            "before": "林 利憲,岡本 和子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK461000",
+        "titleBefore": "遺伝学A",
+        "titleAfter": "遺伝学A",
+        "fields": [
+          {
+            "after": "(3T) 木5-6,金5-6：理C106",
+            "before": "(3T) 木5-6,金5-6：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK520000",
+        "titleBefore": "内分泌学・免疫学",
+        "titleAfter": "内分泌学・免疫学",
+        "fields": [
+          {
+            "after": "花田 秀樹,田澤 一朗,中島 圭介",
+            "before": "田澤 一朗,花田 秀樹,中島 圭介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HK530000",
+        "titleBefore": "両生類生物学演習",
+        "titleAfter": "両生類生物学演習",
+        "fields": [
+          {
+            "after": "荻野 肇,井川 武,鈴木 誠,林 利憲,花田 秀樹,田澤 一朗,鈴木 厚,中島 圭介",
+            "before": "荻野 肇,井川 武,鈴木 誠,岡本 和子,林 利憲,花田 秀樹,田澤 一朗,鈴木 厚,中島 圭介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HL010000",
+        "titleBefore": "生物科学基礎実験I",
+        "titleAfter": "生物科学基礎実験I",
+        "fields": [
+          {
+            "after": "守口 和基,井川 武,鈴木 誠,島田 裕士,信澤 岳,豊倉 浩一,花田 秀樹,高橋 美佐,田澤 一朗,鈴木 厚,坪田 博美,中島 圭介,坂本 尚昭,嶋村 正樹,本田 瑞季",
+            "before": "守口 和基,井川 武,鈴木 誠,島田 裕士,信澤 岳,岡本 和子,豊倉 浩一,花田 秀樹,高橋 美佐,田澤 一朗,鈴木 厚,坪田 博美,中島 圭介,坂本 尚昭,嶋村 正樹,本田 瑞季",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HL020000",
+        "titleBefore": "生物科学基礎実験II",
+        "titleAfter": "生物科学基礎実験II",
+        "fields": [
+          {
+            "after": "坂本 尚昭,井川 武,坊農 秀雅,今村 拓也,鈴木 誠,草場 信,下出 紗弓,豊倉 浩一,細羽 康介,花田 秀樹,富原 壮真,濱生 こずえ,嶋村 正樹,本田 瑞季",
+            "before": "坂本 尚昭,井川 武,坊農 秀雅,今村 拓也,鈴木 誠,草場 信,岡本 和子,下出 紗弓,豊倉 浩一,細羽 康介,花田 秀樹,富原 壮真,濱生 こずえ,嶋村 正樹,本田 瑞季",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HL040000",
+        "titleBefore": "生物科学基礎実験IV",
+        "titleAfter": "生物科学基礎実験IV",
+        "fields": [
+          {
+            "after": "平川 有宇樹,井川 武,坊農 秀雅,荻野 肇,坂本 敦,今村 拓也,鈴木 誠,草場 信,千原 崇裕,高橋 治子,島田 裕士,信澤 岳,菊池 裕,杉 拓磨,松井 彩,大森 義裕,林 利憲,有本 飛鳥,豊倉 浩一,細羽 康介,花田 秀樹,高橋 美佐,守口 和基,田澤 一朗,鈴木 厚,坪田 博美,富原 壮真,中島 圭介,坂本 尚昭,濱生 こずえ,田川 訓史,嶋村 正樹,浮田 有美子,深澤 壽太郎,本田 瑞季,山本 卓",
+            "before": "平川 有宇樹,井川 武,坊農 秀雅,荻野 肇,坂本 敦,今村 拓也,鈴木 誠,草場 信,千原 崇裕,高橋 治子,島田 裕士,信澤 岳,岡本 和子,菊池 裕,杉 拓磨,松井 彩,大森 義裕,林 利憲,有本 飛鳥,豊倉 浩一,細羽 康介,花田 秀樹,高橋 美佐,守口 和基,田澤 一朗,鈴木 厚,坪田 博美,富原 壮真,中島 圭介,坂本 尚昭,濱生 こずえ,田川 訓史,嶋村 正樹,浮田 有美子,深澤 壽太郎,本田 瑞季,山本 卓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HL250000",
+        "titleBefore": "情報生物学",
+        "titleAfter": "情報生物学",
+        "fields": [
+          {
+            "after": "(4T) 火1-4：理C106",
+            "before": "(4T) 火1-4：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM011000",
+        "titleBefore": "地質図学",
+        "titleAfter": "地質図学",
+        "fields": [
+          {
+            "after": "(3T) 火7-8,木7-8：理C106",
+            "before": "(3T) 火7-8,木7-8：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM031000",
+        "titleBefore": "堆積学・古生物学Ｉ",
+        "titleAfter": "堆積学・古生物学Ｉ",
+        "fields": [
+          {
+            "after": "(2T) 火3-4,木9-10：理C107",
+            "before": "(2T) 火3-4,木9-10：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM080000",
+        "titleBefore": "岩石学",
+        "titleAfter": "岩石学",
+        "fields": [
+          {
+            "after": "(3T) 水9-10,金7-8：理E209",
+            "before": "(3T) 水9-10：理E211, (3T) 金7-8：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM276000",
+        "titleBefore": "岩石変形学Ｉ",
+        "titleAfter": "岩石変形学Ｉ",
+        "fields": [
+          {
+            "after": "(2T) 水3-4,木7-8：理E210",
+            "before": "(2T) 水3-4,木7-8：理A705",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM306000",
+        "titleBefore": "アストロバイオロジー",
+        "titleAfter": "アストロバイオロジー",
+        "fields": [
+          {
+            "after": "(2T) 火5-6：理E208, (2T) 木5-6：理E104",
+            "before": "(2T) 火5-6,木5-6：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM391000",
+        "titleBefore": "地球惑星科学英語II",
+        "titleAfter": "地球惑星科学英語II",
+        "fields": [
+          {
+            "after": "(2T) 水5-8：理C101",
+            "before": "(2T) 水5-8：理E208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "HM475019",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "HM475020",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM500000",
+        "titleBefore": "先端地球惑星科学",
+        "titleAfter": "先端地球惑星科学",
+        "fields": [
+          {
+            "after": "(3T) 火1-2,木1-2：理C101",
+            "before": "(3T) 火1-2,木1-2：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM530000",
+        "titleBefore": "固体地球化学II",
+        "titleAfter": "固体地球化学II",
+        "fields": [
+          {
+            "after": "(2T) 火3-4,金3-4：理C106",
+            "before": "(2T) 火3-4,金3-4：経B251",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM560000",
+        "titleBefore": "地球惑星内部物理学演習Ｂ",
+        "titleAfter": "地球惑星内部物理学演習Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 金5-8：理C101",
+            "before": "(3T) 金5-8：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM590000",
+        "titleBefore": "地球テクトニクス",
+        "titleAfter": "地球テクトニクス",
+        "fields": [
+          {
+            "after": "(3T) 水3-4,木3-4：理C101",
+            "before": "(3T) 水3-4,木3-4：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HM620000",
+        "titleBefore": "岩石変形学ＩＩ",
+        "titleAfter": "岩石変形学ＩＩ",
+        "fields": [
+          {
+            "after": "(3T) 水3-4,金3-4：理A705",
+            "before": "(3T) 水3-4,金3-4：先402N",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HN000000",
+        "titleBefore": "地球惑星科学英語I",
+        "titleAfter": "地球惑星科学英語I",
+        "fields": [
+          {
+            "after": "(3T) 水1：理C106, (3T) 水2-4：理B301",
+            "before": "(3T) 水1-4：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HN215000",
+        "titleBefore": "地球惑星内部物理学Ｂ",
+        "titleAfter": "地球惑星内部物理学Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 火5-6,木5-6：理C101",
+            "before": "(3T) 火5-6,木5-6：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HP200000",
+        "titleBefore": "科学コミュニケーション概論Ａ",
+        "titleAfter": "科学コミュニケーション概論Ａ",
+        "fields": [
+          {
+            "after": "2026年度は5月9日（土）と5月10日（日）に実施します。詳しくはもみじ掲示板をご覧ください。 履修登録期間は4/4～4/30です。",
+            "before": "講義の実施日程が決まり次第、もみじ掲示板で受講生を募集する。 通常の履修登録期間とは異なった1か月程度の履修登録期間を設ける予定。",
+            "field": "その他"
+          },
+          {
+            "after": "田澤 一朗,泉 俊輔,加納 圭,水町 衣里",
+            "before": "田澤 一朗,加納 圭,水町 衣里,泉 俊輔",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HR010000",
+        "titleBefore": "科学リテラシー",
+        "titleAfter": "科学リテラシー",
+        "fields": [
+          {
+            "after": "2026年度はB107（未来創生科学人材育成センター）で講義を行います。",
+            "before": "コミュニケーションが苦手な人も得意な人も楽しめる内容にしていますので、安心して受講してください。",
+            "field": "その他"
+          },
+          {
+            "after": "２年次生 前期",
+            "before": "１年次生 前期",
+            "field": "対象学生"
+          },
+          {
+            "after": "科学者になるのに必要な科学リテラシー（読み・書き・話し）に関するスキル（技術）を習得し、その実践力を高めることを目的としています。",
+            "before": "科学コミュニケーションの基礎を習得することが目標である。研究者として必要な一般市民との対話力を身につけるだけでなく、科学技術イノベーション政策形成プロセスについての理解も深めていく。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HR013001",
+        "titleBefore": "グローバル対策セミナーA",
+        "titleAfter": "グローバル対策セミナーA",
+        "fields": [
+          {
+            "after": "木村 俊一,KNOBLER CHRISTOPHER JORDAN,新家 寛正,NASRIN SYEDA RUBAIYA,MOHAMED IBRAHIM,田澤 一朗,中島 圭介,MUDGAL MOHIT,NEGI KOMAL",
+            "before": "木村 俊一,KNOBLER CHRISTOPHER JORDAN,田澤 一朗",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HR014000",
+        "titleBefore": "グローバル対策セミナーB",
+        "titleAfter": "グローバル対策セミナーB",
+        "fields": [
+          {
+            "after": "木村 俊一,KNOBLER CHRISTOPHER JORDAN,田澤 一朗",
+            "before": "木村 俊一,KNOBLER CHRISTOPHER JORDAN,MOHAMED IBRAHIM,BAHRILALEH NAEIMEH,田澤 一朗,中島 圭介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HR014001",
+        "titleBefore": "グローバル対策セミナーB",
+        "titleAfter": "グローバル対策セミナーB",
+        "fields": [
+          {
+            "after": "木村 俊一,KNOBLER CHRISTOPHER JORDAN,田澤 一朗",
+            "before": "木村 俊一,KNOBLER CHRISTOPHER JORDAN,田澤 一朗,中島 圭介,KUMAR YOGENDRA,EDMONDS MATTHEW JAMES",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX205800",
+        "titleBefore": "数学特別講義（カンドルと結び目不変量）",
+        "titleAfter": "数学特別講義（カンドルと結び目不変量）",
+        "fields": [
+          {
+            "after": "田中 心,村尾 智",
+            "before": "担当教員未定,村尾 智",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(前) 集中：理E211",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX206100",
+        "titleBefore": "数学特別講義（獣医療におけるバイオインフォマティクス）",
+        "titleAfter": "数学特別講義（獣医療におけるバイオインフォマティクス）",
+        "fields": [
+          {
+            "after": "茂木 朋貴,粟津 暁紀",
+            "before": "担当教員未定,粟津 暁紀",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX206200",
+        "titleBefore": "数学特別講義（DNAナノテクノロジーによる自己組織化の理論と実験）",
+        "titleAfter": "数学特別講義（DNAナノテクノロジーによる自己組織化の理論と実験）",
+        "fields": [
+          {
+            "after": "川又 生吹,市川 正敏",
+            "before": "担当教員未定,市川 正敏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX336100",
+        "titleBefore": "物理学特別講義（ダークマター探索概説）",
+        "titleAfter": "物理学特別講義（ダークマター探索概説）",
+        "fields": [
+          {
+            "after": "(3T) 金7-8：理C106",
+            "before": "(3T) 金7-8：理E104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX336900",
+        "titleBefore": "物理学特別講義（フレーバーの物理とCP対称性の破れ）",
+        "titleAfter": "物理学特別講義（フレーバーの物理とCP対称性の破れ）",
+        "fields": [
+          {
+            "after": "北原 鉄平,石川 健一",
+            "before": "担当教員未定,石川 健一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX573100",
+        "titleBefore": "生物科学特別講義（植物の減数分裂機構）",
+        "titleAfter": "生物科学特別講義（植物の減数分裂機構）",
+        "fields": [
+          {
+            "after": "野々村 賢一,守口 和基",
+            "before": "担当教員未定,守口 和基",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX573200",
+        "titleBefore": "生物科学特別講義（植物ペプチドホルモンを介した細胞間コミュニケーション）",
+        "titleAfter": "生物科学特別講義（植物ペプチドホルモンを介した細胞間コミュニケーション）",
+        "fields": [
+          {
+            "after": "篠原 秀文,平川 有宇樹",
+            "before": "担当教員未定,平川 有宇樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX573300",
+        "titleBefore": "生物科学特別講義（逆遺伝学的アプローチによる新規分子制御機構の探索）",
+        "titleAfter": "生物科学特別講義（逆遺伝学的アプローチによる新規分子制御機構の探索）",
+        "fields": [
+          {
+            "after": "中川 真一,千原 崇裕",
+            "before": "担当教員未定,千原 崇裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "HX668700",
+        "titleBefore": "地球惑星システム学特別講義（地球内部の化学進化と物質循環）",
+        "titleAfter": "地球惑星システム学特別講義（地球内部の化学進化と物質循環）",
+        "fields": [
+          {
+            "after": "小木曽 哲,秋澤 紀克",
+            "before": "担当教員未定,秋澤 紀克",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1501301",
+        "titleBefore": "生命・医療倫理学I",
+        "titleAfter": "生命・医療倫理学I",
+        "fields": [
+          {
+            "after": "檜井 孝夫,酒井 規雄,蓮沼 直子,松本 正俊",
+            "before": "檜井 孝夫,蓮沼 直子,酒井 規雄,松本 正俊",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1501401",
+        "titleBefore": "生命・医療倫理学II",
+        "titleAfter": "生命・医療倫理学II",
+        "fields": [
+          {
+            "after": "檜井 孝夫,酒井 規雄,蓮沼 直子,服部 稔",
+            "before": "檜井 孝夫,岸本 達司,兵頭 麻希,南郷 栄秀,蓮沼 直子,酒井 規雄,服部 稔",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1504002",
+        "titleBefore": "コミュニケーション学",
+        "titleAfter": "コミュニケーション学",
+        "fields": [
+          {
+            "after": "伊藤 公訓,池田 晃太朗,吉田 秀平,重信 友宇也,宮森 大輔,原武 大介",
+            "before": "伊藤 公訓,池田 晃太朗,吉田 秀平,宮森 大輔,石田 亮子,菅野 啓司,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1530001",
+        "titleBefore": "組織細胞機能学",
+        "titleAfter": "組織細胞機能学",
+        "fields": [
+          {
+            "after": "藤原 祐一郎,橋本 浩一,下村 拓史,川鍋 陽,森脇 健太,上垣内 由季,上川 泰直,中津 祐介,金本 聡自,田代 聡",
+            "before": "藤原 祐一郎,橋本 浩一,川鍋 陽,森脇 健太,上垣内 由季,上川 泰直,中津 祐介,金本 聡自,田代 聡",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1540001",
+        "titleBefore": "生体反応学",
+        "titleAfter": "生体反応学",
+        "fields": [
+          {
+            "after": "保田 朋波流,酒井 規雄,坂口 剛正,上山 健彦,井上 洋子,篠原 久明,北嶋 康雄,河野 洋平,福士 雅也,東浦 彰史,山本 旭麻,入江 崇,田中 茂,小松澤 均,原田 佳奈,松尾 美樹",
+            "before": "保田 朋波流,上山 健彦,井上 洋子,篠原 久明,石田 誠子,北嶋 康雄,河野 洋平,福士 雅也,東浦 彰史,酒井 規雄,山本 旭麻,坂口 剛正,入江 崇,田中 茂,小松澤 均,原田 佳奈,松尾 美樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1551001",
+        "titleBefore": "臨床病理学",
+        "titleAfter": "臨床病理学",
+        "fields": [
+          {
+            "after": "三井 伸二,中桐 徹也,勝矢 脩嵩,石川 洸,武島 幸男,AMATYA VISHWA JEET,櫛谷 桂",
+            "before": "三井 伸二,勝矢 脩嵩,石川 洸,有廣 光司,武島 幸男,AMATYA VISHWA JEET,櫛谷 桂",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1560001",
+        "titleBefore": "器官・システム病態制御学I",
+        "titleAfter": "器官・システム病態制御学I",
+        "fields": [
+          {
+            "after": "岡 志郎,三上 幸夫,蓮沼 直子,茂久田 翔,中村 優子,佐伯 昇,服部 稔,都甲 めぐみ,山崎 尚也,福本 航,進藤 岳郎,児玉 尭也,重松 英朗,江草 玄太郎,大野 晴也,長野 学,馬場 隆太,下地 清史,岩本 博志,堀益 靖,山口 覚博,坂本 信二郎,見前 隆洋,中島 拓,益田 武,岡田 守人,小林 平,今井 克彦,岡村 祥央,大久保 陽策,佐田 良治,植田 裕介,宇都宮 裕人,岸本 真治,高張 康介,平岡 俊文,東 幸仁,中野 由紀子,高崎 泰一,高橋 信也,北川 知郎,池永 寛樹,倉岡 正嗣,丸橋 達也,徳山 丈仁,三木 大樹,高砂 健,池本 珠莉,上垣内 由季,大野 敦司,佐伯 吉弘,上神 慎之介,田中 秀典,壷井 章克,桑井 寿雄,岸田 圭弘,山下 賢,瀧川 英彦,柘植 雅貴,下村 学,小林 剛,大段 秀樹,上村 健一郎,浜井 洋一,河岡 友和,卜部 祐司,藤野 初江,檜山 雄一,村上 英介,石井 康隆,日山 亨,前岡 侑二郎,正木 崇生,土井 俊樹,佐々木 健介,石内 直樹,森井 健一",
+            "before": "岡 志郎,三上 幸夫,蓮沼 直子,菊本 舞,茂久田 翔,中村 優子,服部 稔,仁井内 浩,高橋 信也,山崎 尚也,福本 航,進藤 岳郎,重松 英朗,大野 晴也,長野 学,馬場 隆太,下地 清史,岩本 博志,宮田 義浩,服部 登,堀益 靖,山口 覚博,浜井 洋一,坂本 信二郎,中島 拓,益田 武,岡田 守人,渡邊 紀晶,岡村 祥央,大久保 陽策,佐田 良治,植田 裕介,宇都宮 裕人,平岡 俊文,東 幸仁,中野 由紀子,北川 知郎,池永 寛樹,倉岡 正嗣,丸橋 達也,徳山 丈仁,三木 大樹,池本 珠莉,大野 敦司,田中 秀典,壷井 章克,桑井 寿雄,岸田 圭弘,中村 真也,山下 賢,瀧川 英彦,柘植 雅貴,小林 剛,大段 秀樹,上村 健一郎,河岡 友和,卜部 祐司,藤野 初江,檜山 雄一,村上 英介,石井 康隆,日山 亨,前岡 侑二郎,尾崎 陽介,正木 崇生,土井 俊樹,佐々木 健介,石内 直樹,森井 健一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1570002",
+        "titleBefore": "器官・システム病態制御学II",
+        "titleAfter": "器官・システム病態制御学II",
+        "fields": [
+          {
+            "after": "竹野 幸夫,有廣 光司,三上 幸夫,生田 祥也,作田 智彦,原田 洋平,林 悠太,大饗 和憲,中前 稔生,猫本 明紀,古田 太輔,石橋 栄樹,仲田 恭平,植木 慎一,中佐 智幸,中前 敦雄,兒玉 祥,庄司 剛士,安達 伸生,松原 大樹,齋藤 怜,沼田 智史,森桶 聡,田中 暁生,松尾 佳美,森脇 昌哉,金本 麻裕,菅 崇暢,堀部 裕一郎,小田 尊志,西田 学,川住 知弘,上田 勉,築家 伸幸,石野 岳志,濱本 隆夫,樽谷 貴之,岡野 智文,廣岡 一行,坂口 裕和,福戸 敦彦,末岡 健太郎,日山 知奈,小松 香織,近間 泰一郎,日向 信之,小畠 浩平,内藤 美季,小羽田 悠貴,宮本 俊輔,北野 弘之,後藤 景介,稗田 圭介,関野 陽平,本庶 仁子,null,杉原 清香,吉田 徹巳,進藤 岳郎,杉本 智裕,茂久田 翔,平田 信太郎,石徳 理訓,渡辺 裕文,藤井 輝久,山崎 尚也,帖佐 啓吾,石橋 愛,中村 優子,赤木 元紀,谷 千尋,福本 航,立神 史稔",
+            "before": "竹野 幸夫,三上 幸夫,生田 祥也,原田 洋平,林 悠太,大饗 和憲,四宮 陸雄,中前 稔生,猫本 明紀,古田 太輔,仲田 恭平,有廣 光司,中佐 智幸,中前 敦雄,兒玉 祥,庄司 剛士,安達 伸生,松原 大樹,齋藤 怜,森桶 聡,田中 暁生,松尾 佳美,森脇 昌哉,菅 崇暢,堀部 裕一郎,小田 尊志,西田 学,川住 知弘,上田 勉,築家 伸幸,石野 岳志,濱本 隆夫,樽谷 貴之,岡野 智文,廣岡 一行,坂口 裕和,福戸 敦彦,末岡 健太郎,日山 知奈,小松 香織,近間 泰一郎,日向 信之,武本 健士郎,郷力 昭宏,小畠 浩平,内藤 美季,宮本 俊輔,北野 弘之,後藤 景介,稗田 圭介,関野 陽平,一戸 辰夫,本庶 仁子,杉原 清香,吉田 徹巳,杉本 智裕,茂久田 翔,吉田 雄介,平田 信太郎,石徳 理訓,進藤 岳郎,藤井 輝久,山崎 尚也,帖佐 啓吾,石橋 愛,中村 優子,本田 有紀子,谷 千尋,福本 航,立神 史稔",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1580002",
+        "titleBefore": "全身性疾患制御学",
+        "titleAfter": "全身性疾患制御学",
+        "fields": [
+          {
+            "after": "山口 建,山崎 友美,的場 優介,大森 由里子,寺岡 有子,石井 潤貴,志馬 伸朗,廣橋 伸之,大下 慎一郎,太田 浩平,立石 裕一,香川 礼子,浅野 孝基,佐倉 文祥,今中 雄介,唐川 修平,岡田 賢,下村 麻衣子,土居 岳彦,溝口 洋子,小林 良行,早川 誠一,横見 央,楢崎 壮志,神谷 諭史,三好 寛二,中村 隆治,大月 幸子,石井 友美,加藤 貴大,堤 保夫,岡本 渉,村上 祐司,見前 隆洋,今野 伸樹,岡田 守人,西淵 いくの,進藤 岳郎,丸山 史人,堀部 裕一郎,null,大森 慶太郎,野村 俊仁,北川 浩樹,森桶 聡,北野 弘之,藤井 輝久,大毛 宏喜,null,西 裕美,繁本 憲文,佐伯 勇,柿本 聖樹,松本 正俊,河原 章浩,蓮沼 直子,小川 恵子",
+            "before": "山口 建,null,的場 優介,古宇 家正,null,野坂 豪,大森 由里子,寺岡 有子,豊田 有加里,向井 百合香,杉本 潤,石井 潤貴,菊谷 知也,志馬 伸朗,廣橋 伸之,大下 慎一郎,太田 浩平,立石 裕一,香川 礼子,浅野 孝基,佐倉 文祥,内海 孝法,今中 雄介,唐川 修平,岡田 賢,下村 麻衣子,土居 岳彦,溝口 洋子,小林 良行,早川 誠一,楢崎 壮志,佐伯 昇,神谷 諭史,三好 寛二,中村 隆治,大月 幸子,加藤 貴大,堤 保夫,一戸 辰夫,岡本 渉,有廣 光司,村上 祐司,今野 伸樹,勝田 剛,岡田 守人,西淵 いくの,丸山 史人,堀部 裕一郎,大森 慶太郎,野村 俊仁,北川 浩樹,北野 弘之,藤井 輝久,大毛 宏喜,西 裕美,繁本 憲文,佐伯 勇,石田 亮子,松本 正俊,小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1591101",
+        "titleBefore": "社会医学",
+        "titleAfter": "社会医学",
+        "fields": [
+          {
+            "after": "福間 真悟,平子 哲夫,松田 晋哉,藤野 善久,柴田 喜幸,梶木 繁之,市川 衛,越智 小枝,冨岡 慎一,鹿嶋 小緒里,久保 達彦,弓屋 結,CHIMED OCHIR ODGEREL,田原 優,福永 亜美,原田 崇弘,田中 純子,奈女良 昭,秋田 智之,杉山 文",
+            "before": "福間 真悟,平子 哲夫,松田 晋哉,藤野 善久,柴田 喜幸,梶木 繁之,市川 衛,越智 小枝,冨岡 慎一,長尾 正崇,鹿嶋 小緒里,久保 達彦,弓屋 結,CHIMED OCHIR ODGEREL,田原 優,福永 亜美,原田 崇弘,田中 純子,奈女良 昭,秋田 智之,杉山 文",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1600001",
+        "titleBefore": "症候診断治療学",
+        "titleAfter": "症候診断治療学",
+        "fields": [
+          {
+            "after": "蓮沼 直子,児玉 尭也,岡村 祥央,内藤 美季,島尻 寛人,安部 智之,堀益 靖,太田 浩平,瀬山 剛,中前 敦雄,長野 学,服部 稔",
+            "before": "蓮沼 直子,児玉 尭也,菊本 舞,岡村 祥央,内藤 美季,島尻 寛人,安部 智之,宮田 義浩,堀益 靖,太田 浩平,瀬山 剛,中前 敦雄,長野 学,服部 稔",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1620001",
+        "titleBefore": "臨床実習入門プログラム",
+        "titleAfter": "臨床実習入門プログラム",
+        "fields": [
+          {
+            "after": "蓮沼 直子,三上 幸夫,西 真如,茂久田 翔,越智 光宏,服部 稔,平田 信太郎,田邊 和照,石野 岳志,樽谷 貴之,堀益 靖,中島 拓,瀧川 英彦,村上 英介,黒田 慎太郎,菅 崇暢,佐伯 勇,北川 知郎,小田 登,山崎 雄,瀬山 剛,板井 純治,佐伯 昇,加藤 貴大,前岡 侑二郎,土居 岳彦",
+            "before": "蓮沼 直子,三上 幸夫,西 真如,茂久田 翔,越智 光宏,服部 稔,平田 信太郎,田邊 和照,石野 岳志,樽谷 貴之,堀益 靖,中島 拓,瀧川 英彦,村上 英介,黒田 慎太郎,菅 崇暢,佐伯 勇,北川 知郎,小田 登,菊本 舞,山崎 雄,瀬山 剛,板井 純治,佐伯 昇,加藤 貴大,前岡 侑二郎,土居 岳彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1640001",
+        "titleBefore": "医学研究序論",
+        "titleAfter": "医学研究序論",
+        "fields": [
+          {
+            "after": "保田 朋波流,池上 浩司,相澤 秀紀,橋本 浩一,三井 伸二,福間 真悟,藤原 祐一郎,森脇 健太,久保 達彦,武島 幸男,奈女良 昭",
+            "before": "保田 朋波流,池上 浩司,長尾 正崇,相澤 秀紀,橋本 浩一,三井 伸二,福間 真悟,藤原 祐一郎,森脇 健太,酒井 規雄,久保 達彦,坂口 剛正,武島 幸男,田代 聡",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1710001",
+        "titleBefore": "脳神経医学I",
+        "titleAfter": "脳神経医学I",
+        "fields": [
+          {
+            "after": "相澤 秀紀,池上 浩司,吉田 隆行,橋本 浩一,堀江 信貴",
+            "before": "相澤 秀紀,池上 浩司,吉田 隆行,橋本 浩一,酒井 規雄,堀江 信貴",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1720001",
+        "titleBefore": "脳神経医学II",
+        "titleAfter": "脳神経医学II",
+        "fields": [
+          {
+            "after": "橋本 浩一,吉田 隆行,相澤 秀紀,久保 怜香,松股 美穂,半田 高史,田中 茂,岡田 剛,丸山 博文,原田 佳奈,岡田 佳奈,KASARAGOD DEEPA KAMATH",
+            "before": "橋本 浩一,吉田 隆行,相澤 秀紀,酒井 規雄,久保 怜香,松股 美穂,半田 高史,田中 茂,岡田 剛,丸山 博文,岡田 佳奈,KASARAGOD DEEPA KAMATH",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1730001",
+        "titleBefore": "脳神経医学III",
+        "titleAfter": "脳神経医学III",
+        "fields": [
+          {
+            "after": "丸山 博文,相澤 秀紀,橋本 浩一,久米 広大,光原 崇文,桑原 政志,米澤 潮,田口 慧,飯田 幸治,山崎 文之,瀬山 剛,香川 幸太,木下 康之,石井 大造,堀江 信貴,中森 正博,都甲 めぐみ,祢津 智久,山崎 雄,杉本 太路,石橋 はるか,内藤 裕之,松原 知康,大賀 健市,角 芙美,倉田 明子,藤田 翔,熊谷 元,岡田 剛,淵上 学,大村 淳,増田 慶一",
+            "before": "丸山 博文,相澤 秀紀,橋本 浩一,酒井 規雄,久米 広大,光原 崇文,武田 正明,桑原 政志,米澤 潮,飯田 幸治,山崎 文之,瀬山 剛,香川 幸太,木下 康之,石井 大造,堀江 信貴,中森 正博,祢津 智久,山崎 雄,杉本 太路,内藤 裕之,音成 秀一郎,松原 知康,大賀 健市,角 芙美,倉田 明子,岡田 剛,淵上 学,岡田 怜,大村 淳,増田 慶一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1900001",
+        "titleBefore": "医学研究実習",
+        "titleAfter": "医学研究実習",
+        "fields": [
+          {
+            "after": "保田 朋波流,池上 浩司,有井 潤,相澤 秀紀,橋本 浩一,三井 伸二,福間 真悟,藤原 祐一郎,森脇 健太,久保 達彦,KO KO,弓屋 結,CHIMED OCHIR ODGEREL,田原 優,福永 亜美,原田 崇弘,小林 雄晟,久門 智祐,武島 幸男,奈女良 昭,入江 崇,田中 茂,秋田 智之,杉山 文,津村 徳道,河原 章浩,三上 幸夫,蓮沼 直子,小川 恵子,山口 建,坂口 裕和,日向 信之,石井 潤貴,杉本 智裕,佐伯 勇,住吉 辰朗,上敷領 俊晴,岩本 博志,光原 崇文,中森 正博,小畠 浩平,福戸 敦彦,河原 大輔,中村 優子,新津 宏明,楢崎 壮志,的場 優介,中原 輝,越智 光宏,齋藤 怜,宮森 大輔,川住 知弘,志馬 伸朗,竹野 幸夫,山崎 文之,田中 友加,松本 正俊,服部 稔,瀧川 英彦,柘植 雅貴,岡田 剛,中佐 智幸,平田 信太郎,田中 暁生,大下 慎一郎,山崎 雄,三好 寛二,丸山 博文,大段 秀樹,石野 岳志,上村 健一郎,村上 祐司,中野 由紀子,正木 崇生,檜井 孝夫,岡田 賢,瀬山 剛,高橋 信也,岡 志郎,香川 幸太,大野 晴也,福本 航,石徳 理訓,卜部 祐司,池永 寛樹,伊藤 公訓,堤 保夫,堀江 信貴,安達 伸生,吉永 信治,保田 浩志,川上 秀史,松浦 伸也,渡邉 朋信,藤田 英明,神沼 修,笹谷 めぐみ,本庶 仁子,廣田 誠子,FARINA BINTI MOHAMAD YUSOFF,重松 英朗,浅野 孝基,岸本 真治,AKUTSU SILVIA NATSUKO,東 幸仁,孫 継英,廣橋 伸之,浜井 洋一,見前 隆洋,丸橋 達也,京 道人,田代 聡,谷本 圭司,岡田 守人,堀越 保則,久米 広大,進藤 岳郎",
+            "before": "保田 朋波流,池上 浩司,長尾 正崇,相澤 秀紀,橋本 浩一,三井 伸二,福間 真悟,藤原 祐一郎,森脇 健太,酒井 規雄,久保 達彦,上川 泰直,弓屋 結,坂口 剛正,武島 幸男,近藤 浩,津村 徳道,三上 幸夫,小川 恵子,坂口 裕和,日向 信之,石井 潤貴,岡本 渉,佐伯 勇,住吉 辰朗,上敷領 俊晴,光原 崇文,中森 正博,小畠 浩平,河原 大輔,宇都宮 裕人,楢崎 壮志,的場 優介,宮森 大輔,吉田 雄介,川住 知弘,志馬 伸朗,有廣 光司,竹野 幸夫,飯田 幸治,服部 登,山崎 文之,田中 友加,松本 正俊,柘植 雅貴,岡田 剛,平田 信太郎,田中 暁生,大下 慎一郎,山崎 雄,三好 寛二,太田 浩平,丸山 博文,大段 秀樹,石野 岳志,上村 健一郎,村上 祐司,中野 由紀子,正木 崇生,檜井 孝夫,岡田 賢,高橋 信也,岡 志郎,香川 幸太,大野 晴也,福本 航,味八木 茂,卜部 祐司,池永 寛樹,河原 章浩,伊藤 公訓,堤 保夫,堀江 信貴,安達 伸生,吉永 信治,保田 浩志,川上 秀史,松浦 伸也,渡邉 朋信,藤田 英明,神沼 修,笹谷 めぐみ,一戸 辰夫,本庶 仁子,三浦 健人,廣田 誠子,FARINA BINTI MOHAMAD YUSOFF,重松 英朗,浅野 孝基,岸本 真治,AKUTSU SILVIA NATSUKO,東 幸仁,孫 継英,宮田 義浩,廣橋 伸之,浜井 洋一,見前 隆洋,丸橋 達也,田代 聡,谷本 圭司,岡田 守人,堀越 保則,久米 広大,進藤 岳郎",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1911002",
+        "titleBefore": "臨床実習I",
+        "titleAfter": "臨床実習I",
+        "fields": [
+          {
+            "after": "蓮沼 直子,三井 伸二,石川 洸,武島 幸男,AMATYA VISHWA JEET,櫛谷 桂,角 芙美,岩本 博志,桑井 寿雄,瀧川 英彦,堀益 靖,柘植 雅貴,岡田 剛,山崎 雄,丸山 博文,岡 志郎,大野 晴也,長野 学,村上 英介,佐伯 勇,住吉 辰朗,浅野 孝基,上神 慎之介,安部 智之,田中 暁生,大段 秀樹,上村 健一郎,岡田 賢,瀬山 剛,高崎 泰一,高橋 信也,中前 敦雄,栗原 將,森脇 昌哉,堀江 信貴,安達 伸生,山口 建,坂口 裕和,日向 信之,山崎 友美,中村 優子,川住 知弘,竹野 幸夫,築家 伸幸,石野 岳志,村上 祐司,後藤 景介,立神 史稔,大森 由里子,今野 伸樹,日山 知奈,堤 保夫,池田 晃太朗,岡村 祥央,大久保 陽策,宇都宮 裕人,楢崎 壮志,志馬 伸朗,大下 慎一郎,中野 由紀子,池永 寛樹,伊藤 公訓,松本 正俊,坪川 典史,岡田 守人,進藤 岳郎,前岡 侑二郎,平田 信太郎,永松 将吾,大毛 宏喜,正木 崇生,渡辺 裕文,三上 幸夫,中桐 徹也,服部 稔,中村 隆治,伊藤 英樹,小川 恵子,濱浪 嘉登,檜井 孝夫",
+            "before": "蓮沼 直子,三井 伸二,石川 洸,武島 幸男,AMATYA VISHWA JEET,櫛谷 桂,角 芙美,桑井 寿雄,服部 登,瀧川 英彦,堀益 靖,柘植 雅貴,岡田 剛,山崎 雄,丸山 博文,岡 志郎,大野 晴也,長野 学,村上 英介,佐伯 勇,住吉 辰朗,浅野 孝基,上神 慎之介,安部 智之,田中 暁生,大段 秀樹,上村 健一郎,岡田 賢,瀬山 剛,高崎 泰一,高橋 信也,中前 敦雄,栗原 將,森脇 昌哉,堀江 信貴,安達 伸生,山口 建,坂口 裕和,日向 信之,郷力 昭宏,山崎 友美,中村 優子,川住 知弘,竹野 幸夫,築家 伸幸,石野 岳志,村上 祐司,立神 史稔,大森 由里子,今野 伸樹,日山 知奈,堤 保夫,池田 晃太朗,岡村 祥央,大久保 陽策,宇都宮 裕人,楢崎 壮志,志馬 伸朗,大下 慎一郎,中野 由紀子,池永 寛樹,伊藤 公訓,一戸 辰夫,柿本 聖樹,宮田 義浩,松本 正俊,坪川 典史,岡田 守人,進藤 岳郎,前岡 侑二郎,吉田 雄介,平田 信太郎,永松 将吾,大毛 宏喜,正木 崇生,三上 幸夫,有廣 光司,服部 稔,中村 隆治,伊藤 英樹,小川 恵子,濱浪 嘉登,檜井 孝夫,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I1920001",
+        "titleBefore": "臨床実習II",
+        "titleAfter": "臨床実習II",
+        "fields": [
+          {
+            "after": "蓮沼 直子,三井 伸二,武島 幸男,奈女良 昭,角 芙美,岩本 博志,桑井 寿雄,瀧川 英彦,堀益 靖,柘植 雅貴,岡田 剛,山崎 雄,丸山 博文,岡 志郎,大野 晴也,長野 学,村上 英介,佐伯 勇,住吉 辰朗,浅野 孝基,上神 慎之介,安部 智之,田中 暁生,大段 秀樹,上村 健一郎,岡田 賢,瀬山 剛,高崎 泰一,高橋 信也,中前 敦雄,栗原 將,森脇 昌哉,堀江 信貴,安達 伸生,坂口 裕和,日向 信之,山崎 友美,中村 優子,川住 知弘,竹野 幸夫,築家 伸幸,石野 岳志,村上 祐司,後藤 景介,立神 史稔,大森 由里子,今野 伸樹,日山 知奈,池田 晃太朗,岡村 祥央,大久保 陽策,宇都宮 裕人,楢崎 壮志,志馬 伸朗,大下 慎一郎,中野 由紀子,池永 寛樹,伊藤 公訓,堤 保夫,坪川 典史,岡田 守人,進藤 岳郎,岡本 渉,前岡 侑二郎,平田 信太郎,永松 将吾,大毛 宏喜,正木 崇生,渡辺 裕文,三上 幸夫,倉田 明子,中桐 徹也,服部 稔,中村 隆治,小川 恵子,濱浪 嘉登",
+            "before": "蓮沼 直子,長尾 正崇,三井 伸二,武島 幸男,角 芙美,桑井 寿雄,服部 登,瀧川 英彦,堀益 靖,柘植 雅貴,岡田 剛,山崎 雄,丸山 博文,岡 志郎,大野 晴也,長野 学,村上 英介,佐伯 勇,住吉 辰朗,浅野 孝基,上神 慎之介,安部 智之,田中 暁生,大段 秀樹,上村 健一郎,岡田 賢,瀬山 剛,高崎 泰一,高橋 信也,中前 敦雄,栗原 將,森脇 昌哉,堀江 信貴,安達 伸生,坂口 裕和,日向 信之,郷力 昭宏,山崎 友美,中村 優子,川住 知弘,竹野 幸夫,築家 伸幸,石野 岳志,村上 祐司,立神 史稔,大森 由里子,今野 伸樹,日山 知奈,池田 晃太朗,岡村 祥央,大久保 陽策,宇都宮 裕人,楢崎 壮志,志馬 伸朗,大下 慎一郎,中野 由紀子,池永 寛樹,伊藤 公訓,堤 保夫,一戸 辰夫,宮田 義浩,坪川 典史,岡田 守人,進藤 岳郎,岡本 渉,前岡 侑二郎,吉田 雄介,平田 信太郎,永松 将吾,大毛 宏喜,正木 崇生,三上 幸夫,倉田 明子,有廣 光司,服部 稔,中村 隆治,小川 恵子,濱浪 嘉登,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3027004",
+        "titleBefore": "総合実習",
+        "titleAfter": "総合実習",
+        "fields": [
+          {
+            "after": "藤本 紗央里,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3027013",
+        "titleBefore": "総合実習",
+        "titleAfter": "総合実習",
+        "fields": [
+          {
+            "after": "加澤 佳奈,那須 佳津美",
+            "before": "那須 佳津美",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3087001",
+        "titleBefore": "老年看護方法演習",
+        "titleAfter": "老年看護方法演習",
+        "fields": [
+          {
+            "after": "那須 佳津美,加澤 佳奈",
+            "before": "那須 佳津美",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3106001",
+        "titleBefore": "臨床生化学",
+        "titleAfter": "臨床生化学",
+        "fields": [
+          {
+            "after": "森脇 健太,澤渡 浩之,森山 美知子,中津 祐介,山崎 智子,那須 佳津美,加澤 佳奈",
+            "before": "森脇 健太,加古 まゆみ,陳 三妹,中津 祐介,山崎 智子,恒松 美輪子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3108001",
+        "titleBefore": "養護実習",
+        "titleAfter": "養護実習",
+        "fields": [
+          {
+            "after": "看護学専攻３年次までに履修すべき科目を全て履修していること、および教職科目を全て履修していること",
+            "before": "看護学専攻３年次までに履修すべき科目を全て履修していること、",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3109001",
+        "titleBefore": "人間発達学",
+        "titleAfter": "人間発達学",
+        "fields": [
+          {
+            "after": "新福 洋子,浦川 将,藤田 直人,陳 三妹,有馬 知志,高橋 真,山崎 智子",
+            "before": "新福 洋子,浦川 将,藤田 直人,有馬 知志,高橋 真",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3124001",
+        "titleBefore": "社会福祉学",
+        "titleAfter": "社会福祉学",
+        "fields": [
+          {
+            "after": "授業時間割を参照,澤渡 浩之,森山 美知子,山崎 智子,那須 佳津美,加澤 佳奈",
+            "before": "坂井 晶子,加古 まゆみ,陳 三妹,山崎 智子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3141001",
+        "titleBefore": "母性看護方法演習",
+        "titleAfter": "母性看護方法演習",
+        "fields": [
+          {
+            "after": "新福 洋子,藤田 佳織,戸田 美幸,藤本 紗央里,小島 未緒",
+            "before": "新福 洋子,null,藤本 紗央里,小島 未緒",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3144001",
+        "titleBefore": "母性看護学実習",
+        "titleAfter": "母性看護学実習",
+        "fields": [
+          {
+            "after": "新福 洋子,藤田 佳織",
+            "before": "新福 洋子,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3146002",
+        "titleBefore": "助産疾病論",
+        "titleAfter": "助産疾病論",
+        "fields": [
+          {
+            "after": "藤本 紗央里,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3147001",
+        "titleBefore": "助産診断学",
+        "titleAfter": "助産診断学",
+        "fields": [
+          {
+            "after": "藤本 紗央里,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3149002",
+        "titleBefore": "助産管理",
+        "titleAfter": "助産管理",
+        "fields": [
+          {
+            "after": "藤本 紗央里,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3150001",
+        "titleBefore": "助産学実習",
+        "titleAfter": "助産学実習",
+        "fields": [
+          {
+            "after": "藤本 紗央里,新福 洋子,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,新福 洋子,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3151003",
+        "titleBefore": "臨床病態学II",
+        "titleAfter": "臨床病態学II",
+        "fields": [
+          {
+            "after": "新福 洋子,蓮沼 直子,戸田 美幸,大森 由里子",
+            "before": "新福 洋子,蓮沼 直子,友野 勝幸,大森 由里子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "I3175007",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "I3175028",
+        "titleBefore": null,
+        "titleAfter": "卒業研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3175029",
+        "titleBefore": "卒業研究",
+        "titleAfter": "卒業研究",
+        "fields": [
+          {
+            "after": "大河内 彩子",
+            "before": "大河内 彩子,藤田 麻理子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3191801",
+        "titleBefore": "研究方法論",
+        "titleAfter": "研究方法論",
+        "fields": [
+          {
+            "after": "(1T) 月1-4：保301",
+            "before": "(1T) 月1-4：霞R204講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3192101",
+        "titleBefore": "基礎助産学",
+        "titleAfter": "基礎助産学",
+        "fields": [
+          {
+            "after": "藤本 紗央里,新福 洋子,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,新福 洋子,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3192201",
+        "titleBefore": "地域子育て支援論",
+        "titleAfter": "地域子育て支援論",
+        "fields": [
+          {
+            "after": "藤本 紗央里,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3235001",
+        "titleBefore": "成人看護学実習I(急性期・クリティカルケア）",
+        "titleAfter": "成人看護学実習I(急性期・クリティカルケア）",
+        "fields": [
+          {
+            "after": "基礎看護学実習、成人看護学概論、成人看護方法演習、臨床看護シミュレーション演習を修了している者 看護学専攻学生以外は履修不可",
+            "before": "基礎看護学実習、成人看護学概論、成人看護方法演習を修了している者 看護学専攻学生以外は履修不可",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3237001",
+        "titleBefore": "リハビリテーション看護実習",
+        "titleAfter": "リハビリテーション看護実習",
+        "fields": [
+          {
+            "after": "「成人看護学概論」、「成人健康障害看護」、「成人看護方法演習」、「臨床看護シミュレーション演習」を履修済みであること",
+            "before": "「成人看護学概論」、「成人健康障害看護」、「成人看護方法演習」を履修済みであること",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3239001",
+        "titleBefore": "助産実践論I（妊娠・産褥・新生児期）",
+        "titleAfter": "助産実践論I（妊娠・産褥・新生児期）",
+        "fields": [
+          {
+            "after": "藤本 紗央里,蓮沼 直子,新福 洋子,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,蓮沼 直子,新福 洋子,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3240001",
+        "titleBefore": "助産実践論II（分娩期基本）",
+        "titleAfter": "助産実践論II（分娩期基本）",
+        "fields": [
+          {
+            "after": "藤本 紗央里,新福 洋子,山崎 友美,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,新福 洋子,山崎 友美,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I3241001",
+        "titleBefore": "助産実践論III（分娩期応用）",
+        "titleAfter": "助産実践論III（分娩期応用）",
+        "fields": [
+          {
+            "after": "藤本 紗央里,新福 洋子,藤田 佳織,戸田 美幸",
+            "before": "藤本 紗央里,新福 洋子,null",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4128002",
+        "titleBefore": "発達障害学",
+        "titleAfter": "発達障害学",
+        "fields": [
+          {
+            "after": "新福 洋子,浦川 将,藤田 直人,陳 三妹,有馬 知志,高橋 真,山崎 智子",
+            "before": "新福 洋子,浦川 将,藤田 直人,田城 翼,有馬 知志,高橋 真",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4136001",
+        "titleBefore": "社会福祉学",
+        "titleAfter": "社会福祉学",
+        "fields": [
+          {
+            "after": "授業時間割を参照,澤渡 浩之,森山 美知子,山崎 智子,那須 佳津美,加澤 佳奈",
+            "before": "坂井 晶子,加古 まゆみ,陳 三妹,山崎 智子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4159001",
+        "titleBefore": "運動系理学療法学実習",
+        "titleAfter": "運動系理学療法学実習",
+        "fields": [
+          {
+            "after": "(集) 集中：保901",
+            "before": "(前) 水7-9：保901",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4182001",
+        "titleBefore": "卒業研究",
+        "titleAfter": "卒業研究",
+        "fields": [
+          {
+            "after": "浦川 将,藤田 直人,石井 陽介,有馬 知志,山田 崇史,猪村 剛史,黒瀬 智之,関川 清一,高橋 真,濱田 泰伸",
+            "before": "浦川 将,藤田 直人,石井 陽介,田城 翼,有馬 知志,山田 崇史,猪村 剛史,黒瀬 智之,関川 清一,高橋 真,濱田 泰伸",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4309001",
+        "titleBefore": "病理学",
+        "titleAfter": "病理学",
+        "fields": [
+          {
+            "after": "武島 幸男,三井 伸二,石井 陽介,勝矢 脩嵩,石川 洸,石原 萌香,AMATYA VISHWA JEET,櫛谷 桂",
+            "before": "武島 幸男,三井 伸二,石井 陽介,勝矢 脩嵩,石川 洸,AMATYA VISHWA JEET,櫛谷 桂",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4360601",
+        "titleBefore": "運動学実習",
+        "titleAfter": "運動学実習",
+        "fields": [
+          {
+            "after": "桐本 光,高橋 真",
+            "before": "桐本 光,松本 杏美莉,高橋 真",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4361401",
+        "titleBefore": "救命救急法及びリスク管理",
+        "titleAfter": "救命救急法及びリスク管理",
+        "fields": [
+          {
+            "after": "田邊 和照,加古 まゆみ,齊田 和哉",
+            "before": "田邊 和照,加古 まゆみ,齊田 和哉,田城 翼",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I4361402",
+        "titleBefore": "救命救急法及びリスク管理",
+        "titleAfter": "救命救急法及びリスク管理",
+        "fields": [
+          {
+            "after": "田邊 和照,加古 まゆみ,齊田 和哉",
+            "before": "田邊 和照,加古 まゆみ,齊田 和哉,田城 翼",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I5136001",
+        "titleBefore": "社会福祉学",
+        "titleAfter": "社会福祉学",
+        "fields": [
+          {
+            "after": "授業時間割を参照,澤渡 浩之,森山 美知子,山崎 智子,那須 佳津美,加澤 佳奈",
+            "before": "坂井 晶子,加古 まゆみ,陳 三妹,山崎 智子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I5312001",
+        "titleBefore": "病理学",
+        "titleAfter": "病理学",
+        "fields": [
+          {
+            "after": "武島 幸男,三井 伸二,石井 陽介,勝矢 脩嵩,石川 洸,石原 萌香,AMATYA VISHWA JEET,櫛谷 桂",
+            "before": "武島 幸男,三井 伸二,石井 陽介,勝矢 脩嵩,石川 洸,AMATYA VISHWA JEET,櫛谷 桂",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I5400101",
+        "titleBefore": "発達障害学",
+        "titleAfter": "発達障害学",
+        "fields": [
+          {
+            "after": "新福 洋子,浦川 将,藤田 直人,陳 三妹,有馬 知志,高橋 真,山崎 智子",
+            "before": "新福 洋子,浦川 将,藤田 直人,有馬 知志,高橋 真",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I7022001",
+        "titleBefore": "薬学概論",
+        "titleAfter": "薬学概論",
+        "fields": [
+          {
+            "after": "森岡 徳光,松村 秀策,安藤 雅史,水島 美代子,大松 秀明,塩田 武司,野村 渉,合田 光寛,黒田 照夫,高橋 陵宇,白井 孝宏,中嶋 龍,橋本 洋佑,田原 栄俊,古武 弥一郎,松浪 勝義,中村 庸輝,北仲 千里,田口 和明",
+            "before": "森岡 徳光,松村 秀策,安藤 雅史,水島 美代子,大松 秀明,塩田 武司,野村 渉,合田 光寛,黒田 照夫,高橋 陵宇,白井 孝宏,中嶋 龍,橋本 洋佑,田原 栄俊,古武 弥一郎,松浪 勝義,中村 庸輝",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I7063002",
+        "titleBefore": "有機化学IV",
+        "titleAfter": "有機化学IV",
+        "fields": [
+          {
+            "after": "2年次生 後期 集中",
+            "before": "3年次生 後期 集中",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "I7153001",
+        "titleBefore": "基礎研究III",
+        "titleAfter": "基礎研究III",
+        "fields": [
+          {
+            "after": "野村 渉,濁川 清美",
+            "before": "野村 渉,濁川 清美,松本 大亮",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "IP100037",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "(1T) 水5-8：保301",
+            "before": "(1T) 水5-8：保208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "IS100001",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "本科目では、３コマ目（12：50-14：20）に医学部・歯学部・薬学部での混合班で「低学年多職種連携教育（Interprofessional education (IPE)）」を実施し、４コマ目（14：35-16：05）に薬学部のチューター班で「教養ゼミ」を実施する。「低学年IPE」の詳細については別途もみじで通知されるので、見落とさないよう注意すること。",
+            "before": "なし",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "IS100002",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "本科目では、３コマ目（12：50-14：20）に医学部・歯学部・薬学部での混合班で「低学年多職種連携教育（Interprofessional education (IPE)）」を実施し、４コマ目（14：35-16：05）に薬学部のチューター班で「教養ゼミ」を実施する。「低学年IPE」の詳細については別途もみじで通知されるので、見落とさないよう注意すること。",
+            "before": "なし",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "IS100003",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "本科目では、３コマ目（12：50-14：20）に医学部・歯学部・薬学部での混合班で「低学年多職種連携教育（Interprofessional education (IPE)）」を実施し、４コマ目（14：35-16：05）に薬学部のチューター班で「教養ゼミ」を実施する。「低学年IPE」の詳細については別途もみじで通知されるので、見落とさないよう注意すること。",
+            "before": "なし",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "IS100004",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "本科目では、３コマ目（12：50-14：20）に医学部・歯学部・薬学部での混合班で「低学年多職種連携教育（Interprofessional education (IPE)）」を実施し、４コマ目（14：35-16：05）に薬学部のチューター班で「教養ゼミ」を実施する。「低学年IPE」の詳細については別途もみじで通知されるので、見落とさないよう注意すること。",
+            "before": "なし",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "IS100005",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "本科目では、３コマ目（12：50-14：20）に医学部・歯学部・薬学部での混合班で「低学年多職種連携教育（Interprofessional education (IPE)）」を実施し、４コマ目（14：35-16：05）に薬学部のチューター班で「教養ゼミ」を実施する。「低学年IPE」の詳細については別途もみじで通知されるので、見落とさないよう注意すること。",
+            "before": "なし",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1401020",
+        "titleBefore": "歯学国際演習A",
+        "titleAfter": "歯学国際演習A",
+        "fields": [
+          {
+            "after": "海外での実習のため健康面や安全面に注意を払ってください",
+            "before": "",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "柿本 直也,宿南 知佐,二川 浩樹,杉田 誠,谷本 幸太郎,水野 智仁,柳本 惣市",
+            "before": "柿本 直也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1402010",
+        "titleBefore": "歯学国際演習B",
+        "titleAfter": "歯学国際演習B",
+        "fields": [
+          {
+            "after": "海外での実習のため、安全面は健康面に注意を払いましょう",
+            "before": "",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1502030",
+        "titleBefore": "歯学概論",
+        "titleAfter": "歯学概論",
+        "fields": [
+          {
+            "after": "藤井 万紀子,目見田 匠,山崎 佐知子,相川 友直,水田 邦子,吉川 峰加,矢野下 真,柿本 直也,柴 秀樹,花本 博,太田 耕司,重石 英生,内藤 真理子,仁井谷 善恵,加来 真人,峯 裕一,二川 浩樹,河口 浩之,岡田 芳幸,加治屋 幹人",
+            "before": "藤井 万紀子,目見田 匠,山崎 佐知子,相川 友直,水田 邦子,吉川 峰加,矢野下 真,柿本 直也,柴 秀樹,日下 知,花本 博,太田 耕司,重石 英生,内藤 真理子,仁井谷 善恵,加来 真人,峯 裕一,二川 浩樹,河口 浩之,岡田 芳幸,加治屋 幹人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1504020",
+        "titleBefore": "医療コミュニケーション基礎論",
+        "titleAfter": "医療コミュニケーション基礎論",
+        "fields": [
+          {
+            "after": "河口 浩之,堀越 励,岡 広子,田地 豪,西 裕美",
+            "before": "河口 浩之,高永 茂,堀越 励,岡 広子,田地 豪,西 裕美",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1505190",
+        "titleBefore": "歯学研究特論I",
+        "titleAfter": "歯学研究特論I",
+        "fields": [
+          {
+            "after": "相川 友直,花本 博,杉田 誠,酒寄 信幸,野村 良太,安藤 俊範,西 裕美,藤井 万紀子,寺山 隆司",
+            "before": "相川 友直,花本 博,杉田 誠,酒寄 信幸,安藤 俊範,吾郷 由希夫,西 裕美,藤井 万紀子,寺山 隆司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1505200",
+        "titleBefore": "歯学研究特論II",
+        "titleAfter": "歯学研究特論II",
+        "fields": [
+          {
+            "after": "相川 友直,飛梅 圭,松尾 美樹,吾郷 由希夫,柿本 直也,水野 智仁,山崎 佐知子,吉川 峰加,國松 亮,加藤 功一,岡田 芳幸,加治屋 幹人,阿部 泰彦,宿南 知佐,三浦 重徳,柴 秀樹",
+            "before": "相川 友直,飛梅 圭,松尾 美樹,野村 良太,柿本 直也,水野 智仁,山崎 佐知子,吉川 峰加,國松 亮,加藤 功一,水田 邦子,岡田 芳幸,加治屋 幹人,阿部 泰彦,宿南 知佐,三浦 重徳,柴 秀樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1506050",
+        "titleBefore": "診断・検査学",
+        "titleAfter": "診断・検査学",
+        "fields": [
+          {
+            "after": "加治屋 幹人,國松 亮,重石 英生,安原 幸美,新谷 智章,安藤 俊範,清水 慶隆,小松澤 均,伊藤 奈七子,末井 良和,水田 邦子,池谷 真,吉本 哲也",
+            "before": "加治屋 幹人,國松 亮,重石 英生,安原 幸美,津賀 一弘,新谷 智章,安藤 俊範,清水 慶隆,小松澤 均,伊藤 奈七子,末井 良和,水田 邦子,池谷 真,吉本 哲也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1506120",
+        "titleBefore": "顎機能学",
+        "titleAfter": "顎機能学",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,吉川 峰加,安原 幸美,杉田 誠,森田 晃司,寺山 隆司,山崎 佐知子,矢野下 真,土井 充,廣瀬 尚人,阿部 泰彦",
+            "before": "谷本 幸太郎,吉川 峰加,久保 隆靖,安原 幸美,杉田 誠,森田 晃司,寺山 隆司,二宮 嘉昭,山崎 佐知子,矢野下 真,土井 充,廣瀬 尚人,阿部 泰彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1506140",
+        "titleBefore": "補綴学II",
+        "titleAfter": "補綴学II",
+        "fields": [
+          {
+            "after": "阿部 泰彦,梅原 華子,竹内 真帆,土井 一矢,森田 晃司,大上 博史,保田 啓介",
+            "before": "阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,保田 啓介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507060",
+        "titleBefore": "口腔インプラント学",
+        "titleAfter": "口腔インプラント学",
+        "fields": [
+          {
+            "after": "阿部 泰彦,相川 友直,加藤 功一,沖 佳史,保田 啓介,小畠 玲子,末井 良和,水野 智仁,土井 一矢,土井 充,大上 博史,森下 廣太",
+            "before": "阿部 泰彦,相川 友直,加藤 功一,沖 佳史,保田 啓介,小田 綾,末井 良和,水野 智仁,土井 一矢,二宮 嘉昭,大上 博史,森下 廣太",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507090",
+        "titleBefore": "無歯顎補綴治療学基礎実習I",
+        "titleAfter": "無歯顎補綴治療学基礎実習I",
+        "fields": [
+          {
+            "after": "吉川 峰加,阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,沖 佳史,保田 啓介,梅原 華子",
+            "before": "吉川 峰加,阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,沖 佳史,保田 啓介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507100",
+        "titleBefore": "無歯顎補綴治療学基礎実習II",
+        "titleAfter": "無歯顎補綴治療学基礎実習II",
+        "fields": [
+          {
+            "after": "吉川 峰加,阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,沖 佳史,保田 啓介,梅原 華子",
+            "before": "吉川 峰加,阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,沖 佳史,保田 啓介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507170",
+        "titleBefore": "小児歯科学I",
+        "titleAfter": "小児歯科学I",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507180",
+        "titleBefore": "小児歯科学II",
+        "titleAfter": "小児歯科学II",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507232",
+        "titleBefore": "歯学研究実習I（口腔腫瘍制御学）",
+        "titleAfter": "歯学研究実習I（口腔腫瘍制御学）",
+        "fields": [
+          {
+            "after": "歯学科4年生",
+            "before": "4年生",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507234",
+        "titleBefore": "歯学研究実習I（先端歯科補綴学）",
+        "titleAfter": "歯学研究実習I（先端歯科補綴学）",
+        "fields": [
+          {
+            "after": "吉川 峰加,梅原 華子,小畠 玲子,阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,沖 佳史,保田 啓介",
+            "before": "吉川 峰加,阿部 泰彦,竹内 真帆,土井 一矢,森田 晃司,大上 博史,沖 佳史,保田 啓介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1507238",
+        "titleBefore": "歯学研究実習I（小児歯科学）",
+        "titleAfter": "歯学研究実習I（小児歯科学）",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508140",
+        "titleBefore": "小児歯科学基礎実習I",
+        "titleAfter": "小児歯科学基礎実習I",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508150",
+        "titleBefore": "小児歯科学基礎実習II",
+        "titleAfter": "小児歯科学基礎実習II",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508156",
+        "titleBefore": "歯科臨床解剖学I",
+        "titleAfter": "歯科臨床解剖学I",
+        "fields": [
+          {
+            "after": "寺山 隆司,柿本 直也,内部 健太,河野 尚平,植月 亮,佐久間 美雪,岡 広子",
+            "before": "寺山 隆司,柿本 直也,内部 健太,河野 尚平,植月 亮,中川 貴之,佐久間 美雪,岡 広子,小野 重弘,吉田 充広",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508157",
+        "titleBefore": "歯科臨床解剖学II",
+        "titleAfter": "歯科臨床解剖学II",
+        "fields": [
+          {
+            "after": "寺山 隆司,柿本 直也,内部 健太,河野 尚平,植月 亮,佐久間 美雪,岡 広子",
+            "before": "寺山 隆司,柿本 直也,内部 健太,河野 尚平,植月 亮,中川 貴之,佐久間 美雪,岡 広子,小野 重弘,吉田 充広",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508161",
+        "titleBefore": "歯科臨床解剖学実習I",
+        "titleAfter": "歯科臨床解剖学実習I",
+        "fields": [
+          {
+            "after": "寺山 隆司,柿本 直也,内部 健太,沖 佳史,河野 尚平,植月 亮,島袋 紀一,佐久間 美雪,小畠 玲子,岡 広子",
+            "before": "寺山 隆司,柿本 直也,内部 健太,沖 佳史,河野 尚平,植月 亮,島袋 紀一,中川 貴之,佐久間 美雪,小畠 玲子,岡 広子,小野 重弘,吉田 充広",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508171",
+        "titleBefore": "歯科臨床解剖学実習II",
+        "titleAfter": "歯科臨床解剖学実習II",
+        "fields": [
+          {
+            "after": "寺山 隆司,柿本 直也,内部 健太,沖 佳史,河野 尚平,植月 亮,島袋 紀一,佐久間 美雪,小畠 玲子,岡 広子",
+            "before": "寺山 隆司,柿本 直也,内部 健太,沖 佳史,河野 尚平,植月 亮,島袋 紀一,中川 貴之,佐久間 美雪,小畠 玲子,岡 広子,小野 重弘,吉田 充広",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508202",
+        "titleBefore": "歯学研究実習II（口腔腫瘍制御学）",
+        "titleAfter": "歯学研究実習II（口腔腫瘍制御学）",
+        "fields": [
+          {
+            "after": "歯学科4年生",
+            "before": "4年生",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1508208",
+        "titleBefore": "歯学研究実習II（小児歯科学）",
+        "titleAfter": "歯学研究実習II（小児歯科学）",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1509010",
+        "titleBefore": "国際歯科医学特論",
+        "titleAfter": "国際歯科医学特論",
+        "fields": [
+          {
+            "after": "藤井 万紀子,内藤 真理子,野村 良太,吉川 峰加,加藤 文紀",
+            "before": "藤井 万紀子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1509031",
+        "titleBefore": "応用口腔医学特論",
+        "titleAfter": "応用口腔医学特論",
+        "fields": [
+          {
+            "after": "水野 智仁,相川 友直,鳴瀬 貴子,濱田 充子,植月 亮,佐久間 美雪,大林 史誠,伊藤 奈七子,目見田 匠,應原 一久,水田 邦子,小泉 浩一,岩田 倫幸,山崎 佐知子,柳本 惣市,森下 廣太,四道 玲奈",
+            "before": "水野 智仁,相川 友直,鳴瀬 貴子,濱田 充子,植月 亮,中川 貴之,佐久間 美雪,大林 史誠,伊藤 奈七子,目見田 匠,長谷 由紀子,小野 重弘,應原 一久,水田 邦子,小泉 浩一,二宮 嘉昭,岩田 倫幸,山崎 佐知子,柳本 惣市,森下 廣太,四道 玲奈",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(2T) 月1-4,集中9-10：歯第2講義室",
+            "before": "(2T) 月1-4,火1-4：歯第2講義室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1509060",
+        "titleBefore": "臨床歯科医学総合演習",
+        "titleAfter": "臨床歯科医学総合演習",
+        "fields": [
+          {
+            "after": "柿本 直也,長崎 信一,秋友 達哉,岩本 優子,浅尾 友里愛,鳴瀬 貴子,佐久間 美雪,四道 玲奈,土井 一矢,竹内 真帆,森田 晃司,小畠 玲子,吉川 峰加,阿部 泰彦,西藤 法子,武田 克浩,柴 秀樹,小泉 浩一,森下 廣太,大林 史誠,水野 智仁,長谷 由紀子,應原 一久,大植 香菜,清水 慶隆,今村 芹佳,谷本 幸太郎,國松 亮,廣瀬 尚人,麻川 由起",
+            "before": "柿本 直也,長崎 信一,秋友 達哉,岩本 優子,浅尾 友里愛,鳴瀬 貴子,佐久間 美雪,四道 玲奈,土井 一矢,竹内 真帆,森田 晃司,小畠 玲子,吉川 峰加,阿部 泰彦,西藤 法子,武田 克浩,柴 秀樹,小泉 浩一,森下 廣太,大林 史誠,水野 智仁,長谷 由紀子,應原 一久,大植 香菜,清水 慶隆,今村 芹佳,谷本 幸太郎,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1509081",
+        "titleBefore": "総合歯科医療学III",
+        "titleAfter": "総合歯科医療学III",
+        "fields": [
+          {
+            "after": "河口 浩之,柿本 直也,沖 佳史,吉田 和真,吉田 結梨子,中西 惇,植月 亮,浅尾 友里愛,吉本 哲也,大林 史誠,水野 智仁,國松 亮,西 裕美,大上 博史",
+            "before": "河口 浩之,柿本 直也,沖 佳史,吉田 結梨子,中西 惇,植月 亮,浅尾 友里愛,吉本 哲也,大林 史誠,水野 智仁,國松 亮,西 裕美,吉田 充広,大上 博史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1509412",
+        "titleBefore": "歯学研究実習III（口腔腫瘍制御学）",
+        "titleAfter": "歯学研究実習III（口腔腫瘍制御学）",
+        "fields": [
+          {
+            "after": "歯学科4年生",
+            "before": "4年生",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1509418",
+        "titleBefore": "歯学研究実習III（小児歯科学）",
+        "titleAfter": "歯学研究実習III（小児歯科学）",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1510091",
+        "titleBefore": "臨床実習（小児歯科学）",
+        "titleAfter": "臨床実習（小児歯科学）",
+        "fields": [
+          {
+            "after": "野村 良太,浅尾 友里愛,岩本 優子,秋友 達哉,亀谷 茉莉子,鋸屋 侑布子",
+            "before": "野村 良太,浅尾 友里愛,岩本 優子,秋友 達哉,亀谷 茉莉子,日下 知",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1605030",
+        "titleBefore": "発達期系歯科学（小児歯科学）",
+        "titleAfter": "発達期系歯科学（小児歯科学）",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1606150",
+        "titleBefore": "口腔保健学臨床・臨地実習",
+        "titleAfter": "口腔保健学臨床・臨地実習",
+        "fields": [
+          {
+            "after": "太田 耕司,重石 英生,仁井谷 善恵,西村 瑠美,兼保 佳乃,川柳 智暉,應原 一久,山崎 佐知子,佐久間 美雪,竹内 真帆,小畠 玲子,矢野下 真,小泉 祐真,岩本 優子,亀谷 茉莉子,小西 勝,大植 香菜,吉田 結梨子,西 裕美,松尾 裕彰,日野 仁美,柄 慎太郎,井上 里穂,長畑 光,柿本 直也,島袋 紀一,伊藤 翔太,中谷 文香,目見田 匠,吉見 友希,麻川 由起,長谷 由紀子,末井 良和,谷本 幸太郎,水野 智仁,中元 崇,國松 亮,廣瀬 尚人,大塚 昌彦,長崎 信一,岩田 倫幸",
+            "before": "太田 耕司,重石 英生,仁井谷 善恵,西村 瑠美,兼保 佳乃,川柳 智暉,應原 一久,山崎 佐知子,佐久間 美雪,竹内 真帆,小畠 玲子,矢野下 真,小泉 祐真,岩本 優子,亀谷 茉莉子,小西 勝,大植 香菜,吉田 結梨子,西 裕美,松尾 裕彰,日野 仁美,柄 慎太郎,井上 里穂,長畑 光,柿本 直也,角 伊三武,島袋 紀一,伊藤 翔太,中谷 文香,目見田 匠,吉見 友希,麻川 由起,長谷 由紀子,末井 良和,谷本 幸太郎,水野 智仁,中元 崇,國松 亮,廣瀬 尚人,大塚 昌彦,長崎 信一,岩田 倫幸",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1607011",
+        "titleBefore": "口腔保健学臨床・臨地実習",
+        "titleAfter": "口腔保健学臨床・臨地実習",
+        "fields": [
+          {
+            "after": "太田 耕司,重石 英生,仁井谷 善恵,西村 瑠美,兼保 佳乃,川柳 智暉,應原 一久,森下 廣太,佐久間 美雪,竹内 真帆,小畠 玲子,矢野下 真,小泉 祐真,岩本 優子,亀谷 茉莉子,小西 勝,大植 香菜,吉田 結梨子,西 裕美,松尾 裕彰,久保上 千尋,平川 正彦,日野 真由美,川本 博也,東森 秀年,山根 次美,岡本 康正,梅田 佳奈,磯田 操,西山 智子,柿本 直也,島袋 紀一,伊藤 翔太,中谷 文香,目見田 匠,吉見 友希,麻川 由起,長谷 由紀子,末井 良和,柴 秀樹,谷本 幸太郎,水野 智仁,中元 崇,國松 亮,廣瀬 尚人,大塚 昌彦,長崎 信一,田地 豪,岩田 倫幸",
+            "before": "太田 耕司,重石 英生,仁井谷 善恵,西村 瑠美,兼保 佳乃,川柳 智暉,應原 一久,森下 廣太,佐久間 美雪,竹内 真帆,小畠 玲子,矢野下 真,小泉 祐真,岩本 優子,亀谷 茉莉子,小西 勝,大植 香菜,吉田 結梨子,西 裕美,松尾 裕彰,久保上 千尋,冨本 麻美,平川 正彦,日野 真由美,川本 博也,東森 秀年,山根 次美,岡本 康正,梅田 佳奈,磯田 操,西山 智子,柿本 直也,角 伊三武,島袋 紀一,伊藤 翔太,中谷 文香,目見田 匠,吉見 友希,麻川 由起,長谷 由紀子,末井 良和,柴 秀樹,谷本 幸太郎,水野 智仁,中元 崇,國松 亮,廣瀬 尚人,大塚 昌彦,長崎 信一,田地 豪,岩田 倫幸",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1607021",
+        "titleBefore": "口腔保健管理学臨床実習",
+        "titleAfter": "口腔保健管理学臨床実習",
+        "fields": [
+          {
+            "after": "太田 耕司,重石 英生,仁井谷 善恵,西村 瑠美,兼保 佳乃,川柳 智暉,應原 一久,森下 廣太,佐久間 美雪,竹内 真帆,小畠 玲子,矢野下 真,中谷 文香,岩本 優子,小西 勝,大植 香菜,吉田 結梨子,柴 秀樹,西 裕美,柿本 直也,島袋 紀一,伊藤 翔太,小泉 祐真,吉見 友希,麻川 由起,末井 良和,谷本 幸太郎,水野 智仁,中元 崇,國松 亮,廣瀬 尚人,大塚 昌彦,長崎 信一,岩田 倫幸",
+            "before": "太田 耕司,重石 英生,仁井谷 善恵,西村 瑠美,兼保 佳乃,川柳 智暉,應原 一久,森下 廣太,佐久間 美雪,竹内 真帆,小畠 玲子,矢野下 真,中谷 文香,岩本 優子,小西 勝,大植 香菜,吉田 結梨子,柴 秀樹,西 裕美,柿本 直也,角 伊三武,島袋 紀一,伊藤 翔太,小泉 祐真,吉見 友希,麻川 由起,末井 良和,谷本 幸太郎,水野 智仁,中元 崇,國松 亮,廣瀬 尚人,大塚 昌彦,長崎 信一,岩田 倫幸",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1705100",
+        "titleBefore": "発達系歯科学（小児歯科学）",
+        "titleAfter": "発達系歯科学（小児歯科学）",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1706040",
+        "titleBefore": "発達系歯科学（小児歯科学）基礎実習",
+        "titleAfter": "発達系歯科学（小児歯科学）基礎実習",
+        "fields": [
+          {
+            "after": "野村 良太,秋友 達哉,浅尾 友里愛,亀谷 茉莉子,岩本 優子,峯 裕一",
+            "before": "野村 良太,秋友 達哉,浅尾 友里愛,日下 知,亀谷 茉莉子,岩本 優子,峯 裕一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1706080",
+        "titleBefore": "口腔保健工学臨床的実習",
+        "titleAfter": "口腔保健工学臨床的実習",
+        "fields": [
+          {
+            "after": "二川 浩樹,加来 真人,田地 豪,下江 宰司,峯 裕一,川柳 智暉,岩田 倫幸,伊藤 奈七子,植月 亮,沖 佳史,保田 啓介,吉見 友希,秋友 達哉,長崎 信一,吉田 結梨子,吉本 哲也,新谷 智章",
+            "before": "二川 浩樹,加来 真人,田地 豪,下江 宰司,峯 裕一,川柳 智暉,岩田 倫幸,伊藤 奈七子,植月 亮,沖 佳史,保田 啓介,吉見 友希,秋友 達哉,長崎 信一,吉田 結梨子,吉本 哲也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1707020",
+        "titleBefore": "口腔保健工学臨床的実習",
+        "titleAfter": "口腔保健工学臨床的実習",
+        "fields": [
+          {
+            "after": "二川 浩樹,加来 真人,田地 豪,下江 宰司,峯 裕一,川柳 智暉,岩田 倫幸,伊藤 奈七子,植月 亮,沖 佳史,保田 啓介,吉見 友希,秋友 達哉,長崎 信一,吉田 結梨子,吉本 哲也,新谷 智章",
+            "before": "二川 浩樹,加来 真人,田地 豪,下江 宰司,峯 裕一,川柳 智暉,岩田 倫幸,伊藤 奈七子,植月 亮,沖 佳史,保田 啓介,吉見 友希,秋友 達哉,長崎 信一,吉田 結梨子,吉本 哲也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "J1708060",
+        "titleBefore": "口腔保健工学臨床的実習",
+        "titleAfter": "口腔保健工学臨床的実習",
+        "fields": [
+          {
+            "after": "二川 浩樹,加来 真人,田地 豪,下江 宰司,峯 裕一,川柳 智暉,岩田 倫幸,伊藤 奈七子,植月 亮,沖 佳史,保田 啓介,吉見 友希,秋友 達哉,長崎 信一,吉田 結梨子,吉本 哲也,新谷 智章",
+            "before": "二川 浩樹,加来 真人,田地 豪,下江 宰司,峯 裕一,川柳 智暉,岩田 倫幸,伊藤 奈七子,植月 亮,沖 佳史,保田 啓介,吉見 友希,秋友 達哉,長崎 信一,吉田 結梨子,吉本 哲也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K0000022",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "中本 昌由",
+            "before": "中本 昌由,村岡 幸輔",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K0000040",
+        "titleBefore": "教養ゼミ",
+        "titleAfter": "教養ゼミ",
+        "fields": [
+          {
+            "after": "木戸 隆之祐,鈴木 有美,井上 隆,塚井 誠人,小川 由布子",
+            "before": "塚井 誠人,井上 隆",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "K0222040",
+        "titleBefore": null,
+        "titleAfter": "環境論",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K0273012",
+        "titleBefore": "技術英語演習",
+        "titleAfter": "技術英語演習",
+        "fields": [
+          {
+            "after": "LI ZONGZE",
+            "before": "李 致峰,崔 正原",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5011110",
+        "titleBefore": "機械工学実験",
+        "titleAfter": "機械工学実験",
+        "fields": [
+          {
+            "after": "岡本 康寛,城崎 知至,山田 啓司,關谷 克彦,茨木 創一,LI ZONGZE,菊植 亮,和田 信敬,崔 龍範,日野 隆太郎,曙 紘之,丸本 啓太,山本 元道,梶本 剛,尾形 陽一,山崎 広太郎,郭 方芹",
+            "before": "岡本 康寛,鈴木 康浩,尾形 陽一,山田 啓司,田中 隆太郎,日野 隆太郎,茨木 創一,崔 正原,池条 清隆,松木 一弘,崔 龍範,梶本 剛,遠藤 暁,關谷 克彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5027013",
+        "titleBefore": "設計製図",
+        "titleAfter": "設計製図",
+        "fields": [
+          {
+            "after": "山本 元道,山田 啓司",
+            "before": "山本 元道,山田 啓司,池条 清隆",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5027014",
+        "titleBefore": "設計製図",
+        "titleAfter": "設計製図",
+        "fields": [
+          {
+            "after": "山本 元道,新宅 英司,MOHAMMAD FIKRY",
+            "before": "山本 元道,新宅 英司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5030011",
+        "titleBefore": "計算機プログラミング",
+        "titleAfter": "計算機プログラミング",
+        "fields": [
+          {
+            "after": "城崎 知至",
+            "before": "城崎 知至,山崎 広太郎",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "K5030012",
+        "titleBefore": null,
+        "titleAfter": "計算機プログラミング",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5033011",
+        "titleBefore": "ＣＡＤ",
+        "titleAfter": "ＣＡＤ",
+        "fields": [
+          {
+            "after": "日野 隆太郎,北村 充,小川 裕樹,THIN THIN HTUT,關谷 克彦,崔 龍範,中島 卓司",
+            "before": "日野 隆太郎,小川 裕樹,THIN THIN HTUT,關谷 克彦,崔 龍範,中島 卓司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5033012",
+        "titleBefore": "ＣＡＤ",
+        "titleAfter": "ＣＡＤ",
+        "fields": [
+          {
+            "after": "日野 隆太郎,北村 充,小川 裕樹,THIN THIN HTUT,關谷 克彦,崔 龍範,中島 卓司",
+            "before": "日野 隆太郎,小川 裕樹,THIN THIN HTUT,關谷 克彦,崔 龍範,中島 卓司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5034012",
+        "titleBefore": "機械創成実習",
+        "titleAfter": "機械創成実習",
+        "fields": [
+          {
+            "after": "曙 紘之,小川 裕樹,鈴木 裕之,杉尾 健次郎",
+            "before": "曙 紘之,小川 裕樹,崔 正原,鈴木 裕之,杉尾 健次郎",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "K5140010",
+        "titleBefore": null,
+        "titleAfter": "放射線工学",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K5411010",
+        "titleBefore": "輸送システムインターンシップ",
+        "titleAfter": "輸送システムインターンシップ",
+        "fields": [
+          {
+            "after": "",
+            "before": "専門教育科目",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K7010030",
+        "titleBefore": "基礎化学実験",
+        "titleAfter": "基礎化学実験",
+        "fields": [
+          {
+            "after": "必ずガイダンスを受けること。初回ガイダンスに無断欠席・遅刻した者は、原則として以後の受講を一切認めない。公欠に関しては，顧問（教職員）から大会等出場に関する理由書を事前に提出してもらうことを条件とする。",
+            "before": "必ずガイダンスを受けること。初回ガイダンスに無断欠席・遅刻した者は、原則として以後の受講を一切認めない。公欠に関しては，顧問（教職員）から大会等出場に関する理由書を提出してもらうことを条件とする。",
+            "field": "メッセージ"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K8176040",
+        "titleBefore": "社会基盤環境工学実験",
+        "titleAfter": "社会基盤環境工学実験",
+        "fields": [
+          {
+            "after": "小川 由布子,松本 敏明,半井 健一郎,CHO WONJUNG,NGUYEN HUU MAY,ZHANG YU,井上 隆,QIU MINGHONG,内田 龍彦,金田一 智規,畠 俊郎,有尾 一郎",
+            "before": "小川 由布子,松本 敏明,半井 健一郎,CHO WONJUNG,NGUYEN HUU MAY,JEONG ILWON,ZHANG YU,井上 隆,QIU MINGHONG,内田 龍彦,金田一 智規,畠 俊郎,有尾 一郎",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K8243040",
+        "titleBefore": "鉄筋コンクリート構造",
+        "titleAfter": "鉄筋コンクリート構造",
+        "fields": [
+          {
+            "after": "(2T) 火5-6,木3-4：工102",
+            "before": "(2T) 火5-6,木3-4：工104",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K8861010",
+        "titleBefore": "海洋・海事工学概論",
+        "titleAfter": "海洋・海事工学概論",
+        "fields": [
+          {
+            "after": "陸田 秀実,中島 卓司",
+            "before": "陸田 秀実,中島 卓司,佐野 将昭",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K8907040",
+        "titleBefore": "維持管理工学",
+        "titleAfter": "維持管理工学",
+        "fields": [
+          {
+            "after": "金納 聡志,半井 健一郎",
+            "before": "田宮 佳代子,半井 健一郎",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K8944040",
+        "titleBefore": "社会基盤環境工学概論",
+        "titleAfter": "社会基盤環境工学概論",
+        "fields": [
+          {
+            "after": "塚井 誠人,大窪 香織,時岡 利和,山本 浩之,半井 健一郎,木戸 隆之祐,日比野 忠史,内田 龍彦,金田一 智規,小川 由布子,藤原 章正",
+            "before": "塚井 誠人,坂本 博紀,大窪 香織,時岡 利和,山本 浩之,半井 健一郎,木戸 隆之祐,日比野 忠史,内田 龍彦,金田一 智規,小川 由布子,藤原 章正",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K9998012",
+        "titleBefore": "卒業論文",
+        "titleAfter": "卒業論文",
+        "fields": [
+          {
+            "after": "陸田 秀実,作野 裕司,片桐 一彰,濱田 邦裕,岩下 英嗣,李 漢洙,中島 卓司,MOHAMMAD FIKRY,谷口 直和,新宅 英司,田中 義和,陳 辰,THIN THIN HTUT,安川 宏紀",
+            "before": "陸田 秀実,荒井 正純,片桐 一彰,谷口 直和,岩下 英嗣,新宅 英司,濱田 邦裕,作野 裕司,田中 義和,中島 卓司,佐野 将昭,李 漢洙",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K9998020",
+        "titleBefore": "卒業論文",
+        "titleAfter": "卒業論文",
+        "fields": [
+          {
+            "after": "高木 健,中島 安理,栗田 雄一,黒木 伸一郎,寺本 章伸,亀田 卓,藤島 実,石井 抱,脇谷 伸,天川 修平,木下 拓矢,島崎 航平,三宅 正尭,後藤 秀樹,東 清一郎,西田 宗弘,HOFMANN HOLGER FRIEDRICH,吉田 毅,鈴木 仁,花房 宏明,富永 依里子,辻 敏夫,森川 克己,坂上 弘之,小出 哲士,角屋 豊,田岡 智志,造賀 芳文,高根 美武,中本 昌由,林田 智弘,佐々木 豊,曽 智,関崎 真也,岩坂 正和,佐々木 守,山本 透",
+            "before": "高木 健,栗田 雄一,黒木 伸一郎,寺本 章伸,亀田 卓,藤島 実,石井 抱,脇谷 伸,天川 修平,木下 拓矢,島崎 航平,三宅 正尭,後藤 秀樹,東 清一郎,西田 宗弘,HOFMANN HOLGER FRIEDRICH,吉田 毅,鈴木 仁,花房 宏明,富永 依里子,辻 敏夫,森川 克己,坂上 弘之,小出 哲士,角屋 豊,田岡 智志,造賀 芳文,中島 安理,高根 美武,中本 昌由,林田 智弘,佐々木 豊,曽 智,関崎 真也,岩坂 正和,佐々木 守,山本 透",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K9998041",
+        "titleBefore": "卒業論文",
+        "titleAfter": "卒業論文",
+        "fields": [
+          {
+            "after": "内田 龍彦,半井 健一郎,KHAJI NASER,NGUYEN HUU MAY,河合 研至,日比野 忠史,塚井 誠人,金田一 智規,小川 由布子,力石 真,畠 俊郎,有尾 一郎,藤原 章正",
+            "before": "内田 龍彦,半井 健一郎,KHAJI NASER,井上 卓也,NGUYEN HUU MAY,河合 研至,日比野 忠史,塚井 誠人,金田一 智規,小川 由布子,布施 正暁,力石 真,畠 俊郎,有尾 一郎,藤原 章正",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "K9998043",
+        "titleBefore": "卒業論文",
+        "titleAfter": "卒業論文",
+        "fields": [
+          {
+            "after": "田中 貴宏,金田一 清香,三浦 弘之,田川 浩,森 拓郎,鈴木 有美,中薗 哲也,田村 将太,陳 星辰,水田 丞,石垣 文,角倉 英明,久保田 徹",
+            "before": "森 拓郎,金田一 清香,三浦 弘之,田川 浩,鈴木 有美,中薗 哲也,田村 将太,陳 星辰,田中 貴宏,水田 丞,石垣 文,角倉 英明,久保田 徹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA101002",
+        "titleBefore": "離散数学I",
+        "titleAfter": "離散数学I",
+        "fields": [
+          {
+            "after": "魏 博,岩本 宙造",
+            "before": "担当教員未定,岩本 宙造",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA212001",
+        "titleBefore": "ソフトウェアマネジメント",
+        "titleAfter": "ソフトウェアマネジメント",
+        "fields": [
+          {
+            "after": "実施日時：9月7日（月）から9月9日（水） 講義室：工学部棟218講義室 原則，対面のみでオンライン参加は受け付けません。そのため、各自で予定を調整し、上記日程で出席できるようにしてください。",
+            "before": "実施日時：9月7日（月）から9月9日（水） 原則，対面のみでオンライン参加は受け付けません。そのため、各自で予定を調整し、上記日程で出席できるようにしてください。",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA220001",
+        "titleBefore": "計量経済学",
+        "titleAfter": "計量経済学",
+        "fields": [
+          {
+            "after": "日 程：９月１日（火），２日（水），３日（木），４日（金）の１～10時限 講義室：工学部棟218講義室 授業に関する案内はMoodleを通じて行う予定",
+            "before": "授業に関する案内はMoodleを通じて行う予定",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA224001",
+        "titleBefore": "確率過程論",
+        "titleAfter": "確率過程論",
+        "fields": [
+          {
+            "after": "",
+            "before": "開講時期は後日案内します．",
+            "field": "その他"
+          },
+          {
+            "after": "微分積分学や線形代数学の基礎知識を前提とします．",
+            "before": "微分積分学，線形代数学，確率論の基礎知識を前提とします． 演習のため，PythonをインストールしたPCを持参して下さい．",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "本講義では，ドローンの自動操縦や自動運転に代表されるオートメーション技術の基盤について講義する． 特に，数理モデルに基づくシステム制御の基礎を理解することを目的とする．具体的には，以下の内容を扱う． (1) 状態方程式：制御したい対象の微分方程式による数理モデリング (2) 安定性：制御において達成したい重要な性質の一つ (3) 可制御性・可観測性：アクチュエータおよびセンサの配置に関わる基本的性質 (4) 状態フィードバック制御・オブザーバ・最適レギュレータ：代表的な制御手法 (5) 確率外乱：数理モデルと実システムとのギャップを考慮した解析手法",
+            "before": "確率過程とは，時間の経過にともなってランダムに変化していく量（サイコロの出目の連なりや株価など）を数学的に表すための概念です．この講義では，確率過程を考える上で必要な基礎的な概念の理解，さらに確率過程の性質を解析していく上での基本的な技術の習得を目標とします．",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(3T) 水7-10：工218",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "3年次生 後期 ３ターム",
+            "before": "3年次生 後期 集中",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA234001",
+        "titleBefore": "プロジェクト研究",
+        "titleAfter": "プロジェクト研究",
+        "fields": [
+          {
+            "after": "本講義では，夏季休業中の連続する５日間を利用し，企業において実施される研究・開発プロジェクトに参加するインターンシップ型講義（集中講義）です． 令和８年度は，マツダ株式会社，マイクロンメモリ ジャパン株式会社，TOPPAN株式会社 ICT KŌBŌ MIYAJIMA，東広島市役所，プライメタルズ テクノロジーズ ジャパン，ひろぎんホールディングス・NTTデータ中国・広島県，ラキール呉各所において計算機科学（システム開発），データ科学（データ分析），知能科学（AI分野）のプロジェクトに参加して頂きます．本講義の受講を通して，企業で実践されている研究・開発の実際にふれるだけでなく，課題を解決するためのスキル獲得，研究・開発を実行するための方法論，成果報告やプレゼン能力など，実際の企業で求められている多岐に渡る能力を獲得することを目指します． ※ひろぎんホールディングス・NTTデータ中国・広島県は，３機関合同で実施。 以下の７つのテーマに分かれて行います． テーマ１．民間企業の業務課題を機械学習を用いて解決することを目標とする． 民間企業においてAIによる業務効率化や負担軽減に取り組むことを想定し，業務上使用するデータを用いて様々な機械学習手法を適用する． 機械学習手法の選択，データの前処理，モデル構築・トレーニング，評価を繰り返し，業務課題に適したモデルの構築を目指す．最後に結果をまとめて発表し，結果について議論する． テーマ２．最先端半導体製造において情報技術は必要不可欠となっている．受講者をグループに分け，工場の自動化プログラム検討や装置稼働率のデータ化，ウェハの異常検知など各グループが選択した任意のケースに対して担当エンジニアの指導を受けながら最適解を模索し，成果をまとめて発表する． テーマ３．地域におけるICTに関わる諸問題を取り上げ，モックアップ制作，資料作成を通して，課題に取り組む．システム開発の要件定義～制作にいたるまでの一連の流れを体験する．最終日にはプレゼンテーションを行い，互いの成果について評価・検討を行う． テーマ４．開発したいシステムを考えシステム開発時の要件定義の工程を体験する． 具体的には自治体業務の DX 推進に向けて，地方自治体が抱える問題を学び、現場の声を聴き，現状を理解する． 各自でどんなシステムが必要かについて，そのイメージや問題点等を自分の言葉で他者に説明をする．実現したいシステムの仕様と運用方法を確立してサービス概要の設計書を作成し，最後にグループで発表をする． テーマ５．産業の基盤として重要な素材である鉄，および鉄鋼製品を製造する機械（製鉄機械）について，それらに付帯するシステムのプログラム設計を体験していただきます．機械を制御するシステムに使われるプログラミング言語の設計を体験することで，学生生活の中で触れることのない分野についての視野と知見を広め，さらに，実際のシステム設計業務の体験を通じて，企業の仕事とはどのようなものかを理解していただきます．テーマごとにグループに分かれて実習を行い，体験した内容や得られた知見などを報告書にまとめ，最後にグループ発表をしていただきます． テーマ６．広島県内の地域の魅力を新たな視点で見つめ直し、皆さんが学んでいるＩＴ・デジタルの知識やスキルを活用して地域の抱える課題を解決に導くアイデアを創発し、ビジネスモデルとして具体化する。地域の現状や解決すべき課題を正しく理解した上で、地域のありたい未来を設定し、地域課題を解決するサービス創発の一連の流れ・考え方についてグループワークを通じて学びながら、最終的にIT・デジタルを活用したビジネスプランとしてまとめる。各グループで検討したサービス/プロダクトについてアイデアやプロトタイプを作成し、ユーザー体験や提供価値、システムの機能等を可視化して、グループごとに発表する。 テーマ７．【自律するAIを創れ！AIエージェント開発体験】近年、AI（人工知能）技術は単なるチャット応答の枠を超え、自律的に思考してユーザーに代わってタスクを実行する「AI Agent」へと急速な進化を遂げています。 本セッションでは、これからのITエンジニアに必須となるAIエージェントの開発プロセスを、弊社製品群（LaKeel Blu / LaKeel Agentic Assistant / LaKeel DX）を活用して、データ解析やAI制御を組み合わせた実践的なハンズオン形式で体験していただきます。 単にAIモデルを呼び出すだけでなく、各種APIを組み合わせてAIに外部ツール（データベースアクセスなど）を操作させる開発に加え、注目を集めている最新規格であるMCP（Model Context Protocol）を活用し、AIモデルとデータソースを接続するモダンなアーキテクチャの実装まで挑戦していただきます。 最新技術に触れながら「自ら考えて動くAI」を創り出す面白さを体感してください。",
+            "before": "本講義では，夏季休業中の連続する５日間を利用し，企業において実施される研究・開発プロジェクトに参加するインターンシップ型講義（集中講義）です． 令和８年度は，マツダ株式会社，マイクロンメモリ ジャパン株式会社，TOPPAN株式会社 ICT KŌBŌ MIYAJIMA，東広島市役所，プライメタルズ テクノロジーズ ジャパン各所において計算機科学（システム開発），データ科学（データ分析），知能科学（AI分野）のプロジェクトに参加して頂きます．本講義の受講を通して，企業で実践されている研究・開発の実際にふれるだけでなく，課題を解決するためのスキル獲得，研究・開発を実行するための方法論，成果報告やプレゼン能力など，実際の企業で求められている多岐に渡る能力を獲得することを目指します． 以下の７つのテーマに分かれて行います． テーマ１．民間企業の業務課題を機械学習を用いて解決することを目標とする． 民間企業においてAIによる業務効率化や負担軽減に取り組むことを想定し，業務上使用するデータを用いて様々な機械学習手法を適用する． 機械学習手法の選択，データの前処理，モデル構築・トレーニング，評価を繰り返し，業務課題に適したモデルの構築を目指す．最後に結果をまとめて発表し，結果について議論する． テーマ２．最先端半導体製造において情報技術は必要不可欠となっている．受講者をグループに分け，工場の自動化プログラム検討や装置稼働率のデータ化，ウェハの異常検知など各グループが選択した任意のケースに対して担当エンジニアの指導を受けながら最適解を模索し，成果をまとめて発表する． テーマ３．地域におけるICTに関わる諸問題を取り上げ，モックアップ制作，資料作成を通して，課題に取り組む．システム開発の要件定義～制作にいたるまでの一連の流れを体験する．最終日にはプレゼンテーションを行い，互いの成果について評価・検討を行う． テーマ４．開発したいシステムを考えシステム開発時の要件定義の工程を体験する． 具体的には自治体業務の DX 推進に向けて，地方自治体が抱える問題を学び、現場の声を聴き，現状を理解する． 各自でどんなシステムが必要かについて，そのイメージや問題点等を自分の言葉で他者に説明をする．実現したいシステムの仕様と運用方法を確立してサービス概要の設計書を作成し，最後にグループで発表をする． テーマ５．産業の基盤として重要な素材である鉄，および鉄鋼製品を製造する機械（製鉄機械）について，それらに付帯するシステムのプログラム設計を体験していただきます．機械を制御するシステムに使われるプログラミング言語の設計を体験することで，学生生活の中で触れることのない分野についての視野と知見を広め，さらに，実際のシステム設計業務の体験を通じて，企業の仕事とはどのようなものかを理解していただきます．テーマごとにグループに分かれて実習を行い，体験した内容や得られた知見などを報告書にまとめ，最後にグループ発表をしていただきます． テーマ６．広島県内の地域の魅力を新たな視点で見つめ直し、皆さんが学んでいるＩＴ・デジタルの知識やスキルを活用して地域の抱える課題を解決に導くアイデアを創発し、ビジネスモデルとして具体化する。地域の現状や解決すべき課題を正しく理解した上で、地域のありたい未来を設定し、地域課題を解決するサービス創発の一連の流れ・考え方についてグループワークを通じて学びながら、最終的にIT・デジタルを活用したビジネスプランとしてまとめる。各グループで検討したサービス/プロダクトについてアイデアやプロトタイプを作成し、ユーザー体験や提供価値、システムの機能等を可視化して、グループごとに発表する。 テーマ７．【自律するAIを創れ！AIエージェント開発体験】近年、AI（人工知能）技術は単なるチャット応答の枠を超え、自律的に思考してユーザーに代わってタスクを実行する「AI Agent」へと急速な進化を遂げています。 本セッションでは、これからのITエンジニアに必須となるAIエージェントの開発プロセスを、弊社製品群（LaKeel Blu / LaKeel Agentic Assistant / LaKeel DX）を活用して、データ解析やAI制御を組み合わせた実践的なハンズオン形式で体験していただきます。 単にAIモデルを呼び出すだけでなく、各種APIを組み合わせてAIに外部ツール（データベースアクセスなど）を操作させる開発に加え、注目を集めている最新規格であるMCP（Model Context Protocol）を活用し、AIモデルとデータソースを接続するモダンなアーキテクチャの実装まで挑戦していただきます。 最新技術に触れながら「自ら考えて動くAI」を創り出す面白さを体感してください。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA307001",
+        "titleBefore": "計算機科学セミナーI",
+        "titleAfter": "計算機科学セミナーI",
+        "fields": [
+          {
+            "after": "岡村 寛之,小川 康一,中野 浩嗣,鄭 俊俊,中西 透,魏 博,丁 曄澎,VICTOR PARQUE,呉 敬馳,西村 浩二,連 卓涛,藤田 聡,土肥 正,伊藤 靖朗,近堂 徹,岩本 宙造,北須賀 輝明",
+            "before": "岡村 寛之,小川 康一,中野 浩嗣,鄭 俊俊,中西 透,丁 曄澎,VICTOR PARQUE,呉 敬馳,西村 浩二,連 卓涛,藤田 聡,土肥 正,伊藤 靖朗,近堂 徹,岩本 宙造,北須賀 輝明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "KA308001",
+        "titleBefore": "計算機科学セミナーII",
+        "titleAfter": "計算機科学セミナーII",
+        "fields": [
+          {
+            "after": "岡村 寛之,小川 康一,中野 浩嗣,鄭 俊俊,中西 透,魏 博,丁 曄澎,VICTOR PARQUE,呉 敬馳,西村 浩二,連 卓涛,藤田 聡,土肥 正,伊藤 靖朗,近堂 徹,岩本 宙造,北須賀 輝明",
+            "before": "岡村 寛之,小川 康一,中野 浩嗣,鄭 俊俊,中西 透,丁 曄澎,VICTOR PARQUE,呉 敬馳,西村 浩二,連 卓涛,藤田 聡,土肥 正,伊藤 靖朗,近堂 徹,岩本 宙造,北須賀 輝明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L0011003",
+        "titleBefore": "基礎化学実験",
+        "titleAfter": "基礎化学実験",
+        "fields": [
+          {
+            "after": "長岡 俊徳,田中 若奈,藤井 創太郎,若松 寿衣,矢中 規之,船戸 耕一,藤川 愉吉,平山 真,冨永 るみ,上田 晃弘",
+            "before": "長岡 俊徳,田中 若奈,藤井 創太郎,矢中 規之,船戸 耕一,藤川 愉吉,平山 真,冨永 るみ,上田 晃弘",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L0014002",
+        "titleBefore": "Introduction to Applied Biological Science II",
+        "titleAfter": "Introduction to Applied Biological Science II",
+        "fields": [
+          {
+            "after": "KUMRUNGSEE THANUTCHAPORN,藤吉 奏,生谷 尚士,中山 達哉",
+            "before": "KUMRUNGSEE THANUTCHAPORN,藤吉 奏,生谷 尚士,中山 達哉,NGUYEN VAN QUAN",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L0015014",
+        "titleBefore": "食品生命科学リサーチフロント",
+        "titleAfter": "食品生命科学リサーチフロント",
+        "fields": [
+          {
+            "after": "矢中 規之,生谷 尚士,田中 若奈,島本 整,山本 祥也,西堀 正英,上野 聡,冲中 泰,船戸 耕一,藤川 愉吉,川井 清司,平山 真,細野 賢治,鈴木 卓弥,大村 尚",
+            "before": "矢中 規之,生谷 尚士,島本 整,山本 祥也,西堀 正英,上野 聡,冲中 泰,船戸 耕一,藤川 愉吉,川井 清司,平山 真,細野 賢治,鈴木 卓弥,大村 尚",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L3021030",
+        "titleBefore": "植物バイオサイエンス",
+        "titleAfter": "植物バイオサイエンス",
+        "fields": [
+          {
+            "after": "冨永 るみ,若松 寿衣",
+            "before": "冨永 るみ",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L3025005",
+        "titleBefore": "応用動植物科学特論II",
+        "titleAfter": "応用動植物科学特論II",
+        "fields": [
+          {
+            "after": "担当教員未定,米澤 隆弘",
+            "before": "担当教員未定,佐藤 晃一,杉野 利久",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L4001002",
+        "titleBefore": "卒業論文I",
+        "titleAfter": "卒業論文I",
+        "fields": [
+          {
+            "after": "梅原 崇,黒川 勇三,妹尾 あいら,鈴木 直樹,米澤 隆弘,中村 隼明,小櫃 剛人,長岡 俊徳,杉野 利久,河上 眞一,冨永 るみ,新居 隆浩,磯部 直樹,上田 晃弘,稲生 雄大",
+            "before": "梅原 崇,黒川 勇三,菊田 真由実,妹尾 あいら,鈴木 直樹,米澤 隆弘,中村 隼明,小櫃 剛人,長岡 俊徳,杉野 利久,河上 眞一,冨永 るみ,新居 隆浩,磯部 直樹,上田 晃弘,稲生 雄大",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L4001004",
+        "titleBefore": "卒業論文I",
+        "titleAfter": "卒業論文I",
+        "fields": [
+          {
+            "after": "藤井 創太郎,生谷 尚士,田中 若奈,中江 進,松崎 芽衣,西堀 正英,堀内 浩幸,島田 昌之,冲中 泰,船戸 耕一,藤川 愉吉,大村 尚,冨永 淳",
+            "before": "藤井 創太郎,生谷 尚士,田中 若奈,中江 進,松崎 芽衣,池田 敦子,西堀 正英,堀内 浩幸,島田 昌之,冲中 泰,船戸 耕一,藤川 愉吉,大村 尚,冨永 淳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L4017004",
+        "titleBefore": "食品開発学",
+        "titleAfter": "食品開発学",
+        "fields": [
+          {
+            "after": "羽倉 義雄,鈴木 重徳,清水 愼太郎",
+            "before": "羽倉 義雄,鈴木 重徳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "L8325001",
+        "titleBefore": "応用極限生命科学",
+        "titleAfter": "応用極限生命科学",
+        "fields": [
+          {
+            "after": "(4T) 月1-4：生C302",
+            "before": "(4T) 月1-4：生C301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA220110",
+        "titleBefore": "リーガル・クリニック",
+        "titleAfter": "リーガル・クリニック",
+        "fields": [
+          {
+            "after": "3年次生 前期 集中",
+            "before": "3年次生 後期 集中",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA222029",
+        "titleBefore": "エクスターンシップ",
+        "titleAfter": "エクスターンシップ",
+        "fields": [
+          {
+            "after": "3年次生 前期 集中",
+            "before": "2年次生 前期 集中",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA301112",
+        "titleBefore": "重点演習（民事法１）",
+        "titleAfter": "重点演習（民事法１）",
+        "fields": [
+          {
+            "after": "坊垣内 拓,小濱 意三,岩元 裕介,野田 隆史,野田 和裕,神野 礼斉,上向 輝宜,油納 健一,田村 耕一",
+            "before": "野田 和裕,小濱 意三,野田 隆史,上向 輝宜,油納 健一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA301213",
+        "titleBefore": "重点演習（民事法２）",
+        "titleAfter": "重点演習（民事法２）",
+        "fields": [
+          {
+            "after": "坊垣内 拓,小濱 意三,岩元 裕介,野田 隆史,上向 輝宜",
+            "before": "坊垣内 拓,小濱 意三,野田 隆史,上向 輝宜",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA301314",
+        "titleBefore": "重点演習（民事法３）",
+        "titleAfter": "重点演習（民事法３）",
+        "fields": [
+          {
+            "after": "野田 和裕,岩元 裕介,野田 隆史,神野 礼斉,坊垣内 拓,上向 輝宜,油納 健一,田村 耕一",
+            "before": "野田 和裕,岩元 裕介,野田 隆史,油納 健一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA302112",
+        "titleBefore": "重点演習（刑事法１）",
+        "titleAfter": "重点演習（刑事法１）",
+        "fields": [
+          {
+            "after": "堀田 尚徳,秋野 成人",
+            "before": "堀田 尚徳,秋野 成人,田上 剛",
+            "field": "担当教員名"
+          },
+          {
+            "after": "3年次生 前期 １ターム",
+            "before": "3年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA344211",
+        "titleBefore": "ローヤリング（模擬調停）",
+        "titleAfter": "ローヤリング（模擬調停）",
+        "fields": [
+          {
+            "after": "(2T) 水7-8",
+            "before": "(1T) 水5-6",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "3年次生 前期 ２ターム",
+            "before": "3年次生 前期 １ターム",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA370600",
+        "titleBefore": "民法６",
+        "titleAfter": "民法６",
+        "fields": [
+          {
+            "after": "田村 耕一,野田 和裕",
+            "before": "田村 耕一,野田 和裕,小濱 意三",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA371200",
+        "titleBefore": "基礎演習１",
+        "titleAfter": "基礎演習１",
+        "fields": [
+          {
+            "after": "堀田 尚徳,岩元 裕介,笛木 淳",
+            "before": "堀田 尚徳,岩元 裕介,濱本 信成,坊垣内 拓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA371300",
+        "titleBefore": "基礎演習２",
+        "titleAfter": "基礎演習２",
+        "fields": [
+          {
+            "after": "堀田 尚徳,岩元 裕介,野田 隆史,笛木 淳",
+            "before": "堀田 尚徳,岩元 裕介,濱本 信成,野田 隆史,坊垣内 拓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA371400",
+        "titleBefore": "基礎演習３",
+        "titleAfter": "基礎演習３",
+        "fields": [
+          {
+            "after": "堀田 尚徳,野田 隆史,坊垣内 拓,笛木 淳",
+            "before": "堀田 尚徳,小濱 意三,濱本 信成,野田 隆史,坊垣内 拓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "PA371500",
+        "titleBefore": "基礎演習４",
+        "titleAfter": "基礎演習４",
+        "fields": [
+          {
+            "after": "堀田 尚徳,野田 隆史,坊垣内 拓,笛木 淳",
+            "before": "堀田 尚徳,小濱 意三,濱本 信成,野田 隆史,坊垣内 拓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000179",
+        "titleBefore": "特別演習",
+        "titleAfter": "特別演習",
+        "fields": [
+          {
+            "after": "渡邉 朋信",
+            "before": "渡邉 朋信,渡邉 朋信",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000196",
+        "titleBefore": "特別演習",
+        "titleAfter": "特別演習",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000197",
+        "titleBefore": "特別演習",
+        "titleAfter": "特別演習",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000296",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000297",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000392",
+        "titleBefore": "特別演習",
+        "titleAfter": "特別演習",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000393",
+        "titleBefore": "特別演習",
+        "titleAfter": "特別演習",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000492",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB000493",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "小川 恵子",
+            "before": "小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB001303",
+        "titleBefore": "生体防御学",
+        "titleAfter": "生体防御学",
+        "fields": [
+          {
+            "after": "小松澤 均,高橋 一郎,保田 朋波流,河野 洋平,東浦 彰史,坂口 剛正,松尾 美樹",
+            "before": "小松澤 均,高橋 一郎,坂口 剛正,保田 朋波流,河野 洋平,東浦 彰史,坂口 剛正,松尾 美樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB002001",
+        "titleBefore": "バイオインフォマティクス入門",
+        "titleAfter": "バイオインフォマティクス入門",
+        "fields": [
+          {
+            "after": "(1T) 火11-12：医第１講義室",
+            "before": "(1T) 火11-12",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB002103",
+        "titleBefore": "マルチオミクスデータ解析と機械学習のための実践的バイオインフォマティクス",
+        "titleAfter": "マルチオミクスデータ解析と機械学習のための実践的バイオインフォマティクス",
+        "fields": [
+          {
+            "after": "(3T) 木11-12：医第１講義室",
+            "before": "(3T) 木11-12",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB011403",
+        "titleBefore": "総合医療実践学特論",
+        "titleAfter": "総合医療実践学特論",
+        "fields": [
+          {
+            "after": "伊藤 公訓,宮森 大輔,吉田 秀平,重信 友宇也,池田 晃太朗,松本 正俊,柿本 聖樹,小川 恵子",
+            "before": "伊藤 公訓,岸川 暢介,田妻 進,大谷 裕一郎,石田 亮子,菅野 啓司,宮森 大輔,吉田 秀平,池田 晃太朗,松本 正俊,柿本 聖樹,小川 恵子,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB068213",
+        "titleBefore": "保健科学特論2（質的研究）",
+        "titleAfter": "保健科学特論2（質的研究）",
+        "fields": [
+          {
+            "after": "岡村 仁,野口 麻衣子,西村 ユミ,山本 美智代,成田 慶一,安梅 勅江,山田 富秋,新福 洋子,加古 まゆみ,山崎 智子",
+            "before": "岡村 仁,野口 麻衣子,西村 ユミ,山本 美智代,成田 慶一,安梅 勅江,山田 富秋,寺本 千恵,新福 洋子,加古 まゆみ,和田 峰子,森山 美知子,山崎 智子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB068311",
+        "titleBefore": "保健科学特論3（実験研究）",
+        "titleAfter": "保健科学特論3（実験研究）",
+        "fields": [
+          {
+            "after": "濱田 泰伸,藤田 直人,桐本 光,石井 陽介,黒瀬 智之,二川 浩樹,加来 真人",
+            "before": "濱田 泰伸,浦川 将,藤田 直人,桐本 光,石井 陽介,田城 翼,黒瀬 智之,関川 清一,重石 英生,高橋 真,砂川 融,二川 浩樹,加来 真人,太田 耕司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB072101",
+        "titleBefore": "English Communication",
+        "titleAfter": "English Communication",
+        "fields": [
+          {
+            "after": "LEE DAVID CHRISTOPHER",
+            "before": "LEE DAVID CHRISTOPHER,中野 由紀子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB123001",
+        "titleBefore": "消化器・移植外科学特別演習",
+        "titleAfter": "消化器・移植外科学特別演習",
+        "fields": [
+          {
+            "after": "大段 秀樹,佐伯 吉弘,田原 裕之,清水 誠一,安部 智之,今岡 祐輝,田中 友加,黒田 慎太郎,下村 学,小林 剛,矢野 琢也,山本 将輝,田口 和浩,大平 真裕",
+            "before": "大段 秀樹,坂井 寛,中野 亮介,佐伯 吉弘,田原 裕之,清水 誠一,安部 智之,今岡 祐輝,田中 友加,黒田 慎太郎,下村 学,井手 健太郎,小林 剛,矢野 琢也,山本 将輝,田口 和浩,大平 真裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB123101",
+        "titleBefore": "消化器・移植外科学特別研究",
+        "titleAfter": "消化器・移植外科学特別研究",
+        "fields": [
+          {
+            "after": "大段 秀樹,佐伯 吉弘,田原 裕之,清水 誠一,安部 智之,今岡 祐輝,田中 友加,黒田 慎太郎,下村 学,小林 剛,矢野 琢也,山本 将輝,田口 和浩,大平 真裕",
+            "before": "大段 秀樹,大下 彰彦,佐伯 吉弘,田原 裕之,清水 誠一,安部 智之,今岡 祐輝,田中 友加,黒田 慎太郎,下村 学,井手 健太郎,小林 剛,矢野 琢也,山本 将輝,田口 和浩,大平 真裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB123103",
+        "titleBefore": "消化器・移植外科学特別研究",
+        "titleAfter": "消化器・移植外科学特別研究",
+        "fields": [
+          {
+            "after": "大段 秀樹,大下 彰彦,佐伯 吉弘,田原 裕之,清水 誠一,安部 智之,今岡 祐輝,田中 友加,黒田 慎太郎,下村 学,小林 剛,矢野 琢也,山本 将輝,田口 和浩,大平 真裕",
+            "before": "大段 秀樹,大下 彰彦,佐伯 吉弘,田原 裕之,清水 誠一,安部 智之,今岡 祐輝,田中 友加,黒田 慎太郎,下村 学,井手 健太郎,小林 剛,矢野 琢也,山本 将輝,田口 和浩,大平 真裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB132001",
+        "titleBefore": "産科婦人科学特別演習",
+        "titleAfter": "産科婦人科学特別演習",
+        "fields": [
+          {
+            "after": "山口 建",
+            "before": "山口 建,杉本 潤",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB132003",
+        "titleBefore": "産科婦人科学特別演習",
+        "titleAfter": "産科婦人科学特別演習",
+        "fields": [
+          {
+            "after": "山口 建",
+            "before": "山口 建,杉本 潤",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB132103",
+        "titleBefore": "産科婦人科学特別研究",
+        "titleAfter": "産科婦人科学特別研究",
+        "fields": [
+          {
+            "after": "山口 建",
+            "before": "山口 建,杉本 潤",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB133101",
+        "titleBefore": "麻酔蘇生学特別研究",
+        "titleAfter": "麻酔蘇生学特別研究",
+        "fields": [
+          {
+            "after": "堤 保夫,堤 理恵,近藤 隆志,佐伯 昇,中村 隆治,加藤 貴大,三好 寛二,楢崎 壮志,神谷 諭史",
+            "before": "堤 保夫,堤 理恵,堀川 陽介,近藤 隆志,佐伯 昇,中村 隆治,加藤 貴大,三好 寛二,楢崎 壮志,神谷 諭史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB148001",
+        "titleBefore": "消化器内科学特別演習",
+        "titleAfter": "消化器内科学特別演習",
+        "fields": [
+          {
+            "after": "岡 志郎,三木 大樹,大野 敦司,卜部 祐司,村上 英介",
+            "before": "岡 志郎,三木 大樹,卜部 祐司,村上 英介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB148101",
+        "titleBefore": "消化器内科学特別研究",
+        "titleAfter": "消化器内科学特別研究",
+        "fields": [
+          {
+            "after": "岡 志郎,三木 大樹,大野 敦司,卜部 祐司,村上 英介",
+            "before": "岡 志郎,三木 大樹,卜部 祐司,村上 英介",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB200007",
+        "titleBefore": "看護開発科学特別研究",
+        "titleAfter": "看護開発科学特別研究",
+        "fields": [
+          {
+            "after": "加澤 佳奈,那須 佳津美",
+            "before": "加澤 佳奈",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB208801",
+        "titleBefore": "老年・慢性看護方法開発学特講",
+        "titleAfter": "老年・慢性看護方法開発学特講",
+        "fields": [
+          {
+            "after": "加澤 佳奈,那須 佳津美",
+            "before": "加澤 佳奈",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB208901",
+        "titleBefore": "老年・慢性看護方法開発学特講演習",
+        "titleAfter": "老年・慢性看護方法開発学特講演習",
+        "fields": [
+          {
+            "after": "加澤 佳奈,那須 佳津美",
+            "before": "加澤 佳奈",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB315001",
+        "titleBefore": "口腔外科学特別演習",
+        "titleAfter": "口腔外科学特別演習",
+        "fields": [
+          {
+            "after": "相川 友直,水田 邦子",
+            "before": "相川 友直,小野 重弘,水田 邦子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB315003",
+        "titleBefore": "口腔外科学特別演習",
+        "titleAfter": "口腔外科学特別演習",
+        "fields": [
+          {
+            "after": "相川 友直,水田 邦子",
+            "before": "相川 友直,小野 重弘,水田 邦子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB315101",
+        "titleBefore": "口腔外科学特別研究",
+        "titleAfter": "口腔外科学特別研究",
+        "fields": [
+          {
+            "after": "相川 友直,水田 邦子",
+            "before": "相川 友直,小野 重弘,水田 邦子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB315103",
+        "titleBefore": "口腔外科学特別研究",
+        "titleAfter": "口腔外科学特別研究",
+        "fields": [
+          {
+            "after": "相川 友直,水田 邦子",
+            "before": "相川 友直,小野 重弘,水田 邦子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB316001",
+        "titleBefore": "先端歯科補綴学特別演習",
+        "titleAfter": "先端歯科補綴学特別演習",
+        "fields": [
+          {
+            "after": "阿部 泰彦,沖 佳史,保田 啓介,吉川 峰加,土井 一矢,森田 晃司,大上 博史",
+            "before": "阿部 泰彦,沖 佳史,保田 啓介,吉川 峰加,久保 隆靖,土井 一矢,森田 晃司,大上 博史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB316003",
+        "titleBefore": "先端歯科補綴学特別演習",
+        "titleAfter": "先端歯科補綴学特別演習",
+        "fields": [
+          {
+            "after": "阿部 泰彦,沖 佳史,保田 啓介,吉川 峰加,土井 一矢,森田 晃司,大上 博史",
+            "before": "阿部 泰彦,沖 佳史,保田 啓介,吉川 峰加,久保 隆靖,土井 一矢,森田 晃司,大上 博史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB316101",
+        "titleBefore": "先端歯科補綴学特別研究",
+        "titleAfter": "先端歯科補綴学特別研究",
+        "fields": [
+          {
+            "after": "吉川 峰加,沖 佳史,保田 啓介,土井 一矢,阿部 泰彦,森田 晃司,大上 博史",
+            "before": "吉川 峰加,沖 佳史,保田 啓介,久保 隆靖,土井 一矢,阿部 泰彦,森田 晃司,大上 博史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB316103",
+        "titleBefore": "先端歯科補綴学特別研究",
+        "titleAfter": "先端歯科補綴学特別研究",
+        "fields": [
+          {
+            "after": "吉川 峰加,沖 佳史,保田 啓介,土井 一矢,阿部 泰彦,森田 晃司,大上 博史",
+            "before": "吉川 峰加,沖 佳史,保田 啓介,久保 隆靖,土井 一矢,阿部 泰彦,森田 晃司,大上 博史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB317001",
+        "titleBefore": "歯科矯正学特別演習",
+        "titleAfter": "歯科矯正学特別演習",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,矢野下 真,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "before": "谷本 幸太郎,矢野下 真,角 伊三武,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB317003",
+        "titleBefore": "歯科矯正学特別演習",
+        "titleAfter": "歯科矯正学特別演習",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,矢野下 真,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "before": "谷本 幸太郎,矢野下 真,角 伊三武,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB317101",
+        "titleBefore": "歯科矯正学特別研究",
+        "titleAfter": "歯科矯正学特別研究",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,矢野下 真,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "before": "谷本 幸太郎,矢野下 真,角 伊三武,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB317103",
+        "titleBefore": "歯科矯正学特別研究",
+        "titleAfter": "歯科矯正学特別研究",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,矢野下 真,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "before": "谷本 幸太郎,矢野下 真,角 伊三武,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "TB322001",
+        "titleBefore": null,
+        "titleAfter": "法歯学特別演習",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "TB322003",
+        "titleBefore": null,
+        "titleAfter": "法歯学特別演習",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "TB322101",
+        "titleBefore": null,
+        "titleAfter": "法歯学特別研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "TB322103",
+        "titleBefore": null,
+        "titleAfter": "法歯学特別研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB327001",
+        "titleBefore": "漢方医学特別演習",
+        "titleAfter": "漢方医学特別演習",
+        "fields": [
+          {
+            "after": "小川 恵子,中田 健吾,李 弘揚",
+            "before": "小川 恵子,中田 健吾,李 弘揚,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB327003",
+        "titleBefore": "漢方医学特別演習",
+        "titleAfter": "漢方医学特別演習",
+        "fields": [
+          {
+            "after": "小川 恵子,中田 健吾,李 弘揚",
+            "before": "小川 恵子,中田 健吾,李 弘揚,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB327101",
+        "titleBefore": "漢方医学特別研究",
+        "titleAfter": "漢方医学特別研究",
+        "fields": [
+          {
+            "after": "小川 恵子,鷲見 学,李 弘揚",
+            "before": "小川 恵子,鷲見 学,李 弘揚,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB327103",
+        "titleBefore": "漢方医学特別研究",
+        "titleAfter": "漢方医学特別研究",
+        "fields": [
+          {
+            "after": "小川 恵子,郭 義,李 弘揚",
+            "before": "小川 恵子,郭 義,李 弘揚,河原 章浩",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB400001",
+        "titleBefore": "心身機能生活制御科学特別研究",
+        "titleAfter": "心身機能生活制御科学特別研究",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402001",
+        "titleBefore": "スポーツリハビリテーション学特論",
+        "titleAfter": "スポーツリハビリテーション学特論",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402101",
+        "titleBefore": "スポーツリハビリテーション学特別演習",
+        "titleAfter": "スポーツリハビリテーション学特別演習",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402103",
+        "titleBefore": "スポーツリハビリテーション学特別演習",
+        "titleAfter": "スポーツリハビリテーション学特別演習",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402601",
+        "titleBefore": "スポーツリハビリテーション学特講",
+        "titleAfter": "スポーツリハビリテーション学特講",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402701",
+        "titleBefore": "スポーツリハビリテーション学特講演習",
+        "titleAfter": "スポーツリハビリテーション学特講演習",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402703",
+        "titleBefore": "スポーツリハビリテーション学特講演習",
+        "titleAfter": "スポーツリハビリテーション学特講演習",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB402801",
+        "titleBefore": "スポーツリハビリテーション学特別研究",
+        "titleAfter": "スポーツリハビリテーション学特別研究",
+        "fields": [
+          {
+            "after": "山田 崇史,有馬 知志",
+            "before": "山田 崇史,田城 翼,有馬 知志,前田 慶明",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "TB411011",
+        "titleBefore": null,
+        "titleAfter": "精神機能制御科学特論",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB411201",
+        "titleBefore": "精神機能制御科学特別研究",
+        "titleAfter": "精神機能制御科学特別研究",
+        "fields": [
+          {
+            "after": "専門的教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB504001",
+        "titleBefore": "臨床薬物治療学特別演習",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB504003",
+        "titleBefore": "臨床薬物治療学特別演習",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB504101",
+        "titleBefore": "臨床薬物治療学特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB504103",
+        "titleBefore": "臨床薬物治療学特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB600201",
+        "titleBefore": "口腔健康科学特講2",
+        "titleAfter": "口腔健康科学特講2",
+        "fields": [
+          {
+            "after": "(前) 金11-12",
+            "before": "(前) 木11-12",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB607301",
+        "titleBefore": "口腔工学特別研究",
+        "titleAfter": "口腔工学特別研究",
+        "fields": [
+          {
+            "after": "専門的教育科目",
+            "before": "",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB608201",
+        "titleBefore": "口腔保健学研究演習Ｂ",
+        "titleAfter": "口腔保健学研究演習Ｂ",
+        "fields": [
+          {
+            "after": "太田 耕司,兼保 佳乃,重石 英生",
+            "before": "太田 耕司,重石 英生",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB608401",
+        "titleBefore": "口腔保健学特別研究",
+        "titleAfter": "口腔保健学特別研究",
+        "fields": [
+          {
+            "after": "太田 耕司,兼保 佳乃,重石 英生",
+            "before": "太田 耕司,重石 英生",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB608403",
+        "titleBefore": "口腔保健学特別研究",
+        "titleAfter": "口腔保健学特別研究",
+        "fields": [
+          {
+            "after": "太田 耕司,兼保 佳乃,重石 英生",
+            "before": "太田 耕司,重石 英生",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB800001",
+        "titleBefore": "薬科学特論",
+        "titleAfter": "薬科学特論",
+        "fields": [
+          {
+            "after": "原則として対面講義のみ出席と認めます．事情により対面で出席できない場合は担当教員（客員教員の場合は括弧内の紹介教員）に必ず連絡してください． ・4/27は16:30～18:00で実施予定です. ・5/11は16:20～17:50で実施予定です. ・5/18はオンラインで実施予定です. ・5/22は14:35～16:05で実施予定です. ・6/1は16:20～17:50で実施予定です. ・6/8は10:30～12:00で実施予定です. ・7/13は通常の8:45～10:15と16:20～17:50（予定）の2回の講義が予定されています. ・7/17は15:30～17:00で実施予定です. ・7/24は16：00～17：30で実施予定です. これら時間が変更になっている講義は講義室も変更になる可能性があります. 詳しくは先生方からの連絡を確認してください.",
+            "before": "原則として対面講義のみ出席と認めます．事情により対面で出席できない場合は担当教員（客員教員の場合は括弧内の紹介教員）に必ず連絡してください． ・5/11は16:20～17:50で実施予定です. ・5/22は14:35～16:05で実施予定です. ・6/1は16:20～17:50で実施予定です. ・6/8は10:30～12:00で実施予定です. ・7/13は通常の8:45～10:15と16:20～17:50（予定）の2回の講義が予定されています. ・7/17は15:30～17:00で実施予定です. これら時間が変更になっている講義は講義室も変更になる可能性があります. 詳しくは先生方からの連絡を確認してください.",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "古武 弥一郎,塩見 春彦,岩崎 紀彦,加登住 眞,河野 陽一,清宮 啓之,紙谷 浩之,内田 康雄,熊本 卓哉,野村 渉,笹谷 めぐみ,黒田 照夫,長瀬 健一,田原 栄俊,松浪 勝義,森岡 徳光",
+            "before": "古武 弥一郎,塩見 春彦,岩崎 紀彦,加登住 眞,河野 陽一,清宮 啓之,紙谷 浩之,内田 康雄,熊本 卓哉,野村 渉,笹谷 めぐみ,中嶋 龍,長瀬 健一,田原 栄俊,森岡 徳光,杉山 政則",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB800101",
+        "titleBefore": "薬科学特講",
+        "titleAfter": "薬科学特講",
+        "fields": [
+          {
+            "after": "原則として対面講義のみ出席と認めます．事情により対面で出席できない場合は担当教員（客員教員の場合は括弧内の紹介教員）に必ず連絡してください． ・4/27は16:30～18:00で実施予定です. ・5/11は16:20～17:50で実施予定です. ・5/18はオンラインで実施予定です. ・5/22は14:35～16:05で実施予定です. ・6/1は16:20～17:50で実施予定です. ・6/8は10:30～12:00で実施予定です. ・7/13は通常の8:45～10:15と16:20～17:50（予定）の2回の講義が予定されています. ・7/17は15:30～17:00で実施予定です. これら時間が変更になっている講義は講義室も変更になる可能性があります. 詳しくは先生方からの連絡を確認してください.",
+            "before": "原則として対面講義のみ出席と認めます．事情により対面で出席できない場合は担当教員（客員教員の場合は括弧内の紹介教員）に必ず連絡してください． ・5/11は16:20～17:50で実施予定です. ・5/22は14:35～16:05で実施予定です. ・6/1は16:20～17:50で実施予定です. ・6/8は10:30～12:00で実施予定です. ・7/13は通常の8:45～10:15と16:20～17:50（予定）の2回の講義が予定されています. ・7/17は15:30～17:00で実施予定です. これら時間が変更になっている講義は講義室も変更になる可能性があります. 詳しくは先生方からの連絡を確認してください.",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "古武 弥一郎,塩見 春彦,岩崎 紀彦,加登住 眞,河野 陽一,清宮 啓之,紙谷 浩之,内田 康雄,熊本 卓哉,野村 渉,笹谷 めぐみ,黒田 照夫,長瀬 健一,田原 栄俊,松浪 勝義,森岡 徳光",
+            "before": "古武 弥一郎,塩見 春彦,岩崎 紀彦,加登住 眞,河野 陽一,清宮 啓之,紙谷 浩之,内田 康雄,熊本 卓哉,野村 渉,笹谷 めぐみ,中嶋 龍,長瀬 健一,田原 栄俊,森岡 徳光,杉山 政則",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB802001",
+        "titleBefore": "薬物治療学特論",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB802101",
+        "titleBefore": "薬物治療学特論演習",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB802103",
+        "titleBefore": "薬物治療学特論演習",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB802201",
+        "titleBefore": "薬物治療学特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "TB802203",
+        "titleBefore": "薬物治療学特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB809103",
+        "titleBefore": "細胞再生機構特論演習",
+        "titleAfter": "細胞再生機構特論演習",
+        "fields": [
+          {
+            "after": "田原 栄俊",
+            "before": "田原 栄俊,石田 万里",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811101",
+        "titleBefore": "微生物医薬品開発学特論演習",
+        "titleAfter": "微生物医薬品開発学特論演習",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811103",
+        "titleBefore": "微生物医薬品開発学特論演習",
+        "titleAfter": "微生物医薬品開発学特論演習",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811201",
+        "titleBefore": "微生物医薬品開発学特別研究",
+        "titleAfter": "微生物医薬品開発学特別研究",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811203",
+        "titleBefore": "微生物医薬品開発学特別研究",
+        "titleAfter": "微生物医薬品開発学特別研究",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811301",
+        "titleBefore": "微生物医薬品開発学特別演習",
+        "titleAfter": "微生物医薬品開発学特別演習",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811303",
+        "titleBefore": "微生物医薬品開発学特別演習",
+        "titleAfter": "微生物医薬品開発学特別演習",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811401",
+        "titleBefore": "微生物医薬品開発学特別研究",
+        "titleAfter": "微生物医薬品開発学特別研究",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB811403",
+        "titleBefore": "微生物医薬品開発学特別研究",
+        "titleAfter": "微生物医薬品開発学特別研究",
+        "fields": [
+          {
+            "after": "黒田 照夫,熊谷 孝則",
+            "before": "黒田 照夫,熊谷 孝則,森田 大地",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB909001",
+        "titleBefore": "婦人科がん治療演習",
+        "titleAfter": "婦人科がん治療演習",
+        "fields": [
+          {
+            "after": "",
+            "before": "山口 建,杉本 潤",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB909003",
+        "titleBefore": "婦人科がん治療演習",
+        "titleAfter": "婦人科がん治療演習",
+        "fields": [
+          {
+            "after": "山口 建",
+            "before": "山口 建,杉本 潤",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB914001",
+        "titleBefore": "矯正歯科専門医取得支援コース",
+        "titleAfter": "矯正歯科専門医取得支援コース",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,矢野下 真,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "before": "谷本 幸太郎,矢野下 真,角 伊三武,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB914003",
+        "titleBefore": "矯正歯科専門医取得支援コース",
+        "titleAfter": "矯正歯科専門医取得支援コース",
+        "fields": [
+          {
+            "after": "谷本 幸太郎,矢野下 真,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "before": "谷本 幸太郎,矢野下 真,角 伊三武,伊藤 翔太,中谷 文香,小泉 祐真,壷井 英里,吉見 友希,麻川 由起,國松 亮,廣瀬 尚人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB915001",
+        "titleBefore": "小児歯科専門医取得支援コース",
+        "titleAfter": "小児歯科専門医取得支援コース",
+        "fields": [
+          {
+            "after": "岩本 優子,野村 良太,秋友 達哉,浅尾 友里愛",
+            "before": "岩本 優子,野村 良太,秋友 達哉,浅尾 友里愛,日下 知",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "TB915003",
+        "titleBefore": "小児歯科専門医取得支援コース",
+        "titleAfter": "小児歯科専門医取得支援コース",
+        "fields": [
+          {
+            "after": "岩本 優子,野村 良太,秋友 達哉,浅尾 友里愛",
+            "before": "岩本 優子,野村 良太,秋友 達哉,浅尾 友里愛,日下 知",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WB008200",
+        "titleBefore": "生物工学特別講義Ｃ",
+        "titleAfter": "生物工学特別講義Ｃ",
+        "fields": [
+          {
+            "after": "馬場 健史",
+            "before": "馬場 健史,秋 庸裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WB009031",
+        "titleBefore": "生物工学演習",
+        "titleAfter": "生物工学演習",
+        "fields": [
+          {
+            "after": "(年) 集中：*担当教員の指定による,先402N,先403N",
+            "before": "(年) 集中：担当教員の指定による",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 前期 年度",
+            "before": "1年次生 後期 年度",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WB100300",
+        "titleBefore": "先端生物工学特別講義Ｃ",
+        "titleAfter": "先端生物工学特別講義Ｃ",
+        "fields": [
+          {
+            "after": "馬場 健史",
+            "before": "シラバス授業計画等参照,秋 庸裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WF113001",
+        "titleBefore": "基礎生物学特別講義（植物の減数分裂機構）",
+        "titleAfter": "基礎生物学特別講義（植物の減数分裂機構）",
+        "fields": [
+          {
+            "after": "野々村 賢一,守口 和基",
+            "before": "担当教員未定,守口 和基",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WF113002",
+        "titleBefore": "基礎生物学特別講義（植物ペプチドホルモンを介した細胞間コミュニケーション）",
+        "titleAfter": "基礎生物学特別講義（植物ペプチドホルモンを介した細胞間コミュニケーション）",
+        "fields": [
+          {
+            "after": "篠原 秀文,平川 有宇樹",
+            "before": "担当教員未定,平川 有宇樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WF114043",
+        "titleBefore": null,
+        "titleAfter": "基礎生物学特別演習Ａ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WG110003",
+        "titleBefore": null,
+        "titleAfter": "数理モデリングＣ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WG127003",
+        "titleBefore": null,
+        "titleAfter": "生物化学Ｂ",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WG128004",
+        "titleBefore": "自己組織化学Ａ",
+        "titleAfter": "自己組織化学Ａ",
+        "fields": [
+          {
+            "after": "(4T) 木1-4：先403N",
+            "before": "(4T) 木1-4：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WG132003",
+        "titleBefore": "数理生命科学特別講義Ｃ（獣医療におけるバイオインフォマティクス）",
+        "titleAfter": "数理生命科学特別講義Ｃ（獣医療におけるバイオインフォマティクス）",
+        "fields": [
+          {
+            "after": "茂木 朋貴,粟津 暁紀",
+            "before": "担当教員未定,粟津 暁紀",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WG133004",
+        "titleBefore": "数理生命科学特別講義Ｄ（DNAナノテクノロジーによる自己組織化の理論と実験）",
+        "titleAfter": "数理生命科学特別講義Ｄ（DNAナノテクノロジーによる自己組織化の理論と実験）",
+        "fields": [
+          {
+            "after": "川又 生吹,市川 正敏",
+            "before": "担当教員未定,市川 正敏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WG137034",
+        "titleBefore": null,
+        "titleAfter": "数理計算理学特論Ｄ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WG146121",
+        "titleBefore": null,
+        "titleAfter": "生命理学特別演習Ａ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WG147123",
+        "titleBefore": null,
+        "titleAfter": "生命理学特別演習Ｂ",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WG903000",
+        "titleBefore": "数理生命科学特別講義F（複雑流体の界面現象：平衡から非平衡まで）",
+        "titleAfter": "数理生命科学特別講義F（複雑流体の界面現象：平衡から非平衡まで）",
+        "fields": [
+          {
+            "after": "担当教員未定,松尾 宗征,中田 聡",
+            "before": "担当教員未定,中田 聡",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WG904000",
+        "titleBefore": "数理生命科学特別講義G（獣医療におけるバイオインフォマティクス）",
+        "titleAfter": "数理生命科学特別講義G（獣医療におけるバイオインフォマティクス）",
+        "fields": [
+          {
+            "after": "茂木 朋貴,粟津 暁紀",
+            "before": "担当教員未定,粟津 暁紀",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WG905000",
+        "titleBefore": "数理生命科学特別講義H（DNAナノテクノロジーによる自己組織化の理論と実践）",
+        "titleAfter": "数理生命科学特別講義H（DNAナノテクノロジーによる自己組織化の理論と実践）",
+        "fields": [
+          {
+            "after": "川又 生吹,市川 正敏",
+            "before": "担当教員未定,市川 正敏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WH108001",
+        "titleBefore": "生命医科学特別講義（逆遺伝学的アプローチによる新規分子制御機構の探索）",
+        "titleAfter": "生命医科学特別講義（逆遺伝学的アプローチによる新規分子制御機構の探索）",
+        "fields": [
+          {
+            "after": "中川 真一,千原 崇裕",
+            "before": "担当教員未定,千原 崇裕",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WI101200",
+        "titleBefore": "ゲノム編集の基礎と実践",
+        "titleAfter": "ゲノム編集の基礎と実践",
+        "fields": [
+          {
+            "after": "山本 卓,下出 紗弓,市川 健之助,栗田 朋和,藤江 誠,細羽 康介,杉 拓磨",
+            "before": "山本 卓,栗田 朋和,藤江 誠,細羽 康介,杉 拓磨",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKA10004",
+        "titleBefore": "人間社会科学特別講義（実務法学専用）令和5年度以前入学生",
+        "titleAfter": "人間社会科学特別講義（実務法学専用）令和5年度以前入学生",
+        "fields": [
+          {
+            "after": "神野 礼斉,柳澤 浩哉,本田 義央,末永 高康,窪田 頌,伊藤 奈保子,山田 大地,金 宰ウク,油納 健一,永山 博之,浅利 宙,服巻 豊,上手 由香,杉浦 義典,滝沢 潤,松浦 武人",
+            "before": "神野 礼斉,本田 義央,末永 高康,窪田 頌,伊藤 奈保子,柳澤 浩哉,山田 大地,金 宰ウク,油納 健一,永山 博之,浅利 宙,服巻 豊,上手 由香,杉浦 義典,滝沢 潤,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKA10013",
+        "titleBefore": "人間社会科学特別講義（英語クラス）令和6年度以降入学生",
+        "titleAfter": "人間社会科学特別講義（英語クラス）令和6年度以降入学生",
+        "fields": [
+          {
+            "after": "清水 欽也,上野 貴史,岡本 慎平,前野 弘志,伊藤 奈保子,今林 修,山根 明子,金 宰ウク,MOUSOURAKIS GEORGE,戸崎 洋史,江頭 大藏,梅村 比丘,杉村 和美,田部井 祐介,DELAKORDA KAWASHIMA TINKA",
+            "before": "清水 欽也,上野 貴史,岡本 慎平,前野 弘志,伊藤 奈保子,今林 修,山根 明子,金 宰ウク,担当教員未定,戸崎 洋史,江頭 大藏,梅村 比丘,杉村 和美,田部井 祐介,DELAKORDA KAWASHIMA TINKA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKA11003",
+        "titleBefore": "人間社会科学のための科学史（英語クラス）令和5年度以前入学生",
+        "titleAfter": "人間社会科学のための科学史（英語クラス）令和5年度以前入学生",
+        "fields": [
+          {
+            "after": "CHEN SHUNING,KHAN GHULAM DASTGIR,劉 金鵬,岡本 慎平,藤原 翔太,伊藤 奈保子,大地 真介,市橋 勝,VUONG BAO NGOC,MOUSOURAKIS GEORGE,永山 博之,荒木 隆人,吉田 真理子,杉村 和美,神原 利宗,梅村 比丘,KONG GARRY,桑山 尚司,WANG TINGJIA",
+            "before": "KHAN GHULAM DASTGIR,劉 金鵬,岡本 慎平,藤原 翔太,伊藤 奈保子,大地 真介,市橋 勝,VUONG BAO NGOC,MOUSOURAKIS GEORGE,永山 博之,荒木 隆人,吉田 真理子,杉村 和美,神原 利宗,梅村 比丘,KONG GARRY,桑山 尚司,WANG TINGJIA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKA11010",
+        "titleBefore": "人間社会科学のための科学史（日本語クラス）令和6年度以降入学生",
+        "titleAfter": "人間社会科学のための科学史（日本語クラス）令和6年度以降入学生",
+        "fields": [
+          {
+            "after": "竹下 俊治,宮川 朗子,後藤 雄太,舩田 善之,後藤 秀昭,柳澤 浩哉,山口 力,徐 恩之,田村 耕一,永山 博之,江頭 大藏,清水 寿代,加藤 荘志,村澤 昌崇,松浦 武人",
+            "before": "竹下 俊治,宮川 朗子,後藤 雄太,舩田 善之,後藤 秀昭,担当教員未定,山口 力,徐 恩之,田村 耕一,永山 博之,江頭 大藏,清水 寿代,加藤 荘志,村澤 昌崇,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKA11013",
+        "titleBefore": "人間社会科学のための科学史（英語クラス）令和6年度以降入学生",
+        "titleAfter": "人間社会科学のための科学史（英語クラス）令和6年度以降入学生",
+        "fields": [
+          {
+            "after": "CHEN SHUNING,KHAN GHULAM DASTGIR,劉 金鵬,岡本 慎平,藤原 翔太,伊藤 奈保子,大地 真介,市橋 勝,VUONG BAO NGOC,MOUSOURAKIS GEORGE,永山 博之,荒木 隆人,吉田 真理子,杉村 和美,神原 利宗,梅村 比丘,KONG GARRY,桑山 尚司,WANG TINGJIA",
+            "before": "KHAN GHULAM DASTGIR,担当教員未定,劉 金鵬,岡本 慎平,藤原 翔太,伊藤 奈保子,大地 真介,VUONG BAO NGOC,永山 博之,荒木 隆人,吉田 真理子,杉村 和美,神原 利宗,梅村 比丘,KONG GARRY,桑山 尚司,WANG TINGJIA",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKA30010",
+        "titleBefore": "教育科学のための研究法と倫理（日本語クラス）令和6年度以降入学生",
+        "titleAfter": "教育科学のための研究法と倫理（日本語クラス）令和6年度以降入学生",
+        "fields": [
+          {
+            "after": "松原 主典,草原 和博,福田 敦志,松田 弥花,杉田 浩崇,野内 玲,中村 和世,渡邉 巧,影山 和也,三好 美織,川口 広美,木村 彰孝,間瀬 茂夫,草薙 邦広,柳岡 拓磨,黒坂 志穂,井戸川 豊,高旗 健次,伊藤 真,小口 悠紀子,仁科 陽江,渡部 倫子",
+            "before": "松原 主典,草原 和博,福田 敦志,松田 弥花,杉田 浩崇,野内 玲,中村 和世,渡邉 巧,影山 和也,三好 美織,川口 広美,木村 彰孝,間瀬 茂夫,草薙 邦広,柳岡 拓磨,黒坂 志穂,井戸川 豊,高旗 健次,伊藤 真,小口 悠紀子,担当教員未定,渡部 倫子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WKAD1050",
+        "titleBefore": "プロジェクト研究",
+        "titleAfter": "プロジェクト研究",
+        "fields": [
+          {
+            "after": "相馬 敏彦,野島 永,上田 直弥,中村 泰朗,難波 修史,宮永 文雄,担当教員未定,角谷 快彦,KHAN GHULAM DASTGIR,中尾 麻伊香,小口 悠紀子,中矢 礼美,田村 耕一",
+            "before": "相馬 敏彦,野島 永,上田 直弥,中村 泰朗,湯澤 正通,宮永 文雄,担当教員未定,角谷 快彦,KHAN GHULAM DASTGIR,中尾 麻伊香,小口 悠紀子,中矢 礼美,田村 耕一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBB3501",
+        "titleBefore": "表象文化論演習Ａ",
+        "titleAfter": "表象文化論演習Ａ",
+        "fields": [
+          {
+            "after": "(前) 水1-2：文A152",
+            "before": "(前) 水1-2：文A202",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBB3602",
+        "titleBefore": "表象文化論演習Ｂ",
+        "titleAfter": "表象文化論演習Ｂ",
+        "fields": [
+          {
+            "after": "(後) 水5-6：文B153",
+            "before": "(後) 木1-2：文A302",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBB4001",
+        "titleBefore": "言語文化論講義Ａ",
+        "titleAfter": "言語文化論講義Ａ",
+        "fields": [
+          {
+            "after": "４月１４日より対面で授業を実施します。",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(前) 火3-4：文A152",
+            "before": "(前) 火3-4：文B201",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBB5002",
+        "titleBefore": "超域文化論講義Ａ",
+        "titleAfter": "超域文化論講義Ａ",
+        "fields": [
+          {
+            "after": "(1T) 水5-8：教K217",
+            "before": "(1T) 水5-8：文B205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBB5502",
+        "titleBefore": "超域文化論演習Ａ",
+        "titleAfter": "超域文化論演習Ａ",
+        "fields": [
+          {
+            "after": "(2T) 水5-8：教K217",
+            "before": "(2T) 水5-8：文B205",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBD7001",
+        "titleBefore": "西洋哲学特講",
+        "titleAfter": "西洋哲学特講",
+        "fields": [
+          {
+            "after": "実施日程：９月１日（火）～９月４日（金）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBI9002",
+        "titleBefore": "日本社会文化史特論",
+        "titleAfter": "日本社会文化史特論",
+        "fields": [
+          {
+            "after": "寺澤 優",
+            "before": "寺澤 優,殷 暁星",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBK1101",
+        "titleBefore": "欧米社会構造論研究",
+        "titleAfter": "欧米社会構造論研究",
+        "fields": [
+          {
+            "after": "実施日程：８月２４日（月）～８月２７日（木）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "",
+            "before": "専門的教育科目",
+            "field": "科目区分"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBK4602",
+        "titleBefore": "西洋文化史文書研究Ｂ",
+        "titleAfter": "西洋文化史文書研究Ｂ",
+        "fields": [
+          {
+            "after": "(後) 木3-4：教員研究室",
+            "before": "(前) 木3-4：教員研究室",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 後期 セメスター（後期）",
+            "before": "1年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBM3001",
+        "titleBefore": "日本近現代文学注釈研究Ａ",
+        "titleAfter": "日本近現代文学注釈研究Ａ",
+        "fields": [
+          {
+            "after": "(前) 火3-4：文A402",
+            "before": "(前) 火3-4：文A101",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBM5001",
+        "titleBefore": "日本語学研究Ａ",
+        "titleAfter": "日本語学研究Ａ",
+        "fields": [
+          {
+            "after": "(1T) 金3-4：文B102, (2T) 金3-4：文B153",
+            "before": "(前) 金3-4：文A302",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBN4002",
+        "titleBefore": "中国古典小説演習Ａ",
+        "titleAfter": "中国古典小説演習Ａ",
+        "fields": [
+          {
+            "after": "(前) 水3-4：文A302",
+            "before": "(前) 水3-4：文B102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBN4201",
+        "titleBefore": "中国古典小説演習Ｃ",
+        "titleAfter": "中国古典小説演習Ｃ",
+        "fields": [
+          {
+            "after": "(前) 水3-4：文A302",
+            "before": "(前) 水3-4：文B102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBN5001",
+        "titleBefore": "中国文学特殊講義Ａ",
+        "titleAfter": "中国文学特殊講義Ａ",
+        "fields": [
+          {
+            "after": "実施日程：8月24日（月）～8月27日（木）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBP3101",
+        "titleBefore": "アメリカ文学特殊講義Ｂ",
+        "titleAfter": "アメリカ文学特殊講義Ｂ",
+        "fields": [
+          {
+            "after": "実施日程：8月17日（月）～8月20日（木）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中：教員研究室",
+            "before": "(前) 集中：教員研究室",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 前期 ターム外（前期）",
+            "before": "1年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBP8501",
+        "titleBefore": "英語圏文学作品演習Ａ",
+        "titleAfter": "英語圏文学作品演習Ａ",
+        "fields": [
+          {
+            "after": "(2T) 金1-4：文A302",
+            "before": "(2T) 金1-4：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBP8601",
+        "titleBefore": "英語圏文学作品演習Ｂ",
+        "titleAfter": "英語圏文学作品演習Ｂ",
+        "fields": [
+          {
+            "after": "(2T) 金1-4：文A302",
+            "before": "(2T) 金1-4：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBR2001",
+        "titleBefore": "ドイツ文学語学特殊講義Ａ",
+        "titleAfter": "ドイツ文学語学特殊講義Ａ",
+        "fields": [
+          {
+            "after": "実施日程：9月16日（水）～9月19日（土）",
+            "before": "",
+            "field": "その他"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WMBR3001",
+        "titleBefore": "ドイツ語圏言語文化演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBS7001",
+        "titleBefore": "フランス語文学・フランス語学特殊講義A",
+        "titleAfter": "フランス語文学・フランス語学特殊講義A",
+        "fields": [
+          {
+            "after": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。 実施日程：9月19日（土）～9月22日（火）",
+            "before": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。",
+            "field": "その他"
+          },
+          {
+            "after": "BEAUVIEUX MARIE NOELLE BENEDICTE ISABELL",
+            "before": "BEAUVIEUX MARIE NOELLE BENEDICTE",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBT1601",
+        "titleBefore": "言語情報学特別演習Ａ",
+        "titleAfter": "言語情報学特別演習Ａ",
+        "fields": [
+          {
+            "after": "向井 真樹子",
+            "before": "担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBT5701",
+        "titleBefore": "ヨーロッパ語比較構文論演習",
+        "titleAfter": "ヨーロッパ語比較構文論演習",
+        "fields": [
+          {
+            "after": "実施日程：9月7日（月）～9月9日（水）",
+            "before": "この授業では授業中に発声・発音を求めるため，オンラインで受講する場合は受講場所に注意すること。",
+            "field": "その他"
+          },
+          {
+            "after": "(外前) 集中",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 前期 ターム外（前期）",
+            "before": "1年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBV4001",
+        "titleBefore": "自然地理学特別講義",
+        "titleAfter": "自然地理学特別講義",
+        "fields": [
+          {
+            "after": "実施日程：８月２７日（木）～８月２９日（土）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "飯島 慈裕,後藤 秀昭",
+            "before": "担当教員未定,後藤 秀昭",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBV8001",
+        "titleBefore": "地理学野外実験",
+        "titleAfter": "地理学野外実験",
+        "fields": [
+          {
+            "after": "(外前) 集中",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 前期 ターム外（前期）",
+            "before": "1年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBX3501",
+        "titleBefore": "有形文化財解析演習Ｉ",
+        "titleAfter": "有形文化財解析演習Ｉ",
+        "fields": [
+          {
+            "after": "2年次生 前期 通年",
+            "before": "1年次生 前期 通年",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBX5102",
+        "titleBefore": "文化財学特殊講義ＩＩ",
+        "titleAfter": "文化財学特殊講義ＩＩ",
+        "fields": [
+          {
+            "after": "実施日程：6月13日（土）～6月14日（日），6月27（土）～6月28日（日）",
+            "before": "",
+            "field": "その他"
+          },
+          {
+            "after": "(2T) 集中：詳細は掲示板参照",
+            "before": "(外前) 集中：詳細は掲示板参照",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 前期 ２ターム",
+            "before": "1年次生 前期 ターム外（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBZ1007",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "(1T) 水3-4：文A152, (2T) 水3-4：文A202",
+            "before": "(前) 水3-4：文A202",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBZ1008",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "(後) 水3-4：教K217",
+            "before": "(後) 木3-4：文A302",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBZ1051",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "(前) 金7：文A402, (前) 金8：教員研究室",
+            "before": "(前) 金7-8：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMBZ2008",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "(後) 水3-4：教K217",
+            "before": "(後) 水3-4：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC00000",
+        "titleBefore": "心理学研究法基礎演習A",
+        "titleAfter": "心理学研究法基礎演習A",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC01050",
+        "titleBefore": "心理学研究法基礎演習B",
+        "titleAfter": "心理学研究法基礎演習B",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC02000",
+        "titleBefore": "心理学研究法応用演習A",
+        "titleAfter": "心理学研究法応用演習A",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC03050",
+        "titleBefore": "心理学研究法応用演習B",
+        "titleAfter": "心理学研究法応用演習B",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC04000",
+        "titleBefore": "Academic writing in psychology A",
+        "titleAfter": "Academic writing in psychology A",
+        "fields": [
+          {
+            "after": "梅村 比丘,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子",
+            "before": "梅村 比丘,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC05050",
+        "titleBefore": "Academic writing in psychology B",
+        "titleAfter": "Academic writing in psychology B",
+        "fields": [
+          {
+            "after": "梅村 比丘,清水 寿代,河本 健,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子",
+            "before": "梅村 比丘,清水 寿代,河本 健,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子,湯澤 正通",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(3T) 月5-6：教K208",
+            "before": "(3T) 月5-6：教K108",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC06000",
+        "titleBefore": "Advanced academic writing in psychology A",
+        "titleAfter": "Advanced academic writing in psychology A",
+        "fields": [
+          {
+            "after": "梅村 比丘,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子",
+            "before": "梅村 比丘,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC07050",
+        "titleBefore": "Advanced academic writing in psychology B",
+        "titleAfter": "Advanced academic writing in psychology B",
+        "fields": [
+          {
+            "after": "梅村 比丘,清水 寿代,河本 健,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子",
+            "before": "梅村 比丘,清水 寿代,河本 健,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,李 受ミン,神原 利宗,朱 建宏,山本 一希,森田 愛子,湯澤 正通",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(3T) 月5-6：教K208",
+            "before": "(3T) 月5-6：教K108",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC08000",
+        "titleBefore": "臨床心理学特講 I",
+        "titleAfter": "臨床心理学特講 I",
+        "fields": [
+          {
+            "after": "尾形 明子,田村 典久,上手 由香,安部 主晃,西村 由貴子,服巻 豊",
+            "before": "尾形 明子,田村 典久,上手 由香,安部 主晃,波光 涼風,服巻 豊",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC09000",
+        "titleBefore": "心理学特講A",
+        "titleAfter": "心理学特講A",
+        "fields": [
+          {
+            "after": "(前) 集中：教A617",
+            "before": "(前) 集中：*教C617",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC11000",
+        "titleBefore": "心理学特講C",
+        "titleAfter": "心理学特講C",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC12050",
+        "titleBefore": "心理学特講D",
+        "titleAfter": "心理学特講D",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC13000",
+        "titleBefore": "心理学基礎演習 I",
+        "titleAfter": "心理学基礎演習 I",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC14000",
+        "titleBefore": "心理学基礎演習 II",
+        "titleAfter": "心理学基礎演習 II",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC15050",
+        "titleBefore": "心理学基礎演習 III",
+        "titleAfter": "心理学基礎演習 III",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC16050",
+        "titleBefore": "心理学基礎演習 IV",
+        "titleAfter": "心理学基礎演習 IV",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC17000",
+        "titleBefore": "心理学応用演習 I",
+        "titleAfter": "心理学応用演習 I",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC18000",
+        "titleBefore": "心理学応用演習 II",
+        "titleAfter": "心理学応用演習 II",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC19050",
+        "titleBefore": "心理学応用演習 III",
+        "titleAfter": "心理学応用演習 III",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC20050",
+        "titleBefore": "心理学応用演習 IV",
+        "titleAfter": "心理学応用演習 IV",
+        "fields": [
+          {
+            "after": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希",
+            "before": "森田 愛子,清水 寿代,杉村 和美,杉村 伸一郎,難波 修史,中尾 敬,中島 健一郎,平川 真,梅村 比丘,李 受ミン,神原 利宗,朱 建宏,山本 一希,湯澤 正通",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC31100",
+        "titleBefore": "犯罪心理学特論（司法・犯罪分野に関する理論と支援の展開）",
+        "titleAfter": "犯罪心理学特論（司法・犯罪分野に関する理論と支援の展開）",
+        "fields": [
+          {
+            "after": "(前) 集中：教K203",
+            "before": "(前) 集中：教K208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC37000",
+        "titleBefore": "臨床心理実習 I (心理実践実習 IV）",
+        "titleAfter": "臨床心理実習 I (心理実践実習 IV）",
+        "fields": [
+          {
+            "after": "上手 由香,田村 典久,安部 主晃,石田 弓,尾形 明子,服巻 豊",
+            "before": "上手 由香,田村 典久,安部 主晃,波光 涼風,石田 弓,尾形 明子,服巻 豊",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC38050",
+        "titleBefore": "臨床心理実習 II",
+        "titleAfter": "臨床心理実習 II",
+        "fields": [
+          {
+            "after": "上手 由香,田村 典久,安部 主晃,石田 弓,尾形 明子,服巻 豊",
+            "before": "上手 由香,田村 典久,安部 主晃,藤川 卓也,石田 弓,尾形 明子,服巻 豊",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMC42000",
+        "titleBefore": "心理実践実習V",
+        "titleAfter": "心理実践実習V",
+        "fields": [
+          {
+            "after": "上手 由香,田村 典久,安部 主晃,石田 弓,尾形 明子,服巻 豊",
+            "before": "上手 由香,田村 典久,安部 主晃,波光 涼風,石田 弓,尾形 明子,服巻 豊",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD00300",
+        "titleBefore": "国際政治学",
+        "titleAfter": "国際政治学",
+        "fields": [
+          {
+            "after": "(前) 火5-6：東千田S207講義室",
+            "before": "(前) 火5-6：東千田第4演習室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD00500",
+        "titleBefore": "日本法概説１",
+        "titleAfter": "日本法概説１",
+        "fields": [
+          {
+            "after": "葛 虹,楊 継春",
+            "before": "葛 虹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD00600",
+        "titleBefore": "日本法概説２",
+        "titleAfter": "日本法概説２",
+        "fields": [
+          {
+            "after": "葛 虹,楊 継春",
+            "before": "葛 虹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD00900",
+        "titleBefore": "外交論",
+        "titleAfter": "外交論",
+        "fields": [
+          {
+            "after": "(1T) 水5-8：東千田ミーティングルーム4-1",
+            "before": "(1T) 水5-8：東千田ミーティングルーム3-3",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD02800",
+        "titleBefore": "民事訴訟の理論と実務",
+        "titleAfter": "民事訴訟の理論と実務",
+        "fields": [
+          {
+            "after": "(2T) 木5-8：東千田第4演習室",
+            "before": "(2T) 木5-8：東千田ミーティングルーム4-6",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD03000",
+        "titleBefore": "社会調査論",
+        "titleAfter": "社会調査論",
+        "fields": [
+          {
+            "after": "(前) 水9-10：東千田M203講義室",
+            "before": "(前) 水9-10：東千田ミーティングルーム4-6",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMD10000",
+        "titleBefore": "グローバル法政特講（アジアにおける法政発展）",
+        "titleAfter": "グローバル法政特講（アジアにおける法政発展）",
+        "fields": [
+          {
+            "after": "",
+            "before": "積極的に発言や議論ができる者の参加を歓迎します。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "1 : 入門レベル",
+            "before": "5 : 大学院基礎的レベル",
+            "field": "学習の段階"
+          },
+          {
+            "after": "基礎的な英語力があることが望ましいです。",
+            "before": "すべての参加者に十分な英語/中国語能力が必要です。英語のみ、中国語のみの授業があるので注意すること。",
+            "field": "履修上の注意 受講条件等"
+          },
+          {
+            "after": "法学・政治学・経済学の観点からアジアにおける法政の諸課題を検討し、ディスカッションを通じて理解を深めるとともに、国際的視野を涵養することを目的とする。",
+            "before": "法学・政治学・経済学の観点から検討を行い、海外の学生との英語および中国語によるディスカッションを通じて、アジアにおける法政の諸課題を理解するとともに、国際的視野を涵養することを目的とする。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMDA0110",
+        "titleBefore": "特別研究I",
+        "titleAfter": "特別研究I",
+        "fields": [
+          {
+            "after": "(前) 火9-10",
+            "before": "(前) 火1-2",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMDA0210",
+        "titleBefore": "特別研究II",
+        "titleAfter": "特別研究II",
+        "fields": [
+          {
+            "after": "(前) 火9-10",
+            "before": "(前) 火1-2",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMDA0310",
+        "titleBefore": "特別研究III",
+        "titleAfter": "特別研究III",
+        "fields": [
+          {
+            "after": "(前) 火9-10",
+            "before": "(前) 火1-2",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMDA0410",
+        "titleBefore": "特別研究IV",
+        "titleAfter": "特別研究IV",
+        "fields": [
+          {
+            "after": "(前) 火9-10",
+            "before": "(前) 火1-2",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMEA1600",
+        "titleBefore": "金融庁連携講義１",
+        "titleAfter": "金融庁連携講義１",
+        "fields": [
+          {
+            "after": "鈴木 喜久,柴田 聡,齋藤 豊",
+            "before": "鈴木 喜久,柴田 聡",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMEX1400",
+        "titleBefore": "経済学特講（社会科学のためのデータ分析入門）",
+        "titleAfter": "経済学特講（社会科学のためのデータ分析入門）",
+        "fields": [
+          {
+            "after": "(3T) 水9,木10：経B253, (3T) 水10,木9",
+            "before": "(3T) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMEZ1108",
+        "titleBefore": "経済学プログラム特別演習I",
+        "titleAfter": "経済学プログラム特別演習I",
+        "fields": [
+          {
+            "after": "(前) 水9-10：教員研究室",
+            "before": "(前) 金3-4：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMEZ1208",
+        "titleBefore": "経済学プログラム特別演習II",
+        "titleAfter": "経済学プログラム特別演習II",
+        "fields": [
+          {
+            "after": "(後) 水9：教員研究室, (後) 水10：*教官室",
+            "before": "(後) 金3：教員研究室, (後) 金4：*教官室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMEZ1216",
+        "titleBefore": "経済学プログラム特別演習II",
+        "titleAfter": "経済学プログラム特別演習II",
+        "fields": [
+          {
+            "after": "(後) 金3-4：経A214",
+            "before": "(後) 金5-6：経A214",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMG01401",
+        "titleBefore": "International Politics I",
+        "titleAfter": "International Politics I",
+        "fields": [
+          {
+            "after": "(1T) 木1-4：国際204号",
+            "before": "(1T) 木1-4：国際201号",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMG03901",
+        "titleBefore": "Memory Studies I (Heritage)",
+        "titleAfter": "Memory Studies I (Heritage)",
+        "fields": [
+          {
+            "after": "(1T) 集中：詳細はシラバス参照",
+            "before": "(1T) 集中：国際206号",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WMH00901",
+        "titleBefore": "経済統計分析論",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMJ01501",
+        "titleBefore": "最新行動科学特論",
+        "titleAfter": "最新行動科学特論",
+        "fields": [
+          {
+            "after": "竹橋 洋毅",
+            "before": "担当教員未定,佐藤 暢哉",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMJ30201",
+        "titleBefore": "文化哲学",
+        "titleAfter": "文化哲学",
+        "fields": [
+          {
+            "after": "(1T) 月5-8：総A704",
+            "before": "(1T) 月5-8：総A706",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMJ31601",
+        "titleBefore": "アジア地域研究",
+        "titleAfter": "アジア地域研究",
+        "fields": [
+          {
+            "after": "(1T) 木5-8：総K208",
+            "before": "(1T) 木5-8：総K101",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMJ60801",
+        "titleBefore": "持続可能な観光発展論",
+        "titleAfter": "持続可能な観光発展論",
+        "fields": [
+          {
+            "after": "(2T) 火1-4：総K307",
+            "before": "(2T) 木1-4：総J204",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WMJ60901",
+        "titleBefore": "文化観光論",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WMJA0022",
+        "titleBefore": null,
+        "titleAfter": "特別研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMK00100",
+        "titleBefore": "DXの概念と現状",
+        "titleAfter": "DXの概念と現状",
+        "fields": [
+          {
+            "after": "(1T) 水11-14：オンライン",
+            "before": "(1T) 水11-14：オンライン,東千田第9演習室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMK00300",
+        "titleBefore": "統計解析の基礎",
+        "titleAfter": "統計解析の基礎",
+        "fields": [
+          {
+            "after": "(1T) 月13-14,火13-14：オンライン,東千田第3演習室",
+            "before": "(1T) 月13-14,火13-14：オンライン",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMK00400",
+        "titleBefore": "機械学習の基礎",
+        "titleAfter": "機械学習の基礎",
+        "fields": [
+          {
+            "after": "湧田 雄基",
+            "before": "湧田 雄基,梶川 祐朗,原田 裕輔",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(2T) 火13-14,水13-14：オンライン",
+            "before": "(2T) 火13-14,水13-14：オンライン,東千田第3演習室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WMK00500",
+        "titleBefore": "計算社会科学",
+        "titleAfter": "計算社会科学",
+        "fields": [
+          {
+            "after": "",
+            "before": "◎この授業は，社会人学生及び通学が困難な学生に対する特例措置として，オンデマンドで実施する科目であり，以下の条件に該当する場合に限り，履修を認める。 (1) 当該タームにおいて，東広島キャンパス，霞キャンパス及び東千田キャンパス以外で主たる研究を行っている者 (2) 社会人学生であるもの (3) 育児等家庭の事情により，当該ターム中の通学が困難な者 (4) 負傷又は疾病により，当該ターム中の通学が困難な者 (5) 所属する学位プログラムのカリキュラム編成上の理由で，修業年限内の履修が困難な者(当該プログラムの長が認めた場合に限る。) ◎履修を希望する場合は，当該タームの「履修登録期間」及び「履修確認・修正期間」に以下の書類を教育推進グループ（教養教育担当）窓口へ提出すること。 ・「履修登録理由書」 ・条件に該当することが客観的に分かる資料 ◎動画はオンライン学習システム「Moodle」で配信を行う。 ◎受講方法・動画の視聴期間・課題の提出期限等，履修にかかる注意事項については，履修登録完了後に別途指示する。 ◎配信される授業内容について質問がある場合は，授業担当教員（上記のE-mailアドレス）へ直接メールで問い合わせること。",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB00004",
+        "titleBefore": "学習開発学特別研究",
+        "titleAfter": "学習開発学特別研究",
+        "fields": [
+          {
+            "after": "藤木 大介",
+            "before": "藤木 大介,平見 真希人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB00054",
+        "titleBefore": "学習開発学特別研究",
+        "titleAfter": "学習開発学特別研究",
+        "fields": [
+          {
+            "after": "藤木 大介",
+            "before": "藤木 大介,平見 真希人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB01000",
+        "titleBefore": "特別支援教育学特別研究",
+        "titleAfter": "特別支援教育学特別研究",
+        "fields": [
+          {
+            "after": "川合 紀宗",
+            "before": "川合 紀宗,CHAMBERS DIANNE",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB01503",
+        "titleBefore": "自然システム教育学特別研究Ａ",
+        "titleAfter": "自然システム教育学特別研究Ａ",
+        "fields": [
+          {
+            "after": "仁王頭 明伸",
+            "before": "仁王頭 明伸,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB07502",
+        "titleBefore": "国語文化教育学特別研究Ａ",
+        "titleAfter": "国語文化教育学特別研究Ａ",
+        "fields": [
+          {
+            "after": "(前) 火9-10：教員研究室",
+            "before": "(前) 金3-4：教員研究室",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB19500",
+        "titleBefore": "学習開発学特論",
+        "titleAfter": "学習開発学特論",
+        "fields": [
+          {
+            "after": "林田 真志,森 まゆ,船橋 篤彦,米沢 崇,渡邉 巧,川合 紀宗,児玉 真樹子,村上 理絵,新海 晃,南浦 涼介,氏間 和仁,宇都宮 明子",
+            "before": "米沢 崇,森 まゆ,林田 真志,船橋 篤彦,渡邉 巧,川合 紀宗,児玉 真樹子,村上 理絵,新海 晃,南浦 涼介,氏間 和仁,宇都宮 明子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB34500",
+        "titleBefore": "環境・社会と学習材デザイン基礎研究（家庭）",
+        "titleAfter": "環境・社会と学習材デザイン基礎研究（家庭）",
+        "fields": [
+          {
+            "after": "(2T) 水1,水4：教B705, (2T) 水2-3：講義室未定",
+            "before": "(前) 水1,水4：教B705, (前) 水2-3：講義室未定",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 前期 ２ターム",
+            "before": "1年次生 前期 セメスター（前期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB37050",
+        "titleBefore": "環境・社会と学習材デザイン発展研究（家庭）",
+        "titleAfter": "環境・社会と学習材デザイン発展研究（家庭）",
+        "fields": [
+          {
+            "after": "(4T) 水5-8：教B705",
+            "before": "(4T) 水1-4：教B705",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB47500",
+        "titleBefore": "創造性と学習材デザイン基礎研究（社会・公民）",
+        "titleAfter": "創造性と学習材デザイン基礎研究（社会・公民）",
+        "fields": [
+          {
+            "after": "履修者が確定してから開始したいので、まずは、登録してお待ちください。その上で、6月中旬以降から始動する。よって、もみじの掲示板のチェックを怠らずに。他キャンパスや非常勤講師などに従事されている方への受講機会を保障するため、いつでもどこでも好きな時に学べるをモットーにオンデマンドにて提供する。他Pの単位取得にやむなくという方、大歓迎。",
+            "before": "履修者が確定してから開始したいので、まずは、登録してお待ちください。その上で、6月中旬から始動する。よって、もみじの掲示板のチェックを怠らずに。他キャンパスや非常勤講師などに従事されている方への受講機会を保障するため、いつでもどこでも好きな時に学べるをモットーにオンデマンドにて提供する。他Pの単位取得にやむなくという方、大歓迎。",
+            "field": "その他"
+          },
+          {
+            "after": "講義内容に関心のある方から、修了や専修免許状取得のために止むなくという方々まで、履修を大歓迎する。履修者が確定してから開始したいので、まずは、登録してお待ちください。その上で、6月中旬以降から始動する。よって、もみじの掲示板のチェックを怠らずに。他キャンパスや非常勤講師などに従事されている方への受講機会を保障するため、いつでもどこでも好きな時に学べるをモットーにオンデマンドにて実施する。尚、経済学は実体経済そのものを研究するというよりは、数学によりガチガチに理論武装化された経済理論そのものを学び、研究することがメインの学問である。",
+            "before": "講義内容に関心のある方から、修了や専修免許状取得のために止むなくという方々まで、履修を大歓迎する。履修者が確定してから開始したいので、まずは、登録してお待ちください。その上で、6月中旬から始動する。よって、もみじの掲示板のチェックを怠らずに。他キャンパスや非常勤講師などに従事されている方への受講機会を保障するため、いつでもどこでも好きな時に学べるをモットーにオンデマンドにて実施する。尚、経済学は実体経済そのものを研究するというよりは、数学によりガチガチに理論武装化された経済理論そのものを学び、研究することがメインの学問である。",
+            "field": "メッセージ"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WNB48000",
+        "titleBefore": null,
+        "titleAfter": "創造性と学習材デザイン基礎研究（家庭）",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB69500",
+        "titleBefore": "教師教育プラクティカム基礎研究",
+        "titleAfter": "教師教育プラクティカム基礎研究",
+        "fields": [
+          {
+            "after": "松本 佑介",
+            "before": "松本 佑介,齊藤 一彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB72000",
+        "titleBefore": "特別支援教育実践研究",
+        "titleAfter": "特別支援教育実践研究",
+        "fields": [
+          {
+            "after": "川合 紀宗,森 まゆ,林田 真志,船橋 篤彦,村上 理絵,新海 晃,永瀬 開,氏間 和仁,朝岡 寛史",
+            "before": "川合 紀宗,森 まゆ,林田 真志,船橋 篤彦,村上 理絵,新海 晃,CHAMBERS DIANNE,永瀬 開,氏間 和仁,朝岡 寛史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB80500",
+        "titleBefore": "特別支援教育ファシリテーション論",
+        "titleAfter": "特別支援教育ファシリテーション論",
+        "fields": [
+          {
+            "after": "(前) 集中：教B105",
+            "before": "(前) 集中：詳細は掲示板参照",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB82500",
+        "titleBefore": "心理教育的アセスメント演習",
+        "titleAfter": "心理教育的アセスメント演習",
+        "fields": [
+          {
+            "after": "",
+            "before": "学習開発基礎専修、障害児教育学専攻、心理学専攻の学生に限る",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNB83000",
+        "titleBefore": "学校カウンセリング論演習",
+        "titleAfter": "学校カウンセリング論演習",
+        "fields": [
+          {
+            "after": "",
+            "before": "学習開発基礎専修、障害児教育学専攻、心理学専攻の学生に限る",
+            "field": "対象学生"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WNBD0003",
+        "titleBefore": "特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNBD0006",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "藤木 大介",
+            "before": "藤木 大介,平見 真希人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WNBD0067",
+        "titleBefore": "特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNBD0068",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "草薙 邦広",
+            "before": "草薙 邦広,担当教員未定",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(前) 金9-10：教員研究室",
+            "before": "(前) 金9：教員研究室, (前) 金10：教B306",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WNBD0503",
+        "titleBefore": "特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNBD0506",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "藤木 大介",
+            "before": "藤木 大介,平見 真希人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNBD0514",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "谷口 弘一",
+            "before": "難波 博孝,谷口 弘一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WNBD0567",
+        "titleBefore": "特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNBD0568",
+        "titleBefore": "特別研究",
+        "titleAfter": "特別研究",
+        "fields": [
+          {
+            "after": "草薙 邦広",
+            "before": "草薙 邦広,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNC57000",
+        "titleBefore": "Higher Education in Japan",
+        "titleAfter": "Higher Education in Japan",
+        "fields": [
+          {
+            "after": "KIM YANGSON,大場 淳,櫻井 勇介,野内 玲,樊 怡舟,黄 福涛,吉田 香奈",
+            "before": "KIM YANGSON,大場 淳,櫻井 勇介,野内 玲,樊 怡舟,黄 福涛,担当教員未定,吉田 香奈",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNCD2100",
+        "titleBefore": "大学教員養成演習",
+        "titleAfter": "大学教員養成演習",
+        "fields": [
+          {
+            "after": "三時 眞貴子,吉田 成章,杉田 浩崇,丸山 恭司,曽余田 浩史,中坪 史典,滝沢 潤,福田 敦志,山田 浩之,小川 佳万,尾川 満宏",
+            "before": "三時 眞貴子,吉田 成章,杉田 浩崇,丸山 恭司,曽余田 浩史,中坪 史典,滝沢 潤,福田 敦志,山田 浩之,安藤 和久,小川 佳万,尾川 満宏,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNCD2150",
+        "titleBefore": "大学教員養成演習",
+        "titleAfter": "大学教員養成演習",
+        "fields": [
+          {
+            "after": "三時 眞貴子,吉田 成章,杉田 浩崇,丸山 恭司,曽余田 浩史,中坪 史典,滝沢 潤,福田 敦志,山田 浩之,小川 佳万,尾川 満宏",
+            "before": "三時 眞貴子,吉田 成章,杉田 浩崇,丸山 恭司,曽余田 浩史,中坪 史典,滝沢 潤,福田 敦志,山田 浩之,安藤 和久,小川 佳万,尾川 満宏,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WNCD8013",
+        "titleBefore": null,
+        "titleAfter": "特別研究",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNCD9000",
+        "titleBefore": "高等教育学講究Ｉ",
+        "titleAfter": "高等教育学講究Ｉ",
+        "fields": [
+          {
+            "after": "黄 福涛,櫻井 勇介,大場 淳,KIM YANGSON,村澤 昌崇,野内 玲,吉田 香奈",
+            "before": "黄 福涛,櫻井 勇介,大場 淳,KIM YANGSON,村澤 昌崇,野内 玲,吉田 香奈,樊 怡舟",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WNCD9150",
+        "titleBefore": "高等教育学講究ＩＩ",
+        "titleAfter": "高等教育学講究ＩＩ",
+        "fields": [
+          {
+            "after": "村澤 昌崇,野内 玲,大場 淳,吉田 香奈",
+            "before": "村澤 昌崇,小林 信一,野内 玲,大場 淳,吉田 香奈",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WND00000",
+        "titleBefore": "日本語教育研究方法論",
+        "titleAfter": "日本語教育研究方法論",
+        "fields": [
+          {
+            "after": "永田 良太,奥村 安寿子,西村 大志,小口 悠紀子,渡部 倫子,西條 結人,酒井 晴香,中山 亜紀子",
+            "before": "永田 良太,奥村 安寿子,西村 大志,小口 悠紀子,渡部 倫子,西條 結人,道法 愛,酒井 晴香,中山 亜紀子,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WND01050",
+        "titleBefore": "日本語教育学研究プロジェクト",
+        "titleAfter": "日本語教育学研究プロジェクト",
+        "fields": [
+          {
+            "after": "酒井 晴香,奥村 安寿子,西村 大志,小口 悠紀子,永田 良太,渡部 倫子,中山 亜紀子",
+            "before": "酒井 晴香,奥村 安寿子,西村 大志,小口 悠紀子,永田 良太,渡部 倫子,道法 愛,中山 亜紀子,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WND16050",
+        "titleBefore": "年少者日本語教育演習",
+        "titleAfter": "年少者日本語教育演習",
+        "fields": [
+          {
+            "after": "1年次生 後期 ３ターム",
+            "before": "1年次生 後期 セメスター（後期）",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WND25050",
+        "titleBefore": "海外日本語教育実践研究",
+        "titleAfter": "海外日本語教育実践研究",
+        "fields": [
+          {
+            "after": "中山 亜紀子,松見 法男,永田 良太,渡部 倫子",
+            "before": "中山 亜紀子,仁科 陽江,松見 法男,永田 良太,渡部 倫子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA03050",
+        "titleBefore": "授業研究の開発実践（ICTを含む）",
+        "titleAfter": "授業研究の開発実践（ICTを含む）",
+        "fields": [
+          {
+            "after": "大後戸 一樹,戸高 真也,中山 貴司",
+            "before": "大後戸 一樹,戸高 真也,渡辺 健次,中山 貴司",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA07050",
+        "titleBefore": "教育相談・カウンセリングの理論と実践",
+        "titleAfter": "教育相談・カウンセリングの理論と実践",
+        "fields": [
+          {
+            "after": "山崎 茜,石田 弓",
+            "before": "山崎 茜,栗原 愼二,石田 弓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA17000",
+        "titleBefore": "カリキュラム・マネジメントの理論と実践",
+        "titleAfter": "カリキュラム・マネジメントの理論と実践",
+        "fields": [
+          {
+            "after": "吉田 成章,福田 敦志",
+            "before": "吉田 成章,福田 敦志,藤原 由佳",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA22050",
+        "titleBefore": "学校における教育相談",
+        "titleAfter": "学校における教育相談",
+        "fields": [
+          {
+            "after": "山崎 茜,石田 弓",
+            "before": "山崎 茜,栗原 愼二,石田 弓",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA29008",
+        "titleBefore": "授業開発と評価（基礎）",
+        "titleAfter": "授業開発と評価（基礎）",
+        "fields": [
+          {
+            "after": "大後戸 一樹,久保 研二",
+            "before": "大後戸 一樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA30058",
+        "titleBefore": "授業開発と評価（応用）",
+        "titleAfter": "授業開発と評価（応用）",
+        "fields": [
+          {
+            "after": "大後戸 一樹,久保 研二",
+            "before": "大後戸 一樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA31008",
+        "titleBefore": "授業開発と評価（発展）",
+        "titleAfter": "授業開発と評価（発展）",
+        "fields": [
+          {
+            "after": "大後戸 一樹,久保 研二",
+            "before": "大後戸 一樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA32058",
+        "titleBefore": "授業開発と評価（開発）",
+        "titleAfter": "授業開発と評価（開発）",
+        "fields": [
+          {
+            "after": "大後戸 一樹,久保 研二",
+            "before": "大後戸 一樹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA34000",
+        "titleBefore": "学校インターンシップ",
+        "titleAfter": "学校インターンシップ",
+        "fields": [
+          {
+            "after": "大後戸 一樹,岡村 美由規,戸高 真也,高橋 均,藤川 照彦,伊藤 公一,冨岡 宏健",
+            "before": "大後戸 一樹,岡村 美由規,戸高 真也,高橋 均,藤川 照彦,日浦 美智代,伊藤 公一,冨岡 宏健",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA35000",
+        "titleBefore": "アクションリサーチ・セミナー I",
+        "titleAfter": "アクションリサーチ・セミナー I",
+        "fields": [
+          {
+            "after": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹",
+            "before": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹,宮里 智恵",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA35001",
+        "titleBefore": "アクションリサーチ・セミナー I",
+        "titleAfter": "アクションリサーチ・セミナー I",
+        "fields": [
+          {
+            "after": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,宮里 智恵,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA36050",
+        "titleBefore": "アクションリサーチ・セミナー II",
+        "titleAfter": "アクションリサーチ・セミナー II",
+        "fields": [
+          {
+            "after": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹",
+            "before": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹,宮里 智恵",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA36051",
+        "titleBefore": "アクションリサーチ・セミナー II",
+        "titleAfter": "アクションリサーチ・セミナー II",
+        "fields": [
+          {
+            "after": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,宮里 智恵,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA37000",
+        "titleBefore": "アクションリサーチ・セミナー III",
+        "titleAfter": "アクションリサーチ・セミナー III",
+        "fields": [
+          {
+            "after": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹",
+            "before": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹,宮里 智恵",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA37001",
+        "titleBefore": "アクションリサーチ・セミナー III",
+        "titleAfter": "アクションリサーチ・セミナー III",
+        "fields": [
+          {
+            "after": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA38050",
+        "titleBefore": "アクションリサーチ・セミナー IV",
+        "titleAfter": "アクションリサーチ・セミナー IV",
+        "fields": [
+          {
+            "after": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹",
+            "before": "杉原 満治,木下 博義,曽余田 浩史,藤田 典生,大後戸 一樹,宮里 智恵",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA38051",
+        "titleBefore": "アクションリサーチ・セミナー IV",
+        "titleAfter": "アクションリサーチ・セミナー IV",
+        "fields": [
+          {
+            "after": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,戸高 真也,大後戸 一樹,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA43000",
+        "titleBefore": "アクションリサーチ実地研究 I",
+        "titleAfter": "アクションリサーチ実地研究 I",
+        "fields": [
+          {
+            "after": "寺内 大輔,宮里 智恵,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,中島 敦夫,大後戸 一樹,宮里 智恵,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA44050",
+        "titleBefore": "アクションリサーチ実地研究 II",
+        "titleAfter": "アクションリサーチ実地研究 II",
+        "fields": [
+          {
+            "after": "寺内 大輔,宮里 智恵,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,中島 敦夫,大後戸 一樹,宮里 智恵,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA45000",
+        "titleBefore": "アクションリサーチ実地研究 III",
+        "titleAfter": "アクションリサーチ実地研究 III",
+        "fields": [
+          {
+            "after": "寺内 大輔,宮里 智恵,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,中島 敦夫,大後戸 一樹,宮里 智恵,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WPA46050",
+        "titleBefore": "アクションリサーチ実地研究 IV",
+        "titleAfter": "アクションリサーチ実地研究 IV",
+        "fields": [
+          {
+            "after": "寺内 大輔,宮里 智恵,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,大後戸 一樹,松本 仁志,松浦 武人,久保 研二",
+            "before": "寺内 大輔,永田 忠道,伊藤 優,山崎 茜,木下 博義,池田 吏志,高橋 均,岡村 美由規,藤川 照彦,雲財 寛,又野 陽子,中島 敦夫,大後戸 一樹,宮里 智恵,松本 仁志,松浦 武人",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WRA10701",
+        "titleBefore": "ルール形成のための国際標準化",
+        "titleAfter": "ルール形成のための国際標準化",
+        "fields": [
+          {
+            "after": "(外前) 集中：工218",
+            "before": "(外前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WRA11302",
+        "titleBefore": "データビジュアライゼーションＡ",
+        "titleAfter": "データビジュアライゼーションＡ",
+        "fields": [
+          {
+            "after": "(集) 集中：詳細は掲示板参照",
+            "before": "(集) 集中：国際204号",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA01000",
+        "titleBefore": "数学概論",
+        "titleAfter": "数学概論",
+        "fields": [
+          {
+            "after": "(2T) 水5-6,木3-4：理E208",
+            "before": "(2T) 水5-6,木3-4：先404N",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA25000",
+        "titleBefore": "代数数理特論Ｃ",
+        "titleAfter": "代数数理特論Ｃ",
+        "fields": [
+          {
+            "after": "(2T) 火7-8,金3-4：先403N",
+            "before": "(2T) 火7-8,金3-4：理E102",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA26000",
+        "titleBefore": "代数数理特論Ｄ",
+        "titleAfter": "代数数理特論Ｄ",
+        "fields": [
+          {
+            "after": "(4T) 月5-6,木3-4：理C101",
+            "before": "(4T) 月5-6,木3-4",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA32000",
+        "titleBefore": "多様幾何基礎講義Ｂ",
+        "titleAfter": "多様幾何基礎講義Ｂ",
+        "fields": [
+          {
+            "after": "奥田 隆幸",
+            "before": "村尾 智",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(4T) 水5-6,金5-6：理C101",
+            "before": "(4T) 水5-6,金5-6：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA33000",
+        "titleBefore": "多様幾何特論Ａ",
+        "titleAfter": "多様幾何特論Ａ",
+        "fields": [
+          {
+            "after": "(2T) 火3-4,金5-6：先404N",
+            "before": "(2T) 火3-4,金5-6：理E208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA36000",
+        "titleBefore": "多様幾何特論Ｄ",
+        "titleAfter": "多様幾何特論Ｄ",
+        "fields": [
+          {
+            "after": "(3T) 火3-4,金3-4：理C101",
+            "before": "(3T) 火3-4,金3-4：理E208",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA44000",
+        "titleBefore": "数理解析特論Ｂ",
+        "titleAfter": "数理解析特論Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 火7-8,水5-6：理E209",
+            "before": "(3T) 火7-8：理E209, (3T) 水5-6：理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA45000",
+        "titleBefore": "数理解析特論Ｃ",
+        "titleAfter": "数理解析特論Ｃ",
+        "fields": [
+          {
+            "after": "(4T) 火7-8,水7-8：理C107",
+            "before": "(4T) 火7-8,水7-8：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA56000",
+        "titleBefore": "確率統計特論Ｂ",
+        "titleAfter": "確率統計特論Ｂ",
+        "fields": [
+          {
+            "after": "(2T) 月3-4：経B157, (2T) 水3-4：理C107",
+            "before": "(2T) 月3-4,水3-4：経B157",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA62000",
+        "titleBefore": "総合数理基礎講義Ｂ",
+        "titleAfter": "総合数理基礎講義Ｂ",
+        "fields": [
+          {
+            "after": "(3T) 月5-8：総C808",
+            "before": "(3T) 月5-8：総C807",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSA71001",
+        "titleBefore": "数学特別講義（カンドルと結び目不変量）",
+        "titleAfter": "数学特別講義（カンドルと結び目不変量）",
+        "fields": [
+          {
+            "after": "田中 心,村尾 智",
+            "before": "担当教員未定,村尾 智",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(前) 集中：理E211",
+            "before": "(前) 集中：理E209",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSB01000",
+        "titleBefore": "Introductory course to advanced physics",
+        "titleAfter": "Introductory course to advanced physics",
+        "fields": [
+          {
+            "after": "(3T) 月9-10,金9-10：理C106",
+            "before": "(3T) 月9-10,金9-10：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSB02000",
+        "titleBefore": "量子場の理論",
+        "titleAfter": "量子場の理論",
+        "fields": [
+          {
+            "after": "(2T) 水1-4：理C101",
+            "before": "(2T) 水1-4：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSB10000",
+        "titleBefore": "光赤外線宇宙観測",
+        "titleAfter": "光赤外線宇宙観測",
+        "fields": [
+          {
+            "after": "(2T) 木3-4,木7-8：オンライン,理C107",
+            "before": "(2T) 木3-4,木7-8：オンライン,理E211",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSB13000",
+        "titleBefore": "構造物性物理学",
+        "titleAfter": "構造物性物理学",
+        "fields": [
+          {
+            "after": "(3T) 月5-8：理C106",
+            "before": "(3T) 月5-8：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSB18000",
+        "titleBefore": "熱場の量子論",
+        "titleAfter": "熱場の量子論",
+        "fields": [
+          {
+            "after": "(2T) 水5-8：先403N",
+            "before": "(2T) 水5-8：理B305",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSB24000",
+        "titleBefore": "物理学特別講義Ｄ（フレーバーの物理とCP対称性の破れ）",
+        "titleAfter": "物理学特別講義Ｄ（フレーバーの物理とCP対称性の破れ）",
+        "fields": [
+          {
+            "after": "北原 鉄平,石川 健一",
+            "before": "担当教員未定,石川 健一",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC01000",
+        "titleBefore": "地球惑星システム学概説",
+        "titleAfter": "地球惑星システム学概説",
+        "fields": [
+          {
+            "after": "小池 みずほ,宮原 正明,須田 直樹,柴田 知之,秋澤 紀克,薮田 ひかる,岡崎 啓史,大川 真紀雄,中久喜 伴益,安東 淳一,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "before": "小池 みずほ,宮原 正明,須田 直樹,柴田 知之,秋澤 紀克,薮田 ひかる,岡崎 啓史,DEY BIDISHA,大川 真紀雄,中久喜 伴益,安東 淳一,片山 郁夫,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC11000",
+        "titleBefore": "地球惑星システム学特別講義Ａ（超高圧科学）",
+        "titleAfter": "地球惑星システム学特別講義Ａ（超高圧科学）",
+        "fields": [
+          {
+            "after": "入舩 徹男,井上 徹",
+            "before": "担当教員未定,井上 徹",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC12000",
+        "titleBefore": "地球惑星システム学特別講義Ｂ（地球内部の化学進化と物質循環）",
+        "titleAfter": "地球惑星システム学特別講義Ｂ（地球内部の化学進化と物質循環）",
+        "fields": [
+          {
+            "after": "小木曽 哲,秋澤 紀克",
+            "before": "担当教員未定,秋澤 紀克",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC14000",
+        "titleBefore": "地球惑星システム学特別講義Ａ（多圏地球のダイナミクスと進化）",
+        "titleAfter": "地球惑星システム学特別講義Ａ（多圏地球のダイナミクスと進化）",
+        "fields": [
+          {
+            "after": "中川 貴司,中久喜 伴益",
+            "before": "担当教員未定,中久喜 伴益",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC21000",
+        "titleBefore": "国際化演習I",
+        "titleAfter": "国際化演習I",
+        "fields": [
+          {
+            "after": "小池 みずほ,宮原 正明,須田 直樹,柴田 知之,秋澤 紀克,薮田 ひかる,岡崎 啓史,大川 真紀雄,中久喜 伴益,安東 淳一,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "before": "小池 みずほ,宮原 正明,須田 直樹,柴田 知之,秋澤 紀克,薮田 ひかる,岡崎 啓史,大川 真紀雄,中久喜 伴益,安東 淳一,片山 郁夫,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC22000",
+        "titleBefore": "国際化演習II",
+        "titleAfter": "国際化演習II",
+        "fields": [
+          {
+            "after": "小池 みずほ,宮原 正明,須田 直樹,柴田 知之,秋澤 紀克,薮田 ひかる,岡崎 啓史,大川 真紀雄,中久喜 伴益,安東 淳一,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "before": "小池 みずほ,宮原 正明,須田 直樹,柴田 知之,秋澤 紀克,薮田 ひかる,岡崎 啓史,大川 真紀雄,中久喜 伴益,安東 淳一,片山 郁夫,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(後) 集中",
+            "before": "(通) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC24000",
+        "titleBefore": "地球惑星融合演習",
+        "titleAfter": "地球惑星融合演習",
+        "fields": [
+          {
+            "after": "(通) 金9-10：理C107",
+            "before": "(通) 金9-10：理C101",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSC25000",
+        "titleBefore": "地球惑星ミッドターム演習",
+        "titleAfter": "地球惑星ミッドターム演習",
+        "fields": [
+          {
+            "after": "大川 真紀雄,宮原 正明,須田 直樹,柴田 知之,薮田 ひかる,小池 みずほ,岡崎 啓史,中久喜 伴益,安東 淳一,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章",
+            "before": "大川 真紀雄,宮原 正明,須田 直樹,柴田 知之,薮田 ひかる,小池 みずほ,岡崎 啓史,中久喜 伴益,安東 淳一,白石 史人,DAS KAUSHIK,井上 徹,川添 貴章,担当教員未定",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSD05000",
+        "titleBefore": "固体物性化学",
+        "titleAfter": "固体物性化学",
+        "fields": [
+          {
+            "after": "(2T) 月1-2,火3-4：経B157",
+            "before": "(2T) 月1-2,火3-4",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSD08000",
+        "titleBefore": "構造有機化学",
+        "titleAfter": "構造有機化学",
+        "fields": [
+          {
+            "after": "(2T) 火1-2,木3-4：理C106",
+            "before": "(2T) 火1-2,木3-4：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSD09000",
+        "titleBefore": "光機能化学",
+        "titleAfter": "光機能化学",
+        "fields": [
+          {
+            "after": "(3T) 月1-2,火3-4：理C106",
+            "before": "(3T) 月1-2,火3-4：理B301",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSD29000",
+        "titleBefore": "化学特別講義Ｃ（光スイッチ反応）",
+        "titleAfter": "化学特別講義Ｃ（光スイッチ反応）",
+        "fields": [
+          {
+            "after": "(前) 集中：理C106",
+            "before": "(前) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSE50117",
+        "titleBefore": null,
+        "titleAfter": "応用化学特別研究（4月入学）",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSE50118",
+        "titleBefore": null,
+        "titleAfter": "応用化学特別研究（4月入学）",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSF00108",
+        "titleBefore": "化学工学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSF00124",
+        "titleBefore": "化学工学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSF00210",
+        "titleBefore": "化学工学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSF00222",
+        "titleBefore": "化学工学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSF10102",
+        "titleBefore": "化学工学特別研究（4月入学）",
+        "titleAfter": "化学工学特別研究（4月入学）",
+        "fields": [
+          {
+            "after": "荻 崇,EKA LUTFI SEPTIANI,CAO LE ANH KIET",
+            "before": "荻 崇,CAO LE ANH KIET",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSF10110",
+        "titleBefore": "化学工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSF50102",
+        "titleBefore": "化学工学特別研究（4月入学）",
+        "titleAfter": "化学工学特別研究（4月入学）",
+        "fields": [
+          {
+            "after": "荻 崇,EKA LUTFI SEPTIANI",
+            "before": "荻 崇",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSF50110",
+        "titleBefore": "化学工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00102",
+        "titleBefore": "電気システム制御特別演習Ａ",
+        "titleAfter": "電気システム制御特別演習Ａ",
+        "fields": [
+          {
+            "after": "林田 智弘,森川 克己,関崎 真也",
+            "before": "林田 智弘,関崎 真也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSG00104",
+        "titleBefore": "電気システム制御特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00120",
+        "titleBefore": "電気システム制御特別演習Ａ",
+        "titleAfter": "電気システム制御特別演習Ａ",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱,胡 少鵬",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00123",
+        "titleBefore": "電気システム制御特別演習Ａ",
+        "titleAfter": "電気システム制御特別演習Ａ",
+        "fields": [
+          {
+            "after": "林田 智弘,森川 克己,関崎 真也",
+            "before": "林田 智弘",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSG00125",
+        "titleBefore": "電気システム制御特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00141",
+        "titleBefore": "電気システム制御特別演習Ａ",
+        "titleAfter": "電気システム制御特別演習Ａ",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱,胡 少鵬",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00202",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": "電気システム制御特別演習Ｂ",
+        "fields": [
+          {
+            "after": "林田 智弘,森川 克己,関崎 真也",
+            "before": "林田 智弘,関崎 真也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSG00204",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00220",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": "電気システム制御特別演習Ｂ",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱,胡 少鵬",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00223",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": "電気システム制御特別演習Ｂ",
+        "fields": [
+          {
+            "after": "林田 智弘,森川 克己,関崎 真也",
+            "before": "林田 智弘,関崎 真也",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSG00225",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00241",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": "電気システム制御特別演習Ｂ",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱,胡 少鵬",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG00253",
+        "titleBefore": "電気システム制御特別演習Ｂ",
+        "titleAfter": "電気システム制御特別演習Ｂ",
+        "fields": [
+          {
+            "after": "林田 智弘,森川 克己,関崎 真也",
+            "before": "林田 智弘",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSG10104",
+        "titleBefore": "電気システム制御特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSG10120",
+        "titleBefore": "電気システム制御特別研究（4月入学）",
+        "titleAfter": "電気システム制御特別研究（4月入学）",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱,胡 少鵬",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSH00109",
+        "titleBefore": "機械工学特別演習Ａ",
+        "titleAfter": "機械工学特別演習Ａ",
+        "fields": [
+          {
+            "after": "KIM WOOKYUNG",
+            "before": "池条 清隆",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(3T) 集中",
+            "before": "(1T) 集中",
+            "field": "曜日・時限・講義室"
+          },
+          {
+            "after": "1年次生 後期 ３ターム",
+            "before": "1年次生 前期 １ターム",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00146",
+        "titleBefore": "機械工学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00175",
+        "titleBefore": "機械工学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00176",
+        "titleBefore": "機械工学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00209",
+        "titleBefore": "機械工学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00246",
+        "titleBefore": "機械工学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00283",
+        "titleBefore": "機械工学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH00284",
+        "titleBefore": "機械工学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSH10109",
+        "titleBefore": "機械工学特別研究（4月入学）",
+        "titleAfter": "機械工学特別研究",
+        "fields": [
+          {
+            "after": "KIM WOOKYUNG",
+            "before": "池条 清隆",
+            "field": "担当教員名"
+          },
+          {
+            "after": "機械工学特別研究",
+            "before": "機械工学特別研究（4月入学）",
+            "field": "授業科目名"
+          },
+          {
+            "after": "1年次生 後期 年度",
+            "before": "1年次生 前期 年度",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH10135",
+        "titleBefore": "機械工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSH30501",
+        "titleBefore": "機械工学特別講義Ｅ",
+        "titleAfter": "機械工学特別講義Ｅ",
+        "fields": [
+          {
+            "after": "鈴木 康浩",
+            "before": "授業時間割を参照,鈴木 康浩",
+            "field": "担当教員名"
+          },
+          {
+            "after": "「磁場閉じ込めフュージョンプラズマにおける電磁流体力学平衡及び安定性」に関する講義を置こうなう。 ＊本講義は、外部講師 二谷 辰平 氏（国立研究開発法人量子科学技術研究開発機構 上席研究員）による集中講義です。 日程：8月31日（月）～9/4（金）の5日間",
+            "before": "「磁場閉じ込めフュージョンプラズマにおける電磁流体力学平衡及び安定性」に関する講義を置こうなう。",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH50109",
+        "titleBefore": "機械工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSH50135",
+        "titleBefore": "機械工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00111",
+        "titleBefore": "輸送・環境システム特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00122",
+        "titleBefore": "輸送・環境システム特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00127",
+        "titleBefore": "輸送・環境システム特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00128",
+        "titleBefore": "輸送・環境システム特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSJ00135",
+        "titleBefore": null,
+        "titleAfter": "輸送・環境システム特別演習Ａ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSJ00136",
+        "titleBefore": null,
+        "titleAfter": "輸送・環境システム特別演習Ａ",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00211",
+        "titleBefore": "輸送・環境システム特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00222",
+        "titleBefore": "輸送・環境システム特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00223",
+        "titleBefore": "輸送・環境システム特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00224",
+        "titleBefore": "輸送・環境システム特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00237",
+        "titleBefore": "輸送・環境システム特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ00238",
+        "titleBefore": "輸送・環境システム特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSJ00239",
+        "titleBefore": null,
+        "titleAfter": "輸送・環境システム特別演習Ｂ",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSJ00240",
+        "titleBefore": null,
+        "titleAfter": "輸送・環境システム特別演習Ｂ",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ10111",
+        "titleBefore": "輸送・環境システム特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ10114",
+        "titleBefore": "輸送・環境システム特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSJ10118",
+        "titleBefore": null,
+        "titleAfter": "輸送・環境システム特別研究（4月入学）",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ50111",
+        "titleBefore": "輸送・環境システム特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSJ50118",
+        "titleBefore": "輸送・環境システム特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00110",
+        "titleBefore": "建築学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00122",
+        "titleBefore": "建築学特別演習Ａ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00201",
+        "titleBefore": "建築学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00204",
+        "titleBefore": "建築学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00210",
+        "titleBefore": "建築学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00222",
+        "titleBefore": "建築学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00235",
+        "titleBefore": "建築学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK00236",
+        "titleBefore": "建築学特別演習Ｂ",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK10110",
+        "titleBefore": "建築学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSK50110",
+        "titleBefore": "建築学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM00101",
+        "titleBefore": "社会基盤環境工学特別演習A",
+        "titleAfter": "社会基盤環境工学特別演習A",
+        "fields": [
+          {
+            "after": "河合 研至,QIU MINGHONG,小川 由布子",
+            "before": "河合 研至,小川 由布子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM00106",
+        "titleBefore": "社会基盤環境工学特別演習A",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM00110",
+        "titleBefore": "社会基盤環境工学特別演習A",
+        "titleAfter": "社会基盤環境工学特別演習A",
+        "fields": [
+          {
+            "after": "内田 龍彦,井上 隆",
+            "before": "内田 龍彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM00118",
+        "titleBefore": "社会基盤環境工学特別演習A",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM00122",
+        "titleBefore": "社会基盤環境工学特別演習A",
+        "titleAfter": "社会基盤環境工学特別演習A",
+        "fields": [
+          {
+            "after": "内田 龍彦,井上 隆",
+            "before": "内田 龍彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM00206",
+        "titleBefore": "社会基盤環境工学特別演習B",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM00210",
+        "titleBefore": "社会基盤環境工学特別演習B",
+        "titleAfter": "社会基盤環境工学特別演習B",
+        "fields": [
+          {
+            "after": "内田 龍彦,井上 隆",
+            "before": "内田 龍彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM00218",
+        "titleBefore": "社会基盤環境工学特別演習B",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM00222",
+        "titleBefore": "社会基盤環境工学特別演習B",
+        "titleAfter": "社会基盤環境工学特別演習B",
+        "fields": [
+          {
+            "after": "内田 龍彦,井上 隆",
+            "before": "内田 龍彦",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM00249",
+        "titleBefore": "社会基盤環境工学特別演習B",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM00250",
+        "titleBefore": "社会基盤環境工学特別演習B",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSM00255",
+        "titleBefore": null,
+        "titleAfter": "社会基盤環境工学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSM00256",
+        "titleBefore": null,
+        "titleAfter": "社会基盤環境工学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM10106",
+        "titleBefore": "社会基盤環境工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM10125",
+        "titleBefore": "社会基盤環境工学特別研究",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM20801",
+        "titleBefore": "Infrastructure and Regional Planning",
+        "titleAfter": "Infrastructure and Regional Planning",
+        "fields": [
+          {
+            "after": "(1T) 火1-4：工104",
+            "before": "(1T) 火1-4：工106",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSM21001",
+        "titleBefore": "構造材料学特論",
+        "titleAfter": "構造材料学特論",
+        "fields": [
+          {
+            "after": "小川 由布子,QIU MINGHONG",
+            "before": "小川 由布子",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSM50106",
+        "titleBefore": "社会基盤環境工学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN00114",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別演習A",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN00115",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別演習A",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSN00219",
+        "titleBefore": "情報科学特別演習B",
+        "titleAfter": "情報科学特別演習B",
+        "fields": [
+          {
+            "after": "江村 剛志",
+            "before": "島 唯史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSN00243",
+        "titleBefore": "情報科学特別演習B",
+        "titleAfter": "情報科学特別演習B",
+        "fields": [
+          {
+            "after": "江村 剛志",
+            "before": "島 唯史",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN00251",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN00252",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN00253",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN00254",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSN00273",
+        "titleBefore": "情報科学特別演習B",
+        "titleAfter": "情報科学特別演習B",
+        "fields": [
+          {
+            "after": "丁 曄澎",
+            "before": "山田 宏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSN00274",
+        "titleBefore": "情報科学特別演習B",
+        "titleAfter": "情報科学特別演習B",
+        "fields": [
+          {
+            "after": "丁 曄澎",
+            "before": "山田 宏",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSN10119",
+        "titleBefore": "情報科学特別研究（4月入学）",
+        "titleAfter": "情報科学特別研究（10月入学用）",
+        "fields": [
+          {
+            "after": "小蔵 正輝",
+            "before": "島 唯史",
+            "field": "担当教員名"
+          },
+          {
+            "after": "情報科学特別研究（10月入学用）",
+            "before": "情報科学特別研究（4月入学）",
+            "field": "授業科目名"
+          },
+          {
+            "after": "1年次生 後期 年度",
+            "before": "1年次生 前期 年度",
+            "field": "開設期"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSN10136",
+        "titleBefore": "情報科学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN10153",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN10154",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別研究",
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WSN10523",
+        "titleBefore": "情報科学特別研究（4月入学）",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN22801",
+        "titleBefore": null,
+        "titleAfter": "Data Science of Algorithmic Finance",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSN30701",
+        "titleBefore": "情報科学特別講義G",
+        "titleAfter": "情報科学特別講義G",
+        "fields": [
+          {
+            "after": "授業時間割を参照,小蔵 正輝,永原 正章",
+            "before": "授業時間割を参照,永原 正章",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSN50138",
+        "titleBefore": null,
+        "titleAfter": "情報科学特別研究（４月入学）",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSP00325",
+        "titleBefore": null,
+        "titleAfter": "電子工学セミナーA",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSP00425",
+        "titleBefore": null,
+        "titleAfter": "電子工学セミナーB",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSP00625",
+        "titleBefore": null,
+        "titleAfter": "電子工学プレゼンテーション演習",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSP00875",
+        "titleBefore": null,
+        "titleAfter": "電子工学特別演習A",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSP01075",
+        "titleBefore": null,
+        "titleAfter": "電子工学特別演習B",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSP03800",
+        "titleBefore": "物質基礎科学特別講義A",
+        "titleAfter": "物質基礎科学特別講義A",
+        "fields": [
+          {
+            "after": "小林 弘和",
+            "before": "シラバス授業計画等参照",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSP03900",
+        "titleBefore": "物質基礎科学特別講義B",
+        "titleAfter": "物質基礎科学特別講義B",
+        "fields": [
+          {
+            "after": "集中講義 「核磁気共鳴(NMR)実験による新奇な超伝導現象の探究」 大阪大学 大学院基礎工学研究科 椋田秀和 准教授 本講義では、低温物理学が切り拓いてきた量子現象の発見の歴史を振り返りながら現在の超伝導研究のフロンティアを紹介する。特に私の専門とする核磁気共鳴（Nuclear Magnetic Resonance: NMR）は、物質中の原子核を局所プローブとして利用して物質内部の磁気揺らぎや電荷揺らぎを高感度に観測できる実験手法であり、超伝導発現機構の解明に重要な役割を果たしてきた。電子-格子相互作用による従来型超伝導に対し、銅酸化物、鉄系物質、さらには近年発見されたニッケル酸化物などの高温超伝導体では、電子のスピン・電荷・軌道自由度の複雑な揺らぎが超伝導とどのように関わるのかが重要な研究課題となっている。NMRの測定原理の基礎および新奇な超伝導物質の特徴や超伝導発現機構の解明を目指したNMR実験成果を中心に紹介する。 （世話教員：野原実）",
+            "before": "集中講義 「核磁気共鳴法の基礎と超伝導研究への応用（仮）」 大阪大学 大学院基礎工学研究科 椋田秀和 准教授 詳細は後日案内します。 （世話教員：野原実）",
+            "field": "授業の目標・概要等"
+          },
+          {
+            "after": "(集) 集中：先402N,先403N",
+            "before": "(集) 集中：講義室未定",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSP04100",
+        "titleBefore": "電子工学特別講義B",
+        "titleAfter": "電子工学特別講義B",
+        "fields": [
+          {
+            "after": "永瀬 隆",
+            "before": "シラバス授業計画等参照,鈴木 仁",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(集) 集中：先405N",
+            "before": "(集) 集中：先402N",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSP04900",
+        "titleBefore": "半導体メモリ技術概論",
+        "titleAfter": "半導体メモリ技術概論",
+        "fields": [
+          {
+            "after": "寺本 章伸,内田 克典,伊澤 勝,伊藤 裕之,大場 富仁,松永 範昭,後藤 哲也,町田 貴裕,内山 士郎,松橋 秀樹,合田 晃,田中 智晴,戸根川 大和,秋山 隆,青砥 なほみ",
+            "before": "寺本 章伸,内田 克典,伊澤 勝,伊藤 裕之,大場 富仁,松永 範昭,後藤 哲也,町田 貴裕,内山 士郎,成吉 康裕,松橋 秀樹,合田 晃,田桑 哲也,田中 智晴,宮下 俊彦,戸根川 大和,秋山 隆,青砥 なほみ",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSP06600",
+        "titleBefore": "高周波基礎と計測工学",
+        "titleAfter": "高周波基礎と計測工学",
+        "fields": [
+          {
+            "after": "シラバス授業計画等参照,石井 幹,藤島 実",
+            "before": "シラバス授業計画等参照,藤島 実",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSP10051",
+        "titleBefore": null,
+        "titleAfter": "量子物質科学特別研究",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSQA0061",
+        "titleBefore": null,
+        "titleAfter": "Special Study of Advanced Science and Engineering Transdisciplinary Science and Engineering (April 2026 Master's Students)",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSQA0077",
+        "titleBefore": null,
+        "titleAfter": "Special Study of Advanced Science and Engineering Transdisciplinary Science and Engineering (October 2026 Master's Students)",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSQA0262",
+        "titleBefore": null,
+        "titleAfter": "理工学融合特別演習A",
+        "fields": []
+      },
+      {
+        "type": "added",
+        "lectureCode": "WSQA0362",
+        "titleBefore": null,
+        "titleAfter": "理工学融合特別演習B",
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSQB0401",
+        "titleBefore": "複雑系基礎論",
+        "titleAfter": "複雑系基礎論",
+        "fields": [
+          {
+            "after": "(2T) 火1-4：総K309",
+            "before": "(2T) 火1-4：総H110",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSQB1501",
+        "titleBefore": "サステナブル物質科学",
+        "titleAfter": "サステナブル物質科学",
+        "fields": [
+          {
+            "after": "宮岡 裕樹,阿部 弘,小島 由継,斉間 等,今榮 一郎,末國 晃一郎,北 弘志,石元 孝佳,西原 禎文,市川 貴之,尾坂 格,濱中 徹,高橋 修",
+            "before": "宮岡 裕樹,阿部 弘,斉間 等,今榮 一郎,末國 晃一郎,北 弘志,石元 孝佳,西原 禎文,市川 貴之,尾坂 格,濱中 徹,高橋 修",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSQN3201",
+        "titleBefore": "Advanced Environmental Microbiology and Infectious Diseases",
+        "titleAfter": "Advanced Environmental Microbiology and Infectious Diseases",
+        "fields": [
+          {
+            "after": "丸山 史人,藤吉 奏,YIN YUE,IRVAN LUHUNG",
+            "before": "丸山 史人,藤吉 奏,YIN YUE",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(集) 集中：詳細はシラバス参照",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSQN3301",
+        "titleBefore": "Microbial Genetics, Genomics, and Bioinformatics",
+        "titleAfter": "Microbial Genetics, Genomics, and Bioinformatics",
+        "fields": [
+          {
+            "after": "丸山 史人,藤吉 奏,YIN YUE,IRVAN LUHUNG",
+            "before": "丸山 史人,藤吉 奏,YIN YUE",
+            "field": "担当教員名"
+          },
+          {
+            "after": "(集) 集中：詳細はシラバス参照",
+            "before": "(集) 集中",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSS00104",
+        "titleBefore": "スマートイノベーション特別演習A",
+        "titleAfter": "スマートイノベーション特別演習A",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSS00113",
+        "titleBefore": "スマートイノベーション特別演習A",
+        "titleAfter": "スマートイノベーション特別演習A",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSS00204",
+        "titleBefore": "スマートイノベーション特別演習B",
+        "titleAfter": "スマートイノベーション特別演習B",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSS00213",
+        "titleBefore": "スマートイノベーション特別演習B",
+        "titleAfter": "スマートイノベーション特別演習B",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSS10104",
+        "titleBefore": "スマートイノベーション特別研究（4月入学）",
+        "titleAfter": "スマートイノベーション特別研究（4月入学）",
+        "fields": [
+          {
+            "after": "石井 抱,WANG FEIYUE",
+            "before": "石井 抱",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "WSS20201",
+        "titleBefore": "イノベーション論",
+        "titleAfter": "イノベーション論",
+        "fields": [
+          {
+            "after": "本講義ではイノベーションの概念を社会、経済、企業経営、技術開発などの観点から理解し、実際の事業戦略策定と実践に応用する知識を得る。イノベーションの創出や展開、オープンイノベーションやイノベーターのジレンマなどについては基礎的な考え方を講義で議論したのち、実際の例を自ら調査し討議をすることによってビジネスに応用できるような深い理解を獲得する。最後には日本の産業、企業として強みを生かしたイノベーションを創出するという問題意識をもって議論を深める。 15回の授業を5回に集約した集中講義形式で開催する。毎回、講義と前回内容に関する履修者の発表時間をとる。質疑応答やディスカッションの時間が半分以上を占めるアクティブラーニングを主体とした講義となる。後半の数回については企業をリードする経営者の方々の招聘講演を含め、実社会においてイノベーションがどのように創出され社会に貢献しているかを考える。 なお、本授業は、林隆一デジタルモノづくり教育研究センター長（特任教授）が担当する。 ［達成目標］ 1.イノベーションの創出と展開について2-3の実例をもって説明できるようになる。 2.オープンイノベーションやイノベーターのジレンマの概念を実例をもって理解し、イノベーションの企業戦略の一端を提案できるようになる。 3.日本企業として、あるいは日本としてイノベーションを推進するにあたり何が重要であるかを理解して提案できるようになる。 [授業日程・場所] 2026年9月19日（土） 3-5コマ目 ミライクリエ大会議室 2026年10月10日（土） 3-5コマ目 ミライクリエ大会議室 2026年10月24日（土） 3-5コマ目 ミライクリエ大会議室 2026年11月21日（土） 3-5コマ目 デジタルものづくり教育研究センター・イノベーションホール 2026年12月5日（土） 3-5コマ目 ミライクリエ大会議室",
+            "before": "本講義ではイノベーションの概念を社会、経済、企業経営、技術開発などの観点から理解し、実際の事業戦略策定と実践に応用する知識を得る。イノベーションの創出や展開、オープンイノベーションやイノベーターのジレンマなどについては基礎的な考え方を講義で議論したのち、実際の例を自ら調査し討議をすることによってビジネスに応用できるような深い理解を獲得する。最後には日本の産業、企業として強みを生かしたイノベーションを創出するという問題意識をもって議論を深める。 15回の授業を5回に集約した集中講義形式で開催する。毎回、講義と前回内容に関する履修者の発表時間をとる。質疑応答やディスカッションの時間が半分以上を占めるアクティブラーニングを主体とした講義となる。後半の数回については企業をリードする経営者の方々の招聘講演を含め、実社会においてイノベーションがどのように創出され社会に貢献しているかを考える。 なお、本授業は、林隆一デジタルモノづくり教育研究センター長（特任教授）が担当する。 ［達成目標］ 1.イノベーションの創出と展開について2-3の実例をもって説明できるようになる。 2.オープンイノベーションやイノベーターのジレンマの概念を実例をもって理解し、イノベーションの企業戦略の一端を提案できるようになる。 3.日本企業として、あるいは日本としてイノベーションを推進するにあたり何が重要であるかを理解して提案できるようになる。 [授業日程・場所] 未定",
+            "field": "授業の目標・概要等"
+          }
+        ]
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WTC00024",
+        "titleBefore": "Seminar on Doctoral Dissertation",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "removed",
+        "lectureCode": "WTCZ0043",
+        "titleBefore": "Seminar on Master Thesis",
+        "titleAfter": null,
+        "fields": []
+      },
+      {
+        "type": "changed",
+        "lectureCode": "X9000101",
+        "titleBefore": "グローバルインターンシップA",
+        "titleAfter": "グローバルインターンシップA",
+        "fields": [
+          {
+            "after": "朝倉 隆道",
+            "before": "",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "X9000201",
+        "titleBefore": "グローバルインターンシップB",
+        "titleAfter": "グローバルインターンシップB",
+        "fields": [
+          {
+            "after": "朝倉 隆道",
+            "before": "",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "X9001101",
+        "titleBefore": "日欧海洋・海自分野におけるAI活用",
+        "titleAfter": "日欧海洋・海自分野におけるAI活用",
+        "fields": [
+          {
+            "after": "こんな人におススメです。 ◆英語力を伸ばしたい人 ◆異文化理解に興味がある人 ◆AI、海洋・海事分野に関心がある人 ◆欧州への留学に興味がある人 国際交流の意義を実感し、専門学習や留学へと結びつく貴重なステップとなるでしょう。意欲あふれる学生のみなさんの参加をお待ちしております。",
+            "before": "こんな人におススメです。 ◆広島で留学体験を行いたい人 ◆英語力を伸ばしたい人 ◆異文化理解に興味がある人 ◆AI、海洋・海事分野に関心がある人 ◆欧州への留学に興味がある人 国際交流の意義を実感し、専門学習や留学へと結びつく貴重なステップとなるでしょう。意欲あふれる学生のみなさんの参加をお待ちしております。",
+            "field": "メッセージ"
+          },
+          {
+            "after": "個人による履修登録はできません。学生募集（5月以降）後、書面等に基づく審査により選抜された学生（原則として5名程度）を、留学交流グループが履修登録します。",
+            "before": "個人による履修登録はできません。学生募集（5月以降）後、書面等に基づく審査により選抜された学生（原則として10名程度）を、グローバル化推進グループが履修登録します。",
+            "field": "履修上の注意 受講条件等"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "X9001201",
+        "titleBefore": "アドバンスドグローバルインターンシップ",
+        "titleAfter": "アドバンスドグローバルインターンシップ",
+        "fields": [
+          {
+            "after": "朝倉 隆道",
+            "before": "",
+            "field": "担当教員名"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "X9003102",
+        "titleBefore": "地域課題共修方法論",
+        "titleAfter": "地域課題共修方法論",
+        "fields": [
+          {
+            "after": "(2T) 水7-8：国際405号",
+            "before": "(2T) 水7-8",
+            "field": "曜日・時限・講義室"
+          }
+        ]
+      },
+      {
+        "type": "changed",
+        "lectureCode": "YT20050",
+        "titleBefore": "教育実習",
+        "titleAfter": "教育実習",
+        "fields": [
+          {
+            "after": "氏間 和仁,森 まゆ,川合 紀宗,新海 晃,永瀬 開,朝岡 寛史,林田 真志,船橋 篤彦,村上 理絵",
+            "before": "村上 理絵,森 まゆ,川合 紀宗,新海 晃,永瀬 開,朝岡 寛史,氏間 和仁,林田 真志,船橋 篤彦",
+            "field": "担当教員名"
+          }
+        ]
+      }
+    ]
+  }
+];
