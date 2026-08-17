@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "academicYear": "2026年度",
+  "retrievedAt": "2026-08-16",
+  "source": "https://momiji.hiroshima-u.ac.jp/syllabusHtml/",
+  "subjectData": {
+    "dataFile": "subject_details_main_2026-08-16_6a424cab5342.json",
+    "sha256": "6a424cab53428f611c1aac69303c16002d206479b885345caef28dad874fcd11",
+    "subjectCount": 12481
+  },
+  "structure": {
+    "subjectPageCount": 12481,
+    "observedHeaders": [
+      "【詳細情報】",
+      "その他",
+      "プログラムの中での この授業科目の位置づけ （学部生対象科目のみ）",
+      "メッセージ",
+      "予習・復習への アドバイス",
+      "使用言語",
+      "到達度評価 の評価項目 （学部生対象科目のみ）",
+      "単位",
+      "学問分野（分科）",
+      "学問分野（分野）",
+      "学習の成果",
+      "学習の段階",
+      "実務経験",
+      "実務経験の概要と それに基づく授業内容",
+      "対象学生",
+      "履修上の注意 受講条件等",
+      "年度",
+      "成績評価の基準等",
+      "担当教員名",
+      "担当教員名 (フリガナ)",
+      "授業で使用する メディア・機器等",
+      "授業で取り入れる 学習手法",
+      "授業のキーワード",
+      "授業の方法",
+      "授業の方法 【詳細情報】",
+      "授業の目標・概要等",
+      "授業科目名",
+      "授業科目名 （フリガナ）",
+      "授業計画",
+      "教科専門科目",
+      "教科書・参考書等",
+      "教職専門科目",
+      "教養教育での この授業の位置づけ",
+      "曜日・時限・講義室",
+      "科目区分",
+      "英文授業科目名",
+      "講義コード",
+      "週時間",
+      "開設期",
+      "開講キャンパス",
+      "開講部局"
+    ],
+    "unknownHeaders": [],
+    "missingHeaders": [],
+    "headerPresence": {
+      "English": {
+        "presentCount": 0,
+        "presenceRate": 0.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "【詳細情報】": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 3118,
+        "emptyRate": 0.24981972598349492
+      },
+      "その他": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 10276,
+        "emptyRate": 0.823331463825014
+      },
+      "プログラムの中での この授業科目の位置づけ （学部生対象科目のみ）": {
+        "presentCount": 11151,
+        "presenceRate": 0.8934380257992148,
+        "emptyCount": 8313,
+        "emptyRate": 0.6660523996474641
+      },
+      "メッセージ": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 8926,
+        "emptyRate": 0.7151670539219613
+      },
+      "予習・復習への アドバイス": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 2,
+        "emptyRate": 0.00016024357022674467
+      },
+      "使用言語": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "到達度評価 の評価項目 （学部生対象科目のみ）": {
+        "presentCount": 11151,
+        "presenceRate": 0.8934380257992148,
+        "emptyCount": 7002,
+        "emptyRate": 0.561012739363833
+      },
+      "単位": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "学問分野（分科）": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "学問分野（分野）": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "学習の成果": {
+        "presentCount": 1330,
+        "presenceRate": 0.1065619742007852,
+        "emptyCount": 85,
+        "emptyRate": 0.006810351734636648
+      },
+      "学習の段階": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "実務経験": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 10871,
+        "emptyRate": 0.8710039259674706
+      },
+      "実務経験の概要と それに基づく授業内容": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 10872,
+        "emptyRate": 0.871084047752584
+      },
+      "対象学生": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 3988,
+        "emptyRate": 0.31952567903212886
+      },
+      "履修上の注意 受講条件等": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 5409,
+        "emptyRate": 0.43337873567823093
+      },
+      "年度": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "成績評価の基準等": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "担当教員名": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 35,
+        "emptyRate": 0.0028042624789680315
+      },
+      "担当教員名 (フリガナ)": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 35,
+        "emptyRate": 0.0028042624789680315
+      },
+      "授業で使用する メディア・機器等": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 4323,
+        "emptyRate": 0.3463664770451086
+      },
+      "授業で取り入れる 学習手法": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 5266,
+        "emptyRate": 0.4219213204070187
+      },
+      "授業のキーワード": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 3856,
+        "emptyRate": 0.3089496033971637
+      },
+      "授業の方法": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 147,
+        "emptyRate": 0.011777902411665733
+      },
+      "授業の方法 【詳細情報】": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "授業の目標・概要等": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "授業科目名": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "授業科目名 （フリガナ）": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 1256,
+        "emptyRate": 0.10063296210239564
+      },
+      "授業計画": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 1,
+        "emptyRate": 8.012178511337233e-05
+      },
+      "教科専門科目": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 12481,
+        "emptyRate": 1.0
+      },
+      "教科書・参考書等": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 2,
+        "emptyRate": 0.00016024357022674467
+      },
+      "教職専門科目": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 12481,
+        "emptyRate": 1.0
+      },
+      "教養教育での この授業の位置づけ": {
+        "presentCount": 1330,
+        "presenceRate": 0.1065619742007852,
+        "emptyCount": 28,
+        "emptyRate": 0.002243409983174425
+      },
+      "曜日・時限・講義室": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "科目区分": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 4,
+        "emptyRate": 0.00032048714045348933
+      },
+      "英文授業科目名": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 2,
+        "emptyRate": 0.00016024357022674467
+      },
+      "講義コード": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "週時間": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 5742,
+        "emptyRate": 0.4600592901209839
+      },
+      "開設期": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      },
+      "開講キャンパス": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 131,
+        "emptyRate": 0.010495953849851775
+      },
+      "開講部局": {
+        "presentCount": 12481,
+        "presenceRate": 1.0,
+        "emptyCount": 0,
+        "emptyRate": 0.0
+      }
+    }
+  }
+}

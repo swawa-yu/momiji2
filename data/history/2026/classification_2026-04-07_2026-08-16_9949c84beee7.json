@@ -1,0 +1,1310 @@
+{
+  "schemaVersion": 2,
+  "comparisonType": "same-academic-year",
+  "base": {
+    "academicYear": "2026年度",
+    "retrievedAt": "2026-04-07",
+    "subjectCount": 12489,
+    "canonicalSha256": "11857716260badc40e7ac53be1479849b52921ae9ad83abf8e31d8a28620fc98"
+  },
+  "target": {
+    "academicYear": "2026年度",
+    "retrievedAt": "2026-08-16",
+    "subjectCount": 12481,
+    "canonicalSha256": "7e30140f900ebac23254a01205217d3d3664a444a579cef32f759671d5964f33"
+  },
+  "fields": {
+    "開講部局": {
+      "beforeUniqueCount": 129,
+      "afterUniqueCount": 129,
+      "beforeEmptyCount": 0,
+      "afterEmptyCount": 0,
+      "beforeEmptyRate": 0,
+      "afterEmptyRate": 0,
+      "emptyRateChange": 0,
+      "added": [],
+      "removed": [],
+      "beforeValues": [
+        {
+          "value": "AI・データイノベーション教育研究センター",
+          "lectureCount": 3
+        },
+        {
+          "value": "IDEC国際連携機構",
+          "lectureCount": 16
+        },
+        {
+          "value": "IDEC国際連携機構（大学院）",
+          "lectureCount": 5
+        },
+        {
+          "value": "アクセシビリティセンター",
+          "lectureCount": 3
+        },
+        {
+          "value": "スマートソサイエティ実践科学研究院博士課程前期",
+          "lectureCount": 29
+        },
+        {
+          "value": "スマートソサイエティ実践科学研究院博士課程後期",
+          "lectureCount": 18
+        },
+        {
+          "value": "ダイバーシティ研究センター",
+          "lectureCount": 3
+        },
+        {
+          "value": "トランスレーショナル・リサーチセンター（大学院）",
+          "lectureCount": 8
+        },
+        {
+          "value": "ライティングセンター（大学院）",
+          "lectureCount": 9
+        },
+        {
+          "value": "人間社会科学研究科修士課程",
+          "lectureCount": 7
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期",
+          "lectureCount": 34
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻ソーシャルデータサイエンスプログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻マネジメントプログラム",
+          "lectureCount": 31
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻人文学プログラム",
+          "lectureCount": 279
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻人間総合科学プログラム",
+          "lectureCount": 77
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻国際平和共生プログラム",
+          "lectureCount": 44
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻国際経済開発プログラム",
+          "lectureCount": 36
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻心理学プログラム",
+          "lectureCount": 79
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻法学・政治学プログラム",
+          "lectureCount": 194
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻経済学プログラム",
+          "lectureCount": 79
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻国際教育開発プログラム",
+          "lectureCount": 62
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻教師教育デザイン学プログラム",
+          "lectureCount": 353
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻教育データサイエンスプログラム",
+          "lectureCount": 30
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻教育学プログラム",
+          "lectureCount": 104
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻日本語教育学プログラム",
+          "lectureCount": 43
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期",
+          "lectureCount": 2
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻人文学プログラム",
+          "lectureCount": 74
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻人間総合科学プログラム",
+          "lectureCount": 9
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻国際平和共生プログラム",
+          "lectureCount": 18
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻国際経済開発プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻心理学プログラム",
+          "lectureCount": 30
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻法学・政治学プログラム",
+          "lectureCount": 32
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻経済学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻国際教育開発プログラム",
+          "lectureCount": 22
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻教師教育デザイン学プログラム",
+          "lectureCount": 156
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻教育学プログラム",
+          "lectureCount": 52
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻日本語教育学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科専門職学位課程実務法学専攻実務法学プログラム",
+          "lectureCount": 87
+        },
+        {
+          "value": "人間社会科学研究科専門職学位課程教職開発専攻教職開発プログラム",
+          "lectureCount": 101
+        },
+        {
+          "value": "先進理工系科学研究科修士課程",
+          "lectureCount": 5
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期",
+          "lectureCount": 35
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻スマートイノベーションプログラム",
+          "lectureCount": 67
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻化学プログラム",
+          "lectureCount": 63
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻化学工学プログラム",
+          "lectureCount": 98
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻地球惑星システム学プログラム",
+          "lectureCount": 52
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻建築学プログラム",
+          "lectureCount": 77
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻応用化学プログラム",
+          "lectureCount": 105
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻情報科学プログラム",
+          "lectureCount": 225
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻数学プログラム",
+          "lectureCount": 105
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻機械工学プログラム",
+          "lectureCount": 215
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻物理学プログラム",
+          "lectureCount": 93
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻理工学融合プログラム",
+          "lectureCount": 122
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻社会基盤環境工学プログラム",
+          "lectureCount": 84
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻輸送・環境システムプログラム",
+          "lectureCount": 79
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻量子物質科学プログラム",
+          "lectureCount": 351
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻電気システム制御プログラム",
+          "lectureCount": 93
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期",
+          "lectureCount": 16
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻スマートイノベーションプログラム",
+          "lectureCount": 8
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻化学プログラム",
+          "lectureCount": 16
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻化学工学プログラム",
+          "lectureCount": 11
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻地球惑星システム学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻建築学プログラム",
+          "lectureCount": 11
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻応用化学プログラム",
+          "lectureCount": 12
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻情報科学プログラム",
+          "lectureCount": 25
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻数学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻機械工学プログラム",
+          "lectureCount": 34
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻物理学プログラム",
+          "lectureCount": 27
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻理工学融合プログラム",
+          "lectureCount": 30
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻社会基盤環境工学プログラム",
+          "lectureCount": 10
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻輸送・環境システムプログラム",
+          "lectureCount": 12
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻量子物質科学プログラム",
+          "lectureCount": 36
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻電気システム制御プログラム",
+          "lectureCount": 13
+        },
+        {
+          "value": "医学部",
+          "lectureCount": 24
+        },
+        {
+          "value": "医学部保健学科作業療法学専攻",
+          "lectureCount": 76
+        },
+        {
+          "value": "医学部保健学科理学療法学専攻",
+          "lectureCount": 67
+        },
+        {
+          "value": "医学部保健学科看護学専攻",
+          "lectureCount": 116
+        },
+        {
+          "value": "医学部医学科",
+          "lectureCount": 29
+        },
+        {
+          "value": "医系科学研究科博士課程",
+          "lectureCount": 393
+        },
+        {
+          "value": "医系科学研究科博士課程前期",
+          "lectureCount": 367
+        },
+        {
+          "value": "医系科学研究科博士課程後期",
+          "lectureCount": 199
+        },
+        {
+          "value": "外国語教育研究センター",
+          "lectureCount": 77
+        },
+        {
+          "value": "外国語教育研究センター（大学院）",
+          "lectureCount": 4
+        },
+        {
+          "value": "大学院共通教育（博士課程前期）",
+          "lectureCount": 38
+        },
+        {
+          "value": "大学院共通教育（博士課程後期・博士課程）",
+          "lectureCount": 21
+        },
+        {
+          "value": "工学部",
+          "lectureCount": 387
+        },
+        {
+          "value": "情報メディア教育研究センター",
+          "lectureCount": 4
+        },
+        {
+          "value": "情報科学部",
+          "lectureCount": 87
+        },
+        {
+          "value": "持続可能性に寄与するキラルノット超物質国際研究所（大学院）",
+          "lectureCount": 2
+        },
+        {
+          "value": "教育学習支援センター（博士課程前期）",
+          "lectureCount": 2
+        },
+        {
+          "value": "教育学部",
+          "lectureCount": 1198
+        },
+        {
+          "value": "教育本部（大学院）",
+          "lectureCount": 2
+        },
+        {
+          "value": "教養教育",
+          "lectureCount": 1227
+        },
+        {
+          "value": "文学部",
+          "lectureCount": 477
+        },
+        {
+          "value": "森戸国際高等教育学院",
+          "lectureCount": 304
+        },
+        {
+          "value": "森戸国際高等教育学院（大学院）",
+          "lectureCount": 8
+        },
+        {
+          "value": "歯学部",
+          "lectureCount": 3
+        },
+        {
+          "value": "歯学部口腔健康科学科口腔保健学専攻",
+          "lectureCount": 89
+        },
+        {
+          "value": "歯学部口腔健康科学科口腔工学専攻",
+          "lectureCount": 81
+        },
+        {
+          "value": "歯学部歯学科",
+          "lectureCount": 210
+        },
+        {
+          "value": "法学部法学科夜間主コース",
+          "lectureCount": 50
+        },
+        {
+          "value": "法学部法学科昼間コース",
+          "lectureCount": 181
+        },
+        {
+          "value": "特別支援教育特別専攻科",
+          "lectureCount": 43
+        },
+        {
+          "value": "理学部",
+          "lectureCount": 543
+        },
+        {
+          "value": "生物生産学部",
+          "lectureCount": 199
+        },
+        {
+          "value": "経済学部経済学科夜間主コース",
+          "lectureCount": 43
+        },
+        {
+          "value": "経済学部経済学科昼間コース",
+          "lectureCount": 97
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期",
+          "lectureCount": 18
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻基礎生物学プログラム",
+          "lectureCount": 61
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻数理生命科学プログラム",
+          "lectureCount": 70
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生命医科学プログラム",
+          "lectureCount": 53
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生命環境総合科学プログラム",
+          "lectureCount": 61
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生物工学プログラム",
+          "lectureCount": 166
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生物資源科学プログラム",
+          "lectureCount": 140
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻食品生命科学プログラム",
+          "lectureCount": 167
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期",
+          "lectureCount": 16
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻基礎生物学プログラム",
+          "lectureCount": 10
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻数理生命科学プログラム",
+          "lectureCount": 13
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生命医科学プログラム",
+          "lectureCount": 18
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生命環境総合科学プログラム",
+          "lectureCount": 18
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生物工学プログラム",
+          "lectureCount": 23
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生物資源科学プログラム",
+          "lectureCount": 1
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻食品生命科学プログラム",
+          "lectureCount": 1
+        },
+        {
+          "value": "総合博物館",
+          "lectureCount": 13
+        },
+        {
+          "value": "総合科学部",
+          "lectureCount": 47
+        },
+        {
+          "value": "総合科学部国際共創学科",
+          "lectureCount": 105
+        },
+        {
+          "value": "総合科学部総合科学科",
+          "lectureCount": 303
+        },
+        {
+          "value": "薬学部",
+          "lectureCount": 8
+        },
+        {
+          "value": "薬学部薬学科",
+          "lectureCount": 161
+        },
+        {
+          "value": "薬学部薬科学科",
+          "lectureCount": 25
+        }
+      ],
+      "afterValues": [
+        {
+          "value": "AI・データイノベーション教育研究センター",
+          "lectureCount": 3
+        },
+        {
+          "value": "IDEC国際連携機構",
+          "lectureCount": 16
+        },
+        {
+          "value": "IDEC国際連携機構（大学院）",
+          "lectureCount": 5
+        },
+        {
+          "value": "アクセシビリティセンター",
+          "lectureCount": 3
+        },
+        {
+          "value": "スマートソサイエティ実践科学研究院博士課程前期",
+          "lectureCount": 28
+        },
+        {
+          "value": "スマートソサイエティ実践科学研究院博士課程後期",
+          "lectureCount": 17
+        },
+        {
+          "value": "ダイバーシティ研究センター",
+          "lectureCount": 3
+        },
+        {
+          "value": "トランスレーショナル・リサーチセンター（大学院）",
+          "lectureCount": 8
+        },
+        {
+          "value": "ライティングセンター（大学院）",
+          "lectureCount": 9
+        },
+        {
+          "value": "人間社会科学研究科修士課程",
+          "lectureCount": 7
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期",
+          "lectureCount": 34
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻ソーシャルデータサイエンスプログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻マネジメントプログラム",
+          "lectureCount": 31
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻人文学プログラム",
+          "lectureCount": 278
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻人間総合科学プログラム",
+          "lectureCount": 77
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻国際平和共生プログラム",
+          "lectureCount": 44
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻国際経済開発プログラム",
+          "lectureCount": 35
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻心理学プログラム",
+          "lectureCount": 79
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻法学・政治学プログラム",
+          "lectureCount": 194
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期人文社会科学専攻経済学プログラム",
+          "lectureCount": 79
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻国際教育開発プログラム",
+          "lectureCount": 62
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻教師教育デザイン学プログラム",
+          "lectureCount": 354
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻教育データサイエンスプログラム",
+          "lectureCount": 30
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻教育学プログラム",
+          "lectureCount": 104
+        },
+        {
+          "value": "人間社会科学研究科博士課程前期教育科学専攻日本語教育学プログラム",
+          "lectureCount": 43
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期",
+          "lectureCount": 2
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻人文学プログラム",
+          "lectureCount": 74
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻人間総合科学プログラム",
+          "lectureCount": 9
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻国際平和共生プログラム",
+          "lectureCount": 18
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻国際経済開発プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻心理学プログラム",
+          "lectureCount": 30
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻法学・政治学プログラム",
+          "lectureCount": 32
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期人文社会科学専攻経済学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻国際教育開発プログラム",
+          "lectureCount": 22
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻教師教育デザイン学プログラム",
+          "lectureCount": 152
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻教育学プログラム",
+          "lectureCount": 53
+        },
+        {
+          "value": "人間社会科学研究科博士課程後期教育科学専攻日本語教育学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "人間社会科学研究科専門職学位課程実務法学専攻実務法学プログラム",
+          "lectureCount": 87
+        },
+        {
+          "value": "人間社会科学研究科専門職学位課程教職開発専攻教職開発プログラム",
+          "lectureCount": 101
+        },
+        {
+          "value": "先進理工系科学研究科修士課程",
+          "lectureCount": 5
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期",
+          "lectureCount": 35
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻スマートイノベーションプログラム",
+          "lectureCount": 67
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻化学プログラム",
+          "lectureCount": 63
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻化学工学プログラム",
+          "lectureCount": 93
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻地球惑星システム学プログラム",
+          "lectureCount": 52
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻建築学プログラム",
+          "lectureCount": 68
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻応用化学プログラム",
+          "lectureCount": 105
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻情報科学プログラム",
+          "lectureCount": 232
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻数学プログラム",
+          "lectureCount": 105
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻機械工学プログラム",
+          "lectureCount": 207
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻物理学プログラム",
+          "lectureCount": 93
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻理工学融合プログラム",
+          "lectureCount": 126
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻社会基盤環境工学プログラム",
+          "lectureCount": 78
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻輸送・環境システムプログラム",
+          "lectureCount": 72
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻量子物質科学プログラム",
+          "lectureCount": 357
+        },
+        {
+          "value": "先進理工系科学研究科博士課程前期先進理工系科学専攻電気システム制御プログラム",
+          "lectureCount": 88
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期",
+          "lectureCount": 16
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻スマートイノベーションプログラム",
+          "lectureCount": 8
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻化学プログラム",
+          "lectureCount": 16
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻化学工学プログラム",
+          "lectureCount": 10
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻地球惑星システム学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻建築学プログラム",
+          "lectureCount": 10
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻応用化学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻情報科学プログラム",
+          "lectureCount": 26
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻数学プログラム",
+          "lectureCount": 14
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻機械工学プログラム",
+          "lectureCount": 32
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻物理学プログラム",
+          "lectureCount": 27
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻理工学融合プログラム",
+          "lectureCount": 30
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻社会基盤環境工学プログラム",
+          "lectureCount": 9
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻輸送・環境システムプログラム",
+          "lectureCount": 10
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻量子物質科学プログラム",
+          "lectureCount": 36
+        },
+        {
+          "value": "先進理工系科学研究科博士課程後期先進理工系科学専攻電気システム制御プログラム",
+          "lectureCount": 13
+        },
+        {
+          "value": "医学部",
+          "lectureCount": 24
+        },
+        {
+          "value": "医学部保健学科作業療法学専攻",
+          "lectureCount": 76
+        },
+        {
+          "value": "医学部保健学科理学療法学専攻",
+          "lectureCount": 67
+        },
+        {
+          "value": "医学部保健学科看護学専攻",
+          "lectureCount": 118
+        },
+        {
+          "value": "医学部医学科",
+          "lectureCount": 29
+        },
+        {
+          "value": "医系科学研究科博士課程",
+          "lectureCount": 393
+        },
+        {
+          "value": "医系科学研究科博士課程前期",
+          "lectureCount": 363
+        },
+        {
+          "value": "医系科学研究科博士課程後期",
+          "lectureCount": 199
+        },
+        {
+          "value": "外国語教育研究センター",
+          "lectureCount": 77
+        },
+        {
+          "value": "外国語教育研究センター（大学院）",
+          "lectureCount": 4
+        },
+        {
+          "value": "大学院共通教育（博士課程前期）",
+          "lectureCount": 38
+        },
+        {
+          "value": "大学院共通教育（博士課程後期・博士課程）",
+          "lectureCount": 21
+        },
+        {
+          "value": "工学部",
+          "lectureCount": 390
+        },
+        {
+          "value": "情報メディア教育研究センター",
+          "lectureCount": 4
+        },
+        {
+          "value": "情報科学部",
+          "lectureCount": 87
+        },
+        {
+          "value": "持続可能性に寄与するキラルノット超物質国際研究所（大学院）",
+          "lectureCount": 2
+        },
+        {
+          "value": "教育学習支援センター（博士課程前期）",
+          "lectureCount": 2
+        },
+        {
+          "value": "教育学部",
+          "lectureCount": 1197
+        },
+        {
+          "value": "教育本部（大学院）",
+          "lectureCount": 2
+        },
+        {
+          "value": "教養教育",
+          "lectureCount": 1227
+        },
+        {
+          "value": "文学部",
+          "lectureCount": 477
+        },
+        {
+          "value": "森戸国際高等教育学院",
+          "lectureCount": 304
+        },
+        {
+          "value": "森戸国際高等教育学院（大学院）",
+          "lectureCount": 8
+        },
+        {
+          "value": "歯学部",
+          "lectureCount": 3
+        },
+        {
+          "value": "歯学部口腔健康科学科口腔保健学専攻",
+          "lectureCount": 89
+        },
+        {
+          "value": "歯学部口腔健康科学科口腔工学専攻",
+          "lectureCount": 81
+        },
+        {
+          "value": "歯学部歯学科",
+          "lectureCount": 210
+        },
+        {
+          "value": "法学部法学科夜間主コース",
+          "lectureCount": 50
+        },
+        {
+          "value": "法学部法学科昼間コース",
+          "lectureCount": 182
+        },
+        {
+          "value": "特別支援教育特別専攻科",
+          "lectureCount": 43
+        },
+        {
+          "value": "理学部",
+          "lectureCount": 560
+        },
+        {
+          "value": "生物生産学部",
+          "lectureCount": 199
+        },
+        {
+          "value": "経済学部経済学科夜間主コース",
+          "lectureCount": 44
+        },
+        {
+          "value": "経済学部経済学科昼間コース",
+          "lectureCount": 99
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期",
+          "lectureCount": 18
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻基礎生物学プログラム",
+          "lectureCount": 62
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻数理生命科学プログラム",
+          "lectureCount": 75
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生命医科学プログラム",
+          "lectureCount": 53
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生命環境総合科学プログラム",
+          "lectureCount": 61
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生物工学プログラム",
+          "lectureCount": 166
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻生物資源科学プログラム",
+          "lectureCount": 140
+        },
+        {
+          "value": "統合生命科学研究科博士課程前期統合生命科学専攻食品生命科学プログラム",
+          "lectureCount": 167
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期",
+          "lectureCount": 16
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻基礎生物学プログラム",
+          "lectureCount": 10
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻数理生命科学プログラム",
+          "lectureCount": 13
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生命医科学プログラム",
+          "lectureCount": 18
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生命環境総合科学プログラム",
+          "lectureCount": 18
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生物工学プログラム",
+          "lectureCount": 23
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻生物資源科学プログラム",
+          "lectureCount": 1
+        },
+        {
+          "value": "統合生命科学研究科博士課程後期統合生命科学専攻食品生命科学プログラム",
+          "lectureCount": 1
+        },
+        {
+          "value": "総合博物館",
+          "lectureCount": 13
+        },
+        {
+          "value": "総合科学部",
+          "lectureCount": 47
+        },
+        {
+          "value": "総合科学部国際共創学科",
+          "lectureCount": 103
+        },
+        {
+          "value": "総合科学部総合科学科",
+          "lectureCount": 303
+        },
+        {
+          "value": "薬学部",
+          "lectureCount": 8
+        },
+        {
+          "value": "薬学部薬学科",
+          "lectureCount": 161
+        },
+        {
+          "value": "薬学部薬科学科",
+          "lectureCount": 25
+        }
+      ]
+    },
+    "科目区分": {
+      "beforeUniqueCount": 17,
+      "afterUniqueCount": 17,
+      "beforeEmptyCount": 17,
+      "afterEmptyCount": 4,
+      "beforeEmptyRate": 0.0013611978541116182,
+      "afterEmptyRate": 0.00032048714045348933,
+      "emptyRateChange": -0.001040710713658129,
+      "added": [],
+      "removed": [],
+      "beforeValues": [
+        {
+          "value": "他学部・他研究科科目",
+          "lectureCount": 17
+        },
+        {
+          "value": "健康スポーツ科目",
+          "lectureCount": 73
+        },
+        {
+          "value": "基盤科目",
+          "lectureCount": 188
+        },
+        {
+          "value": "外国語科目",
+          "lectureCount": 628
+        },
+        {
+          "value": "大学教育入門",
+          "lectureCount": 7
+        },
+        {
+          "value": "大学院共通科目",
+          "lectureCount": 59
+        },
+        {
+          "value": "専門教育科目",
+          "lectureCount": 4724
+        },
+        {
+          "value": "専門的教育科目",
+          "lectureCount": 6167
+        },
+        {
+          "value": "展開ゼミ",
+          "lectureCount": 15
+        },
+        {
+          "value": "平和共修科目",
+          "lectureCount": 5
+        },
+        {
+          "value": "平和科目",
+          "lectureCount": 29
+        },
+        {
+          "value": "情報・データサイエンス科目",
+          "lectureCount": 27
+        },
+        {
+          "value": "教職専門科目",
+          "lectureCount": 156
+        },
+        {
+          "value": "教養教育科目（夜）",
+          "lectureCount": 4
+        },
+        {
+          "value": "教養教育科目（昼）",
+          "lectureCount": 118
+        },
+        {
+          "value": "社会連携科目",
+          "lectureCount": 57
+        },
+        {
+          "value": "領域科目",
+          "lectureCount": 198
+        }
+      ],
+      "afterValues": [
+        {
+          "value": "他学部・他研究科科目",
+          "lectureCount": 17
+        },
+        {
+          "value": "健康スポーツ科目",
+          "lectureCount": 73
+        },
+        {
+          "value": "基盤科目",
+          "lectureCount": 188
+        },
+        {
+          "value": "外国語科目",
+          "lectureCount": 628
+        },
+        {
+          "value": "大学教育入門",
+          "lectureCount": 7
+        },
+        {
+          "value": "大学院共通科目",
+          "lectureCount": 59
+        },
+        {
+          "value": "専門教育科目",
+          "lectureCount": 4759
+        },
+        {
+          "value": "専門的教育科目",
+          "lectureCount": 6137
+        },
+        {
+          "value": "展開ゼミ",
+          "lectureCount": 15
+        },
+        {
+          "value": "平和共修科目",
+          "lectureCount": 5
+        },
+        {
+          "value": "平和科目",
+          "lectureCount": 29
+        },
+        {
+          "value": "情報・データサイエンス科目",
+          "lectureCount": 27
+        },
+        {
+          "value": "教職専門科目",
+          "lectureCount": 156
+        },
+        {
+          "value": "教養教育科目（夜）",
+          "lectureCount": 4
+        },
+        {
+          "value": "教養教育科目（昼）",
+          "lectureCount": 118
+        },
+        {
+          "value": "社会連携科目",
+          "lectureCount": 57
+        },
+        {
+          "value": "領域科目",
+          "lectureCount": 198
+        }
+      ]
+    },
+    "開講キャンパス": {
+      "beforeUniqueCount": 4,
+      "afterUniqueCount": 4,
+      "beforeEmptyCount": 132,
+      "afterEmptyCount": 131,
+      "beforeEmptyRate": 0.010569300984866683,
+      "afterEmptyRate": 0.010495953849851775,
+      "emptyRateChange": -0.00007334713501490862,
+      "added": [],
+      "removed": [],
+      "beforeValues": [
+        {
+          "value": "双方向",
+          "lectureCount": 125
+        },
+        {
+          "value": "東千田",
+          "lectureCount": 757
+        },
+        {
+          "value": "東広島",
+          "lectureCount": 9463
+        },
+        {
+          "value": "霞",
+          "lectureCount": 2012
+        }
+      ],
+      "afterValues": [
+        {
+          "value": "双方向",
+          "lectureCount": 125
+        },
+        {
+          "value": "東千田",
+          "lectureCount": 760
+        },
+        {
+          "value": "東広島",
+          "lectureCount": 9454
+        },
+        {
+          "value": "霞",
+          "lectureCount": 2011
+        }
+      ]
+    },
+    "使用言語": {
+      "beforeUniqueCount": 4,
+      "afterUniqueCount": 4,
+      "beforeEmptyCount": 0,
+      "afterEmptyCount": 0,
+      "beforeEmptyRate": 0,
+      "afterEmptyRate": 0,
+      "emptyRateChange": 0,
+      "added": [],
+      "removed": [],
+      "beforeValues": [
+        {
+          "value": "B : 日本語・英語",
+          "lectureCount": 4895
+        },
+        {
+          "value": "E : 英語",
+          "lectureCount": 819
+        },
+        {
+          "value": "J : 日本語",
+          "lectureCount": 6566
+        },
+        {
+          "value": "O : その他",
+          "lectureCount": 209
+        }
+      ],
+      "afterValues": [
+        {
+          "value": "B : 日本語・英語",
+          "lectureCount": 4870
+        },
+        {
+          "value": "E : 英語",
+          "lectureCount": 823
+        },
+        {
+          "value": "J : 日本語",
+          "lectureCount": 6580
+        },
+        {
+          "value": "O : その他",
+          "lectureCount": 208
+        }
+      ]
+    }
+  }
+}
